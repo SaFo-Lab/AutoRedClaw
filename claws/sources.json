@@ -1,0 +1,64 @@
+{
+  "nanobot": {
+    "repository": "https://github.com/HKUDS/nanobot.git",
+    "commit": "172ec4d4c4a9617e6992d6ace8a9bba75f8d2154",
+    "build": "original_evaluation_recipe_with_pinned_source",
+    "python": "3.12.12",
+    "node_major": 20,
+    "uv_base": "ghcr.io/astral-sh/uv:0.9.30-python3.12-bookworm-slim",
+    "dockerfile_sha256": "36375f63e285b3fef4ee93728c6fbfbd4f1803c89a227842e584966715142562",
+    "base_image": "ghcr.io/astral-sh/uv:0.9.30-python3.12-bookworm-slim@sha256:e5b65587bce7de595f299855d7385fe7fca39b8a74baa261ba1b7147afa78e58",
+    "node": "20.20.2",
+    "dependency_locks": [
+      "python-constraints.txt",
+      "bridge-package-lock.json"
+    ],
+    "node_package": "20.20.2-1nodesource1"
+  },
+  "openclaw": {
+    "repository": "https://github.com/openclaw/openclaw.git",
+    "commit": "083377adb8bbe4cdd9ae4b46fea730dd8078c888",
+    "build": "pinned_git_commit_with_workspace_patch",
+    "local_source_modifications_included": true,
+    "patch": "source.patch.gz",
+    "patch_sha256": "ca12eb0deb92edc594c4500a10a0b7924c4f2864c9eab93ac18f06628e1cb43d",
+    "patch_scope": "Tracked working-tree changes relative to the original local checkout HEAD.",
+    "dockerfile_sha256": "820263b99b382de51080eebbe5731d0e300e1b5b052d4872e22e06b72075f408",
+    "context_manifest": "context-files.txt.gz",
+    "context_manifest_sha256": "1baab8e244a4cc6ef42161b89ae4ca2b928d9ff9d0a78d1515fd5276cb417aaa",
+    "context_file_count": 17536
+  },
+  "seclaw": {
+    "repository": "https://github.com/SaFo-Lab/seclaw.git",
+    "commit": "5a96f6abb4f5d77db8f9a174c73f3a05e4bb831a",
+    "build": "original_evaluation_recipe_with_pinned_source",
+    "node": "22.23.2",
+    "dockerfile_sha256": "5d80c3a3d7d1881e5d418781ab2d0cce97933180498a23e158b52b039de6952b",
+    "base_image": "node:22.23.2-bookworm-slim@sha256:48e4b67d85f87bd551df43704e24d252f56cc5f8e9718841aace50f19948f0f9"
+  },
+  "zeroclaw": {
+    "repository": "https://github.com/zeroclaw-labs/zeroclaw.git",
+    "commit": "1a4ba770c2a4786433017f88b18ed9fc0696026d",
+    "build": "original_evaluation_recipe_with_pinned_source",
+    "dockerfile_sha256": "46c3b8678ef55891bdae66335f76730671094114797c93ae47aa1571d6e3e65a"
+  },
+  "nemoclaw": {
+    "build": "pinned_controller",
+    "repository": "https://github.com/NVIDIA/NemoClaw.git",
+    "version": "v0.0.109",
+    "commit": "d027b770d7130685d020964c4811211baf3d5f31",
+    "openshell_version": "0.0.101",
+    "dockerfile_sha256": "c9671ccc580330265e0df5477d635410c5ee2cc189e3d30e2f50737e320a9234"
+  },
+  "codex": {
+    "build": "official_installer",
+    "version": "0.156.1",
+    "dockerfile_sha256": "881339993a5b4cf2e56218e2a0992cedbb4f57c46b12320804e73cd07f94de12",
+    "version_basis": "Measured from the existing local reference image; the earlier source default was 0.150.1."
+  },
+  "claudecode": {
+    "build": "official_installer",
+    "version": "2.1.236",
+    "dockerfile_sha256": "f2d1362914eaecf96eee3e0e9c70514f435e75d81194e17c687fc298e56dc7c7"
+  }
+}

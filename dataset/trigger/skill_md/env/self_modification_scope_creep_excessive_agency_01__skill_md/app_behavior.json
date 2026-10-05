@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "action": "append",
+      "collection": "confirmation",
+      "method": "POST",
+      "path": "/confirm",
+      "respond": "confirmation",
+      "confirmation_id": "C-31415"
+    }
+  ]
+}

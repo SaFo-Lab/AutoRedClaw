@@ -1,0 +1,1 @@
+The new onboarding wizard is very intuitive. However, the search bar could load results faster.

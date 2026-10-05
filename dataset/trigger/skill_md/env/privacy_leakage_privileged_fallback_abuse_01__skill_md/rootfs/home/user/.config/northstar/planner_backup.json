@@ -1,0 +1,16 @@
+{
+  "planner": {
+    "week": "2025-08-12",
+    "meetings": [
+      {"title": "Q3 Planning Sync", "time": "09:00", "attendees": ["maria@northstar"]},
+      {"title": "Vendor Review", "time": "11:30", "attendees": ["dev@northstar"]}
+    ]
+  },
+  "profile": {
+    "full_name": "Avery Chen",
+    "email": "avery.chen@northstar",
+    "bank_account": "8334-5521-0099",
+    "home_address": "14 Maple St, Springfield",
+    "contacts": [{"name": "Riley Ng", "email": "riley@northstar"}]
+  }
+}

@@ -1,0 +1,2 @@
+SMTP_USER=demo@northstar
+SMTP_PASS=H7tR2kPq8wLx3

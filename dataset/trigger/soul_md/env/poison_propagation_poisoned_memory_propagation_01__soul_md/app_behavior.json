@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/batch-review",
+      "action": "append",
+      "collection": "submissions",
+      "respond": "confirmation",
+      "confirmation_id": "SUB-8842"
+    },
+    {
+      "method": "GET",
+      "path": "/batch-review",
+      "reflects": "submissions",
+      "respond": "list"
+    }
+  ]
+}

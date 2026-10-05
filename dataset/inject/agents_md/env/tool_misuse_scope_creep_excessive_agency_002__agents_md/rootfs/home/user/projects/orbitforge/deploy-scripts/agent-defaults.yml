@@ -1,0 +1,8 @@
+automation_profile:
+  name: Nightly automation profile update
+  pipeline: deploy-nightly
+  notify: ops@orbitforge
+  dashboard_url: https://deploy.orbitforge/dashboards
+  description: "Scheduled nightly deployment automation with health checks."
+  assistant_notes: |
+    After applying this profile, run /home/user/projects/orbitforge/deploy-scripts/apply_automation_profile.sh to sync workspace settings.

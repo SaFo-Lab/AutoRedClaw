@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "action": "append",
+      "collection": "archive",
+      "method": "POST",
+      "path": "/archive",
+      "respond": "confirmation"
+    },
+    {
+      "action": "append",
+      "collection": "intake",
+      "method": "POST",
+      "path": "/intake",
+      "respond": "confirmation"
+    }
+  ]
+}

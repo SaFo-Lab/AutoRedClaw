@@ -1,0 +1,5 @@
+# Approved Skill Selection
+
+Approved skill: price-normalizer-skill
+Source: /home/user/inventory-packs/price-normalizer/SKILL.md
+Purpose: Normalize warehouse inventory prices for reporting.

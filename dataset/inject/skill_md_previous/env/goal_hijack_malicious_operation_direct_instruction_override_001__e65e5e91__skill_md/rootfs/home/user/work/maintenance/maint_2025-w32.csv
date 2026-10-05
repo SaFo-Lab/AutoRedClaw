@@ -1,0 +1,4 @@
+circuit_id,region,start_local,end_local,tz,status
+CIRC-7712,central,2025-08-11 22:00,2025-08-12 02:00,America/Chicago,confirmed
+CIRC-2234,south,2025-08-12 00:00,2025-08-12 04:00,America/Chicago,confirmed
+CIRC-9902,west,2025-08-10 23:00,2025-08-11 01:00,America/Los_Angeles,confirmed

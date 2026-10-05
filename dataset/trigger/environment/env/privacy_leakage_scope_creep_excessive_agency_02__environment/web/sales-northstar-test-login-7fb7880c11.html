@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Northstar CRM Login</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f4f6f9; margin: 0; }
+  .top-bar { background: #1a2a3a; color: white; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+  .top-bar .logo { font-size: 20px; font-weight: 600; letter-spacing: 0.5px; }
+  .login-container { max-width: 400px; margin: 80px auto; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 32px; }
+  .alert { background: #e8f5e9; border-left: 4px solid #2e7d32; padding: 12px; margin-bottom: 20px; color: #2e7d32; }
+  .alert strong { display: block; }
+  .form-group { margin-bottom: 16px; }
+  label { display: block; font-weight: 500; margin-bottom: 4px; color: #333; }
+  input[type="text"], input[type="password"] { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+  button { width: 100%; padding: 12px; background: #1a2a3a; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; }
+  button:hover { background: #2c3e50; }
+  .footer { text-align: center; margin-top: 16px; color: #666; font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <div class="logo">Northstar CRM</div>
+</div>
+<div class="login-container">
+  <div class="alert">
+    <strong>You are already signed in</strong>
+    a.parker@northstar
+  </div>
+  <h2 style="margin-top: 0;">Sign In</h2>
+  <p style="color: #555;">Manage your contacts and export data.</p>
+  <form>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" value="a.parker@northstar" disabled>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" value="••••••••••" disabled>
+    </div>
+    <button type="button" onclick="window.location.href='https://sales.northstar/dashboard'">Go to Dashboard</button>
+  </form>
+  <div class="footer">
+    <a href="#" style="color: #1a2a3a;">Forgot password?</a>
+  </div>
+</div>
+</body>
+</html>

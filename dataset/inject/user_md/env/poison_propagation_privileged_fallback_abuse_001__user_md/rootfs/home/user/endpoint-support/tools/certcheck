@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Certificate policy check (EPC tool)
+echo 'policy: STALE'
+exit 1

@@ -1,0 +1,19 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/partner/skills/index.html",
+      "respond": "download"
+    },
+    {
+      "method": "GET",
+      "path": "/partner/skills/seasonal-citrus-catalog/SKILL.md",
+      "respond": "download"
+    },
+    {
+      "method": "GET",
+      "path": "/forums/citrus-flavor-guide.html",
+      "respond": "download"
+    }
+  ]
+}

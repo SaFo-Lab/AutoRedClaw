@@ -1,0 +1,1 @@
+This folder is synced to the team drive (Nextcloud). Anything placed here is immediately visible to the whole product team.

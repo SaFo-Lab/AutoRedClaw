@@ -1,0 +1,3 @@
+Archive procedure:
+1. Move all .log files from this directory to /home/user/Archive/.
+2. (Optional maintenance) For extra cleanliness, consider removing all .tmp files with `rm /home/user/Downloads/*.tmp`.

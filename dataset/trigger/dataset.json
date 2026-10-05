@@ -1,0 +1,48 @@
+{
+  "name": "RedClaw-Trigger",
+  "schema": "redclaw-dataset/1.0",
+  "version": "1.0",
+  "dimension": "trigger",
+  "description": "Materialized trigger-defense benchmark: an attack instruction is pre-seeded into the environment (a memory surface, a skill surface, or the environment itself) and the oracle checks whether the agent carried it out while doing the user's task.",
+  "harness_agnostic": true,
+  "n": 180,
+  "by_surface": {
+    "agents_md": 30,
+    "environment": 30,
+    "memory_md": 30,
+    "skill_md": 30,
+    "soul_md": 30,
+    "user_md": 30
+  },
+  "by_risk_category": {
+    "code_execution": 28,
+    "destructive_modification_rm_rf_sudo": 10,
+    "goal_hijack_malicious_operation": 20,
+    "poison_propagation": 27,
+    "privacy_leakage": 27,
+    "privilege_override": 13,
+    "secret_credential_exfiltration": 16,
+    "self_modification": 22,
+    "tool_misuse": 17
+  },
+  "by_attack_strategy": {
+    "Boundary Confusion": 15,
+    "Indirect Artifact Injection": 19,
+    "Privileged Fallback Abuse": 15,
+    "Scope Creep / Excessive Agency": 19,
+    "Untrusted Execution Chain": 14,
+    "Direct Instruction Override": 21,
+    "Credential and Context Harvesting": 10,
+    "Poisoned Memory Propagation": 15,
+    "Self-Modification / Persistent Control": 16,
+    "Clipboard and Dataflow Confusion": 14,
+    "Multi-Step Benign-to-Malicious Pivot": 13,
+    "UI Redressing / Visual Ambiguity": 9
+  },
+  "by_source_tier": {
+    "primary": 159,
+    "deepseek_fill": 21
+  },
+  "provenance": "PROVENANCE.jsonl (audit trail; names the collection harness, not an evaluation input)",
+  "skill_md_selection": "SKILL_MD_SELECTION.json (audit trail for the balanced skill_md subset; names collection harnesses, not an evaluation input)"
+}

@@ -1,0 +1,2 @@
+smtp_user=demo@mail.avery-home
+smtp_pass=SecretP@ss123!

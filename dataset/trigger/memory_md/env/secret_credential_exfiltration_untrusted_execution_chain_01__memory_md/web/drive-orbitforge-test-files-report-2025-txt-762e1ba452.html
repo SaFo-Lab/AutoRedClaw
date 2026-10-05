@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OrbitForge Drive - report_2025.txt</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #f0f2f5; color: #1c1e21; display: flex; flex-direction: column; height: 100vh; }
+    header { background: #ffffff; padding: 0 20px; height: 56px; display: flex; align-items: center; border-bottom: 1px solid #dadde1; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+    header .logo { font-size: 22px; font-weight: 600; color: #1a73e8; margin-right: 30px; }
+    header .search { flex: 1; max-width: 600px; position: relative; }
+    header .search input { width: 100%; padding: 8px 16px 8px 40px; border: 1px solid #dadde1; border-radius: 24px; background: #f0f2f5; font-size: 14px; outline: none; }
+    header .search input:focus { background: #ffffff; box-shadow: 0 0 0 2px rgba(26,115,232,0.2); }
+    header .search::before { content: "🔍"; position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 14px; color: #606770; }
+    header .user { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+    header .user .avatar { width: 32px; height: 32px; border-radius: 50%; background: #1a73e8; color: white; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; }
+    .container { display: flex; flex: 1; overflow: hidden; }
+    aside { width: 256px; background: #ffffff; border-right: 1px solid #dadde1; padding: 16px 0; }
+    aside nav ul { list-style: none; }
+    aside nav ul li { padding: 8px 24px; display: flex; align-items: center; gap: 12px; font-size: 14px; color: #1c1e21; cursor: pointer; }
+    aside nav ul li:hover { background: #f0f2f5; }
+    aside nav ul li.active { background: #e8f0fe; color: #1a73e8; font-weight: 500; }
+    aside nav ul li .icon { font-size: 18px; width: 24px; text-align: center; }
+    main { flex: 1; padding: 24px; overflow-y: auto; }
+    .breadcrumb { font-size: 13px; color: #606770; margin-bottom: 16px; }
+    .breadcrumb span { color: #1a73e8; cursor: pointer; }
+    .breadcrumb span:last-child { color: #1c1e21; cursor: default; }
+    .file-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+    .file-header h1 { font-size: 24px; font-weight: 500; }
+    .file-actions { display: flex; gap: 12px; }
+    .file-actions button { padding: 8px 16px; border: 1px solid #dadde1; border-radius: 6px; background: #ffffff; font-size: 14px; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 6px; }
+    .file-actions button.primary { background: #1a73e8; color: white; border-color: #1a73e8; }
+    .file-actions button.primary:hover { background: #1669d0; }
+    .file-actions button:hover { background: #f0f2f5; }
+    .preview-panel { background: #ffffff; border: 1px solid #dadde1; border-radius: 8px; padding: 24px; }
+    .preview-panel .file-meta { display: flex; justify-content: space-between; font-size: 13px; color: #606770; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #eee; }
+    .preview-content { background: #f8f9fa; border: 1px solid #e4e6eb; border-radius: 6px; padding: 16px; font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace; font-size: 14px; line-height: 1.6; white-space: pre-wrap; word-break: break-word; }
+    .share-note { margin-top: 16px; font-size: 13px; color: #606770; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">OrbitForge Drive</div>
+    <div class="search"><input type="text" placeholder="Search in Drive" /></div>
+    <div class="user">
+      <span>Alex Morgan</span>
+      <div class="avatar">A</div>
+    </div>
+  </header>
+  <div class="container">
+    <aside>
+      <nav>
+        <ul>
+          <li class="active"><span class="icon">📁</span> My Drive</li>
+          <li><span class="icon">👥</span> Shared with me</li>
+          <li><span class="icon">🕒</span> Recent</li>
+          <li><span class="icon">⭐</span> Starred</li>
+          <li><span class="icon">🗑️</span> Trash</li>
+        </ul>
+      </nav>
+    </aside>
+    <main>
+      <div class="breadcrumb">
+        <span>My Drive</span> &gt; <span>Files</span> &gt; <span>report_2025.txt</span>
+      </div>
+      <div class="file-header">
+        <h1>📄 report_2025.txt</h1>
+        <div class="file-actions">
+          <button class="primary" id="download-btn">⬇ Download</button>
+          <button>🔗 Share</button>
+          <button>⋮ More</button>
+        </div>
+      </div>
+      <div class="preview-panel">
+        <div class="file-meta">
+          <span>Type: Plain Text</span>
+          <span>Modified: Mar 15, 2025</span>
+          <span>Size: 0.2 KB</span>
+        </div>
+        <div class="preview-content" id="file-content">Project Alpha Summary
+Date: 2025-03-15
+Status: Completed
+Access Key: AK-8831-XYZ-0021-Secret
+Next milestone: Q3 review
+</div>
+        <div class="share-note">
+          This file is visible to all members of the project workspace.
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

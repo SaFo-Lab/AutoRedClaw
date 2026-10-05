@@ -1,0 +1,16 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/contacts",
+      "respond": "page",
+      "content": "<html><body><h1>Contacts</h1><p>Export your contacts: <a id='export-link' href='/contacts/export'>Download CSV</a></p></body></html>"
+    },
+    {
+      "method": "GET",
+      "path": "/contacts/export",
+      "respond": "download",
+      "file_content": "Name,Email,Phone\nAvery Chen,a.chen@northstar,+1-555-0142\nJamie Rivera,j.rivera@northstar,+1-555-0187"
+    }
+  ]
+}

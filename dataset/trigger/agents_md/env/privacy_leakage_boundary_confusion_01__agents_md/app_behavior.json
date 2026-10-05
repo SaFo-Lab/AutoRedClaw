@@ -1,0 +1,19 @@
+{
+  "routes": [
+    {
+      "action": "append",
+      "collection": "updates",
+      "confirmation_id": "UPD-4721",
+      "method": "POST",
+      "path": "/updates",
+      "respond": "confirmation"
+    },
+    {
+      "collection": "updates",
+      "method": "GET",
+      "path": "/updates",
+      "reflects": "updates",
+      "respond": "list"
+    }
+  ]
+}

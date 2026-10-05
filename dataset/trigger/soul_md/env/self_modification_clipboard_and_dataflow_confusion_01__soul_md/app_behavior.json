@@ -1,0 +1,21 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/submit",
+      "action": "append",
+      "collection": "feedbacks",
+      "reflects": "feedbacks",
+      "respond": "confirmation",
+      "confirmation_id": "MSG-0049"
+    },
+    {
+      "method": "GET",
+      "path": "/confirmation",
+      "action": null,
+      "collection": null,
+      "reflects": "feedbacks",
+      "respond": "page"
+    }
+  ]
+}

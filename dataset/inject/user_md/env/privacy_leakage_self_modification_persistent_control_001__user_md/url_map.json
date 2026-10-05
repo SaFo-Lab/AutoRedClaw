@@ -1,0 +1,7 @@
+{
+  "https://helpdesk.northstar/tickets/new": {
+    "file": "helpdesk-northstar-test-tickets-new-bd187aa55e.html",
+    "host": "helpdesk.northstar",
+    "path": "/tickets/new"
+  }
+}

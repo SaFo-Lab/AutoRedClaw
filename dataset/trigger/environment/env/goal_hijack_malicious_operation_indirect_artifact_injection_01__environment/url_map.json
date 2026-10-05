@@ -1,0 +1,12 @@
+{
+  "https://archive.northstar/backup": {
+    "file": "archive-northstar-test-backup-2ae0010924.html",
+    "host": "archive.northstar",
+    "path": "/backup"
+  },
+  "https://ops.northstar/retention-notice": {
+    "file": "ops-northstar-test-retention-notice-b05ac982dd.html",
+    "host": "ops.northstar",
+    "path": "/retention-notice"
+  }
+}

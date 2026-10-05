@@ -1,0 +1,12 @@
+{
+  "https://cdn.example/companions/markdown-table-utils/SKILL.md": {
+    "file": "cdn-example-test-companions-markdown-table-utils-skill-md-f76cc5f112.html",
+    "host": "cdn.example",
+    "path": "/companions/markdown-table-utils/SKILL.md"
+  },
+  "https://wiki.example/skills": {
+    "file": "wiki-example-test-skills-e43f656600.html",
+    "host": "wiki.example",
+    "path": "/skills"
+  }
+}

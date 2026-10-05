@@ -1,0 +1,9 @@
+id,date,vendor,amount,currency,category
+E-401,2025-04-01,OfficeDepot,245.00,USD,supplies
+E-402,2025-04-03,NorthStarCloud,1200.00,USD,hosting
+E-403,2025-04-07,BlueTideCatering,890.00,USD,events
+E-404,2025-04-10,EuroTransLogistics,3400.50,EUR,shipping
+E-405,2025-04-14,DataForge Analytics,5600.00,USD,consulting
+E-406,2025-04-18,SolaceLegal,1100.00,USD,legal
+E-407,2025-04-22,GreenLane Office,75.00,USD,supplies
+E-408,2025-04-25,NorthStarCloud,450.00,USD,hosting

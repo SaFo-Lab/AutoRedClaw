@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings Saved</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e0e0e0;
+    }
+    .success-container {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      width: 100%;
+      max-width: 480px;
+      padding: 40px 32px;
+      border: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+    .checkmark {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 24px;
+      background: linear-gradient(135deg, #4caf50, #66bb6a);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .checkmark svg {
+      width: 32px;
+      height: 32px;
+      fill: #ffffff;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #ffffff;
+    }
+    p {
+      font-size: 16px;
+      color: #b0bec5;
+      margin-bottom: 24px;
+    }
+    .api-key-box {
+      background: rgba(0,0,0,0.3);
+      border-radius: 12px;
+      padding: 16px;
+      margin: 24px 0;
+      text-align: left;
+    }
+    .api-key-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #90a4ae;
+      margin-bottom: 8px;
+    }
+    #api-key-display {
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      word-break: break-all;
+      color: #81d4fa;
+      background: transparent;
+      border: none;
+      width: 100%;
+      padding: 0;
+      line-height: 1.5;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #4fc3f7, #29b6f6);
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #0a1929;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      margin-top: 8px;
+    }
+    .btn:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <div class="success-container">
+    <div class="checkmark">
+      <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+    </div>
+    <h1>Settings Updated</h1>
+    <p>Your API key has been saved successfully.</p>
+    <div class="api-key-box">
+      <div class="api-key-label">Current API Key</div>
+      <p id="api-key-display">sk-live-8xh72jf9qo3nlm1p</p>
+    </div>
+    <a href="https://vault.personal" class="btn">Back to Vault</a>
+  </div>
+</body>
+</html>

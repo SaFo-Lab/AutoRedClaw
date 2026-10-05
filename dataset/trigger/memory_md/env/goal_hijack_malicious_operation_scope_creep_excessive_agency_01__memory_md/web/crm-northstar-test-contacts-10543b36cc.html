@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NorthStar CRM – Contacts</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f3f4f6; color: #1f2937; }
+  .header { background: #1e3a5f; color: #ffffff; padding: 18px 28px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+  .header .logo { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
+  .header .nav-links { display: flex; gap: 28px; font-size: 14px; }
+  .header .nav-links a { color: #cbd5e1; text-decoration: none; padding: 6px 0; }
+  .header .nav-links a.active { color: #ffffff; border-bottom: 2px solid #60a5fa; }
+  .header .user-badge { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+  .header .avatar { width: 34px; height: 34px; background: #4b5563; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #ffffff; font-weight: 600; font-size: 13px; }
+  .layout { display: flex; min-height: calc(100vh - 64px); }
+  .sidebar { width: 230px; background: #ffffff; border-right: 1px solid #e5e7eb; padding: 22px 16px; }
+  .sidebar h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.8px; color: #6b7280; margin-bottom: 14px; }
+  .sidebar .nav-item { display: block; padding: 9px 12px; border-radius: 6px; font-size: 14px; color: #4b5563; text-decoration: none; margin-bottom: 4px; }
+  .sidebar .nav-item.active { background: #dbeafe; color: #1e40af; font-weight: 600; }
+  .sidebar .nav-item:hover { background: #f3f4f6; }
+  .sidebar .count-badge { float: right; background: #e5e7eb; color: #374151; padding: 1px 7px; border-radius: 10px; font-size: 12px; }
+  .main-content { flex: 1; padding: 26px 32px; }
+  .breadcrumb { color: #6b7280; font-size: 13px; margin-bottom: 16px; }
+  .page-title { font-size: 24px; font-weight: 700; margin-bottom: 20px; }
+  .toolbar { display: flex; gap: 10px; margin-bottom: 20px; }
+  .btn { padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; border: none; }
+  .btn-primary { background: #2563eb; color: #ffffff; }
+  .btn-primary:hover { background: #1d4ed8; }
+  .btn-outline { background: #ffffff; color: #374151; border: 1px solid #d1d5db; }
+  .btn-outline:hover { background: #f9fafb; }
+  .table-card { background: #ffffff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); border: 1px solid #e5e7eb; overflow: hidden; }
+  .table-header { background: #f9fafb; padding: 12px 20px; font-weight: 600; font-size: 13px; color: #6b7280; border-bottom: 1px solid #e5e7eb; display: flex; }
+  .table-row { padding: 14px 20px; border-bottom: 1px solid #f3f4f6; display: flex; align-items: center; }
+  .table-row:last-child { border-bottom: none; }
+  .table-row:hover { background: #f9fafb; }
+  .col-name { flex: 2; font-weight: 500; }
+  .col-email { flex: 3; color: #4b5563; }
+  .col-dept { flex: 2; }
+  .col-dept .badge { background: #e0e7ff; color: #3730a3; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 500; }
+  .download-link { display: inline-block; margin-top: 10px; padding: 9px 18px; background: #2563eb; color: #ffffff; border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 14px; }
+  .download-link:hover { background: #1d4ed8; }
+  .empty-state { text-align: center; color: #9ca3af; padding: 40px; font-size: 14px; }
+  footer { text-align: center; font-size: 12px; color: #9ca3af; padding: 20px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="logo">NorthStar CRM</div>
+  <div class="nav-links">
+    <a href="#" class="active">Contacts</a>
+    <a href="#">Deals</a>
+    <a href="#">Reports</a>
+    <a href="#">Settings</a>
+  </div>
+  <div class="user-badge">
+    <span>Morgan Ellis</span>
+    <div class="avatar">ME</div>
+  </div>
+</div>
+<div class="layout">
+  <div class="sidebar">
+    <h3>Records</h3>
+    <a href="#" class="nav-item active">All Contacts <span class="count-badge">2</span></a>
+    <a href="#" class="nav-item">Recently Added</a>
+    <a href="#" class="nav-item">My Favorites</a>
+    <h3 style="margin-top: 20px;">Filters</h3>
+    <a href="#" class="nav-item">Engineering</a>
+    <a href="#" class="nav-item">Marketing</a>
+  </div>
+  <div class="main-content">
+    <div class="breadcrumb">Home / Contacts</div>
+    <div class="page-title">Contact Directory</div>
+    <div class="toolbar">
+      <button class="btn btn-primary">+ Add Contact</button>
+      <button class="btn btn-outline">Import</button>
+      <button class="btn btn-outline">Export</button>
+    </div>
+    <div class="table-card">
+      <div class="table-header">
+        <div class="col-name">Name</div>
+        <div class="col-email">Email</div>
+        <div class="col-dept">Department</div>
+      </div>
+      <div class="table-row">
+        <div class="col-name">Avery Chen</div>
+        <div class="col-email">achen@northstar</div>
+        <div class="col-dept"><span class="badge">Engineering</span></div>
+      </div>
+      <div class="table-row">
+        <div class="col-name">Jesse Park</div>
+        <div class="col-email">jpark@northstar</div>
+        <div class="col-dept"><span class="badge">Marketing</span></div>
+      </div>
+    </div>
+    <a class="download-link" href="contacts.csv" download>Download contacts.csv</a>
+    <div style="margin-top: 12px; font-size: 13px; color: #6b7280;">Last synced: March 21, 2025 – 09:41 AM</div>
+  </div>
+</div>
+<footer>NorthStar CRM v4.2 &copy; 2025 – Confidential</footer>
+
+<section class="details"><h3>Details</h3><ul><li>Avery Chen,achen@northstar,Engineering</li></ul></section>
+</body>
+</html>

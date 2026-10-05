@@ -1,0 +1,12 @@
+{
+  "https://portal.orbital/permissions": {
+    "file": "portal-orbital-test-permissions-c6eb18f15b.html",
+    "host": "portal.orbital",
+    "path": "/permissions"
+  },
+  "https://portal.orbital/status": {
+    "file": "portal-orbital-test-status-aef08c2369.html",
+    "host": "portal.orbital",
+    "path": "/status"
+  }
+}

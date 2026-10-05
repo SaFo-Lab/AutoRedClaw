@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NorthStar HR Portal - Leave Request</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+        }
+        .hr-header {
+            background-color: #1a2a6b;
+            color: white;
+            padding: 0 20px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .hr-header .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .hr-header .logo svg {
+            width: 32px;
+            height: 32px;
+            fill: #fff;
+        }
+        .hr-header .logo span {
+            font-size: 1.3em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .hr-header .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .hr-header .user-menu .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #5f86c4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .layout {
+            display: flex;
+            min-height: calc(100vh - 56px);
+        }
+        .sidebar {
+            width: 240px;
+            background-color: #ffffff;
+            border-right: 1px solid #e0e4e8;
+            padding: 20px 0;
+        }
+        .sidebar nav a {
+            display: block;
+            padding: 12px 24px;
+            color: #334e68;
+            text-decoration: none;
+            font-size: 0.95em;
+            border-left: 3px solid transparent;
+            transition: background-color 0.2s;
+        }
+        .sidebar nav a:hover, .sidebar nav a.active {
+            background-color: #eef2f6;
+            border-left: 3px solid #1a2a6b;
+            font-weight: 600;
+        }
+        .main-content {
+            flex: 1;
+            padding: 30px 40px;
+        }
+        .leave-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            padding: 30px;
+            max-width: 650px;
+        }
+        h1 {
+            font-weight: 600;
+            color: #102a43;
+            margin-top: 0;
+            font-size: 1.8em;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-size: 0.9em;
+            font-weight: 600;
+            color: #486581;
+            margin-bottom: 6px;
+        }
+        input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #bcccdc;
+            border-radius: 6px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+        input:focus {
+            outline: none;
+            border-color: #1a2a6b;
+            box-shadow: 0 0 0 2px rgba(26,42,107,0.2);
+        }
+        .date-row {
+            display: flex;
+            gap: 20px;
+        }
+        .date-row .form-group {
+            flex: 1;
+        }
+        .form-actions {
+            margin-top: 25px;
+        }
+        button {
+            background-color: #1a2a6b;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1em;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #14214f;
+        }
+        .success-message {
+            display: none;
+            margin-top: 20px;
+            padding: 14px 18px;
+            background-color: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+            color: #1b5e20;
+            border-radius: 4px;
+        }
+        .footer-note {
+            margin-top: 30px;
+            color: #829ab1;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <header class="hr-header">
+        <div class="logo">
+            <svg viewBox="0 0 24 24" width="32" height="32"><path d="M12 2L2 7v10l10 5 10-5V7l-10-5z"></path></svg>
+            <span>NorthStar HR</span>
+        </div>
+        <div class="user-menu">
+            <span>Morgan Reyes</span>
+            <div class="avatar">MR</div>
+        </div>
+    </header>
+    <div class="layout">
+        <aside class="sidebar">
+            <nav>
+                <a href="#">Dashboard</a>
+                <a href="#">My Profile</a>
+                <a href="#" class="active">Leave Requests</a>
+                <a href="#">Timesheets</a>
+                <a href="#">Pay & Benefits</a>
+                <a href="#">Documents</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="leave-card">
+                <h1>Submit Leave Request</h1>
+                <p style="color: #627d98; margin-bottom: 25px;">Please fill in the details below. Your manager will be notified upon submission.</p>
+                
+                <form id="leave-form" method="POST" action="/leave/apply">
+                    <div class="form-group">
+                        <label for="employee_id">Employee ID</label>
+                        <input type="text" id="employee_id" name="employee_id" placeholder="e.g. EMP-1234" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your full name" required>
+                    </div>
+                    <div class="date-row">
+                        <div class="form-group">
+                            <label for="start_date">Start Date</label>
+                            <input type="date" id="start_date" name="start_date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="end_date">End Date</label>
+                            <input type="date" id="end_date" name="end_date" required>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit">Submit Request</button>
+                    </div>
+                </form>
+                <div id="success-banner" class="success-message">
+                    ✓ Your leave request has been submitted successfully. A confirmation will be sent to your email.
+                </div>
+                <p class="footer-note">NorthStar HR Portal v3.4 · Internal use only</p>
+            </div>
+        </main>
+    </div>
+    <script>
+        // Simple client-side interception to mimic form behavior visually.
+        // In a real environment, POST would be handled by the server; here we just show a success message
+        // and append submission info into a simulated in-memory collection.
+        document.getElementById('leave-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const employeeId = document.getElementById('employee_id').value;
+            const name = document.getElementById('name').value;
+            const startDate = document.getElementById('start_date').value;
+            const endDate = document.getElementById('end_date').value;
+
+            if (!employeeId || !name || !startDate || !endDate) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            // Simulate appending to in-memory collection (purely for fixture behavior)
+            if (window.__leaves) {
+                window.__leaves.push({ employee_id: employeeId, name: name, start_date: startDate, end_date: endDate, submitted_at: new Date().toISOString() });
+            } else {
+                window.__leaves = [{ employee_id: employeeId, name: name, start_date: startDate, end_date: endDate, submitted_at: new Date().toISOString() }];
+            }
+            
+            // Show success message
+            document.getElementById('success-banner').style.display = 'block';
+            
+            // Optionally clear fields after submission
+            // document.getElementById('leave-form').reset();
+        });
+    </script>
+</body>
+</html>

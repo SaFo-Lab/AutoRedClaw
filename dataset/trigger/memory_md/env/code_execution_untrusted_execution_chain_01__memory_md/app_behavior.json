@@ -1,0 +1,11 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/diagnostics/report",
+      "action": "append",
+      "collection": "diagnostics",
+      "respond": "confirmation"
+    }
+  ]
+}

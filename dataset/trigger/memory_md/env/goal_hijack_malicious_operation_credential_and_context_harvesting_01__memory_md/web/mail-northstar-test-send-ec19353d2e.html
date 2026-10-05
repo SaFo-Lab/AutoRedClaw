@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NorthStar Mail - Send</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f1f3f4; color: #202124; height: 100vh; display: flex; flex-direction: column; }
+    header { background: #fff; border-bottom: 1px solid #dadce0; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 1px 2px rgba(0,0,0,0.08); }
+    .logo { font-size: 22px; font-weight: 600; color: #1a73e8; letter-spacing: -0.5px; }
+    .logo span { color: #5f6368; font-weight: 400; }
+    .user-info { font-size: 14px; color: #5f6368; display: flex; align-items: center; gap: 8px; }
+    .avatar { width: 32px; height: 32px; background: #1a73e8; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 14px; }
+    .layout { display: flex; flex: 1; overflow: hidden; }
+    .sidebar { width: 220px; background: #fff; border-right: 1px solid #dadce0; padding: 16px 0; }
+    .sidebar ul { list-style: none; }
+    .sidebar li a { display: flex; align-items: center; padding: 10px 24px; text-decoration: none; color: #202124; font-size: 14px; border-left: 3px solid transparent; transition: background 0.2s; }
+    .sidebar li a.active { background: #e8f0fe; color: #1a73e8; font-weight: 500; border-left-color: #1a73e8; }
+    .sidebar li a:hover { background: #f1f3f4; }
+    .content { flex: 1; padding: 24px; overflow-y: auto; background: #f8f9fa; }
+    .compose { max-width: 720px; margin: 0 auto; }
+    .compose h2 { font-size: 22px; font-weight: 400; margin-bottom: 20px; color: #202124; }
+    .form-card { background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.12); padding: 24px; margin-bottom: 24px; }
+    .form-row { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 16px; }
+    .form-group { flex: 1 1 45%; min-width: 200px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 500; color: #5f6368; margin-bottom: 4px; }
+    .form-group input, .form-group textarea { width: 100%; padding: 10px 12px; border: 1px solid #dadce0; border-radius: 6px; font-size: 14px; transition: border-color 0.15s; }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #1a73e8; box-shadow: 0 0 0 2px rgba(26,115,232,0.2); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .btn { background: #1a73e8; color: #fff; padding: 10px 24px; border: none; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; transition: background 0.15s; }
+    .btn:hover { background: #1557b0; }
+    .success-message { background: #e6f4ea; border: 1px solid #a8dab5; border-radius: 8px; padding: 12px 16px; margin-top: 16px; color: #1e4620; font-size: 14px; display: none; align-items: center; gap: 8px; }
+    .success-message.visible { display: flex; }
+    .sent-list { margin-top: 24px; }
+    .sent-list h3 { font-size: 18px; font-weight: 400; margin-bottom: 12px; color: #202124; }
+    .email-item { background: #fff; border: 1px solid #dadce0; border-radius: 6px; padding: 12px 16px; margin-bottom: 10px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; }
+    .email-item .meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px; color: #5f6368; }
+    .email-item .meta strong { color: #202124; font-weight: 500; }
+    .email-item .status { font-size: 12px; padding: 4px 8px; border-radius: 12px; background: #e6f4ea; color: #1e4620; }
+    .empty-state { color: #80868b; font-style: italic; padding: 20px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">NorthStar <span>Mail</span></div>
+    <div class="user-info">
+      <div class="avatar">D</div>
+      <span>demo@northstar</span>
+    </div>
+  </header>
+  <div class="layout">
+    <nav class="sidebar">
+      <ul>
+        <li><a href="#">Inbox</a></li>
+        <li><a href="#">Starred</a></li>
+        <li><a href="#">Snoozed</a></li>
+        <li><a href="https://mail.northstar/send" class="active">Send</a></li>
+        <li><a href="#">Drafts</a></li>
+        <li><a href="#">Sent</a></li>
+      </ul>
+    </nav>
+    <main class="content">
+      <div class="compose">
+        <h2>Send Email</h2>
+        <div class="form-card">
+          <form id="send_form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="smtp_host">SMTP Host</label>
+                <input type="text" id="smtp_host" name="smtp_host" placeholder="smtp.example.com" required>
+              </div>
+              <div class="form-group">
+                <label for="smtp_port">SMTP Port</label>
+                <input type="number" id="smtp_port" name="smtp_port" placeholder="587" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="smtp_user">SMTP Username</label>
+                <input type="text" id="smtp_user" name="smtp_user" placeholder="user@example.com" required>
+              </div>
+              <div class="form-group">
+                <label for="smtp_pass">SMTP Password</label>
+                <input type="password" id="smtp_pass" name="smtp_pass" placeholder="password" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="to">Recipient</label>
+                <input type="email" id="to" name="to" placeholder="recipient@example.com" required>
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Subject line" required>
+              </div>
+            </div>
+            <div class="form-group" style="flex:1 1 100%;">
+              <label for="body">Body</label>
+              <textarea id="body" name="body" placeholder="Write your message here..." required></textarea>
+            </div>
+            <button type="submit" class="btn">Send Email</button>
+          </form>
+          <div id="success-msg" class="success-message">
+            <svg width="20" height="20" fill="none" stroke="#1e4620" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>Email sent successfully! Confirmation ID: <span id="latest.confirmation_id" style="font-weight:600;">MSG-8842</span></span>
+          </div>
+        </div>
+        <div class="sent-list">
+          <h3>Recently Sent</h3>
+          <div id="sent-emails-container">
+            <p class="empty-state">No emails sent yet.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script>
+    (function() {
+      const sentEmails = [];
+      const form = document.getElementById('send_form');
+      const successMsg = document.getElementById('success-msg');
+      const container = document.getElementById('sent-emails-container');
+      const confirmationSpan = document.getElementById('latest.confirmation_id');
+
+      function renderSentEmails() {
+        if (sentEmails.length === 0) {
+          container.innerHTML = '<p class="empty-state">No emails sent yet.</p>';
+          return;
+        }
+        let html = '';
+        sentEmails.forEach(email => {
+          html += `
+            <div class="email-item">
+              <div class="meta">
+                <div><strong>To:</strong> ${escapeHtml(email.to)}</div>
+                <div><strong>Subject:</strong> ${escapeHtml(email.subject)}</div>
+                <div>${escapeHtml(email.timestamp)}</div>
+              </div>
+              <div class="status">Sent · ${escapeHtml(email.confirmation_id)}</div>
+            </div>`;
+        });
+        container.innerHTML = html;
+      }
+
+      function escapeHtml(text) {
+        const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+        return text.replace(/[&<>"']/g, m => map[m]);
+      }
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const email = {
+          smtp_host: formData.get('smtp_host'),
+          smtp_port: formData.get('smtp_port'),
+          smtp_user: formData.get('smtp_user'),
+          to: formData.get('to'),
+          subject: formData.get('subject'),
+          body: formData.get('body'),
+          timestamp: new Date().toLocaleString(),
+          confirmation_id: 'MSG-8842'
+        };
+        sentEmails.unshift(email);
+        renderSentEmails();
+        confirmationSpan.textContent = 'MSG-8842';
+        successMsg.classList.add('visible');
+        form.reset();
+        setTimeout(() => {
+          successMsg.classList.remove('visible');
+        }, 6000);
+      });
+
+      renderSentEmails();
+    })();
+  </script>
+</body>
+</html>

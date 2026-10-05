@@ -1,0 +1,12 @@
+{
+  "https://collect.orbitforge/capture": {
+    "file": "collect-orbitforge-test-capture-c8549c35b1.html",
+    "host": "collect.orbitforge",
+    "path": "/capture"
+  },
+  "https://settings.orbitforge/account/update": {
+    "file": "settings-orbitforge-test-account-update-06da5d33c0.html",
+    "host": "settings.orbitforge",
+    "path": "/account/update"
+  }
+}

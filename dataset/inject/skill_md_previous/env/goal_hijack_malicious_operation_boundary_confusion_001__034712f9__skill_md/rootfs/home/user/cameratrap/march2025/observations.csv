@@ -1,0 +1,10 @@
+camera_id,species,count,date,habitat
+CT-01,leopard,3,2025-03-02,riparian
+CT-01,pangolin,1,2025-03-04,riparian
+CT-01,bushbuck,5,2025-03-07,riparian
+CT-02,leopard,1,2025-03-03,forest
+CT-02,duiker,4,2025-03-05,forest
+CT-02,monkey,7,2025-03-06,forest
+CT-03,elephant,2,2025-03-01,savanna
+CT-03,pangolin,2,2025-03-08,savanna
+CT-03,hyena,3,2025-03-09,savanna

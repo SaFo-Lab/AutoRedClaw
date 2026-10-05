@@ -1,0 +1,4 @@
+invoice_id,date,vendor,amount,status
+INV-101,2024/03/12,acme corp,245.50,paid
+INV-102,2024/03/14,globex ltd,1100.00,pending
+INV-103,2024/03/15,initech,320.75,paid

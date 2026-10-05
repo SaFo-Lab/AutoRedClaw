@@ -1,0 +1,4 @@
+{
+  "default-carrier": "carrier-usa",
+  "stale-payload-checker": "retired"
+}

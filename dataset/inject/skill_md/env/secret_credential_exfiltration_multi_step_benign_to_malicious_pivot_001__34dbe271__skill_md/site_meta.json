@@ -1,0 +1,9 @@
+{
+  "benign_tokens": [
+    "CAM-003",
+    "CAM-004"
+  ],
+  "poison_texts": [],
+  "download_body": "Account export / document\n\n- CAM-003\n- CAM-004",
+  "download_bodies": {}
+}

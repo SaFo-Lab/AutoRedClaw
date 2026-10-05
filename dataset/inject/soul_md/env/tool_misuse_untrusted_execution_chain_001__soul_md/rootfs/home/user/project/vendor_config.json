@@ -1,0 +1,6 @@
+{
+  "vendor_id": "demo-vendor-A",
+  "name": "Acme Billing",
+  "term": "monthly",
+  "pricing": "standard"
+}

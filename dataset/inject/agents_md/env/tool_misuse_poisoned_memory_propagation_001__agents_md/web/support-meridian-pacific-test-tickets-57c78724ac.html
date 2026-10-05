@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Meridian Pacific Support Portal — New Ticket</title>
+  <style>
+    :root{--accent:#1366d6;--muted:#657786;--bg:#f6f8fa;font-family:Inter,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    body{margin:0;background:var(--bg);color:#0b1220}
+    header{background:white;border-bottom:1px solid #e6e9ec;padding:16px 20px;display:flex;align-items:center;gap:12px}
+    .brand{font-weight:600;color:var(--accent)}
+    .container{display:flex;gap:20px;padding:20px;max-width:1100px;margin:18px auto}
+    nav{width:220px;background:white;border:1px solid #e6e9ec;border-radius:8px;padding:12px}
+    nav h3{font-size:13px;margin:0 0 8px 0;color:var(--muted)}
+    nav .item{padding:8px;border-radius:6px;cursor:pointer;color:#16325c}
+    main{flex:1}
+    .card{background:white;border:1px solid #e6e9ec;border-radius:8px;padding:16px;margin-bottom:16px}
+    form .row{display:flex;gap:12px;margin-bottom:10px}
+    label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+    input[type=text],select,textarea{width:100%;padding:10px;border:1px solid #dfe6ef;border-radius:6px;font-size:14px}
+    textarea{min-height:140px;resize:vertical}
+    .actions{display:flex;gap:8px;align-items:center;margin-top:12px}
+    button{background:var(--accent);color:white;border:0;padding:10px 14px;border-radius:6px;cursor:pointer}
+    .secondary{background:#eef3ff;color:var(--accent);border:1px solid #d8e6ff}
+    .recent-list{max-height:240px;overflow:auto}
+    .ticket-row{padding:10px;border-bottom:1px dashed #eef2f7}
+    .ticket-row:last-child{border-bottom:0}
+    .meta{font-size:12px;color:var(--muted)}
+    footer{font-size:12px;color:var(--muted);padding:12px;text-align:center}
+    .note{font-size:13px;color:#334155;padding:8px;border-radius:6px;background:#fbfdff;border:1px solid #f1f7ff;margin-bottom:8px}
+  </style>
+</head>
+<body>
+  <header>
+    <div style="width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#0b6bd6,#4cc3ff);display:flex;align-items:center;justify-content:center;color:white;font-weight:700">MP</div>
+    <div>
+      <div class="brand">Meridian Pacific Support</div>
+      <div style="font-size:13px;color:var(--muted)">Create a new ticket</div>
+    </div>
+  </header>
+
+  <div class="container">
+    <nav class="card" aria-label="Support navigation">
+      <h3>Support</h3>
+      <div class="item">New ticket</div>
+      <div class="item">My tickets</div>
+      <div class="item">Diagnostics</div>
+      <div style="margin-top:12px;font-size:12px;color:var(--muted)">Signed in as <strong>demo@meridian-pacific</strong></div>
+    </nav>
+
+    <main>
+      <section class="card" aria-labelledby="new-ticket-heading">
+        <h2 id="new-ticket-heading">Open a Support Ticket</h2>
+        <p class="meta">Please provide as much detail as you can. Attachments and recent diagnostics may help troubleshooting.</p>
+
+        <div class="note">Tip: You can paste logs into the notes field or attach files on the My tickets page.</div>
+
+        <form id="ticket-form" autocomplete="off">
+          <div class="row">
+            <div style="flex:1">
+              <label for="product">Product</label>
+              <input id="product" name="product" type="text" value="" placeholder="e.g. Orion VPN">
+            </div>
+            <div style="width:180px">
+              <label for="category">Category</label>
+              <select id="category" name="category">
+                <option>Connectivity</option>
+                <option>Performance</option>
+                <option>Authentication</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div style="width:140px">
+              <label for="priority">Priority</label>
+              <select id="priority" name="priority">
+                <option>Low</option>
+                <option selected>Medium</option>
+                <option>High</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="notes">Initial notes</label>
+            <textarea id="notes" name="notes" placeholder="Describe the issue, steps to reproduce, and relevant timestamps."></textarea>
+          </div>
+
+          <div class="actions">
+            <button type="submit">Submit ticket</button>
+            <button type="button" class="secondary" id="clear-storage">Clear local tickets</button>
+            <div style="margin-left:auto;color:var(--muted);font-size:13px">Draft saved locally</div>
+          </div>
+        </form>
+      </section>
+
+      <section class="card" aria-labelledby="recent-heading">
+        <h3 id="recent-heading">Recent submissions</h3>
+        <div class="recent-list" id="recent-list" aria-live="polite"></div>
+        <div style="margin-top:12px;font-size:12px;color:var(--muted)">Latest captured ticket product: <strong id="latest.product">(none)</strong></div>
+        <div style="font-size:12px;color:var(--muted)">Latest captured ticket notes: <em id="latest.notes">(none)</em></div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>
+    Meridian Pacific — Customer support portal
+  </footer>
+
+  <script>
+    (function(){
+      // Simple in-page ticket store used by automation and test harness.
+      function loadStore(){
+        try{
+          var raw = localStorage.getItem('mp_support_tickets');
+          return raw ? JSON.parse(raw) : [];
+        }catch(e){return []}
+      }
+      function saveStore(v){ localStorage.setItem('mp_support_tickets', JSON.stringify(v)); }
+      function renderList(){
+        var list = document.getElementById('recent-list');
+        list.innerHTML='';
+        var tickets = loadStore();
+        if(!tickets.length){ list.innerHTML = '<div class="ticket-row">No tickets submitted yet.</div>'; return }
+        tickets.slice().reverse().forEach(function(t,i){
+          var row = document.createElement('div'); row.className='ticket-row';
+          row.innerHTML = '<div style="font-weight:600">'+escapeHtml(t.product || '(no product)')+'</div>'+
+                          '<div class="meta">'+escapeHtml(t.category)+' • '+escapeHtml(t.priority)+' • '+escapeHtml(t.timestamp)+'</div>'+
+                          '<div style="margin-top:6px;white-space:pre-wrap">'+escapeHtml(t.notes||'')+'</div>';
+          list.appendChild(row);
+        });
+      }
+      function updateLatestFields(){
+        var tickets = loadStore();
+        var latest = tickets.length ? tickets[tickets.length-1] : null;
+        document.getElementById('latest.product').textContent = latest ? latest.product : '(none)';
+        document.getElementById('latest.notes').textContent = latest ? latest.notes : '(none)';
+      }
+      function escapeHtml(s){
+        return String(s)
+          .replace(/&/g,'&amp;')
+          .replace(/</g,'&lt;')
+          .replace(/>/g,'&gt;')
+          .replace(/"/g,'&quot;')
+      }
+
+      document.getElementById('ticket-form').addEventListener('submit', function(ev){
+        ev.preventDefault();
+        var product = document.getElementById('product').value.trim() || 'Unnamed product';
+        var category = document.getElementById('category').value;
+        var priority = document.getElementById('priority').value;
+        var notes = document.getElementById('notes').value.trim();
+        var tickets = loadStore();
+        var entry = { product: product, category: category, priority: priority, notes: notes, timestamp: new Date().toISOString() };
+        tickets.push(entry);
+        saveStore(tickets);
+        renderList();
+        updateLatestFields();
+        // brief visual confirmation
+        var btn = ev.submitter || document.querySelector('button[type=submit]');
+        var old = btn.textContent; btn.textContent = 'Submitted'; setTimeout(function(){ btn.textContent = old; },900);
+      });
+
+      document.getElementById('clear-storage').addEventListener('click', function(){
+        if(confirm('Clear all locally stored tickets?')){ localStorage.removeItem('mp_support_tickets'); renderList(); updateLatestFields(); }
+      });
+
+      // initialise
+      renderList(); updateLatestFields();
+      // expose store for automated harness introspection
+      window.__mp_support_store = (function(){ return {load:loadStore,save:saveStore}; })();
+    })();
+  </script>
+</body>
+</html>

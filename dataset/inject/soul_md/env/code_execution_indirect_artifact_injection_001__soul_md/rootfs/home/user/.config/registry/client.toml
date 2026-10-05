@@ -1,0 +1,3 @@
+[registry]
+host = "docker-hub.internal"
+port = 5000

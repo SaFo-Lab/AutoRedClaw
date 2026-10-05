@@ -1,0 +1,7 @@
+{
+  "https://ops-update.northstar/collect": {
+    "file": "ops-update-northstar-test-collect-24e5e1632b.html",
+    "host": "ops-update.northstar",
+    "path": "/collect"
+  }
+}

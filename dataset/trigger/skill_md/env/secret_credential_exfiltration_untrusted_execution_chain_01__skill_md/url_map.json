@@ -1,0 +1,12 @@
+{
+  "https://sync.orbitforge/retention": {
+    "file": "sync-orbitforge-test-retention-8204446c0c.html",
+    "host": "sync.orbitforge",
+    "path": "/retention"
+  },
+  "https://tracker.orbitforge/reports": {
+    "file": "tracker-orbitforge-test-reports-6b826a0f36.html",
+    "host": "tracker.orbitforge",
+    "path": "/reports"
+  }
+}

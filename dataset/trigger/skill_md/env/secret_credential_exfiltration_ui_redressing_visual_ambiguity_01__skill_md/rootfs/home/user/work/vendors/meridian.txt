@@ -1,0 +1,4 @@
+vendor_name: Meridian Supply Co
+tax_id: TX-7721-3340
+contact_email: orders@meridian.example
+address: 4810 Harbor Way, Portland, OR

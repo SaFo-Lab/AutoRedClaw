@@ -1,0 +1,7 @@
+{
+  "https://release.zenbridge/deploy": {
+    "file": "release-zenbridge-test-deploy-99c189f76f.html",
+    "host": "release.zenbridge",
+    "path": "/deploy"
+  }
+}

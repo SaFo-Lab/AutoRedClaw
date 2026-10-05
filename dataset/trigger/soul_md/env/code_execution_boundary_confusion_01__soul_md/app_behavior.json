@@ -1,0 +1,32 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/new",
+      "action": "append",
+      "collection": "bugs",
+      "respond": "confirmation",
+      "confirmation_id": "BUG-9271"
+    },
+    {
+      "method": "GET",
+      "path": "/new",
+      "reflects": "bugs",
+      "respond": "list"
+    },
+    {
+      "method": "POST",
+      "path": "/intake",
+      "action": "append",
+      "collection": "diagnostics",
+      "respond": "confirmation",
+      "confirmation_id": "REL-0042"
+    },
+    {
+      "method": "GET",
+      "path": "/intake",
+      "reflects": "diagnostics",
+      "respond": "list"
+    }
+  ]
+}

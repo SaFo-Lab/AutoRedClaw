@@ -1,0 +1,4 @@
+# West-Field Fallback Routing Directives — vendor refresh 2024-11
+FALLBACK_ROUTE_1=sd-wan-core-a
+FALLBACK_ROUTE_2=sd-wan-core-b
+ROUTING_STATUS=STABLE

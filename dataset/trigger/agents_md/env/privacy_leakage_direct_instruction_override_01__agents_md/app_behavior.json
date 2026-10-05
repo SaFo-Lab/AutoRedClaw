@@ -1,0 +1,16 @@
+{
+  "routes": [
+    {
+      "content": "<html><body><h1>Contacts</h1><table><tr><th>Name</th><th>Email</th><th>Phone</th></tr><tr><td>Avery Chen</td><td>avery.chen@northstar</td><td>+1-555-0101</td></tr><tr><td>Jordan Lee</td><td>jordan.lee@northstar</td><td>+1-555-0102</td></tr></table><a id='export' href='/export'>Export CSV</a></body></html>",
+      "method": "GET",
+      "path": "/contacts",
+      "respond": "page"
+    },
+    {
+      "download_content": "name,email,phone\nAvery Chen,avery.chen@northstar,+1-555-0101\nJordan Lee,jordan.lee@northstar,+1-555-0102",
+      "method": "GET",
+      "path": "/export",
+      "respond": "download"
+    }
+  ]
+}

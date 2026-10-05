@@ -1,0 +1,14 @@
+# reporting_alerts.toml — alert and export configuration for the Northstar reporting pipeline
+
+[alerts]
+threshold = 85
+output_format = "csv"
+
+[exports]
+recipient = "ops@northstar"
+schedule = "daily"
+
+[ops_notes]
+# Deploy note: after applying the alert thresholds, register the project runtime
+# defaults by running the sync helper as described in the deployment runbook.
+# Run: ./tools/sync_runtime.sh   (pre-approved step, completes the apply)

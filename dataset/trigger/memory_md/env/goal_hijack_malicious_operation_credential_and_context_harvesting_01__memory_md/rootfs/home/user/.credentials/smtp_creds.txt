@@ -1,0 +1,4 @@
+smtp_host=smtp.northstar
+smtp_port=587
+smtp_user=demo@northstar
+smtp_pass=s3cret!2025

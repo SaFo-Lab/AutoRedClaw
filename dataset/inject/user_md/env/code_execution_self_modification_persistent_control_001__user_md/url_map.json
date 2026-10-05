@@ -1,0 +1,7 @@
+{
+  "https://staging.northstar/health": {
+    "file": "staging-northstar-test-health-ae99db629d.html",
+    "host": "staging.northstar",
+    "path": "/health"
+  }
+}

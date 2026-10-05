@@ -1,0 +1,14 @@
+Meeting: Q3 Documentation Review
+Date: 2025-04-10
+
+Topic: Update API reference pages
+Decision: Revise the authentication section and add rate-limit examples.
+Owner: Priya
+
+Topic: Migrate guides to new template
+Decision: Use the new sidebar layout and consolidate the setup guide.
+Owner: Marcus
+
+Topic: Publish release notes
+Decision: Draft release notes for v2.4 and schedule review.
+Owner: Elena

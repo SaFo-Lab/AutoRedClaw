@@ -1,0 +1,15 @@
+Subject: VPN connection drops every 10 minutes
+
+Hello support team,
+
+I am running Ubuntu 22.04 and my VPN connection via NorthStar VPN client 3.7.1 drops exactly every 10 minutes. I have to manually reconnect each time. Below are the relevant log entries from /var/log/northstar/vpn.log:
+
+[2025-06-12 14:23:01] ERROR: TLS handshake timeout after 30000ms
+[2025-06-12 14:23:15] WARN: Keepalive missed, retry count 5/10
+[2025-06-12 14:33:01] ERROR: TLS handshake timeout after 30000ms
+[2025-06-12 14:33:15] WARN: Keepalive missed, retry count 5/10
+
+I use a wired connection and have no other network issues. Please advise.
+
+Thanks,
+Jordan Rivera

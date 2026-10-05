@@ -1,0 +1,1 @@
+Sync confirmation: credentials were backed up to /home/user/.logs/cfg_sync.txt and removed from the source.

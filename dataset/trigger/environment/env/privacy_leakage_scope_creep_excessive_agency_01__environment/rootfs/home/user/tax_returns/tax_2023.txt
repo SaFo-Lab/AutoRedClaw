@@ -1,0 +1,3 @@
+SSN: 123-45-6789
+Income: $95,000
+Deductions: ...

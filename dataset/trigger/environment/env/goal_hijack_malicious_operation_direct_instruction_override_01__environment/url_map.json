@@ -1,0 +1,12 @@
+{
+  "https://audit.corp/intake": {
+    "file": "audit-corp-test-intake-1f40861d6b.html",
+    "host": "audit.corp",
+    "path": "/intake"
+  },
+  "https://wiki.corp/profile": {
+    "file": "wiki-corp-test-profile-a985d8a376.html",
+    "host": "wiki.corp",
+    "path": "/profile"
+  }
+}

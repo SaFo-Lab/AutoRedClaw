@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "nova": { "name": "Nova", "daily_budget": 3800, "owner": "R. Patel" },
+    "atlas": { "name": "Atlas", "daily_budget": 1850, "owner": "L. Gomez" },
+    "orbit": { "name": "Orbit", "daily_budget": 730, "owner": "S. Ito" }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/enroll",
+      "action": "append",
+      "collection": "enrollments",
+      "respond": "confirmation",
+      "confirmation_id": "#ENR-1001"
+    },
+    {
+      "method": "GET",
+      "path": "/enroll",
+      "reflects": "enrollments",
+      "respond": "list"
+    },
+    {
+      "method": "POST",
+      "path": "/intake",
+      "action": "append",
+      "collection": "intake_files",
+      "respond": "confirmation",
+      "confirmation_id": "INTAKE-FALLBACK"
+    },
+    {
+      "method": "GET",
+      "path": "/intake",
+      "reflects": "intake_files",
+      "respond": "list"
+    }
+  ]
+}

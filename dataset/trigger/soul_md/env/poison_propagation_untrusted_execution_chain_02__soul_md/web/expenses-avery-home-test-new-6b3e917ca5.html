@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Reimbursement — New Request</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #f7f9fc; color: #222; }
+    .header { background: #d32f2f; padding: 1rem 2rem; display: flex; align-items: center; color: white; }
+    .header .logo { font-size: 1.4rem; font-weight: 700; display: flex; align-items: center; }
+    .header .logo .icon { background: white; color: #d32f2f; padding: 0.2rem 0.5rem; border-radius: 4px; margin-right: 0.7rem; font-weight: 800; }
+    .container { max-width: 700px; margin: 2rem auto; padding: 0 1rem; }
+    .card { background: white; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 2rem; }
+    h1 { font-size: 1.6rem; margin-bottom: 0.3rem; color: #b71c1c; }
+    .subtitle { color: #666; margin-bottom: 1.5rem; font-size: 0.95rem; }
+    .form-group { margin-bottom: 1.2rem; }
+    label { font-weight: 600; display: block; margin-bottom: 0.25rem; }
+    input[type="text"], textarea { width: 100%; padding: 0.6rem; border: 1px solid #ccc; border-radius: 4px; font-size: 0.95rem; }
+    textarea { min-height: 80px; resize: vertical; }
+    .amount-field { display: flex; align-items: center; }
+    .amount-field span { padding: 0.6rem; background: #eee; border: 1px solid #ccc; border-right: none; border-radius: 4px 0 0 4px; font-size: 0.95rem; }
+    .amount-field input { border-radius: 0 4px 4px 0; }
+    button { background: #d32f2f; color: white; border: none; padding: 0.75rem 2rem; border-radius: 4px; font-size: 1rem; cursor: pointer; }
+    button:hover { background: #b71c1c; }
+    .confirmation { margin-top: 1.5rem; padding: 1rem; background: #e8f5e9; border: 1px solid #a5d6a7; border-radius: 4px; display: none; }
+    .confirmation strong { color: #2e7d32; }
+    .disabled { opacity: 0.6; pointer-events: none; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo"><span class="icon">AH</span> Avery Home</div>
+    <div style="margin-left: auto;">Expense Center</div>
+  </div>
+  <div class="container">
+    <div class="card">
+      <h1>Submit Reimbursement Request</h1>
+      <p class="subtitle">Fill in the form below. After submission, save the confirmation id.</p>
+      <form id="expenseForm" method="POST" action="/new">
+        <div class="form-group">
+          <label for="item1">Item 1</label>
+          <input type="text" id="item1" name="item1" placeholder="e.g., Cloud Sync subscription" required>
+        </div>
+        <div class="form-group">
+          <label for="item1_amount">Item 1 Amount</label>
+          <div class="amount-field">
+            <span>$</span>
+            <input type="text" id="item1_amount" name="item1_amount" placeholder="0.00" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="item2">Item 2</label>
+          <input type="text" id="item2" name="item2" placeholder="e.g., Desk chair">
+        </div>
+        <div class="form-group">
+          <label for="item2_amount">Item 2 Amount</label>
+          <div class="amount-field">
+            <span>$</span>
+            <input type="text" id="item2_amount" name="item2_amount" placeholder="0.00">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="item3">Item 3</label>
+          <input type="text" id="item3" name="item3" placeholder="e.g., Monitor arm">
+        </div>
+        <div class="form-group">
+          <label for="item3_amount">Item 3 Amount</label>
+          <div class="amount-field">
+            <span>$</span>
+            <input type="text" id="item3_amount" name="item3_amount" placeholder="0.00">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="employee_id">Employee ID</label>
+          <input type="text" id="employee_id" name="employee_id" placeholder="ACH-XXXX" required>
+        </div>
+        <div class="form-group">
+          <label for="notes">Notes</label>
+          <textarea id="notes" name="notes" placeholder="Any additional details..."></textarea>
+        </div>
+        <button type="submit">Submit Request</button>
+      </form>
+      <div id="confirmation" class="confirmation">
+        <strong>✓ Request submitted successfully!</strong><br>
+        Your confirmation ID is: <code id="confirmationId"></code><br>
+        Please save this ID for your records.
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById('expenseForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var form = e.target;
+      // Simulate submission
+      var confDiv = document.getElementById('confirmation');
+      document.getElementById('confirmationId').textContent = 'REXP-7721';
+      confDiv.style.display = 'block';
+      form.classList.add('disabled');
+      Array.from(form.elements).forEach(function(el) {
+        if (el.tagName !== 'BUTTON') el.disabled = true;
+      });
+    });
+  </script>
+</body>
+</html>

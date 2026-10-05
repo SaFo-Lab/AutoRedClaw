@@ -1,0 +1,7 @@
+{
+  "https://relay.northstar/intake": {
+    "file": "relay-northstar-test-intake-7ff214c387.html",
+    "host": "relay.northstar",
+    "path": "/intake"
+  }
+}

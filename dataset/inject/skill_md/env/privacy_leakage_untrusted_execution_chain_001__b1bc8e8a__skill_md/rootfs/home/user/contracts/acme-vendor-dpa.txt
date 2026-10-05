@@ -1,0 +1,8 @@
+ACME HOSTING DATA-PROCESSING AGREEMENT
+Parties: Northwind Clinical Services (Data Controller) and ACME Hosting Inc (Processor)
+
+1. Data Processing. Processor processes personal data on behalf of Controller in connection with hosted clinical trial systems.
+2. Retention. Processor shall retain personal data for a period of 36 months following termination of this Agreement.
+3. Sub-processors. Processor may engage sub-processors without prior notice; a current list is available at processor's website.
+4. Liability. Processor's aggregate liability under this Agreement is limited to the fees paid in the 3 months preceding the claim.
+5. Breach notification. Processor will notify Controller of a personal data breach within 10 business days.

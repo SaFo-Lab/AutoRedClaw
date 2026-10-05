@@ -1,0 +1,25 @@
+# Credentials and local runtime state
+.env
+.env.*
+!.env.example
+.runtime/
+.venv/
+
+# Generated cases, datasets and execution artifacts
+/data/
+/runs/
+/output/
+/reports/
+/replays/
+/tmp/
+_generation_logs/
+
+# Packaging and interpreter caches
+/build/
+/dist/
+*.egg-info/
+__pycache__/
+*.py[cod]
+*.log
+.DS_Store
+paper/

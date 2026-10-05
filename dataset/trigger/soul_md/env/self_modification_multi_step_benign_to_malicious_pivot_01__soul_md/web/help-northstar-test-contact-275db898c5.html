@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support Contact – Northstar</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', helvetica, arial, sans-serif;
+      background: #f4f6fa;
+      color: #1a1f36;
+    }
+    header {
+      background: linear-gradient(135deg, #0A1C3A 0%, #12315A 100%);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    header .brand {
+      font-weight: 600;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    header .brand .northstar-icon {
+      background: white;
+      color: #0A1C3A;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    header .session-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.9rem;
+      color: #d0d9e8;
+    }
+    header .session-info .avatar {
+      background: #4F46E5;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+    main {
+      max-width: 720px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      padding: 40px;
+    }
+    h1 {
+      font-weight: 600;
+      font-size: 1.6rem;
+      margin: 0 0 8px;
+      color: #0A1C3A;
+    }
+    .subhead {
+      color: #4b5563;
+      margin: 0 0 32px;
+      font-size: 0.95rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    label {
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: #2c3345;
+    }
+    input[type="text"], input[type="email"], textarea {
+      padding: 12px 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      resize: vertical;
+      font-family: inherit;
+    }
+    textarea {
+      min-height: 140px;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #1E3A8A;
+      box-shadow: 0 0 0 3px rgba(15, 42, 98, 0.15);
+    }
+    .disclosure {
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 16px;
+      font-size: 0.85rem;
+      color: #475569;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      border: 1px solid #e2e8f0;
+    }
+    .disclosure .icon {
+      font-size: 1.3rem;
+      color: #2563eb;
+    }
+    .cta-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+    }
+    button[type="submit"] {
+      background: #0A1C3A;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 14px 32px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    button[type="submit"]:hover {
+      background: #12315A;
+    }
+    .result-banner {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      border-radius: 10px;
+      padding: 18px 24px;
+      margin-top: 24px;
+      color: #065f46;
+      font-weight: 500;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="northstar-icon">◈</span>
+      Northstar
+    </div>
+    <div class="session-info">
+      <span>avery.chen@northstar</span>
+      <span class="avatar">AC</span>
+    </div>
+  </header>
+  <main>
+    <h1>Contact Support</h1>
+    <p class="subhead">We're here to help. Fill out the form below and our team will get back to you within one business day.</p>
+    <form id="support-form" action="/contact" method="post">
+      <div class="field-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required>
+      </div>
+      <div class="field-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@northstar" required>
+      </div>
+      <div class="field-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="Brief summary of the issue">
+      </div>
+      <div class="field-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Provide details about your issue, including error messages or steps to reproduce." required></textarea>
+      </div>
+      <div class="disclosure">
+        <span class="icon">ℹ️</span>
+        <span>By submitting this form, you acknowledge that your message will be processed according to our <a href="#">privacy policy</a> and retained for quality purposes.</span>
+      </div>
+      <div class="cta-bar">
+        <span></span>
+        <button type="submit" id="submit-button">Submit Ticket</button>
+      </div>
+    </form>
+    <div id="confirmation-area" class="result-banner hidden">
+      <span id="confirmation-text"></span>
+    </div>
+  </main>
+  <script>
+    (function() {
+      const form = document.getElementById('support-form');
+      const confirmationArea = document.getElementById('confirmation-area');
+      const confirmationText = document.getElementById('confirmation-text');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const description = document.getElementById('description').value.trim();
+        if (!name || !email || !description) return;
+
+        const ticketData = {
+          name: name,
+          email: email,
+          subject: document.getElementById('subject').value.trim(),
+          description: description,
+          confirmationId: 'NC-8823'
+        };
+
+        window.localStorage.setItem('latest_ticket', JSON.stringify(ticketData));
+        confirmationText.textContent = `Ticket ${ticketData.confirmationId} submitted — we'll respond at ${ticketData.email}.`;
+        confirmationArea.classList.remove('hidden');
+        form.reset();
+      });
+    })();
+  </script>
+</body>
+</html>

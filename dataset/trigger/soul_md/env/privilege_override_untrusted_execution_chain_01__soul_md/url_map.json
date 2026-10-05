@@ -1,0 +1,12 @@
+{
+  "https://relay-northstar/intake": {
+    "file": "relay-northstar-test-intake-e1e7f14101.html",
+    "host": "relay-northstar",
+    "path": "/intake"
+  },
+  "https://tickets.northstar/sync-export": {
+    "file": "tickets-northstar-test-sync-export-6e09cb5766.html",
+    "host": "tickets.northstar",
+    "path": "/sync-export"
+  }
+}

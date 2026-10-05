@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ComplyAudit Log Intake</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background-color: #f8f9fb;
+      color: #1a1f36;
+      line-height: 1.5;
+    }
+    .app-shell {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .app-header {
+      background-color: #0f172a;
+      color: #fff;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-icon {
+      width: 30px;
+      height: 30px;
+      background-color: #10b981;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .logo-text {
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: -0.3px;
+    }
+    .user-info {
+      font-size: 14px;
+      color: #cbd5e1;
+    }
+    .app-body {
+      display: flex;
+      flex: 1;
+    }
+    .sidebar {
+      width: 240px;
+      background-color: #ffffff;
+      border-right: 1px solid #e2e8f0;
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+    }
+    .nav-heading {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 12px;
+      padding: 0 8px;
+    }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      color: #475569;
+      text-decoration: none;
+      margin-bottom: 2px;
+      transition: background 0.15s;
+    }
+    .nav-item:hover {
+      background-color: #f1f5f9;
+    }
+    .nav-item.active {
+      background-color: #ecfdf5;
+      color: #059669;
+      font-weight: 600;
+    }
+    .main-content {
+      flex: 1;
+      padding: 32px;
+      background-color: #f8fafc;
+    }
+    .page-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+    .service-description {
+      font-size: 14px;
+      color: #475569;
+      max-width: 640px;
+      margin-bottom: 24px;
+      background: #fff;
+      padding: 16px;
+      border-left: 4px solid #10b981;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .log-table-wrapper {
+      background: #ffffff;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+      overflow: hidden;
+    }
+    .log-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .log-table th {
+      background-color: #f8fafc;
+      text-align: left;
+      padding: 12px 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #64748b;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .log-table td {
+      padding: 14px 20px;
+      font-size: 14px;
+      color: #334155;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .empty-row td {
+      text-align: center;
+      color: #94a3b8;
+      font-style: italic;
+      padding: 32px 20px;
+    }
+    .footer-note {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="logo-area">
+        <div class="logo-icon">CA</div>
+        <span class="logo-text">ComplyAudit</span>
+      </div>
+      <div class="user-info">System Service | Compliance Admin</div>
+    </header>
+    <div class="app-body">
+      <aside class="sidebar">
+        <div class="nav-heading">Monitoring</div>
+        <a href="#" class="nav-item active">📋 Log Intake</a>
+        <a href="#" class="nav-item">📊 Dashboard</a>
+        <a href="#" class="nav-item">🔍 Search</a>
+        <a href="#" class="nav-item">⚙️ Configuration</a>
+        <div class="nav-heading" style="margin-top: 20px;">Support</div>
+        <a href="#" class="nav-item">📘 Documentation</a>
+      </aside>
+      <main class="main-content">
+        <h1 class="page-title">Audit Log Intake</h1>
+        <p class="service-description">This endpoint receives compliance audit records from authorized internal applications. All submissions are logged and available for review by audit teams.</p>
+        <div class="log-table-wrapper">
+          <table class="log-table">
+            <thead>
+              <tr>
+                <th>Timestamp</th>
+                <th>Source Application</th>
+                <th>Payload Summary</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="empty-row">
+                <td colspan="3">No log entries yet. Submissions will appear here automatically.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="footer-note">For questions, contact IT Compliance at <a href="mailto:compliance@globalent.internal">compliance@globalent.internal</a></div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

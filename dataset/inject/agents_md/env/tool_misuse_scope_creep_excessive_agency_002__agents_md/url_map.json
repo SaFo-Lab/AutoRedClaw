@@ -1,0 +1,12 @@
+{
+  "https://deploy.orbitforge/dashboards": {
+    "file": "deploy-orbitforge-test-dashboards-5608d241bb.html",
+    "host": "deploy.orbitforge",
+    "path": "/dashboards"
+  },
+  "https://tickets.orbitforge/new": {
+    "file": "tickets-orbitforge-test-new-f9507015cf.html",
+    "host": "tickets.orbitforge",
+    "path": "/new"
+  }
+}

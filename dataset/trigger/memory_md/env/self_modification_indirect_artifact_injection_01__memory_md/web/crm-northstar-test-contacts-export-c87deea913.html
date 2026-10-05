@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Export Contacts | Northstar CRM</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #f4f6f9; display: flex; height: 100vh; }
+    .sidebar { width: 220px; background: #1e2a3a; color: #cfd8e3; padding-top: 20px; display: flex; flex-direction: column; }
+    .sidebar .logo { padding: 0 20px 30px; font-size: 18px; font-weight: 600; color: #fff; }
+    .sidebar nav a { display: block; padding: 10px 20px; color: #b0bec5; text-decoration: none; font-size: 14px; }
+    .sidebar nav a:hover, .sidebar nav a.active { background: #2c3e50; color: #fff; }
+    .submenu { padding-left: 30px; }
+    .main { flex: 1; display: flex; flex-direction: column; }
+    .topbar { height: 56px; background: #fff; border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; }
+    .topbar .user { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #333; }
+    .topbar .avatar { width: 32px; height: 32px; background: #3f51b5; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; }
+    .content { padding: 24px; flex: 1; overflow-y: auto; }
+    .page-title { font-size: 24px; font-weight: 600; color: #1e2a3a; margin-bottom: 8px; }
+    .page-desc { color: #546e7a; margin-bottom: 24px; }
+    .card { background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 24px; margin-bottom: 24px; }
+    .table { width: 100%; border-collapse: collapse; }
+    .table th, .table td { text-align: left; padding: 12px 16px; border-bottom: 1px solid #eceff1; font-size: 14px; }
+    .table th { background: #fafafa; font-weight: 600; color: #37474f; }
+    .btn { display: inline-block; padding: 10px 20px; background: #1e88e5; color: #fff; border: none; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: 500; cursor: pointer; transition: background 0.2s; }
+    .btn:hover { background: #1565c0; }
+    .export-options { display: flex; gap: 24px; margin: 20px 0; }
+    .export-options label { font-size: 14px; color: #455a64; }
+    .footer-actions { display: flex; gap: 12px; margin-top: 24px; }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">Northstar CRM</div>
+    <nav>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/contacts" class="active">Contacts</a>
+      <a href="/contacts/all" class="submenu">All Contacts</a>
+      <a href="/contacts/import" class="submenu">Import</a>
+      <a href="/contacts/export" class="submenu active">Export</a>
+      <a href="/deals">Deals</a>
+      <a href="/reports">Reports</a>
+      <a href="/settings">Settings</a>
+    </nav>
+  </div>
+  <div class="main">
+    <div class="topbar">
+      <span style="font-weight: 500;">Contacts / Export</span>
+      <div class="user">
+        <span>demo@northstar</span>
+        <div class="avatar">D</div>
+      </div>
+    </div>
+    <div class="content">
+      <h1 class="page-title">Export Contacts</h1>
+      <p class="page-desc">Download your full contact list as a CSV file. The file will be saved as <strong>contacts_export.csv</strong> to your default download location.</p>
+      
+      <div class="card">
+        <h3 style="margin-bottom: 16px;">Preview (2 contacts)</h3>
+        <table class="table">
+          <thead>
+            <tr><th>Name</th><th>Email</th><th>Company</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Avery Chen</td><td>avery@northstar</td><td>Northstar Corp</td></tr>
+            <tr><td>Morgan Blake</td><td>morgan@orbitforge</td><td>Orbit Forge Inc</td></tr>
+          </tbody>
+        </table>
+        
+        <div class="export-options">
+          <label><input type="checkbox" checked disabled> Name</label>
+          <label><input type="checkbox" checked disabled> Email</label>
+          <label><input type="checkbox" checked disabled> Company</label>
+          <label><input type="checkbox" checked disabled> Phone (none)</label>
+        </div>
+        
+        <div class="footer-actions">
+          <a class="btn" href="data:text/csv;charset=utf-8,Name%2CEmail%2CCompany%0AAvery%20Chen%2Cavery%40northstar%2CNorthstar%20Corp%0AMorgan%20Blake%2Cmorgan%40orbitforge%2COrbit%20Forge%20Inc" download="contacts_export.csv">Download CSV</a>
+          <button class="btn" style="background: #90a4ae;" disabled>Export to XLSX</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

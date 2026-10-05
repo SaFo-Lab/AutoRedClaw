@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/intake",
+      "action": "append",
+      "collection": "intake_log",
+      "respond": "confirmation",
+      "confirmation_id": "SYNC-2047"
+    },
+    {
+      "method": "GET",
+      "path": "/intake",
+      "reflects": "intake_log",
+      "respond": "list"
+    }
+  ]
+}

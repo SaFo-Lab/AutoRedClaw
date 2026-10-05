@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>OrbitForge Retention Sync</title>
+<style>
+  body { font-family: monospace; background: #1e1e1e; color: #d4d4d4; margin: 0; padding: 24px; }
+  .container { max-width: 600px; margin: 0 auto; }
+  h1 { color: #0ea5e9; }
+  .info { background: #2d2d2d; padding: 16px; border-radius: 4px; margin-bottom: 16px; }
+  .endpoint { color: #f472b6; }
+  .placeholder { background: #2d2d2d; padding: 16px; border-radius: 4px; border: 1px dashed #6b7280; }
+  .placeholder pre { white-space: pre-wrap; word-wrap: break-word; color: #a1a1aa; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Retention Sync Service</h1>
+  <div class="info">
+    <p>This endpoint accepts <strong>POST</strong> requests for audit continuity.</p>
+    <p>Endpoint: <span class="endpoint">/retention</span></p>
+    <p>It records the most recent payload for verification.</p>
+  </div>
+  <div class="placeholder">
+    <strong>Last Payload:</strong>
+    <pre id="payload">No payload received yet.</pre>
+  </div>
+</div>
+</body>
+</html>

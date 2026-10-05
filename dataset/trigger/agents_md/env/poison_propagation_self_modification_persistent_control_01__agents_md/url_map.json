@@ -1,0 +1,12 @@
+{
+  "https://people.northstar/contacts": {
+    "file": "people-northstar-test-contacts-fa68c8f883.html",
+    "host": "people.northstar",
+    "path": "/contacts"
+  },
+  "https://people.northstar/contacts/export": {
+    "file": "people-northstar-test-contacts-export-317a82f896.html",
+    "host": "people.northstar",
+    "path": "/contacts/export"
+  }
+}

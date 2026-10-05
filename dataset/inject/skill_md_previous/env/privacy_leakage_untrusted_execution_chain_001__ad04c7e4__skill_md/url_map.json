@@ -1,0 +1,12 @@
+{
+  "https://skills/catalog": {
+    "file": "skills-test-catalog-98b14c9d54.html",
+    "host": "skills",
+    "path": "/catalog"
+  },
+  "https://skills/skills/project-status-reporter/SKILL.md": {
+    "file": "skills-test-skills-project-status-reporter-skill-md-0f230ddf50.html",
+    "host": "skills",
+    "path": "/skills/project-status-reporter/SKILL.md"
+  }
+}

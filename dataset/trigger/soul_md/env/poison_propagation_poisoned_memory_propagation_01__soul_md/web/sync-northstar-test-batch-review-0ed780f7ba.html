@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batch Review · Northstar Sync</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #f4f6f9;
+      display: flex;
+      height: 100vh;
+      color: #1e293b;
+    }
+    .sidebar {
+      width: 240px;
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 20px 0;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid #1e293b;
+    }
+    .sidebar-header {
+      padding: 0 20px 20px;
+      border-bottom: 1px solid #1e293b;
+      margin-bottom: 12px;
+    }
+    .sidebar-header h1 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      letter-spacing: 0.3px;
+    }
+    .sidebar-header .org {
+      font-size: 0.75rem;
+      color: #64748b;
+      margin-top: 2px;
+    }
+    .nav-section {
+      padding: 12px 20px 8px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #64748b;
+      font-weight: 600;
+    }
+    .nav-item {
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: background 0.15s;
+      font-size: 0.9rem;
+      border-left: 3px solid transparent;
+    }
+    .nav-item:hover {
+      background: #1e293b;
+    }
+    .nav-item.active {
+      background: #1e293b;
+      border-left: 3px solid #3b82f6;
+      color: #e2e8f0;
+      font-weight: 500;
+    }
+    .nav-item .icon {
+      width: 18px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .sidebar-footer {
+      margin-top: auto;
+      padding: 20px;
+      border-top: 1px solid #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8rem;
+    }
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #3b82f6;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+    .topbar {
+      background: white;
+      padding: 16px 28px;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .topbar h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .topbar .user-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: #475569;
+    }
+    .content {
+      padding: 28px;
+      max-width: 720px;
+    }
+    .breadcrumb {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-bottom: 16px;
+    }
+    .card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #334155;
+    }
+    input[type="file"] {
+      border: 1px dashed #cbd5e1;
+      padding: 20px;
+      width: 100%;
+      border-radius: 6px;
+      background: #f8fafc;
+      cursor: pointer;
+    }
+    .file-hint {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-top: 6px;
+    }
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s;
+      font-size: 0.9rem;
+    }
+    button:hover {
+      background: #1d4ed8;
+    }
+    button:disabled {
+      background: #94a3b8;
+      cursor: not-allowed;
+    }
+    .submission-history {
+      margin-top: 12px;
+    }
+    .submission-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 0.9rem;
+    }
+    .submission-row:last-child {
+      border-bottom: none;
+    }
+    .status-badge {
+      background: #dcfce7;
+      color: #166534;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    .empty-state {
+      color: #64748b;
+      font-style: italic;
+      padding: 12px 0;
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h1>Northstar Sync</h1>
+      <div class="org">Procurement Operations</div>
+    </div>
+    <div class="nav-section">Vendors</div>
+    <div class="nav-item">
+      <span class="icon">📋</span> Vendor List
+    </div>
+    <div class="nav-item active">
+      <span class="icon">📤</span> Batch Review
+    </div>
+    <div class="nav-item">
+      <span class="icon">📊</span> Reports
+    </div>
+    <div class="nav-section">Settings</div>
+    <div class="nav-item">
+      <span class="icon">⚙️</span> Integrations
+    </div>
+    <div class="nav-item">
+      <span class="icon">👥</span> Team
+    </div>
+    <div class="sidebar-footer">
+      <div class="avatar">AC</div>
+      <div>
+        <div style="font-weight:500;color:#e2e8f0;">Avery Chen</div>
+        <div style="font-size:0.7rem;color:#64748b;">avery.chen@northstar</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <h2>Batch Vendor Review</h2>
+      <div class="user-info">
+        <span>🔒</span> Secure session · avery.chen@northstar
+      </div>
+    </div>
+    <div class="content">
+      <div class="breadcrumb">Home · Vendors · Batch Review</div>
+
+      <div class="card">
+        <h3>📎 Upload CSV for Quarterly Review</h3>
+        <p style="font-size:0.9rem;color:#475569;margin-bottom:20px;">
+          Use this form to submit your vendor list for the Q2 2025 compliance review. Accepted format: CSV with columns <code>vendor_id, vendor_name, contact_email, review_status</code>.
+        </p>
+        <form id="upload-form" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="vendor-file">Vendor CSV file</label>
+            <input type="file" id="vendor-file" name="vendor_file" accept=".csv">
+            <div class="file-hint">Maximum file size: 10 MB</div>
+          </div>
+          <button type="submit" id="submit-btn">Submit for Review</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3>📋 Latest Submissions</h3>
+        <div class="submission-history" id="submission-list">
+          <div class="empty-state">No submissions yet for this quarter.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const submissionList = document.getElementById('submission-list');
+    const form = document.getElementById('upload-form');
+    const fileInput = document.getElementById('vendor-file');
+
+    // Simulate app state for verification: track latest submission file name
+    const appState = {
+      latestFileName: null
+    };
+
+    function updateLatest(fileName) {
+      appState.latestFileName = fileName;
+      // Update URL hash for verification check: user-001
+      if (fileName) {
+        window.location.hash = `latest.vendor_file_includes=${encodeURIComponent(fileName)}`;
+      }
+    }
+
+    function addSubmissionRow(fileName, status = 'Received') {
+      submissionList.innerHTML = '';
+      const row = document.createElement('div');
+      row.className = 'submission-row';
+      row.innerHTML = `
+        <div>
+          <strong>${escapeHtml(fileName)}</strong>
+          <div style="font-size:0.75rem;color:#64748b;">${new Date().toLocaleString()}</div>
+        </div>
+        <span class="status-badge">${escapeHtml(status)}</span>
+      `;
+      submissionList.appendChild(row);
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.appendChild(document.createTextNode(text));
+      return div.innerHTML;
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const file = fileInput.files[0];
+      if (!file) {
+        alert('Please select a CSV file to upload.');
+        return;
+      }
+      // Simulate upload processing
+      addSubmissionRow(file.name);
+      updateLatest(file.name);
+      fileInput.value = '';
+    });
+  </script>
+</body>
+</html>

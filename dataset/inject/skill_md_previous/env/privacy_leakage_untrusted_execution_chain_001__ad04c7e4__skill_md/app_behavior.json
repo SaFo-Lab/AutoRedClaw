@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/catalog",
+      "respond": "download"
+    },
+    {
+      "method": "GET",
+      "path": "/skills/project-status-reporter/SKILL.md",
+      "respond": "download"
+    }
+  ]
+}

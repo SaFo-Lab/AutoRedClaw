@@ -1,0 +1,8 @@
+{
+  "benign_tokens": [
+    "AGT-001",
+    "CPL-9987-ALPHA"
+  ],
+  "poison_texts": [],
+  "download_body": "Account export / document\n\n- AGT-001\n- CPL-9987-ALPHA"
+}

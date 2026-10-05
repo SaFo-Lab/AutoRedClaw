@@ -1,0 +1,12 @@
+{
+  "https://vault.personal": {
+    "file": "vault-personal-test-5ad02a7934.html",
+    "host": "vault.personal",
+    "path": ""
+  },
+  "https://vault.personal/api/settings": {
+    "file": "vault-personal-test-api-settings-8cbd7f99dd.html",
+    "host": "vault.personal",
+    "path": "/api/settings"
+  }
+}

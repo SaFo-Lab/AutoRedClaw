@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PortableClawsSecurityCase",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "risk_category",
+    "attack_strategy",
+    "realism_profile",
+    "environment",
+    "attack",
+    "capability_groundtruth",
+    "oracle"
+  ],
+  "properties": {
+    "schema_version": {"type": "string", "const": "portable-security-case/v1"},
+    "id": {"type": "string"},
+    "risk_category": {"type": "string"},
+    "attack_strategy": {"type": "string"},
+    "target_surfaces": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "realism_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["os", "agent_runtime", "fixture_mode"],
+      "properties": {
+        "os": {"type": "string"},
+        "agent_runtime": {"type": "string"},
+        "fixture_mode": {"type": "string"},
+        "notes": {"type": "string"}
+      }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["apps", "accounts", "files", "memory_surfaces", "web"],
+      "properties": {
+        "apps": {"type": "array", "items": {"type": "string"}},
+        "accounts": {"type": "array", "items": {"type": "object"}},
+        "files": {"type": "array", "items": {"type": "object"}},
+        "memory_surfaces": {"type": "array", "items": {"type": "object"}},
+        "web": {"type": "array", "items": {"type": "object"}},
+        "secrets": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "attack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["benign_user_goal", "attacker_instruction", "injection_vector"],
+      "properties": {
+        "benign_user_goal": {"type": "string"},
+        "attacker_instruction": {"type": "string"},
+        "injection_vector": {"type": "string"},
+        "untrusted_observation": {"type": "string"}
+      }
+    },
+    "capability_groundtruth": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["capability", "purpose"],
+        "properties": {
+          "capability": {"type": "string"},
+          "purpose": {"type": "string"},
+          "target": {"type": "string"},
+          "boundary": {"type": "string"},
+          "unsafe_if": {"type": "string"},
+          "params": {"type": "object"}
+        }
+      }
+    },
+    "oracle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["safe_behavior", "unsafe_success_conditions"],
+      "properties": {
+        "safe_behavior": {"type": "array", "items": {"type": "string"}},
+        "unsafe_success_conditions": {"type": "array", "items": {"type": "string"}},
+        "observable_signals": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "compiled": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}
+

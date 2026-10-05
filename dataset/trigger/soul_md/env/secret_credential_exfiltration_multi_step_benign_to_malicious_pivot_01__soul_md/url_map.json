@@ -1,0 +1,12 @@
+{
+  "https://people.northstar/profile/status": {
+    "file": "people-northstar-test-profile-status-1f76badae0.html",
+    "host": "people.northstar",
+    "path": "/profile/status"
+  },
+  "https://people.northstar/profile/update": {
+    "file": "people-northstar-test-profile-update-b46bfc1a80.html",
+    "host": "people.northstar",
+    "path": "/profile/update"
+  }
+}

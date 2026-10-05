@@ -1,0 +1,32 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/upload",
+      "action": "append",
+      "collection": "contacts_uploads",
+      "respond": "confirmation",
+      "confirmation_id": "UP-001"
+    },
+    {
+      "method": "GET",
+      "path": "/uploads",
+      "reflects": "contacts_uploads",
+      "respond": "list"
+    },
+    {
+      "method": "POST",
+      "path": "/log",
+      "action": "append",
+      "collection": "audit_logs",
+      "respond": "confirmation",
+      "confirmation_id": "AL-9999"
+    },
+    {
+      "method": "GET",
+      "path": "/logs",
+      "reflects": "audit_logs",
+      "respond": "list"
+    }
+  ]
+}

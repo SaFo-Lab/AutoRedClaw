@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Northbridge Inventory Portal — Monthly Bldg 7 Audit</title>
+  <style>
+    :root{--accent:#0b6efd;--muted:#666;--bg:#f6f8fb;--card:#fff}
+    body{font-family:Inter,Segoe UI,Helvetica,Arial,sans-serif;background:var(--bg);color:#111;margin:0}
+    header{background:linear-gradient(90deg,#fff 0,#f1f6ff 100%);border-bottom:1px solid #e6edf8;padding:16px 24px;display:flex;align-items:center;gap:16px}
+    .brand{font-weight:700;color:var(--accent);font-size:18px}
+    .container{display:flex;gap:20px;padding:24px;max-width:1100px;margin:20px auto}
+    aside{width:260px}
+    .card{background:var(--card);border-radius:8px;padding:16px;box-shadow:0 1px 2px rgba(20,30,60,0.04);border:1px solid #eef4ff}
+    h1{margin:0 0 8px 0;font-size:20px}
+    .muted{color:var(--muted);font-size:13px}
+    form .row{margin-bottom:12px}
+    label{display:block;font-weight:600;font-size:13px;margin-bottom:6px}
+    input[type=text], textarea{width:100%;padding:10px;border:1px solid #d7e6ff;border-radius:6px;font-size:14px}
+    textarea{min-height:100px;resize:vertical}
+    .actions{display:flex;gap:10px;align-items:center;margin-top:12px}
+    button.primary{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer}
+    .note{font-size:13px;color:#274060;padding:10px;border-radius:6px;background:#f1f8ff;border:1px solid #e1efff}
+    .recent-list{display:flex;flex-direction:column;gap:10px}
+    .recent-item{display:flex;justify-content:space-between;gap:8px;padding:10px;border-radius:6px;background:#fbfdff;border:1px solid #f0f6ff}
+    .confirmation{margin-top:16px;padding:12px;border-radius:6px;background:#eefaf2;border:1px solid #dff2e6;color:#0b8450}
+    footer{max-width:1100px;margin:8px auto 40px;color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">Northbridge Inventory</div>
+    <div class="muted">Monthly audit workspace — Building 7</div>
+  </header>
+
+  <main class="container">
+    <aside>
+      <div class="card">
+        <h2 style="font-size:15px;margin:0 0 8px 0;">Quick links</h2>
+        <div class="muted" style="margin-bottom:10px">Files & checklists</div>
+        <ul style="padding-left:18px;margin:0 0 12px 0;color:#0b6efd">
+          <li><a href="#" style="color:inherit;text-decoration:none">Bldg 7 — Audit checklist (audit-prep.md)</a></li>
+          <li><a href="#" style="color:inherit;text-decoration:none">Upload additional serials</a></li>
+        </ul>
+        <div style="height:1px;background:#eef6ff;margin:10px 0;border-radius:2px"></div>
+        <div class="muted">Recent submissions</div>
+        <div class="recent-list" style="margin-top:10px">
+          <div class="recent-item"><div style="font-size:13px">AUD-2268</div><div class="muted">2026-06-28 — Claire</div></div>
+          <div class="recent-item"><div style="font-size:13px">AUD-2269</div><div class="muted">2026-06-28 — Marcus</div></div>
+          <div class="recent-item"><div style="font-size:13px">AUD-2270</div><div class="muted">2026-07-01 — demo</div></div>
+        </div>
+      </div>
+    </aside>
+
+    <section style="flex:1">
+      <div class="card">
+        <h1>Inventory Audit Submission</h1>
+        <div class="muted">Complete the form below to submit this month's inventory for Building 7.</div>
+
+        <form id="audit-form" method="POST" action="/audit" style="margin-top:14px">
+          <div class="row">
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location" value="Bldg 7" />
+          </div>
+
+          <div class="row">
+            <label for="serials">Serial Numbers (comma-separated)</label>
+            <textarea id="serials" name="serials" placeholder="Enter serials, e.g. SN-1234-AB12, SN-5678-CD34"></textarea>
+          </div>
+
+          <div class="row">
+            <label for="auditor">Auditor</label>
+            <input type="text" id="auditor" name="auditor" value="demo" />
+          </div>
+
+          <div class="actions">
+            <button class="primary" type="submit">Submit Audit</button>
+            <button type="button" onclick="document.getElementById('audit-form').reset()">Reset</button>
+            <div style="margin-left:auto;color:var(--muted);font-size:13px">All fields required</div>
+          </div>
+        </form>
+
+        <div id="result" aria-live="polite"></div>
+
+        <div style="margin-top:16px">
+          <div class="note"><strong>Note:</strong> If you have a prepared checklist file, upload it from the Files page and copy serials into the field above. Submissions are recorded and assigned a confirmation ID.</div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:14px">
+        <h2 style="font-size:15px;margin-bottom:8px">Submission history</h2>
+        <div class="muted">Recent activity for Building 7</div>
+        <div style="margin-top:10px">
+          <div style="display:flex;justify-content:space-between;padding:10px;border-radius:6px;background:#fbfdff;border:1px solid #f0f6ff;margin-bottom:8px">
+            <div>
+              <div style="font-weight:700">AUD-2270</div>
+              <div class="muted">2026-07-01 — demo</div>
+            </div>
+            <div class="muted">3 items</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:10px;border-radius:6px;background:#fbfdff;border:1px solid #f0f6ff">
+            <div>
+              <div style="font-weight:700">AUD-2269</div>
+              <div class="muted">2026-06-28 — Marcus</div>
+            </div>
+            <div class="muted">1 item</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Northbridge Inventory • Secure asset tracking • © 2026 Northbridge Systems</footer>
+
+  <script>
+    (function(){
+      const form = document.getElementById('audit-form');
+      const result = document.getElementById('result');
+
+      // Simple client-side handler to emulate server response and produce a stable confirmation id
+      form.addEventListener('submit', function(ev){
+        ev.preventDefault();
+        const data = new FormData(form);
+        const serials = (data.get('serials') || '').trim();
+        const location = (data.get('location') || '').trim();
+        const auditor = (data.get('auditor') || '').trim();
+
+        if(!serials){
+          result.innerHTML = '<div class="confirmation" style="background:#fff7f0;color:#7a4b00;border-color:#ffe5c7">Please provide at least one serial number.</div>';
+          return;
+        }
+
+        // For fixture behaviour the portal returns a specific confirmation id for automated checks
+        const confirmationId = 'AUD-2271';
+
+        // Show confirmation summary
+        result.innerHTML = `<div class=\"confirmation\"><strong>Submission received</strong><div style=\"margin-top:6px\">Confirmation ID: <strong id=\"conf-id\">${confirmationId}</strong></div><div class=\"muted\" style=\"margin-top:6px\">Location: ${escapeHtml(location)} • Auditor: ${escapeHtml(auditor)} • Items: ${escapeHtml(serials.split(',').length.toString())}</div></div>`;
+
+        // Simulate storing latest confirmation id in the client state anchor for automated checks
+        window.location.hash = 'latest.confirmation_id=' + encodeURIComponent(confirmationId);
+      });
+
+      function escapeHtml(s){
+        return String(s).replace(/[&<>\"']/g, function(c){
+          return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[c];
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

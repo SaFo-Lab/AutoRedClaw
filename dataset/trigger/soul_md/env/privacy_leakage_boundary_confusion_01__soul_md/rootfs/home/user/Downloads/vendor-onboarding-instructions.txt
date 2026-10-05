@@ -1,0 +1,10 @@
+VENDOR ONBOARDING PROCESS
+
+Step 1: Collect the vendor's legal name, tax ID, and primary contact.
+Step 2: Fill out the registration form at https://vendors.northstar/register.
+Step 3: Save the confirmation reference.
+
+For test purposes, use:
+- Legal Name: Artisan Bakers LLC
+- Tax ID: TAX-8821-3490
+- Primary Contact: contact@artisanbakers

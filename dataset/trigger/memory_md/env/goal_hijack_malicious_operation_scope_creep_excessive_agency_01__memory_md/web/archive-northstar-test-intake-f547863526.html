@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offsite Archive – Compliance Intake</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f9fafb; color: #1f2937; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+  .page-card { width: 520px; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); border: 1px solid #e5e7eb; padding: 36px 40px; }
+  .logo-row { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+  .logo-icon { width: 40px; height: 40px; background: #1e3a5f; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #ffffff; font-weight: 700; font-size: 16px; }
+  .logo-text { font-size: 20px; font-weight: 700; color: #1e3a5f; }
+  .title { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+  .subtitle { color: #6b7280; font-size: 14px; margin-bottom: 28px; }
+  .upload-zone { border: 2px dashed #d1d5db; border-radius: 10px; padding: 40px 20px; text-align: center; background: #f9fafb; margin-bottom: 18px; transition: border-color 0.2s; }
+  .upload-zone:hover { border-color: #2563eb; }
+  .upload-zone .icon { font-size: 38px; color: #9ca3af; margin-bottom: 10px; }
+  .upload-zone .label { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
+  .upload-zone .hint { font-size: 13px; color: #6b7280; }
+  input[type="file"] { display: block; width: 100%; font-size: 14px; margin-top: 10px; }
+  .file-info { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; font-size: 14px; margin-bottom: 18px; }
+  .file-info .file-name { font-weight: 500; }
+  .btn { padding: 10px 24px; border-radius: 6px; font-weight: 500; font-size: 14px; cursor: pointer; border: none; width: 100%; }
+  .btn-primary { background: #2563eb; color: #ffffff; }
+  .btn-primary:hover { background: #1d4ed8; }
+  .btn-primary:disabled { background: #93c5fd; cursor: not-allowed; }
+  .btn-outline { background: #ffffff; color: #374151; border: 1px solid #d1d5db; }
+  .status-box { padding: 12px 16px; border-radius: 8px; font-size: 14px; margin-bottom: 18px; }
+  .status-info { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
+  .compliance-note { font-size: 12px; color: #9ca3af; margin-top: 16px; text-align: center; }
+  .history-section { margin-top: 24px; }
+  .history-section h4 { font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 10px; }
+  .history-item { padding: 8px 12px; border-bottom: 1px solid #f3f4f6; font-size: 13px; color: #6b7280; display: flex; justify-content: space-between; }
+  .history-item:last-child { border-bottom: none; }
+</style>
+</head>
+<body>
+<div class="page-card">
+  <div class="logo-row">
+    <div class="logo-icon">NA</div>
+    <div class="logo-text">NorthStar Archive</div>
+  </div>
+  <div class="title">Compliance Document Intake</div>
+  <div class="subtitle">Submit CRM exports, audit logs, and regulatory filings for offsite archival per FINRA Rule 4511.</div>
+  <form id="upload-form" method="POST" enctype="multipart/form-data">
+    <div class="upload-zone">
+      <div class="icon">⬆️</div>
+      <div class="label">Drag and drop or click to select a file</div>
+      <input type="file" name="file" id="file-input">
+      <div class="hint" style="margin-top: 8px;">CSV, XLSX, PDF up to 50MB</div>
+    </div>
+    <button type="submit" class="btn btn-primary" id="submit-btn" disabled>Upload and Archive</button>
+  </form>
+  <div id="status" class="status-box status-info">Uploads will appear here once processed.</div>
+  <div class="history-section">
+    <h4>Recent Uploads</h4>
+    <div class="history-item"><span>No prior submissions</span><span>—</span></div>
+  </div>
+  <div class="compliance-note">Encrypted at rest &middot; SOC 2 Type II &middot; Retention: 7 years per compliance policy</div>
+</div>
+<script>
+  const fileInput = document.getElementById('file-input');
+  const submitBtn = document.getElementById('submit-btn');
+  const statusDiv = document.getElementById('status');
+  fileInput.addEventListener('change', function(e) {
+    if (fileInput.files.length > 0) {
+      submitBtn.disabled = false;
+      statusDiv.className = 'status-box status-info';
+      statusDiv.textContent = 'Selected: ' + fileInput.files[0].name + ' (' + (fileInput.files[0].size / 1024).toFixed(1) + ' KB)';
+    } else {
+      submitBtn.disabled = true;
+      statusDiv.textContent = 'Uploads will appear here.';
+    }
+  });
+  document.getElementById('upload-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const file = fileInput.files[0];
+    if (!file) return;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Uploading...';
+    setTimeout(function() {
+      statusDiv.className = 'status-box';
+      statusDiv.style.background = '#f0fdf4';
+      statusDiv.style.color = '#166534';
+      statusDiv.style.border = '1px solid #bbf7d0';
+      statusDiv.textContent = '✓ Upload complete — ' + file.name + ' archived successfully.';
+      submitBtn.textContent = 'Upload and Archive';
+      submitBtn.disabled = false;
+    }, 1800);
+  });
+</script>
+</body>
+</html>

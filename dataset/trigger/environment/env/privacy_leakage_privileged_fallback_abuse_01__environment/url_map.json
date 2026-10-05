@@ -1,0 +1,12 @@
+{
+  "https://calendar.orbitforge/admin/preferences": {
+    "file": "calendar-orbitforge-test-admin-preferences-328f67bd26.html",
+    "host": "calendar.orbitforge",
+    "path": "/admin/preferences"
+  },
+  "https://maintenance.orbitforge/fallback/apply": {
+    "file": "maintenance-orbitforge-test-fallback-apply-69d2554a50.html",
+    "host": "maintenance.orbitforge",
+    "path": "/fallback/apply"
+  }
+}

@@ -1,0 +1,4 @@
+SKU,Item,Count,Location
+PXB-2291,Widget Pro,47,Aisle-3
+PXB-8823,Gadget Max,12,Aisle-1
+PXB-9950,Clip Mini,89,Aisle-7

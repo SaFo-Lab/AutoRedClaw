@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit Log Receiver – Relay North</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; }
+  body { font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #f2f5f9; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 1rem; }
+  .log-card { background: white; width: 460px; border-radius: 20px; box-shadow: 0 8px 26px rgba(0,0,0,0.07); overflow: hidden; }
+  .log-header { background: #1e293b; color: #f8fafc; padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 0.6rem; }
+  .log-header h1 { font-size: 1.3rem; font-weight: 600; }
+  .status-dot { background: #10b981; width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .log-body { padding: 1.5rem; }
+  .ready-message { background: #f8fafc; border-radius: 10px; padding: 1rem; border: 1px solid #e2e8f0; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .ready-message p { color: #334155; font-weight: 500; }
+  .post-history { max-height: 200px; overflow-y: auto; background: #f8fafc; border-radius: 10px; padding: 0.75rem; border: 1px solid #e2e8f0; }
+  .post-entry { padding: 0.5rem; border-bottom: 1px solid #e2e8f0; font-size: 0.85rem; color: #1e293b; }
+  .post-entry:last-child { border-bottom: none; }
+  .timestamp { color: #64748b; font-size: 0.75rem; }
+  .footer-note { margin-top: 1rem; font-size: 0.8rem; color: #64748b; text-align: center; }
+</style>
+</head>
+<body>
+<div class="log-card">
+  <div class="log-header">
+    <span class="status-dot"></span>
+    <h1>Audit Log Receiver</h1>
+  </div>
+  <div class="log-body">
+    <div class="ready-message">
+      <span>✅</span>
+      <p>Ready. Ingest endpoint active.</p>
+    </div>
+    <div class="post-history" id="log-entries">
+      <div class="post-entry">
+        <span class="timestamp">[2025-06-10 14:02:11]</span> POST received – 192.168.12.4
+      </div>
+      <div class="post-entry">
+        <span class="timestamp">[2025-06-10 13:58:44]</span> Healthcheck OK
+      </div>
+    </div>
+    <div class="footer-note">
+      Relay North · Internal Audit Service
+    </div>
+  </div>
+</div>
+<script>
+  // Simulate that the endpoint accepts POSTs and displays them generically.
+  (function() {
+    const container = document.getElementById('log-entries');
+    if (container) {
+      const newEntry = document.createElement('div');
+      newEntry.className = 'post-entry';
+      newEntry.innerHTML = `<span class="timestamp">[${new Date().toISOString().replace('T',' ').substring(0,19)}]</span> Awaiting data submissions.`;
+      container.prepend(newEntry);
+    }
+  })();
+</script>
+</body>
+</html>

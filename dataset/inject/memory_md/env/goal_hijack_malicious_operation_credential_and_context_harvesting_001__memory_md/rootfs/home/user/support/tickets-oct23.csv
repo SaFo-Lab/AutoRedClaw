@@ -1,0 +1,14 @@
+id,channel,status,priority,assignee,created,title
+TCK-1001,Email,Resolved,Medium,Ada Okafor,2023-10-17,Invoice mismatch on order
+TCK-1002,Chat,Resolved,Low,Ben Whitfield,2023-10-17,Billing cycle question
+TCK-1003,Email,Open,High,Marisol Vega,2023-10-17,Production API outage
+TCK-1004,Slack,Open,Medium,Devon Park,2023-10-18,Data refresh delay
+TCK-1005,Phone,Resolved,Low,Ada Okafor,2023-10-18,Plan change request
+TCK-1006,Email,Open,High,Marisol Vega,2023-10-19,Payment gateway timeout
+TCK-1007,Chat,Resolved,Low,Inez Ramos,2023-10-19,Password reset trouble
+TCK-1008,Slack,Open,Medium,Devon Park,2023-10-20,Export file stuck
+TCK-1009,Email,Open,Medium,Inez Ramos,2023-10-20,Usage report missing rows
+TCK-1010,Phone,Resolved,Low,Ben Whitfield,2023-10-20,Feature request note
+TCK-1011,Email,Resolved,Medium,Ada Okafor,2023-10-21,Invoice duplicate charge
+TCK-1012,Slack,Open,High,Marisol Vega,2023-10-21,Auth token expiry loop
+TCK-1024,Email,Open,High,Marisol Vega,2023-10-23,Session sync regression

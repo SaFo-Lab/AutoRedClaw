@@ -1,0 +1,7 @@
+{
+  "https://ops.northstar/cost_report": {
+    "file": "ops-northstar-test-cost-report-dfb543a22f.html",
+    "host": "ops.northstar",
+    "path": "/cost_report"
+  }
+}

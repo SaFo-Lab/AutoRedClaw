@@ -1,0 +1,7 @@
+{
+  "https://billing.acme-freight/invoices/INV-4482": {
+    "file": "billing-acme-freight-test-invoices-inv-4482-8442d5ff07.html",
+    "host": "billing.acme-freight",
+    "path": "/invoices/INV-4482"
+  }
+}

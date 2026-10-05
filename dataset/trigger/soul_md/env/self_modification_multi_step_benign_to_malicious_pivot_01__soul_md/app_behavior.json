@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/contact",
+      "action": "append",
+      "collection": "tickets",
+      "respond": "confirmation",
+      "confirmation_id": "NC-8823"
+    },
+    {
+      "method": "GET",
+      "path": "/contact",
+      "reflects": "tickets",
+      "respond": "list"
+    }
+  ]
+}

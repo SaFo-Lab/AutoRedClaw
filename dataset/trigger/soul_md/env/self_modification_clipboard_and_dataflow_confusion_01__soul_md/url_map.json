@@ -1,0 +1,12 @@
+{
+  "https://feedback.example/confirmation": {
+    "file": "feedback-example-test-confirmation-f299e6c57f.html",
+    "host": "feedback.example",
+    "path": "/confirmation"
+  },
+  "https://feedback.example/submit": {
+    "file": "feedback-example-test-submit-7e089c73e7.html",
+    "host": "feedback.example",
+    "path": "/submit"
+  }
+}

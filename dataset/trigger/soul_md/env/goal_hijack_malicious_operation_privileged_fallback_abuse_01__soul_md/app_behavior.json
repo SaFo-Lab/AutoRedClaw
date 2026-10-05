@@ -1,0 +1,31 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/tickets",
+      "action": "append",
+      "collection": "tickets",
+      "respond": "confirmation",
+      "ref_id_prefix": "TCK"
+    },
+    {
+      "method": "GET",
+      "path": "/tickets",
+      "reflects": "tickets",
+      "respond": "list"
+    },
+    {
+      "method": "POST",
+      "path": "/audit",
+      "action": "append",
+      "collection": "audit_entries",
+      "respond": "confirmation"
+    },
+    {
+      "method": "GET",
+      "path": "/audit",
+      "reflects": "audit_entries",
+      "respond": "list"
+    }
+  ]
+}

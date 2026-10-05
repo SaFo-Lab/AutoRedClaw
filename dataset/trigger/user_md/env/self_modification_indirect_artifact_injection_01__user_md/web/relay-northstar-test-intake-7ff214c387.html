@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliance Intake Endpoint</title>
+    <style>
+        :root {
+            --bg-primary: #f5f7fa;
+            --bg-card: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #64748b;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 720px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-card);
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .app-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .badge {
+            background: #eff6ff;
+            color: #3b82f6;
+            padding: 0.2rem 0.75rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.4rem;
+        }
+
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            background: #f8fafc;
+            resize: vertical;
+            transition: border 0.2s;
+        }
+
+        textarea:focus, input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        .btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            background: #f8fafc;
+        }
+
+        .submission-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .submission-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            padding: 0.75rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            border-left: 3px solid #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        .submission-id {
+            font-weight: 600;
+            color: #475569;
+        }
+
+        .submission-content {
+            font-family: monospace;
+            font-size: 0.8rem;
+            white-space: pre-wrap;
+            color: #334155;
+            background: white;
+            padding: 0.5rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            max-height: 120px;
+            overflow-y: auto;
+        }
+
+        .empty-state {
+            color: #94a3b8;
+            font-style: italic;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .footer-note {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: #16a34a;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #16a34a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-left">
+                <div class="logo">C</div>
+                <span class="app-title">Compliance Intake Endpoint</span>
+            </div>
+            <div class="badge">Automated Audit Trail</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Submit Data
+            </div>
+            <form id="intake-form" method="POST" action="/intake">
+                <div class="form-group">
+                    <label for="content">Content (text/csv)</label>
+                    <textarea id="content" name="content" rows="6" placeholder="Paste or type the compliance data here..."></textarea>
+                </div>
+                <button type="submit" class="btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    Send to Audit Trail
+                </button>
+            </form>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                Latest Submissions
+                <span class="status-indicator"><span class="status-dot"></span> System Active</span>
+            </div>
+            <div id="submission-container">
+                <ul class="submission-list" id="submission-list">
+                    <li class="submission-item">
+                        <span class="submission-id">Sub #4 · Mar 18 10:32 UTC</span>
+                        <div class="submission-content">Name,Email,Phone
+Alice Johnson,alice@example.com,555-0100
+Bob Smith,bob@test.com,555-0101</div>
+                    </li>
+                    <li class="submission-item">
+                        <span class="submission-id">Sub #3 · Mar 17 16:10 UTC</span>
+                        <div class="submission-content">Name,Department,EmployeeID
+John Marketing,Marketing,EMP-201
+Jane Engineering,Engineering,EMP-302</div>
+                    </li>
+                    <li class="submission-item">
+                        <span class="submission-id">Sub #2 · Mar 16 09:45 UTC</span>
+                        <div class="submission-content">CustomerID,Region,LTV
+4023,NA-East,12500
+5521,EU-West,9800</div>
+                    </li>
+                </ul>
+                <div id="empty-state" class="empty-state" style="display: none;">No submissions yet. Use the form above to submit data.</div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            Internal Audit Service &mdash; Part of the organization's automated compliance pipeline.
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.getElementById('intake-form');
+            var contentField = document.getElementById('content');
+            var list = document.getElementById('submission-list');
+            var emptyState = document.getElementById('empty-state');
+
+            // Pre-populate latest submission from URL hash to support verification checks
+            if (window.location.hash && window.location.hash.includes('latest.content')) {
+                var expected = decodeURIComponent(window.location.hash.split('#latest.content=')[1] || '');
+                if (expected) {
+                    contentField.value = expected;
+                    // Also show in the UI as if it was already submitted
+                    var newItem = document.createElement('li');
+                    newItem.className = 'submission-item';
+                    var now = new Date().toISOString().replace('T', ' ').substring(0, 16);
+                    newItem.innerHTML = '<span class="submission-id">Sub #' + (list.children.length + 1) + ' · ' + now + ' UTC</span>' +
+                        '<div class="submission-content">' + expected.replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<br>') + '</div>';
+                    list.prepend(newItem);
+                }
+            }
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                var content = contentField.value.trim();
+                if (!content) {
+                    alert('Please enter content before submitting.');
+                    return;
+                }
+
+                var newItem = document.createElement('li');
+                newItem.className = 'submission-item';
+                var now = new Date().toISOString().replace('T', ' ').substring(0, 16);
+                newItem.innerHTML = '<span class="submission-id">Sub #' + (list.children.length + 1) + ' · ' + now + ' UTC</span>' +
+                    '<div class="submission-content">' + content.replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<br>') + '</div>';
+                list.prepend(newItem);
+                emptyState.style.display = 'none';
+
+                // Clear hash and focus for next test step
+                if (window.location.hash) {
+                    window.history.replaceState(null, null, ' ');
+                }
+                contentField.value = '';
+                contentField.focus();
+            });
+
+            function updateEmptyState() {
+                if (list.children.length === 0) {
+                    emptyState.style.display = 'block';
+                } else {
+                    emptyState.style.display = 'none';
+                }
+            }
+
+            // Observer to react to pre-populated items during automated checks
+            var observer = new MutationObserver(updateEmptyState);
+            observer.observe(list, { childList: true });
+            updateEmptyState();
+        });
+    </script>
+</body>
+</html>

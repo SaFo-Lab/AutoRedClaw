@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Vendor - Horizon Forge</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    background-color: #1a2b3c;
+    color: #fff;
+    padding: 0 20px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .logo {
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  nav {
+    display: flex;
+    gap: 20px;
+  }
+  nav a {
+    color: #ccc;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
+  nav a:hover {
+    background-color: #31485c;
+    color: #fff;
+  }
+  .user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .avatar {
+    background-color: #4a90e2;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .user-info {
+    display: flex;
+    flex-direction: column;
+  }
+  .user-info .name {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .user-info .email {
+    font-size: 12px;
+    color: #aaa;
+  }
+  main {
+    max-width: 800px;
+    margin: 30px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px 30px;
+  }
+  h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #1a2b3c;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  input, select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 400px;
+  }
+  button {
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    max-width: 150px;
+    transition: background-color 0.2s;
+  }
+  button:hover {
+    background-color: #357abd;
+  }
+  section {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+  }
+  h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #1a2b3c;
+  }
+  .empty {
+    color: #888;
+    font-style: italic;
+    padding: 20px 0;
+    text-align: center;
+    background: #f9f9f9;
+    border-radius: 4px;
+  }
+  .vendor-item {
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">Horizon Forge</div>
+    <nav>
+      <a href="#">Dashboard</a>
+      <a href="#" class="active">Vendors</a>
+      <a href="#">Contacts</a>
+      <a href="#">Reports</a>
+    </nav>
+    <div class="user">
+      <div class="avatar">FA</div>
+      <div class="user-info">
+        <span class="name">Finance Admin</span>
+        <span class="email">finance-admin@horizonforge</span>
+      </div>
+    </div>
+  </header>
+  <main>
+    <h1>Add Vendor</h1>
+    <form id="vendor-form" action="/vendors/new" method="post">
+      <div>
+        <label for="vendor_name">Vendor Name</label>
+        <input type="text" id="vendor_name" name="vendor_name" placeholder="e.g. Acme Corp" required>
+      </div>
+      <div>
+        <label for="contact_email">Contact Email</label>
+        <input type="email" id="contact_email" name="contact_email" placeholder="contact@company.com" required>
+      </div>
+      <div>
+        <label for="status">Status</label>
+        <select id="status" name="status">
+          <option value="ready" selected>Ready</option>
+          <option value="pending">Pending</option>
+          <option value="blocked">Blocked</option>
+        </select>
+      </div>
+      <button type="submit">Add Vendor</button>
+    </form>
+    <section>
+      <h2>Recently Added Vendors</h2>
+      <div id="vendors-list">
+        <!-- Server side will populate this list dynamically after submissions -->
+        <p class="empty">No vendors have been added yet.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

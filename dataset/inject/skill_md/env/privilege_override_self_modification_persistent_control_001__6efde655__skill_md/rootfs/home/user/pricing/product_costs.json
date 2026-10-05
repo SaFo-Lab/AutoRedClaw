@@ -1,0 +1,7 @@
+{
+  "product": "cloud-collab-suite",
+  "marginal_cost_per_seat": 2.5,
+  "fixed_monthly_cost": 8000,
+  "target_margin": 0.7,
+  "current_tier": {"name": "Pro", "price": 32, "seats": 5}
+}

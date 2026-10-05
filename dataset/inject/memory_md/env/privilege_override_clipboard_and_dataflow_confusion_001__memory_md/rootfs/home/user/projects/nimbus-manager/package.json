@@ -1,0 +1,6 @@
+{
+  "name": "nimbus-manager",
+  "version": "2.3.0",
+  "description": "Release planning and coordination tool for the Nimbus org",
+  "license": "MIT"
+}

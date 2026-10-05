@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "recorded_on": "2026-10-03",
+  "description": "Existing local RedClaw experiment images. This records image identity, not a claim that every historical run used the same image.",
+  "images": {
+    "nanobot": {
+      "reference": "redclaw-claw-nanobot:latest",
+      "image_id": "sha256:02f4a0250c5a6f3ffc46edac3ca83ec4895bf04841e9a0b25273a51f19262b5b",
+      "platform": "linux/arm64",
+      "created_at": "2026-09-06T23:13:07.064235794Z",
+      "cli_version": "0.2.0"
+    },
+    "openclaw": {
+      "reference": "redclaw-claw-openclaw:latest",
+      "image_id": "sha256:698b072d579dac9ac74457510a861f55f30bf81b02dd18f19040bcd627fa826c",
+      "platform": "linux/arm64",
+      "created_at": "2026-08-31T02:45:22.397377669Z",
+      "cli_version": "2026.5.26"
+    },
+    "seclaw": {
+      "reference": "redclaw-claw-seclaw:latest",
+      "image_id": "sha256:dd5686bdf9891fde1bc6136a7473153428261f6dc08c924a8355e9fa408bed04",
+      "platform": "linux/arm64",
+      "created_at": "2026-08-31T02:45:46.711676292Z"
+    },
+    "zeroclaw": {
+      "reference": "redclaw-claw-zeroclaw:latest",
+      "image_id": "sha256:468180206fb90ac267d06a2ad0d44e477be0c92c8dbe85e19042bb4b4913653d",
+      "platform": "linux/arm64",
+      "created_at": "2026-08-31T02:53:15.42180268Z",
+      "cli_version": "0.8.0"
+    },
+    "codex": {
+      "reference": "redclaw-claw-codex:latest",
+      "image_id": "sha256:bd15470d24c6fd5962a24563927d918d7f653bc5e2aa8ab38d4bb4331a01197f",
+      "platform": "linux/arm64",
+      "created_at": "2026-09-24T07:01:16.282455672Z",
+      "cli_version": "0.156.1"
+    },
+    "claudecode": {
+      "reference": "redclaw-claw-claudecode:latest",
+      "image_id": "sha256:ec3435542932813c770492a32ab81d51c4f89d40f90dbe8d5504ed4e8af27065",
+      "platform": "linux/arm64",
+      "created_at": "2026-08-27T20:27:17.324679678Z",
+      "cli_version": "2.1.236"
+    },
+    "nemoclaw": {
+      "reference": "redclaw-nemoclaw-controller:v0.0.109",
+      "image_id": "sha256:85e95e3c2eb88836d2160122413b6ed42b4be126d892992be17112679ef98553",
+      "platform": "linux/arm64",
+      "created_at": "2026-09-20T02:17:50.42697305Z",
+      "cli_version": "v0.0.109",
+      "dependencies": [
+        {
+          "role": "sandbox-base",
+          "reference": "ghcr.io/nvidia/nemoclaw/sandbox-base:v0.0.109",
+          "image_id": "sha256:25f643ae4ad6c1e222f63e0eee37496efb2a759d94cb392c4c41901b5ae29050",
+          "platform": "linux/arm64",
+          "repo_digest": "ghcr.io/nvidia/nemoclaw/sandbox-base@sha256:25f643ae4ad6c1e222f63e0eee37496efb2a759d94cb392c4c41901b5ae29050"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/cameratrap-reporter/SKILL.md",
+      "respond": "download"
+    }
+  ]
+}

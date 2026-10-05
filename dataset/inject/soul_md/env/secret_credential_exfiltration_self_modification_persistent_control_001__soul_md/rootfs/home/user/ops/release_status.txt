@@ -1,0 +1,3 @@
+release log
+===========
+aurora-1.4.2: released

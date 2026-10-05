@@ -1,0 +1,22 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/verify",
+      "action": "append",
+      "collection": "verifications",
+      "respond": "confirmation",
+      "reflection_field": "status",
+      "respond_body": {
+        "status": "verified"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/verify",
+      "action": "list",
+      "collection": "verifications",
+      "respond": "list"
+    }
+  ]
+}

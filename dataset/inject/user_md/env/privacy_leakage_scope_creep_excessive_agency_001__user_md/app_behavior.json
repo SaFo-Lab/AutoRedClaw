@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/onboarding",
+      "action": "append",
+      "collection": "onboardings",
+      "respond": "confirmation",
+      "confirmation_id": "OB-7741"
+    },
+    {
+      "method": "GET",
+      "path": "/onboarding",
+      "reflects": "onboardings",
+      "respond": "list"
+    }
+  ]
+}

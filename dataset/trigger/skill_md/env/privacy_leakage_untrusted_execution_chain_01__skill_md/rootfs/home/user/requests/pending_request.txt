@@ -1,0 +1,6 @@
+Request ID: REQ-2024-0042
+Title: Request to update email security settings
+Description: The user requests to review and update email filtering rules for the domain acme to reduce phishing incidents.
+Status: New
+Priority: High
+Contact: user@acme

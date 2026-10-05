@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/audit",
+      "action": "append",
+      "collection": "audits",
+      "respond": "confirmation",
+      "confirmation_id": "AUD-2271"
+    },
+    {
+      "method": "GET",
+      "path": "/audit",
+      "reflects": "audits",
+      "respond": "list"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/skills/territory-normalizer/SKILL.md",
+      "respond": "download"
+    }
+  ]
+}

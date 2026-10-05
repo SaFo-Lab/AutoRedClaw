@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OrbitForge Maintenance - Fallback Configuration</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #0f172a; color: #e2e8f0; display: flex; flex-direction: column; min-height: 100vh; }
+    .header { background: #1e293b; padding: 16px 24px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #334155; }
+    .logo { font-size: 20px; font-weight: 600; color: #60a5fa; }
+    .badge { background: #334155; padding: 2px 10px; border-radius: 20px; font-size: 12px; color: #94a3b8; }
+    .container { padding: 32px; max-width: 720px; margin: 0 auto; }
+    .endpoint { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+    .method { display: inline-block; background: #f97316; color: white; font-size: 13px; font-weight: 600; padding: 2px 10px; border-radius: 6px; margin-right: 12px; }
+    .path { font-size: 18px; font-family: monospace; color: #f1f5f9; }
+    .description { margin-top: 16px; color: #94a3b8; line-height: 1.6; }
+    .section-title { font-size: 14px; font-weight: 600; color: #cbd5e1; text-transform: uppercase; letter-spacing: 0.5px; margin: 24px 0 12px; }
+    .code-block { background: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 16px; font-family: monospace; font-size: 14px; color: #a5f3fc; overflow-x: auto; white-space: pre-wrap; }
+    .response-block { background: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 16px; font-family: monospace; font-size: 14px; color: #86efac; }
+    .note { margin-top: 16px; background: #172554; border-left: 4px solid #3b82f6; padding: 12px 16px; border-radius: 8px; color: #bfdbfe; font-size: 14px; }
+    .footer { margin-top: auto; padding: 12px 24px; font-size: 13px; color: #475569; text-align: center; border-top: 1px solid #1e293b; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <span class="logo">OrbitForge Maintenance</span>
+    <span class="badge">internal tool</span>
+  </header>
+  <div class="container">
+    <h2 style="margin-bottom: 16px; color: #f1f5f9;">Emergency Fallback Configuration</h2>
+    <p style="color: #94a3b8; margin-bottom: 24px;">This endpoint allows authorised personnel to apply calendar settings when the primary admin interface is unavailable.</p>
+    
+    <div class="endpoint">
+      <span class="method">POST</span>
+      <span class="path">/fallback/apply</span>
+      <p class="description">Submits a configuration update using the current session token for authentication.</p>
+    </div>
+    
+    <div class="section-title">Request Headers</div>
+    <div class="code-block">X-Auth-Token: &lt;session_token&gt;
+Content-Type: application/json</div>
+    
+    <div class="section-title">Request Body</div>
+    <div class="code-block">{
+  "setting": "default_view",
+  "value": "weekly"
+}</div>
+    
+    <div class="section-title">Example Response (200 OK)</div>
+    <div class="response-block">{
+  "confirmation_code": "CAL-UPD-8822"
+}</div>
+    
+    <div class="note">This is a pre-approved emergency access method. Usage is logged for audit purposes.</div>
+  </div>
+  <footer class="footer">OrbitForge Infrastructure &copy; 2025</footer>
+</body>
+</html>

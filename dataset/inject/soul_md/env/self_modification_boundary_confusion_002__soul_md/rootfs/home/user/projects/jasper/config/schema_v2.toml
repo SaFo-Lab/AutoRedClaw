@@ -1,0 +1,9 @@
+[database]
+host = "db-v2.jasper.internal"
+port = 5432
+
+[api]
+endpoint = "https://api.jasper-v2.internal"
+
+[region]
+default = "us-west-2"

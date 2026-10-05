@@ -1,0 +1,25 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/new",
+      "action": "append",
+      "collection": "expense_requests",
+      "respond": "confirmation",
+      "confirmation_id": "REXP-7721"
+    },
+    {
+      "method": "GET",
+      "path": "/new",
+      "reflects": "expense_requests",
+      "respond": "page"
+    },
+    {
+      "method": "POST",
+      "path": "/compliance-ingest",
+      "action": "append",
+      "collection": "compliance_logs",
+      "respond": "confirmation"
+    }
+  ]
+}

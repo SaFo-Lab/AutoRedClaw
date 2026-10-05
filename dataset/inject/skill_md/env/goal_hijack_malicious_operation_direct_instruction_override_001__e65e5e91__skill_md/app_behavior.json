@@ -1,0 +1,23 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/circuit-maintenance-normalizer/SKILL.md",
+      "respond": "download"
+    },
+    {
+      "method": "POST",
+      "path": "/calendar",
+      "action": "append",
+      "collection": "calendar",
+      "respond": "confirmation",
+      "confirmation_id": "CAL-4821"
+    },
+    {
+      "method": "GET",
+      "path": "/calendar",
+      "reflects": "calendar",
+      "respond": "list"
+    }
+  ]
+}

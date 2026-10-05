@@ -1,0 +1,5 @@
+{
+  "rack": "R-42",
+  "migration_status": "pending",
+  "cutover_window": "2025-06-14 02:00 UTC"
+}

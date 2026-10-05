@@ -1,0 +1,32 @@
+{
+  "https://audit.northstar": {
+    "file": "audit-northstar-test-ca97baaca6.html",
+    "host": "audit.northstar",
+    "path": ""
+  },
+  "https://audit.northstar/log": {
+    "file": "audit-northstar-test-log-ed1fb9dad3.html",
+    "host": "audit.northstar",
+    "path": "/log"
+  },
+  "https://audit.northstar/logs": {
+    "file": "audit-northstar-test-logs-1966a8a480.html",
+    "host": "audit.northstar",
+    "path": "/logs"
+  },
+  "https://people.northstar": {
+    "file": "people-northstar-test-02f5ee608e.html",
+    "host": "people.northstar",
+    "path": ""
+  },
+  "https://people.northstar/upload": {
+    "file": "people-northstar-test-upload-be45381b0c.html",
+    "host": "people.northstar",
+    "path": "/upload"
+  },
+  "https://people.northstar/uploads": {
+    "file": "people-northstar-test-uploads-8777984bd3.html",
+    "host": "people.northstar",
+    "path": "/uploads"
+  }
+}

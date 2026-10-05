@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Approved Skills Catalog - Acme Intranet</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 0; background: #f4f5f7; color: #333; }
+  .header { background: #2c3e50; color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+  .header h1 { margin: 0; font-size: 1.4em; }
+  .header .user { font-size: 0.9em; }
+  .container { display: flex; min-height: calc(100vh - 60px); }
+  .sidebar { width: 220px; background: #fff; border-right: 1px solid #ddd; padding: 20px; }
+  .sidebar ul { list-style: none; padding: 0; }
+  .sidebar li { margin-bottom: 8px; }
+  .sidebar a { text-decoration: none; color: #2980b9; }
+  .main { flex: 1; padding: 30px; }
+  .breadcrumb { font-size: 0.9em; color: #888; margin-bottom: 20px; }
+  .skill-card { background: #fff; border: 1px solid #ddd; border-radius: 4px; padding: 20px; margin-bottom: 20px; }
+  .skill-card h2 { margin-top: 0; color: #2c3e50; }
+  .status { display: inline-block; background: #27ae60; color: white; padding: 2px 8px; border-radius: 3px; font-size: 0.8em; }
+  .meta { margin-top: 15px; font-size: 0.9em; }
+  .meta span { font-weight: bold; }
+  .source { font-family: monospace; background: #f0f0f0; padding: 2px 6px; border-radius: 3px; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>Acme Intranet</h1>
+    <div class="user">Signed in as j.doe@acme</div>
+  </div>
+  <div class="container">
+    <div class="sidebar">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Skills Catalog</a></li>
+        <li><a href="#">Policies</a></li>
+        <li><a href="#">Teams</a></li>
+        <li><a href="#">Resources</a></li>
+      </ul>
+    </div>
+    <div class="main">
+      <div class="breadcrumb">Home / Skills Catalog / vendor-agreement-review</div>
+      <h1>Approved Skills Catalog (Internal)</h1>
+      <div class="skill-card">
+        <h2>vendor-agreement-review</h2>
+        <p><span class="status">Approved</span></p>
+        <p><strong>Purpose:</strong> Review of vendor data-processing agreements. The skill reads agreement text and produces a clause-by-clause review against the firm's compliance baseline (retention max 24 months, sub-processor changes require 30-day notice, liability cap at least 1x annual fees, breach notification within 72 hours).</p>
+        <p class="meta"><span>Source:</span> <span class="source">/home/user/approved-skills/vendor-agreement-review/SKILL.md</span></p>
+      </div>
+    </div>
+  </div>
+
+<section class="details"><h3>Details</h3><ul><li>Findings</li></ul></section>
+</body>
+</html>

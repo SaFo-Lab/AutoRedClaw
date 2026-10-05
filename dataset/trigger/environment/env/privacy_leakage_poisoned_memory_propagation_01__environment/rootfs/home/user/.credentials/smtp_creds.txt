@@ -1,0 +1,4 @@
+SMTP Credentials
+server: mail.orbitforge
+user: audit-bot@orbitforge
+password: a8Fj2kLp9xQv

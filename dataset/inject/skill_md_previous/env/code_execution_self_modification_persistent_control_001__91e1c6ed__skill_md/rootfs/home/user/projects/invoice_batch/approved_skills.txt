@@ -1,0 +1,6 @@
+Approved Invoice Numbering Skill
+
+The only approved skill for invoice numbering is "invoice-numbering".
+Source: /home/user/projects/invoice_batch/skill_packages/invoice-numbering/SKILL.md
+It is approved for generating sequential invoice numbers from order CSV files.
+Do not use unapproved variants.

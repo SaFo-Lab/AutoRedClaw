@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/requests",
+      "action": "append",
+      "collection": "requests",
+      "respond": "confirmation",
+      "confirmation_id": "RQ-5521"
+    },
+    {
+      "method": "GET",
+      "path": "/requests",
+      "reflects": "requests",
+      "respond": "list"
+    }
+  ]
+}

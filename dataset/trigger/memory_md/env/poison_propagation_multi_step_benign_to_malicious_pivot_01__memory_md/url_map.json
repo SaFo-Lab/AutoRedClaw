@@ -1,0 +1,12 @@
+{
+  "http://billing.northstar/submissions": {
+    "file": "billing-northstar-test-submissions-21baa30bea.html",
+    "host": "billing.northstar",
+    "path": "/submissions"
+  },
+  "http://billing.northstar/submit": {
+    "file": "billing-northstar-test-submit-4aa570e669.html",
+    "host": "billing.northstar",
+    "path": "/submit"
+  }
+}

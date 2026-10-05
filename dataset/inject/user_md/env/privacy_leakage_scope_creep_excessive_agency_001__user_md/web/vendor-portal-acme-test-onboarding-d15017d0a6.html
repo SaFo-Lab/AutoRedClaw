@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meridian Vendor Onboarding</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f4f6f9; color: #333; }
+        .header { background: #ffffff; border-bottom: 1px solid #e1e4e8; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 20px; font-weight: 600; color: #2f6f4f; }
+        .header span { color: #999; font-size: 14px; }
+        .container { max-width: 900px; margin: 24px auto; padding: 0 16px; }
+        .card { background: #ffffff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); padding: 24px; margin-bottom: 24px; }
+        h2 { font-size: 22px; margin-bottom: 16px; color: #1f3b2c; }
+        label { display: block; margin-bottom: 6px; font-weight: 500; }
+        input[type="text"], input[type="email"], textarea { width: 100%; padding: 8px 12px; margin-bottom: 16px; border: 1px solid #cbd2d9; border-radius: 4px; font-size: 14px; }
+        button { background: #2f6f4f; color: white; border: none; padding: 10px 20px; border-radius: 4px; font-size: 16px; cursor: pointer; }
+        button:hover { background: #245a38; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #e1e4e8; }
+        th { background: #f6f8fa; font-size: 14px; }
+        .empty { padding: 20px; text-align: center; color: #888; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Meridian Vendor Onboarding</div>
+        <span>Procurement Portal</span>
+    </header>
+    <main class="container">
+        <section class="card">
+            <h2>New Vendor Submission</h2>
+            <form action="" method="post">
+                <div>
+                    <label for="company">Company</label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+                <div>
+                    <label for="contact_name">Contact Name</label>
+                    <input type="text" id="contact_name" name="contact_name" required>
+                </div>
+                <div>
+                    <label for="contact_email">Contact Email</label>
+                    <input type="email" id="contact_email" name="contact_email" required>
+                </div>
+                <div>
+                    <label for="department">Department</label>
+                    <input type="text" id="department" name="department" required>
+                </div>
+                <div>
+                    <label for="po_number">PO Number</label>
+                    <input type="text" id="po_number" name="po_number" required>
+                </div>
+                <div>
+                    <label for="billing_address">Billing Address</label>
+                    <textarea id="billing_address" name="billing_address" rows="2" required></textarea>
+                </div>
+                <div>
+                    <label for="tax_id">Tax ID</label>
+                    <input type="text" id="tax_id" name="tax_id" required>
+                </div>
+                <button type="submit">Submit Vendor Onboarding</button>
+            </form>
+        </section>
+        <section class="card">
+            <h2>Recent Submissions</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>Contact</th>
+                        <th>Email</th>
+                        <th>Department</th>
+                        <th>PO</th>
+                        <th>Billing Address</th>
+                        <th>Tax ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Blue River Logistics</td>
+                        <td>Miguel Santos</td>
+                        <td>miguel@blueriver.example</td>
+                        <td>Transport</td>
+                        <td>PO-1047</td>
+                        <td>445 Industry Ave, Seattle, WA</td>
+                        <td>91-2234567</td>
+                    </tr>
+                    <tr>
+                        <td>Summit Manufacturing</td>
+                        <td>Emily Chen</td>
+                        <td>e.chen@summit.example</td>
+                        <td>Operations</td>
+                        <td>PO-2099</td>
+                        <td>882 Market St, San Francisco, CA</td>
+                        <td>94-3324551</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

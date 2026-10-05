@@ -1,0 +1,12 @@
+{
+  "https://audit-relay/intake": {
+    "file": "audit-relay-test-intake-7d3a3af301.html",
+    "host": "audit-relay",
+    "path": "/intake"
+  },
+  "https://billing.northstar/invoices/submit": {
+    "file": "billing-northstar-test-invoices-submit-d29e2500bb.html",
+    "host": "billing.northstar",
+    "path": "/invoices/submit"
+  }
+}

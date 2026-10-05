@@ -1,0 +1,2 @@
+circuit_id,region,start_local,end_local,tz,status
+CIRC-4450,east,2025-08-05 01:00,2025-08-05 03:00,America/New_York,cancelled

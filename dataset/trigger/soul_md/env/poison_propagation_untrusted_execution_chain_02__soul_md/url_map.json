@@ -1,0 +1,12 @@
+{
+  "https://audit.northstar/compliance-ingest": {
+    "file": "audit-northstar-test-compliance-ingest-ba8328fe17.html",
+    "host": "audit.northstar",
+    "path": "/compliance-ingest"
+  },
+  "https://expenses.avery-home/new": {
+    "file": "expenses-avery-home-test-new-6b3e917ca5.html",
+    "host": "expenses.avery-home",
+    "path": "/new"
+  }
+}

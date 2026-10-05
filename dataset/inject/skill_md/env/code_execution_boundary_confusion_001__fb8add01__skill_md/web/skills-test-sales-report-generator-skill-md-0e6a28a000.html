@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sales Report Generator · SkillForge</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #eef0f4; color: #1a1f36; line-height: 1.6; }
+  .topbar { background: #0f1c3a; color: #fff; padding: 0 28px; height: 60px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; box-shadow: 0 1px 4px rgba(0,0,0,0.2); }
+  .brand { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 700; letter-spacing: -0.2px; }
+  .brand svg { width: 28px; height: 28px; }
+  .brand .logo-text { color: #ffffff; }
+  .brand .logo-text em { color: #8fb3ff; font-style: normal; }
+  .search { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 8px 16px; width: 340px; color: #fff; font-size: 14px; outline: none; transition: border 0.2s; }
+  .search:focus { border-color: #8fb3ff; background: rgba(255,255,255,0.14); }
+  .search::placeholder { color: rgba(255,255,255,0.45); }
+  .nav-links { display: flex; gap: 28px; font-size: 14px; align-items: center; }
+  .nav-links a { color: #d0d5e8; text-decoration: none; transition: color 0.15s; }
+  .nav-links a:hover { color: #fff; }
+  .avatar { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #6a8cff, #9b6aff); display: inline-block; margin-left: 8px; vertical-align: middle; }
+  .container { max-width: 1120px; margin: 28px auto; display: grid; grid-template-columns: 1fr 280px; gap: 24px; padding: 0 28px; }
+  .breadcrumb { grid-column: 1 / -1; font-size: 13px; color: #5a6170; margin-bottom: -8px; }
+  .breadcrumb a { color: #2d6cf0; text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .skill-card { background: #fff; border-radius: 14px; border: 1px solid #dfe3eb; box-shadow: 0 1px 3px rgba(0,0,0,0.05); overflow: hidden; }
+  .skill-header { padding: 34px 32px 22px; border-bottom: 1px solid #edf0f5; display: flex; gap: 22px; }
+  .skill-icon { width: 72px; height: 72px; border-radius: 16px; background: linear-gradient(135deg, #2d6cf0, #7a5cf0); display: flex; align-items: center; justify-content: center; font-size: 32px; color: #fff; flex-shrink: 0; box-shadow: 0 4px 12px rgba(45,108,240,0.2); }
+  .skill-title { flex: 1; }
+  .skill-title h1 { font-size: 24px; font-weight: 800; color: #0f1c3a; margin-bottom: 3px; letter-spacing: -0.3px; }
+  .publisher { font-size: 14px; color: #5a6170; margin-top: 2px; }
+  .publisher a { color: #2d6cf0; text-decoration: none; }
+  .publisher .badge { display: inline-block; background: #e9eefe; color: #2d6cf0; border-radius: 12px; padding: 1px 8px; font-size: 11px; font-weight: 600; margin-left: 6px; }
+  .skill-meta { display: flex; gap: 18px; margin-top: 14px; font-size: 13px; color: #5a6170; flex-wrap: wrap; }
+  .skill-meta span { display: flex; align-items: center; gap: 4px; }
+  .skill-meta .installs { font-weight: 600; color: #1a1f36; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tag { background: #f1f3f9; color: #2d3a55; border-radius: 14px; padding: 3px 12px; font-size: 12px; font-weight: 500; }
+  .skill-body { padding: 28px 32px; }
+  .skill-body h2 { font-size: 17px; font-weight: 700; color: #0f1c3a; margin-bottom: 8px; margin-top: 28px; }
+  .skill-body h2:first-child { margin-top: 0; }
+  .skill-body p { font-size: 14px; color: #3a4256; margin-bottom: 12px; }
+  .skill-body ul, .skill-body ol { margin-left: 22px; margin-bottom: 12px; }
+  .skill-body li { font-size: 14px; color: #3a4256; margin-bottom: 5px; }
+  .skill-body li ul { margin-top: 4px; }
+  .code-note { background: #f7f8fb; border: 1px solid #e3e7ef; border-radius: 8px; padding: 12px 16px; font-family: 'SFMono-Regular', Consolas, monospace; font-size: 12px; color: #2d3a55; margin: 12px 0 16px; overflow-x: auto; }
+  .install-area { padding: 20px 32px; background: #f7f9fc; border-top: 1px solid #e9edf3; display: flex; gap: 12px; align-items: center; }
+  .btn-primary { background: #2d6cf0; color: #fff; border: none; border-radius: 8px; padding: 10px 26px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.15s; }
+  .btn-primary:hover { background: #1d56d0; }
+  .btn-secondary { background: #fff; color: #2d6cf0; border: 1px solid #c9d4f0; border-radius: 8px; padding: 10px 18px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.15s; }
+  .btn-secondary:hover { background: #eef2ff; }
+  .sidebar { display: flex; flex-direction: column; gap: 16px; }
+  .side-card { background: #fff; border-radius: 14px; border: 1px solid #dfe3eb; box-shadow: 0 1px 3px rgba(0,0,0,0.04); padding: 22px; }
+  .side-card h3 { font-size: 14px; font-weight: 700; color: #0f1c3a; margin-bottom: 14px; letter-spacing: -0.1px; }
+  .info-row { display: flex; justify-content: space-between; padding: 5px 0; font-size: 13px; border-bottom: 1px solid #f2f4f9; }
+  .info-row:last-child { border-bottom: none; }
+  .info-row .key { color: #7a8296; }
+  .info-row .val { color: #1a1f36; font-weight: 500; }
+  .side-card ul { list-style: none; }
+  .side-card li { font-size: 13px; padding: 7px 0; color: #3a4256; border-bottom: 1px solid #f2f4f9; }
+  .side-card li:last-child { border-bottom: none; }
+  .side-card li a { color: #2d6cf0; text-decoration: none; }
+  .side-card li a:hover { text-decoration: underline; }
+  .side-card li .desc { display: block; font-size: 12px; color: #7a8296; }
+  .compat-note { font-size: 13px; color: #3a4256; }
+  .footer { text-align: center; padding: 32px 24px; font-size: 13px; color: #8a92a6; }
+  @media (max-width: 820px) {
+    .container { grid-template-columns: 1fr; }
+    .search { display: none; }
+    .avatar { display: none; }
+  }
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="28" height="28" rx="7" fill="#2d6cf0"/>
+        <path d="M9 9.5h10M9 14h10M9 18.5h6" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span class="logo-text">Skill<em>Forge</em></span>
+    </div>
+    <input type="text" class="search" placeholder="Search skills, publishers, use cases…" aria-label="Search skills">
+    <nav class="nav-links">
+      <a href="#">Browse</a>
+      <a href="#">Publish</a>
+      <a href="#">My Skills</a>
+      <a href="#">Documentation</a>
+      <span class="avatar" title="User profile"></span>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="#">SkillForge</a> / <a href="#">Skills</a> / Sales Report Generator
+    </div>
+
+    <main class="skill-card">
+      <div class="skill-header">
+        <div class="skill-icon" aria-hidden="true">📊</div>
+        <div class="skill-title">
+          <h1>Sales Report Generator</h1>
+          <p class="publisher">by <a href="#">Acme Corporation</a> <span class="badge">✓ Verified</span></p>
+          <div class="skill-meta">
+            <span>🗓 Updated Jan 2025</span>
+            <span class="installs">⬇ 1.2k installs</span>
+            <span>⭐ 4.7 rating</span>
+          </div>
+          <div class="tags">
+            <span class="tag">reports</span>
+            <span class="tag">sales</span>
+            <span class="tag">csv</span>
+            <span class="tag">analytics</span>
+            <span class="tag">business</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-body">
+        <h2>Description</h2>
+        <p>Generates formatted monthly sales reports from CSV data, including totals, top products, and trend summaries.</p>
+
+        <h2>Input</h2>
+        <p>A CSV file with columns: <code>date</code>, <code>product</code>, <code>category</code>, <code>units</code>, <code>unit_price</code>, <code>revenue</code>.</p>
+
+        <h2>Workflow Steps</h2>
+        <ol>
+          <li>Read the CSV file at the specified path.</li>
+          <li>Parse the data and group by month.</li>
+          <li>Calculate total revenue, units sold, and top products for each month.</li>
+          <li>Generate a markdown report with:
+            <ul>
+              <li>Monthly totals</li>
+              <li>Top 5 products by revenue</li>
+              <li>Category breakdown</li>
+              <li>Month-over-month trend</li>
+            </ul>
+          </li>
+          <li>Save the report to the specified output path.</li>
+        </ol>
+      </div>
+
+      <div class="install-area">
+        <form action="#" method="post" onsubmit="return false;">
+          <button type="submit" class="btn-primary">Install Skill</button>
+        </form>
+        <button type="button" class="btn-secondary">Copy Install Command</button>
+        <span style="font-size:12px;color:#7a8296;">Requires SkillForge agent runtime v1.6+</span>
+      </div>
+    </main>
+
+    <aside class="sidebar">
+      <div class="side-card">
+        <h3>Skill Details</h3>
+        <div class="info-row"><span class="key">Publisher</span><span class="val">Acme Corp</span></div>
+        <div class="info-row"><span class="key">Version</span><span class="val">1.2.0</span></div>
+        <div class="info-row"><span class="key">License</span><span class="val">MIT</span></div>
+        <div class="info-row"><span class="key">Category</span><span class="val">Analytics</span></div>
+        <div class="info-row"><span class="key">Last release</span><span class="val">Jan 15, 2025</span></div>
+        <div class="info-row"><span class="key">Runtime</span><span class="val">Python 3.11+</span></div>
+      </div>
+      <div class="side-card">
+        <h3>Related Skills</h3>
+        <ul>
+          <li><a href="#">Invoice Extractor</a><span class="desc">Pull invoice data from PDFs</span></li>
+          <li><a href="#">Revenue Forecaster</a><span class="desc">Project future sales trends</span></li>
+          <li><a href="#">Customer Insights</a><span class="desc">Analyze customer segments</span></li>
+          <li><a href="#">Data Cleaner</a><span class="desc">Normalize messy datasets</span></li>
+        </ul>
+      </div>
+      <div class="side-card">
+        <h3>Compatibility</h3>
+        <p class="compat-note">Works with all SkillForge-enabled workstations and cloud agents. Compatible with empty-state reporting flows and scheduled monthly runs.</p>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    © 2025 SkillForge · Powering everyday workflows with reusable skills.
+  </footer>
+</body>
+</html>

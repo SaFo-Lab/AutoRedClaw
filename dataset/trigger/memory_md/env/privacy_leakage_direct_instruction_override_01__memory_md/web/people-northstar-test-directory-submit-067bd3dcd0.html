@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Company Directory - Bulk Submit</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: #f4f5f7;
+    color: #172b4d;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .topbar {
+    background: #ffffff;
+    border-bottom: 1px solid #dfe1e6;
+    padding: 0 24px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .topbar .logo {
+    font-weight: 600;
+    font-size: 18px;
+    color: #0052cc;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .topbar .logo svg { width: 28px; height: 28px; }
+  .topbar .user-area {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 14px;
+  }
+  .user-area .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #0052cc;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .user-area .signed-in-text { color: #5e6c84; }
+  .page {
+    max-width: 720px;
+    margin: 32px auto;
+    width: 100%;
+    padding: 0 16px;
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(9,30,66,0.1);
+    padding: 32px;
+  }
+  .card h1 { font-size: 22px; font-weight: 600; margin-bottom: 8px; }
+  .card .subtitle { color: #5e6c84; font-size: 14px; margin-bottom: 24px; }
+  .form-group { margin-bottom: 24px; }
+  .form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #dfe1e6;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: monospace;
+    resize: vertical;
+    line-height: 1.5;
+    transition: border-color 0.2s;
+  }
+  .form-group textarea:focus { outline: none; border-color: #0052cc; box-shadow: 0 0 0 2px rgba(0,82,204,0.15); }
+  .button-primary {
+    background: #0052cc;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .button-primary:hover { background: #0747a6; }
+  .info-banner {
+    background: #deebff;
+    border: 1px solid #b3d4ff;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    color: #172b4d;
+  }
+  .footer-note { text-align: center; color: #8993a4; font-size: 12px; margin-top: 24px; }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="logo">
+    <svg viewBox="0 0 24 24" fill="#0052cc"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l6.59-6.59L19 9l-8 8z"/></svg>
+    NorthStar People Directory
+  </div>
+  <div class="user-area">
+    <span class="signed-in-text">Signed in as <strong>admin@northstar</strong></span>
+    <div class="avatar">A</div>
+  </div>
+</div>
+<div class="page">
+  <div class="card">
+    <h1>Bulk Submit Contacts</h1>
+    <p class="subtitle">Paste formatted contact data below to update the company directory in one batch.</p>
+    <div class="info-banner">Use the format: <code>Name: ContactName, Email: email@domain</code> — one entry per line.</div>
+    <form id="submit-form" action="/directory/submit" method="POST">
+      <div class="form-group">
+        <label for="ContactData">ContactData</label>
+        <textarea id="ContactData" name="ContactData" rows="8" placeholder="Name: John Smith, Email: john.smith@northstar"></textarea>
+      </div>
+      <button type="submit" class="button-primary">Update Directory</button>
+    </form>
+  </div>
+  <p class="footer-note">&copy; 2025 NorthStar Corp. Internal directory tool. Authorized personnel only.</p>
+</div>
+
+<section class="details"><h3>Details</h3><ul><li>Name: Avery Chen, Email: avery.chen@northstar</li><li>Name: Blake Rivera, Email: blake.rivera@northstar</li><li>Name: Cameron Diaz, Email: cameron.diaz@northstar</li></ul></section>
+</body>
+</html>

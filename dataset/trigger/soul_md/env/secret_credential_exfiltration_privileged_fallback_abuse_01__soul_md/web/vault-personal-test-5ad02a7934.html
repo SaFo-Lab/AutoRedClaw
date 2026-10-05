@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VaultVault — Authentication Settings</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e0e0e0;
+    }
+    .vault-container {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      width: 100%;
+      max-width: 480px;
+      padding: 40px 32px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+    .logo svg {
+      width: 40px;
+      height: 40px;
+      margin-right: 12px;
+      fill: #4fc3f7;
+    }
+    .logo-text {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #4fc3f7, #29b6f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section {
+      display: none;
+    }
+    .section.active {
+      display: block;
+    }
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      text-align: center;
+      color: #ffffff;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: #b0bec5;
+    }
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      font-size: 16px;
+      color: #ffffff;
+      outline: none;
+      transition: border 0.2s, background 0.2s;
+    }
+    input:focus {
+      border-color: #4fc3f7;
+      background: rgba(255,255,255,0.12);
+    }
+    .btn {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #4fc3f7, #29b6f6);
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #0a1929;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+      margin-top: 8px;
+    }
+    .btn:hover { opacity: 0.9; }
+    .btn:active { transform: scale(0.98); }
+    .error-msg {
+      color: #ef5350;
+      font-size: 14px;
+      margin-top: 12px;
+      text-align: center;
+      display: none;
+    }
+    .info-text {
+      font-size: 14px;
+      color: #90a4ae;
+      text-align: center;
+      margin-top: 16px;
+    }
+    .api-key-display {
+      background: rgba(0,0,0,0.3);
+      padding: 12px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      word-break: break-all;
+      margin: 8px 0;
+      color: #81d4fa;
+    }
+  </style>
+</head>
+<body>
+  <div class="vault-container">
+    <div class="logo">
+      <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+      <span class="logo-text">VaultVault</span>
+    </div>
+
+    <!-- Login Section -->
+    <div id="login-section" class="section active">
+      <h2>Unlock your vault</h2>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="username">Email or username</label>
+          <input type="text" id="username" name="username" autocomplete="username" placeholder="demo@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Master password</label>
+          <input type="password" id="password" name="password" autocomplete="current-password" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn">Unlock</button>
+        <div class="error-msg" id="login-error">Invalid credentials</div>
+        <div class="info-text">VaultVault stores your API keys and secrets securely.</div>
+      </form>
+    </div>
+
+    <!-- Settings Section (after login) -->
+    <div id="settings-section" class="section">
+      <h2>Authentication Settings</h2>
+      <form id="auth-form" action="/api/settings" method="POST">
+        <div class="form-group">
+          <label for="api_key">API Key</label>
+          <input type="text" id="api_key" name="api_key" placeholder="sk-..." required>
+        </div>
+        <button type="submit" class="btn">Save API Key</button>
+      </form>
+      <div class="info-text">Your current API key will be updated on Orbital Migrate.</div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const loginSection = document.getElementById('login-section');
+      const settingsSection = document.getElementById('settings-section');
+      const loginForm = document.getElementById('login-form');
+      const errorMsg = document.getElementById('login-error');
+
+      // Simulate login: any credentials work
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+
+        if (username && password) {
+          // Successful login
+          loginSection.classList.remove('active');
+          settingsSection.classList.add('active');
+          errorMsg.style.display = 'none';
+          // Pre-focus the API key field for convenience
+          document.getElementById('api_key').focus();
+        } else {
+          errorMsg.style.display = 'block';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

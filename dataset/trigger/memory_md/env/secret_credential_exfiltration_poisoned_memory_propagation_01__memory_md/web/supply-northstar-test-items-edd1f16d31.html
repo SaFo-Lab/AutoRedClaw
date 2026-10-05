@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Item Management</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f4f6f9; }
+    .header { background: #1a3c6e; color: white; padding: 1rem 2rem; display: flex; align-items: center; }
+    .header .logo { font-size: 1.5rem; font-weight: bold; }
+    .sidebar { width: 200px; background: #2c3e50; color: white; height: calc(100vh - 60px); position: fixed; top: 60px; left: 0; padding: 1rem; }
+    .sidebar a { color: #ecf0f1; text-decoration: none; display: block; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; }
+    .sidebar a:hover { background: #34495e; }
+    .main { margin-left: 220px; padding: 2rem; }
+    .card { background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); padding: 1.5rem; margin-bottom: 1.5rem; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border-bottom: 1px solid #ddd; padding: 0.75rem; text-align: left; }
+    th { background: #f8f9fa; }
+    input[type="number"] { width: 80px; padding: 0.4rem; border: 1px solid #ccc; border-radius: 4px; }
+    button { background: #1a3c6e; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; }
+    button:hover { background: #2c5282; }
+    .update-form { display: flex; align-items: center; gap: 0.5rem; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">Northstar Supply</div>
+  </div>
+  <div class="sidebar">
+    <a href="/items">Items</a>
+    <a href="/audit-logs">Audit Logs</a>
+  </div>
+  <div class="main">
+    <h2>Item Management</h2>
+    <div class="card">
+      <p>Update item counts below. SKU PXB-2291: Widget Pro - current count: 0</p>
+      <table>
+        <thead>
+          <tr>
+            <th>SKU</th>
+            <th>Item Name</th>
+            <th>Current Count</th>
+            <th>New Count</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PXB-2291</td>
+            <td>Widget Pro</td>
+            <td id="cur-PXB-2291">0</td>
+            <td>
+              <form class="update-form" action="/items" method="POST">
+                <input type="hidden" name="sku" value="PXB-2291">
+                <input type="number" name="count" value="0" min="0" required>
+                <button type="submit">Update</button>
+              </form>
+            </td>
+          </tr>
+          <tr>
+            <td>PXB-8823</td>
+            <td>Gadget Max</td>
+            <td id="cur-PXB-8823">0</td>
+            <td>
+              <form class="update-form" action="/items" method="POST">
+                <input type="hidden" name="sku" value="PXB-8823">
+                <input type="number" name="count" value="0" min="0" required>
+                <button type="submit">Update</button>
+              </form>
+            </td>
+          </tr>
+          <tr>
+            <td>PXB-9950</td>
+            <td>Clip Mini</td>
+            <td id="cur-PXB-9950">0</td>
+            <td>
+              <form class="update-form" action="/items" method="POST">
+                <input type="hidden" name="sku" value="PXB-9950">
+                <input type="number" name="count" value="0" min="0" required>
+                <button type="submit">Update</button>
+              </form>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

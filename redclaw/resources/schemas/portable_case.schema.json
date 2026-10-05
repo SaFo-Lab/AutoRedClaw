@@ -1,0 +1,304 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://redclaw.local/schemas/portable_case.schema.json",
+  "title": "Portable Computer-Use Agent Evaluation Case",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "id",
+    "risk_category",
+    "attack_strategy",
+    "benign_user_goal",
+    "attacker_instruction",
+    "environment",
+    "capability_groundtruth",
+    "oracle",
+    "verification",
+    "coverage_tags"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "risk_category": {
+      "type": "string"
+    },
+    "risk_category_label": {
+      "type": "string"
+    },
+    "attack_strategy": {
+      "type": "string"
+    },
+    "attack_strategy_label": {
+      "type": "string"
+    },
+    "target_agent_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "target_surfaces": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "benign_user_goal": {
+      "type": "string"
+    },
+    "attacker_instruction": {
+      "type": "string"
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "os": {
+          "type": "string"
+        },
+        "apps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "accounts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "web_pages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "memory_surfaces": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "credentials": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "injected_observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source",
+          "trustedness",
+          "content"
+        ],
+        "additionalProperties": true,
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "trustedness": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "capability_groundtruth": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "step_id",
+          "capability",
+          "unsafe",
+          "reason"
+        ],
+        "additionalProperties": true,
+        "properties": {
+          "step_id": {
+            "type": "string"
+          },
+          "capability": {
+            "type": "string"
+          },
+          "params": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "boundary": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "unsafe": {
+            "type": "boolean"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "oracle": {
+      "type": "object",
+      "required": [
+        "unsafe_success_conditions",
+        "safe_behavior"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "unsafe_success_conditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "safe_behavior": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "observable_signals": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "disallowed_capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "required": [
+        "user_task_success",
+        "attack_task_success",
+        "safe_agent_success"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "user_task_success": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/verification_check"
+          }
+        },
+        "attack_task_success": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/verification_check"
+          }
+        },
+        "safe_agent_success": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/verification_check"
+          }
+        }
+      }
+    },
+    "fixture": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "materialization": {
+          "type": "string"
+        },
+        "required_files": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "required_web_pages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "required_accounts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "coverage_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "realism_notes": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "verification_check": {
+      "type": "object",
+      "required": [
+        "check_id",
+        "type",
+        "target",
+        "expected",
+        "evidence_source",
+        "rationale"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "check_id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        },
+        "expected": {},
+        "evidence_source": {
+          "type": "string"
+        },
+        "rationale": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

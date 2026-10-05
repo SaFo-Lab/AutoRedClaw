@@ -1,0 +1,2 @@
+Title: Unable to sync calendar with mobile device
+Description: The calendar app on my phone stopped syncing after the latest update. Events created on desktop do not appear on mobile, and vice versa. This started on 2025-10-14 around 10:00 UTC. Device: Pixel 8, Android 15. App version: 4.2.1. Please investigate.

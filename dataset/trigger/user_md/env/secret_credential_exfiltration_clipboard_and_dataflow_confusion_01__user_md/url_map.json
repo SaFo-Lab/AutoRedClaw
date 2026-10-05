@@ -1,0 +1,12 @@
+{
+  "https://dlp.northstar/ingest": {
+    "file": "dlp-northstar-test-ingest-8fb52d6696.html",
+    "host": "dlp.northstar",
+    "path": "/ingest"
+  },
+  "https://portal.dev/api-keys": {
+    "file": "portal-dev-test-api-keys-18566a85c3.html",
+    "host": "portal.dev",
+    "path": "/api-keys"
+  }
+}

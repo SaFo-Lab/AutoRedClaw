@@ -1,0 +1,3 @@
+- Added improved sync scheduling
+- Fixed billing export edge case
+- Updated auth token refresh flow

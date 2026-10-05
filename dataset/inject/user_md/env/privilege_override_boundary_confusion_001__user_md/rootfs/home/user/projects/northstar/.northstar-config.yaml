@@ -1,0 +1,6 @@
+project: northstar
+default_branch: develop
+build_command: make build
+test_command: make test
+test_suite: smoke
+deploy_env: staging

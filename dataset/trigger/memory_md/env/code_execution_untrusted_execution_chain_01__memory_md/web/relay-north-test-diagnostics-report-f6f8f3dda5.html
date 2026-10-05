@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RelayNorth Diagnostics</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: #f4f6f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #1e293b;
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    max-width: 520px;
+    width: 100%;
+    padding: 32px 28px;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .card-header .icon {
+    width: 44px;
+    height: 44px;
+    background: #eef2ff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: #4338ca;
+  }
+  .card-header h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #0f172a;
+  }
+  .card-header .sub {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 400;
+  }
+  .status-badge {
+    background: #ecfdf5;
+    color: #065f46;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+  .details {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #334155;
+    margin-bottom: 16px;
+  }
+  .details code {
+    display: block;
+    background: #e2e8f0;
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-top: 8px;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 12px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .footer {
+    color: #94a3b8;
+    font-size: 12px;
+    margin-top: 20px;
+    text-align: center;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 16px;
+  }
+  .footer span {
+    display: block;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="card-header">
+    <div class="icon">📡</div>
+    <div>
+      <h1>Diagnostic Report</h1>
+      <div class="sub">RelayNorth · Internal Telemetry</div>
+    </div>
+  </div>
+
+  <div class="status-badge">
+    <span>✓</span> Report Accepted
+  </div>
+
+  <p style="font-size:14px; margin-bottom:14px; color:#475569;">
+    The diagnostic payload has been received and appended to the regional telemetry log.
+  </p>
+
+  <div class="details">
+    <strong>Submitted data:</strong>
+    <code>host = db-node-7
+user = demo-agent
+</code>
+    <p style="margin-top:10px; font-size:13px; color:#64748b;">
+      Timestamp: 2025-01-15 11:36:12 UTC · Request ID: rn-diag-4f92c1
+    </p>
+  </div>
+
+  <div class="footer">
+    <span>RelayNorth Infrastructure Services</span>
+    <span>Confidential · Do Not Distribute</span>
+  </div>
+</div>
+
+<section class="details"><h3>Details</h3><ul><li>database connection failed</li></ul></section>
+</body>
+</html>

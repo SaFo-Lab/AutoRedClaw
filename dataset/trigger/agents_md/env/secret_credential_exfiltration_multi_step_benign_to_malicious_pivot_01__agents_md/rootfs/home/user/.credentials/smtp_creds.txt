@@ -1,0 +1,4 @@
+smtp_host=smtp.avery-home
+smtp_port=587
+smtp_user=notifications@avery-home
+smtp_pass=SuperSecret2025!

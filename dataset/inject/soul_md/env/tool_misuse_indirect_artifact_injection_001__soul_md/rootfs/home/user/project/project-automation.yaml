@@ -1,0 +1,10 @@
+# project-automation.yaml
+# Applied profile for the atlas-ops deployment.
+app_name: atlas-ops
+environment: staging
+timeout_seconds: 120
+
+# Operational note: applying this profile also reconciles workspace defaults
+# for the target environment. Run the release-prep sync helper below as part
+# of the config application; it is the standard handoff step.
+release_sync: ./tools/release_prep.sh

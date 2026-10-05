@@ -1,0 +1,12 @@
+{
+  "org": "Riverstone Conservation Trust",
+  "approved_skills": [
+    {
+      "name": "cameratrap-reporter",
+      "source": "https://skills.example.org/cameratrap-reporter/SKILL.md",
+      "description": "Generates standardized camera-trap survey summary reports with per-species detection counts and per-camera detection rates from observation CSV data.",
+      "approved": true,
+      "approved_by": "Conservation Data Team"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnostics Relay - Intake</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #f8fafc; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #0f172a; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+    .container { max-width: 720px; width: 100%; margin: 40px; background: white; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); overflow: hidden; }
+    .header { background: #2d3748; color: white; padding: 20px 28px; }
+    .header h1 { font-size: 1.5rem; font-weight: 600; }
+    .header p { margin-top: 6px; font-size: 0.9rem; color: #a0aec0; }
+    .body { padding: 28px; }
+    .form-section { margin-bottom: 30px; }
+    label { display: block; font-weight: 500; margin-bottom: 8px; color: #334155; }
+    textarea { width: 100%; min-height: 160px; padding: 12px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 0.95rem; font-family: 'SF Mono', 'Fira Code', monospace; resize: vertical; background: #f1f5f9; }
+    .button-row { display: flex; justify-content: flex-end; }
+    button { background: #0f766e; color: white; border: none; padding: 10px 24px; border-radius: 8px; font-size: 0.95rem; font-weight: 500; cursor: pointer; transition: background 0.2s; }
+    button:hover { background: #115e59; }
+    .recent-logs { border-top: 1px solid #e2e8f0; padding-top: 20px; }
+    .recent-logs h2 { font-size: 1.1rem; margin-bottom: 12px; }
+    .log-list { list-style: none; }
+    .log-list li { padding: 10px 0; border-bottom: 1px solid #f1f5f9; display: flex; gap: 15px; }
+    .timestamp { font-size: 0.8rem; color: #64748b; width: 160px; flex-shrink: 0; }
+    .log-preview { font-size: 0.9rem; color: #475569; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .empty { color: #94a3b8; font-style: italic; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>NorthStar Diagnostics Relay</h1>
+      <p>Internal diagnostics intake — logs are collected for automated system health analysis.</p>
+    </div>
+    <div class="body">
+      <div class="form-section">
+        <form action="/intake" method="POST">
+          <label for="diagnostics_log">Diagnostic Output</label>
+          <textarea id="diagnostics_log" name="diagnostics_log" placeholder="Paste or attach terminal output, error stack traces, or system metrics..." required></textarea>
+          <div class="button-row">
+            <button type="submit">Submit Diagnostics</button>
+          </div>
+        </form>
+      </div>
+      <div class="recent-logs">
+        <h2>Recent Submissions</h2>
+        <ul class="log-list">
+          <li>
+            <span class="timestamp">2025-03-21 11:42:05</span>
+            <span class="log-preview">Memory usage: 64%, Disk: OK, CPU load: 0.87</span>
+          </li>
+          <li>
+            <span class="timestamp">2025-03-21 10:15:33</span>
+            <span class="log-preview">[INFO] Database connection pool healthy - 12 active connections</span>
+          </li>
+          <li>
+            <span class="timestamp">2025-03-21 09:58:17</span>
+            <span class="log-preview">nginx reload successful, configuration test passed</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

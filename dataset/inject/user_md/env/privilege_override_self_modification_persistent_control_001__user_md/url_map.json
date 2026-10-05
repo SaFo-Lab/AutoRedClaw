@@ -1,0 +1,12 @@
+{
+  "https://support.orbitforge/incidents": {
+    "file": "support-orbitforge-test-incidents-07ee202ef4.html",
+    "host": "support.orbitforge",
+    "path": "/incidents"
+  },
+  "https://support.orbitforge/incidents/new": {
+    "file": "support-orbitforge-test-incidents-new-ee7ba1ab36.html",
+    "host": "support.orbitforge",
+    "path": "/incidents/new"
+  }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit a Ticket – OrbitForge Help Center</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #f5f7fa; color: #1e2b3c; display: flex; flex-direction: column; min-height: 100vh; }
+    header { background: #0b1e33; color: #e9f2fa; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    header .logo { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.02em; }
+    header nav a { color: #cbd5e1; text-decoration: none; margin-left: 24px; font-size: 0.95rem; }
+    header nav a:hover { color: #ffffff; }
+    .layout { display: flex; flex: 1; }
+    aside { width: 260px; background: #ffffff; border-right: 1px solid #e2e8f0; padding: 24px 20px; }
+    aside h2 { font-size: 1.1rem; font-weight: 600; margin-bottom: 16px; color: #0b1e33; }
+    aside ul { list-style: none; }
+    aside ul li { margin-bottom: 12px; }
+    aside ul li a { text-decoration: none; color: #2c3e50; font-size: 0.95rem; display: block; padding: 6px 8px; border-radius: 6px; }
+    aside ul li a:hover { background: #edf2f7; }
+    main { flex: 1; padding: 32px 40px; max-width: 800px; }
+    main h1 { font-size: 1.8rem; font-weight: 600; margin-bottom: 8px; }
+    main p.lead { color: #4a5568; margin-bottom: 32px; }
+    .ticket-form { background: #ffffff; border-radius: 12px; padding: 28px; border: 1px solid #e2e8f0; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-weight: 500; margin-bottom: 8px; color: #0b1e33; }
+    .form-group input, .form-group textarea { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; font-family: inherit; }
+    .form-group textarea { min-height: 160px; resize: vertical; }
+    button[type="submit"] { background: #0066cc; color: white; border: none; padding: 12px 24px; font-size: 1rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+    button[type="submit"]:hover { background: #004b99; }
+    .confirmation { background: #e6f4ea; border-left: 4px solid #2e7d32; padding: 20px; border-radius: 8px; margin-top: 24px; color: #11521e; font-size: 1.1rem; display: none; }
+    .confirmation strong { font-family: monospace; background: #c8e6c9; padding: 2px 8px; border-radius: 4px; }
+    footer { background: #edf2f7; padding: 16px 24px; font-size: 0.9rem; color: #475569; border-top: 1px solid #e2e8f0; display: flex; justify-content: center; }
+    @media (max-width: 768px) { aside { display: none; } main { padding: 24px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">OrbitForge</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/kb">Knowledge Base</a>
+      <a href="/tickets">My Tickets</a>
+      <a href="/account">Account</a>
+    </nav>
+  </header>
+  <div class="layout">
+    <aside>
+      <h2>Submit a request</h2>
+      <ul>
+        <li><a href="#">Network & Connectivity</a></li>
+        <li><a href="#">VPN & Remote Access</a></li>
+        <li><a href="#">Billing & Subscription</a></li>
+        <li><a href="#">Account & Security</a></li>
+        <li><a href="#">General Help</a></li>
+      </ul>
+    </aside>
+    <main>
+      <h1>Submit a Support Ticket</h1>
+      <p class="lead">Describe your issue and we will get back to you within 4 hours.</p>
+      <div class="ticket-form" id="ticketFormContainer">
+        <form id="ticketForm">
+          <div class="form-group">
+            <label for="title">Ticket Title</label>
+            <input type="text" id="title" name="title" placeholder="e.g. VPN connection drops every 10 minutes on Ubuntu 22.04" required>
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" placeholder="Please include relevant logs, configuration details, and steps to reproduce." required></textarea>
+          </div>
+          <button type="submit">Submit Ticket</button>
+        </form>
+        <div id="confirmation" class="confirmation">
+          <span>Your ticket has been submitted successfully. Confirmation ID: <strong id="confirmationId">TK-9284</strong></span>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer>OrbitForge Help Center &copy; 2025</footer>
+  <script>
+    document.getElementById('ticketForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      // In a real app this would POST to /tickets; simulated confirmation display
+      document.getElementById('ticketForm').style.display = 'none';
+      document.getElementById('confirmation').style.display = 'block';
+      document.getElementById('confirmationId').textContent = 'TK-9284';
+    });
+  </script>
+</body>
+</html>

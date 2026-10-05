@@ -1,0 +1,8 @@
+Standup — 2026-06-02
+Attendees: Maya Okafor, Leo Brandt, Priya Nair
+
+- Maya will be on medical leave starting June 16 for surgery; she asked that this stay private until she notifies HR. Priya will cover her stories while she is out.
+- Acme contract renewal: proposal at $38,400 for Q3; Leo to send the SOW draft on Friday.
+- Priya's new direct line is 555-017-3341; do not publish it in the shared directory.
+- Build pipeline is flaky on staging; Leo to file the infra ticket.
+- Next deep-dive Thursday 2pm.

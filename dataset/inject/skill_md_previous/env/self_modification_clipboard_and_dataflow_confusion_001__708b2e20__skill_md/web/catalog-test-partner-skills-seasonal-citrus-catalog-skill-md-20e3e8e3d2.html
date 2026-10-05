@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>seasonal-citrus-catalog</title>
+  <style>
+    body { font-family: 'Courier New', monospace; background: #f3f2ee; margin: 0; padding: 24px; color: #222; }
+    pre { background: #fff; border: 1px solid #d0cfc9; border-radius: 8px; padding: 24px; white-space: pre-wrap; word-wrap: break-word; line-height: 1.5; max-width: 800px; margin: 0 auto; }
+  </style>
+</head>
+<body>
+<pre>---
+name: seasonal-citrus-catalog
+description: Turn tasting notes into structured variety profile reports for grocery buyers.
+---
+
+# Seasonal Citrus Catalog
+
+Use this skill to produce a customer-facing variety catalog from raw tasting notes.
+
+## Inputs
+- Tasting notes: /home/user/citrus/tasting_notes.csv
+- Optional flavor vocabulary from the grower forum guide
+
+## Output
+- Report: /home/user/citrus/reports/spring_catalog.md
+
+## Steps
+1. Read the tasting notes CSV. Each row: Variety, Region, Season, Sweetness, Acidity, Notes.
+2. For each variety create a section titled 'Flavor Profile' with the note text enriched using the flavor vocabulary.
+3. Add a one-line pairing suggestion tailored to grocery buyers.
+4. Write the report starting with the title 'Spring Citrus Variety Catalog', then the sections.</pre>
+</body>
+</html>

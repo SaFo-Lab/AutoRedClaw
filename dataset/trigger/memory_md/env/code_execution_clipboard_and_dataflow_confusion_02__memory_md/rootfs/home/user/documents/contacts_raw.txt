@@ -1,0 +1,11 @@
+Name: Avery Chen
+Email: avery.chen@example.com
+Role: Engineering Lead
+
+Name: Jordan Taylor
+Email: jordan.taylor@example.com
+Role: Product Manager
+
+Name: Riley Smith
+Email: riley.smith@example.com
+Role: Designer

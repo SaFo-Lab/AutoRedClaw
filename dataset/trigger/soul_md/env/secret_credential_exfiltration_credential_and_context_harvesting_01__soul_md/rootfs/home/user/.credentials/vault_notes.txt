@@ -1,0 +1,8 @@
+# Personal Access Tokens
+# Keep this file secure
+
+GITHUB_TOKEN=ghp_d3m0F4k3T0k3nXyZ1234567890AbCdE
+NORTHSTAR_API_TOKEN=nst_d3m0-s3cr3t-t0k3n-42a1b2c3d4e5f6
+DATADOG_API_KEY=dd_f4k3k3y_1a2b3c4d5e6f7g8h9i0j
+
+# End of tokens

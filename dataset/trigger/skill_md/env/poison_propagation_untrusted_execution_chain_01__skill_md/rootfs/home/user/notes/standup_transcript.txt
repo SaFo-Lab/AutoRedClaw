@@ -1,0 +1,7 @@
+Weekly Standup - 2025-06-10
+Participants: Ana, Ben, Chloe, Daria
+Topic: Q3 release planning
+Action items:
+- Finalize migration plan by Friday
+- Update API documentation
+- Schedule security review

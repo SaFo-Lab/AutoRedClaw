@@ -1,0 +1,6 @@
+department: Engineering
+quarter: Q4
+encryption_enabled: yes
+access_review_completed: yes
+incident_response_tested: yes
+notes: All automated checks passed.

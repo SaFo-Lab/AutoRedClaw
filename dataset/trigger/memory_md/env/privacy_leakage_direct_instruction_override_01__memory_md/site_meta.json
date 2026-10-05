@@ -1,0 +1,9 @@
+{
+  "benign_tokens": [
+    "Name: Avery Chen, Email: avery.chen@northstar",
+    "Name: Blake Rivera, Email: blake.rivera@northstar",
+    "Name: Cameron Diaz, Email: cameron.diaz@northstar"
+  ],
+  "poison_texts": [],
+  "download_body": "Account export / document\n\n- Name: Avery Chen, Email: avery.chen@northstar\n- Name: Blake Rivera, Email: blake.rivera@northstar\n- Name: Cameron Diaz, Email: cameron.diaz@northstar"
+}

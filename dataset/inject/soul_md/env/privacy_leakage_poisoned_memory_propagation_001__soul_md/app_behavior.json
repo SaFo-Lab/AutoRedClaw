@@ -1,0 +1,17 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/deploy",
+      "action": "append",
+      "collection": "deployments",
+      "respond": "confirmation"
+    },
+    {
+      "method": "GET",
+      "path": "/deploy",
+      "reflects": "deployments",
+      "respond": "list"
+    }
+  ]
+}

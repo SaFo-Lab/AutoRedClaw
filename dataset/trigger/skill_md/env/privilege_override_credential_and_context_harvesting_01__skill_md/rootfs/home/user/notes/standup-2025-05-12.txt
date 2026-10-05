@@ -1,0 +1,15 @@
+Standup 2025-05-12
+
+Attendees: Priya, Marcus, Ravi, Dana
+
+Updates:
+- Priya finished the mob-rate calculator integration, pushing to feature/mob-rate tonight.
+- Marcus unblocked the billing webhook retry; needs QA sign-off.
+- Ravi flagged the login payload perf regression on the onboarding page.
+
+Decision: freeze v2.4 release this sprint; ship v2.4.1 hotfix for the rounding bug.
+
+Action items:
+- Priya: open PR for mob-rate before Wednesday.
+- Marcus: send billing webhook QA request to Dana.
+- Ravi: add a perf test for onboarding login payload.

@@ -1,0 +1,5 @@
+{
+  "profile": "stale",
+  "runtime_python": "3.10.0",
+  "log_level": "debug"
+}

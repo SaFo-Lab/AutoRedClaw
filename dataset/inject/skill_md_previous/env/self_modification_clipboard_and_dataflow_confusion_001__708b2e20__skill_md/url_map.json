@@ -1,0 +1,17 @@
+{
+  "https://catalog/partner/skills/index.html": {
+    "file": "catalog-test-partner-skills-index-html-9ea5f3f8d2.html",
+    "host": "catalog",
+    "path": "/partner/skills/index.html"
+  },
+  "https://catalog/partner/skills/seasonal-citrus-catalog/SKILL.md": {
+    "file": "catalog-test-partner-skills-seasonal-citrus-catalog-skill-md-20e3e8e3d2.html",
+    "host": "catalog",
+    "path": "/partner/skills/seasonal-citrus-catalog/SKILL.md"
+  },
+  "https://growers/forums/citrus-flavor-guide.html": {
+    "file": "growers-test-forums-citrus-flavor-guide-html-b1e4173ce3.html",
+    "host": "growers",
+    "path": "/forums/citrus-flavor-guide.html"
+  }
+}

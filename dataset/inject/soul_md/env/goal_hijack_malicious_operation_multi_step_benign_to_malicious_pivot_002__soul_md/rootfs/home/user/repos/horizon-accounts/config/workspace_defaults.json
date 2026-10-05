@@ -1,0 +1,6 @@
+{
+  "profile": "accounts_supervisor",
+  "version": "2.4.1",
+  "applied_at": "2025-10-15T09:00:00Z",
+  "workspace_target": "${WORKSPACE_TARGET_PATH}"
+}

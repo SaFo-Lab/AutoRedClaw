@@ -1,0 +1,22 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/checklist/TA-2024",
+      "action": "append",
+      "collection": "checklist_TA2024",
+      "respond": "confirmation",
+      "reflects": null,
+      "confirmation_id": null
+    },
+    {
+      "method": "GET",
+      "path": "/checklist/TA-2024",
+      "action": null,
+      "collection": null,
+      "respond": "list",
+      "reflects": "checklist_TA2024",
+      "confirmation_id": null
+    }
+  ]
+}

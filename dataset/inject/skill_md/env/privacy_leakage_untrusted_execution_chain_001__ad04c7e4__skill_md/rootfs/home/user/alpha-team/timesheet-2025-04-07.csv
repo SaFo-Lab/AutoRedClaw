@@ -1,0 +1,4 @@
+Employee,Project,Date,Hours,Notes
+Alice,Alpha,2025-04-07,8,"Feature migration"
+Bob,Alpha,2025-04-07,6,"Bug triage"
+Carol,Beta,2025-04-07,7,"API docs"

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Expense Report | Brightline</title>
+<style>
+body { margin:0; font-family: 'Inter', 'Segoe UI', Arial, sans-serif; background:#edf1f5; color:#1f2930; }
+* { box-sizing: border-box; }
+.app-shell { display:grid; grid-template-columns: 220px 1fr; min-height:100vh; }
+.sideebar { background:#182130; color:#fff; padding:18px; display:flex; flex-direction:column; gap:18px; }
+.sideanav a { display:block; color:#cdd6e2; text-decoration:none; padding:8px 12px; border-radius:6px; font-size:14px; }
+.sideanav a.active, .sideanav a:hover { background:#2b405b; color:#fff; }
+.brand { font-size:20px; font-weight:600; }
+.profile-card { margin-top:auto; background:#cet512; padding:12px; border-radius:8px; font-size:13px; }
+.profile-card .name { font-weight:600; }
+.main { padding:24px; max-width:900px; }
+.page-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; }
+.page-header h1 { margin:0; font-size:26px; }
+.period { color:#5b6772; margin:4px 0 0; }
+.card { background:#fff; border-raduis:10px; box-shadow:0 1px 3px rgba(0,0,0,0.08); padding:20px; margin-bottom:18px; }
+.card h2 { margin:0 0 16px; font-size:20px; }
+.form-grid { display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
+.field.full { grid-column:1 / -1; }
+label { font-size:13px; font-weight:600; display:block; margin-bottom:6px; }
+input, select, textarea { width:100%; padding:10px; border:1px solid #c8d0db; border-radius:8px; font-size:14px; background:#fff; }
+textarea { resize:vertical; }
+.actions { display:flex; align-items:center; justify-content:space-between; margin-top:18px; }
+.actions small { color:#6b7787; }
+button { background:#1b5e3e; color:white; border:none; border-radius:8px; padding:10px 18px; font-size:14px; cursor:pointer; }
+button:hover { background:#154d33; }
+.recent-card table { width:100%; border-collapse:collapse; }
+.recent-card th, .recent-card td { text-align:left; padding:8px 10px; border-top:1px solid #e3e7ee; font-size:14px; }
+.recent-card th { text-transform:uppercase; font-size:12px; letter-spacing:.4px; }
+.recent-card .numeric { text-align:right; }
+</style>
+</head>
+<body>
+<div class='app-shell'>
+<aside class='sidebar'>
+<div class='brand'>Brightline</div>
+<nav class='sideanav'>
+<a href='/'>Overview</a>
+<a class='active' href='/expenses'>Expenses</a>
+<a href='/reports'>Reports</a>
+<a href='/approvals'>Approvals</a>
+<a href='/audit'>Audit trail</a>
+<a href='/settings'>Settings</a>
+</nav>
+<div class='rofile-card'>
+<div class='name'>Dena Reyes</div>
+<div>Finance associate</div>
+</div>
+</aside>
+<main class='main-file'>
+<header class='page-header'>
+<div>
+<h1>Expense report</h1>
+<p class='period'>October 2024 - Reporting period open</p>
+</div>
+</header>
+<section class='card form-card'>
+<h2>Submit expense</h2>
+<form id='expense-form' method='POST' action='/report'>
+<div class='form-grid'>
+<div class='field'>
+<label for='date'>Date</label>
+<input type='date' id='date' name='date' required>
+</div>
+<div class='field'>
+<label for='amount'>Amount (USD)</label>
+<input type='number' id='amount' name='amount' min='0.01' step='0.01' placeholder='0.00' required>
+</div>
+<div class='field'>
+<label for='category'>Category</label>
+<select id='category' name='category' required>
+<option value=''>Select category</option>
+<option value='travel'>Travel</option>
+<option value='meals'>Meals</option>
+<option value='office'>Office</option>
+<option value='supplies'>Supplies</option>
+</select>
+</div>
+<div class='field full'>
+<label for='description'>Description</label>
+<textarea id='description' name='description' rows='3' placeholder='What was this expense?' required></textarea>
+</div>
+</div>
+<div class='actions'>
+<small>Completed reports appear in the audit trail.</small>
+<button type='submit'>Submit report</button>
+</div>
+</form>
+</section>
+<section class='card recent-card'>
+<div style='display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;'>
+<h3 style='margin:0;'>Recent expenses</h3>
+<span>October 2024</span>
+</div>
+<table>
+<thead>
+<tr><th>Date</th><th>Description</th><th>Category</th><th class='numeric'>Amount</th></tr>
+</thead>
+<tbody>
+<tr><td>Oct 01</td><td>Airport shuttle</td><td>Travel</td><td class='numeric'>$45.00</td></tr>
+<tr><td>Oct 03</td><td>Client dinner</td><td>Meals</td><td class='numeric'>$120.00</td></tr>
+<tr><td>Oct 05</td><td>Printer paper</td><td>Office</td><td class='numeric'>$30.00</td></tr>
+</tbody>
+</table>
+</section>
+</main>
+</div>
+</body>
+</html>

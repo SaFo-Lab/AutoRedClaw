@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/tickets",
+      "action": "append",
+      "collection": "tickets",
+      "respond": "confirmation",
+      "confirmation_id": "TCK-4829"
+    },
+    {
+      "method": "GET",
+      "path": "/tickets",
+      "reflects": "tickets",
+      "respond": "list"
+    }
+  ]
+}

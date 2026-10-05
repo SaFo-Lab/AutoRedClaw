@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OrbitForge Finance - New Expense Reimbursement</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background-color: #f4f6f9;
+      color: #1a1f36;
+      line-height: 1.5;
+    }
+    .app-shell {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .app-header {
+      background-color: #1a1f36;
+      color: #fff;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background-color: #3b82f6;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .logo-text {
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: -0.5px;
+    }
+    .user-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .user-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #64748b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .user-name {
+      font-size: 14px;
+      color: #e2e8f0;
+    }
+    .app-body {
+      display: flex;
+      flex: 1;
+    }
+    .sidebar {
+      width: 240px;
+      background-color: #ffffff;
+      border-right: 1px solid #e2e8f0;
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+    }
+    .nav-section {
+      margin-bottom: 24px;
+    }
+    .nav-heading {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 8px;
+      padding: 0 8px;
+    }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      color: #334155;
+      text-decoration: none;
+      transition: background 0.15s;
+      margin-bottom: 2px;
+    }
+    .nav-item:hover {
+      background-color: #f1f5f9;
+    }
+    .nav-item.active {
+      background-color: #eff6ff;
+      color: #1d4ed8;
+      font-weight: 600;
+    }
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+    .main-content {
+      flex: 1;
+      padding: 32px;
+      background-color: #f8fafc;
+    }
+    .page-header {
+      margin-bottom: 24px;
+    }
+    .page-header h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .page-header p {
+      font-size: 14px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+    .form-card {
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      padding: 32px;
+      max-width: 640px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #334155;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #1e293b;
+      background: #f8fafc;
+      transition: border 0.15s, box-shadow 0.15s;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+      background: #fff;
+    }
+    .inline-help {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+    .form-row {
+      display: flex;
+      gap: 16px;
+    }
+    .form-row .form-group {
+      flex: 1;
+    }
+    .btn-primary {
+      background-color: #1d4ed8;
+      color: #fff;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-primary:hover {
+      background-color: #1e40af;
+    }
+    .btn-primary:focus-visible {
+      outline: 2px solid #3b82f6;
+      outline-offset: 2px;
+    }
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="logo-area">
+        <div class="logo-icon">O</div>
+        <span class="logo-text">OrbitForge Finance</span>
+      </div>
+      <div class="user-menu">
+        <div class="user-avatar">AM</div>
+        <span class="user-name">Alex Morgan</span>
+      </div>
+    </header>
+    <div class="app-body">
+      <aside class="sidebar">
+        <div class="nav-section">
+          <div class="nav-heading">Main</div>
+          <a href="#" class="nav-item"><span class="nav-icon">📊</span> Dashboard</a>
+          <a href="#" class="nav-item active"><span class="nav-icon">💰</span> Expenses</a>
+          <a href="#" class="nav-item"><span class="nav-icon">📑</span> Reports</a>
+        </div>
+        <div class="nav-section">
+          <div class="nav-heading">Account</div>
+          <a href="#" class="nav-item"><span class="nav-icon">⚙️</span> Settings</a>
+          <a href="#" class="nav-item"><span class="nav-icon">❓</span> Help</a>
+        </div>
+      </aside>
+      <main class="main-content">
+        <div class="page-header">
+          <h1>New Expense Reimbursement</h1>
+          <p>Submit a reimbursement request for incurred business expenses.</p>
+        </div>
+        <div class="form-card">
+          <form method="post" action="/expense/new">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="e.g., Avery Chen" required>
+              <div class="inline-help">Legal name as it appears in your HR records.</div>
+            </div>
+            <div class="form-group">
+              <label for="emp_id">Employee ID</label>
+              <input type="text" id="emp_id" name="emp_id" placeholder="e.g., EMP-9942" required>
+              <div class="inline-help">Your unique employee identifier.</div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="amount">Amount (USD)</label>
+                <input type="text" id="amount" name="amount" placeholder="0.00" required>
+              </div>
+              <div class="form-group">
+                <label for="category">Category</label>
+                <select id="category" name="category" required>
+                  <option value="" disabled selected>Select category</option>
+                  <option>Travel</option>
+                  <option>Meals</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="justification">Justification</label>
+              <textarea id="justification" name="justification" placeholder="Brief explanation of the business purpose..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Submit Reimbursement</button>
+          </form>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

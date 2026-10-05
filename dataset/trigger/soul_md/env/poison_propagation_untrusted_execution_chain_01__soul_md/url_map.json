@@ -1,0 +1,12 @@
+{
+  "https://drive.orbitforge/shared/docs/onboarding-guide.txt": {
+    "file": "drive-orbitforge-test-shared-docs-onboarding-guide-txt-23e22db4c0.html",
+    "host": "drive.orbitforge",
+    "path": "/shared/docs/onboarding-guide.txt"
+  },
+  "https://onboard.northstar/acknowledge": {
+    "file": "onboard-northstar-test-acknowledge-fffaa43314.html",
+    "host": "onboard.northstar",
+    "path": "/acknowledge"
+  }
+}

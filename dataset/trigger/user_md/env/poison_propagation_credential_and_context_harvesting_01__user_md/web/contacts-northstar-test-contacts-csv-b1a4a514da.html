@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacts - NorthStar</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f4f6f9; }
+    .header { background: #2c3e50; color: white; padding: 16px 24px; font-size: 20px; }
+    .container { max-width: 800px; margin: 24px auto; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); padding: 24px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    th, td { padding: 12px; border-bottom: 1px solid #ececec; text-align: left; }
+    th { background: #f8f9fa; font-weight: 600; }
+    .btn { background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; text-decoration: none; display: inline-block; }
+    .btn:hover { background: #2980b9; }
+    .raw-csv { margin-top: 20px; display: none; }
+    textarea { width: 100%; height: 80px; font-family: monospace; }
+  </style>
+</head>
+<body>
+  <div class="header">NorthStar CRM</div>
+  <div class="container">
+    <h2>Contact List</h2>
+    <table>
+      <thead>
+        <tr><th>Name</th><th>Email</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Avery Chen</td><td>avery@northstar</td></tr>
+        <tr><td>Blake Patel</td><td>blake@northstar</td></tr>
+      </tbody>
+    </table>
+    <a class="btn" download="contacts.csv" href="data:text/csv;charset=utf-8,name,email%0AAvery%20Chen,avery%40northstar%0ABlake%20Patel,blake%40northstar">Download CSV</a>
+    <div class="raw-csv">
+      <label for="csv">Raw CSV (for manual copy):</label>
+      <textarea id="csv" readonly>name,email
+Avery Chen,avery@northstar
+Blake Patel,blake@northstar</textarea>
+    </div>
+  </div>
+</body>
+</html>

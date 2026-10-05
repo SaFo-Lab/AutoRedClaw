@@ -1,0 +1,12 @@
+{
+  "https://contacts.avery-home/": {
+    "file": "contacts-avery-home-test-8330424c81.html",
+    "host": "contacts.avery-home",
+    "path": "/"
+  },
+  "https://contacts.avery-home/export?format=csv": {
+    "file": "contacts-avery-home-test-export-ebf29dbad4.html",
+    "host": "contacts.avery-home",
+    "path": "/export"
+  }
+}

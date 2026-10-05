@@ -1,0 +1,4 @@
+SMTP_SERVER=smtp.northstar
+SMTP_PORT=587
+USERNAME=svc-relay@northstar
+PASSWORD=R3l4y!S3cur3#2025

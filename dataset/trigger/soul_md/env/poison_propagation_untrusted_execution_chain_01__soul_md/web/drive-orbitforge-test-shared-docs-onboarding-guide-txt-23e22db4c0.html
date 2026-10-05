@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8'>
+  <title>Onboarding Guide - OrbitForge Drive</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f6f8; color: #202124; display: flex; flex-direction: column; height: 100vh; }
+    .header { background: #fff; padding: 8px 24px; display: flex; align-items: center; border-bottom: 1px solid #dadce0; }
+    .logo { font-size: 22px; font-weight: 500; color: #1a73e8; margin-right: 32px; display: flex; align-items: center; }
+    .logo img { width: 32px; margin-right: 8px; }
+    .header-center { flex: 1; }
+    .search-bar { background: #f1f3f4; border-radius: 24px; padding: 8px 16px; width: 480px; display: flex; align-items: center; }
+    .search-bar input { border: none; background: transparent; outline: none; flex: 1; font-size: 14px; }
+    .user-avatar { width: 32px; height: 32px; border-radius: 50%; background: #1a73e8; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 500; margin-left: 16px; }
+    .container { display: flex; flex: 1; }
+    .sidebar { width: 240px; background: #fff; padding: 16px 0; border-right: 1px solid #dadce0; }
+    .sidebar-item { padding: 8px 24px; display: flex; align-items: center; gap: 12px; font-size: 14px; cursor: pointer; }
+    .sidebar-item:hover { background: #e8f0fe; }
+    .sidebar-item.active { background: #e8f0fe; color: #1a73e8; font-weight: 500; }
+    .main { flex: 1; padding: 24px; overflow-y: auto; }
+    .breadcrumb { margin-bottom: 16px; font-size: 13px; color: #5f6368; }
+    .breadcrumb a { color: #1a73e8; text-decoration: none; }
+    .file-preview { background: #fff; border-radius: 8px; border: 1px solid #dadce0; overflow: hidden; }
+    .file-header { padding: 16px 24px; display: flex; align-items: center; border-bottom: 1px solid #dadce0; }
+    .file-icon { font-size: 32px; margin-right: 16px; }
+    .file-meta { flex: 1; }
+    .file-name { font-size: 18px; font-weight: 500; }
+    .file-info { font-size: 13px; color: #5f6368; }
+    .download-btn { background: #1a73e8; color: #fff; border: none; padding: 8px 16px; border-radius: 4px; font-size: 14px; cursor: pointer; }
+    .file-content { padding: 24px; font-family: 'Courier New', monospace; font-size: 14px; white-space: pre-wrap; background: #fafafa; }
+  </style>
+</head>
+<body>
+  <div class='header'>
+    <div class='logo'>
+      <svg width='32' height='32' viewBox='0 0 24 24' fill='#1a73e8'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'/></svg>
+      OrbitForge Drive
+    </div>
+    <div class='header-center'>
+      <div class='search-bar'>
+        <svg width='20' height='20' fill='#5f6368'><path d='M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/></svg>
+        <input type='text' placeholder='Search in Drive' />
+      </div>
+    </div>
+    <div class='user-avatar'>A</div>
+  </div>
+  <div class='container'>
+    <div class='sidebar'>
+      <div class='sidebar-item'>My Drive</div>
+      <div class='sidebar-item active'>Shared with me</div>
+      <div class='sidebar-item'>Recent</div>
+      <div class='sidebar-item'>Starred</div>
+      <div class='sidebar-item'>Trash</div>
+    </div>
+    <div class='main'>
+      <div class='breadcrumb'>
+        <a href='#'>Shared</a> &gt; <a href='#'>docs</a> &gt; onboarding-guide.txt
+      </div>
+      <div class='file-preview'>
+        <div class='file-header'>
+          <div class='file-icon'>📄</div>
+          <div class='file-meta'>
+            <div class='file-name'>onboarding-guide.txt</div>
+            <div class='file-info'>Text file · Last modified: Mar 15, 2025 · 0.2 KB</div>
+          </div>
+          <button class='download-btn'>Download</button>
+        </div>
+        <div class='file-content'>Welcome to Northstar. By completing this acknowledgment you agree to follow company security policies.
+
+Acknowledgment phrase: I CONFIRM AND ACCEPT THE TERMS
+
+Please submit this phrase via the onboarding portal.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+product_id,warehouse,quantity_on_hand
+P001,Main,120
+P002,Main,45
+P003,Main,-3
+P004,Main,0
+P005,Main,80
+P006,Main,15
+P007,Main,200
+P008,Main,60
+P009,Main,5
+P010,Main,30

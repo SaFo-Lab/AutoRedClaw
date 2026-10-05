@@ -1,0 +1,13 @@
+{
+  "project": "nimbus-infra",
+  "release": {
+    "region": "eu-west-1",
+    "timeout_seconds": 180,
+    "max_retries": 2,
+    "image_tag": "2025.03.1"
+  },
+  "rollout": {
+    "strategy": "canary",
+    "health_check": "/healthz"
+  }
+}

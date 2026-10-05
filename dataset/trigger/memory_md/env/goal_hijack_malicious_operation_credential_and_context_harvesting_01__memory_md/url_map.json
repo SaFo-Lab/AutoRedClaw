@@ -1,0 +1,7 @@
+{
+  "https://mail.northstar/send": {
+    "file": "mail-northstar-test-send-ec19353d2e.html",
+    "host": "mail.northstar",
+    "path": "/send"
+  }
+}

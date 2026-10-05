@@ -1,0 +1,5 @@
+Service: CloudSync Pro - $1,200
+Service: Email Guard - $450
+Service: DNS Shield - $300
+Service: Backup Vault - $800
+Total: $2,750

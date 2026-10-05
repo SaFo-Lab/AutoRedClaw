@@ -1,0 +1,82 @@
+name: redclaw-nemoclaw
+
+services:
+  controller: &controller
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: redclaw-nemoclaw-controller:v0.0.109
+    container_name: redclaw-nemoclaw-controller
+    init: true
+    restart: unless-stopped
+    environment: &controller-environment
+      HOME: /root
+      DOCKER_HOST: unix:///var/run/docker.sock
+      NEMOCLAW_AGENT: openclaw
+      NEMOCLAW_GATEWAY_PORT: "8080"
+      NEMOCLAW_NO_EXPRESS: "1"
+      NEMOCLAW_OPENSHELL_GATEWAY_BIN: /usr/bin/openshell-gateway
+      NEMOCLAW_OPENSHELL_GATEWAY_STATE_DIR: ${NEMOCLAW_SHARED_DIR}/gateway-state
+      NEMOCLAW_OPENSHELL_SANDBOX_BIN: ${NEMOCLAW_SHARED_DIR}/openshell-sandbox
+      NEMOCLAW_SHARED_DIR: ${NEMOCLAW_SHARED_DIR}
+      # The gateway asks the host Docker daemon to bind-mount per-sandbox JWTs
+      # from its XDG state directory. Keep that state in the same absolute,
+      # host-visible path used on both sides of the Docker socket.
+      XDG_STATE_HOME: ${NEMOCLAW_SHARED_DIR}/xdg-state
+    ports:
+      # The gateway keeps controller loopback:8080 exclusively so NemoClaw's
+      # ownership preflight sees one uncontested listener on later cases.
+      # Sandboxes still dial host:8080, which Docker publishes to this relay.
+      - "127.0.0.1:8080:8081"
+    volumes:
+      - type: bind
+        source: ${DOCKER_SOCKET}
+        target: /var/run/docker.sock
+      # OpenShell's Docker driver bind-mounts supervisor and guest TLS files
+      # into sibling sandboxes. This path must therefore be identical on the
+      # host and inside the controller.
+      - type: bind
+        source: ${NEMOCLAW_SHARED_DIR}
+        target: ${NEMOCLAW_SHARED_DIR}
+      - nemoclaw_home:/root/.nemoclaw
+      - openshell_config:/root/.config/openshell
+    healthcheck:
+      test: ["CMD-SHELL", "docker info >/dev/null && nemoclaw --version >/dev/null && openshell --version >/dev/null"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+    labels:
+      ai.redclaw.runtime-role: nemoclaw-controller
+      ai.redclaw.shim: "false"
+
+  # Separate official registry/gateway so AWS's local compatible-endpoint does
+  # not overwrite providers belonging to existing OpenRouter/custom sandboxes.
+  bedrock-controller:
+    <<: *controller
+    container_name: redclaw-nemoclaw-bedrock-controller
+    environment:
+      <<: *controller-environment
+      NEMOCLAW_GATEWAY_PORT: "8082"
+      NEMOCLAW_OPENSHELL_GATEWAY_STATE_DIR: ${NEMOCLAW_BEDROCK_SHARED_DIR}/gateway-state
+      NEMOCLAW_OPENSHELL_SANDBOX_BIN: ${NEMOCLAW_BEDROCK_SHARED_DIR}/openshell-sandbox
+      NEMOCLAW_SHARED_DIR: ${NEMOCLAW_BEDROCK_SHARED_DIR}
+      XDG_STATE_HOME: ${NEMOCLAW_BEDROCK_SHARED_DIR}/xdg-state
+    ports:
+      - "127.0.0.1:8082:8081"
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - type: bind
+        source: ${DOCKER_SOCKET}
+        target: /var/run/docker.sock
+      - type: bind
+        source: ${NEMOCLAW_BEDROCK_SHARED_DIR}
+        target: ${NEMOCLAW_BEDROCK_SHARED_DIR}
+      - nemoclaw_bedrock_home:/root/.nemoclaw
+      - openshell_bedrock_config:/root/.config/openshell
+
+volumes:
+  nemoclaw_home:
+  openshell_config:
+  nemoclaw_bedrock_home:
+  openshell_bedrock_config:

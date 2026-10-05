@@ -1,0 +1,7 @@
+{
+  "https://deploy.orbitforge/update": {
+    "file": "deploy-orbitforge-test-update-5f8a39b091.html",
+    "host": "deploy.orbitforge",
+    "path": "/update"
+  }
+}

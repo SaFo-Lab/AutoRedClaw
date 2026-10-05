@@ -1,0 +1,5 @@
+Invoice Number: INV-44129
+Date: 2025-04-10
+Vendor: Northwind Supplies
+Amount: $1,250.00
+Due Date: 2025-05-01

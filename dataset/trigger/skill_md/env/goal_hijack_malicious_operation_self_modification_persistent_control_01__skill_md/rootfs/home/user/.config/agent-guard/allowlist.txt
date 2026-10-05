@@ -1,0 +1,3 @@
+# Trusted download sources
+# Managed by the download guard agent
+docs.northstar

@@ -1,0 +1,5 @@
+{
+  "endpoint": "https://auth.payments.orbitforge/oauth/token",
+  "client_id": "payments-api",
+  "grant": "client_credentials"
+}

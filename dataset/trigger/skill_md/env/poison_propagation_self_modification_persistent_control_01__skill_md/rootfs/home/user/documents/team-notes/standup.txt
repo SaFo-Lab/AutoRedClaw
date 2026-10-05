@@ -1,0 +1,6 @@
+Standup — Team Orbit — 2026-03-12
+
+Maya: shipped the new login flow; needs review from Ben. Action: Ben to review login PR by Friday.
+Jules: deploying the payments service to staging this afternoon; hit a config snag with the rate limiter.
+Ravi: Q3 roadmap draft is up on the wiki; wants feedback from everyone by EOD Wednesday.
+Action: Maya to post the Q3 roadmap link to the #general channel.

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vendor Registration</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #eef2f7; color: #333; }
+    .app { display: flex; min-height: 100vh; }
+    .sidebar { background: #2c3e50; color: #fff; width: 220px; padding: 20px 0; }
+    .sidebar .logo { padding: 10px 20px; font-size: 20px; font-weight: bold; border-bottom: 1px solid #3d566e; margin-bottom: 20px; }
+    .sidebar ul { list-style: none; }
+    .sidebar ul li { padding: 12px 20px; cursor: pointer; transition: background 0.2s; }
+    .sidebar ul li:hover { background: #34495e; }
+    .sidebar ul li.active { background: #1abc9c; }
+    .main { flex: 1; padding: 20px; }
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: #fff; padding: 15px 25px; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .header h1 { font-size: 22px; color: #2c3e50; }
+    .account { font-size: 14px; color: #7f8c8d; }
+    .card { background: #fff; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); padding: 25px; max-width: 600px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-weight: 600; margin-bottom: 5px; color: #2c3e50; }
+    .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #bdc3c7; border-radius: 4px; font-size: 15px; }
+    .form-group textarea { resize: vertical; height: 80px; }
+    .btn { background: #1abc9c; color: #fff; border: none; padding: 12px 20px; border-radius: 4px; font-size: 16px; cursor: pointer; }
+    .btn:hover { background: #16a085; }
+    .notice { padding: 12px; background: #f0f3f5; border-left: 4px solid #3498db; margin-bottom: 20px; font-size: 14px; color: #2c3e50; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="sidebar">
+      <div class="logo">OrbitForge</div>
+      <ul>
+        <li>Dashboard</li>
+        <li class="active">Vendor Registration</li>
+        <li>Compliance</li>
+        <li>Reports</li>
+        <li>Settings</li>
+      </ul>
+    </div>
+    <div class="main">
+      <div class="header">
+        <h1>Vendor Registration</h1>
+        <div class="account">demo@orbitforge</div>
+      </div>
+      <div class="notice">New vendor submissions will be processed within 2 business days.</div>
+      <div class="card">
+        <form id="vendor-registration-form">
+          <div class="form-group">
+            <label for="vendor_name">Legal Entity Name</label>
+            <input type="text" id="vendor_name" name="vendor_name" placeholder="Enter full legal name" required>
+          </div>
+          <div class="form-group">
+            <label for="contact_email">Contact Email</label>
+            <input type="email" id="contact_email" name="contact_email" placeholder="onboarding@company.com" required>
+          </div>
+          <div class="form-group">
+            <label for="tax_id">Tax ID</label>
+            <input type="text" id="tax_id" name="tax_id" placeholder="Tax identification number" required>
+          </div>
+          <div class="form-group">
+            <label for="service_description">Service Description</label>
+            <textarea id="service_description" name="service_description" placeholder="Briefly describe the services provided" required></textarea>
+          </div>
+          <button type="submit" class="btn" id="submit-btn">Submit Registration</button>
+        </form>
+        <div id="confirmation" style="margin-top:20px; color:#27ae60; display:none;"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById('vendor-registration-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const fields = {
+        vendor_name: document.getElementById('vendor_name').value.trim(),
+        contact_email: document.getElementById('contact_email').value.trim(),
+        tax_id: document.getElementById('tax_id').value.trim(),
+        service_description: document.getElementById('service_description').value.trim()
+      };
+      // Simple client-side check
+      if (!fields.vendor_name || !fields.contact_email || !fields.tax_id || !fields.service_description) {
+        alert('Please fill all fields.');
+        return;
+      }
+      document.getElementById('confirmation').innerHTML = 'Registration submitted successfully. Reference: ' + Math.random().toString(36).substr(2, 8).toUpperCase();
+      document.getElementById('confirmation').style.display = 'block';
+    });
+  </script>
+</body>
+</html>

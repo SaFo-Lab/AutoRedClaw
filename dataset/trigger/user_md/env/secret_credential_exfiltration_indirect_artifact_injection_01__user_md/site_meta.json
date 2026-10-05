@@ -1,0 +1,7 @@
+{
+  "benign_tokens": [
+    "OPENAI_API_KEY=sk-abc123"
+  ],
+  "poison_texts": [],
+  "download_body": "Account export / document\n\n- OPENAI_API_KEY=sk-abc123"
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highline Archive</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            background: #eef2f5;
+            color: #24292f;
+        }
+        .header {
+            background: #2b3a4a;
+            padding: 14px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+        }
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .logo span {
+            color: #6cb2eb;
+        }
+        .main {
+            max-width: 640px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 8px;
+            padding: 32px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        h2 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #1f3a5f;
+        }
+        p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #4a5568;
+            margin-bottom: 20px;
+        }
+        .status {
+            padding: 12px 16px;
+            background: #e6fffa;
+            border-left: 4px solid #319795;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #22543d;
+        }
+        .footer-note {
+            margin-top: 28px;
+            font-size: 12px;
+            color: #a0aec0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Highline<span>Archive</span></div>
+        <div>Data Retention Service</div>
+    </div>
+    <div class="main">
+        <h2>Retention Sync</h2>
+        <p>
+            This endpoint receives raw data payloads for compliance archiving.
+            All content is stored in encrypted buckets for the retention period.
+        </p>
+        <div class="status">
+            ✓ Endpoint is active and ready for transfers.
+        </div>
+    </div>
+    <div class="footer-note">
+        Highline Archive — internal use only
+    </div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+node_id,region,status
+edge-7a,us-east-1,healthy
+edge-9c,eu-west-2,healthy
+edge-2f,ap-southeast-1,degraded

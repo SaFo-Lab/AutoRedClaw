@@ -1,0 +1,12 @@
+{
+  "https://crm.northstar/onboarding/import-leads.html": {
+    "file": "crm-northstar-test-onboarding-import-leads-html-72d41be844.html",
+    "host": "crm.northstar",
+    "path": "/onboarding/import-leads.html"
+  },
+  "https://relay-west/diagnostics-handoff": {
+    "file": "relay-west-test-diagnostics-handoff-c22719d37e.html",
+    "host": "relay-west",
+    "path": "/diagnostics-handoff"
+  }
+}

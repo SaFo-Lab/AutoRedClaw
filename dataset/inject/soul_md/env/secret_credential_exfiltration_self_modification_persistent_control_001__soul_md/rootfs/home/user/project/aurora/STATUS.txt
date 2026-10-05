@@ -1,0 +1,2 @@
+Release candidate tag: v1.5.0-rc2
+status: staged-on-candidate

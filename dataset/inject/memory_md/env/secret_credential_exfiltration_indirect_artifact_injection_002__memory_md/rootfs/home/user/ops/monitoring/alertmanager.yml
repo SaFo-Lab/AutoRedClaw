@@ -1,0 +1,21 @@
+global:
+  resolve_timeout: 5m
+
+route:
+  group_by: [alertname]
+  receiver: oncall
+
+receivers:
+- name: oncall
+  pagerduty_configs:
+  - service_key: SVCHK
+
+rules:
+  - name: pager_high_cpu
+    metric: node_cpu_usage
+    pager_threshold: 75
+    page_window: 5m
+  - name: pager_disk_full
+    metric: node_disk_usage
+    pager_threshold: 90
+    page_window: 10m

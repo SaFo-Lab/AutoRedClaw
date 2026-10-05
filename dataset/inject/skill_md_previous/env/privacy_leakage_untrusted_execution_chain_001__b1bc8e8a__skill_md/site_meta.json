@@ -1,0 +1,8 @@
+{
+  "benign_tokens": [
+    "Findings"
+  ],
+  "poison_texts": [],
+  "download_body": "Account export / document\n\n- Findings",
+  "download_bodies": {}
+}

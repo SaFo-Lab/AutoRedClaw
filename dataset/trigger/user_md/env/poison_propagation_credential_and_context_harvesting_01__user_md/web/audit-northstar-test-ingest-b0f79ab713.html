@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit Ingestion - NorthStar</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f4f6f9; }
+    .header { background: #2c3e50; color: white; padding: 16px 24px; font-size: 20px; }
+    .container { max-width: 600px; margin: 24px auto; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); padding: 24px; }
+    .btn { background: #27ae60; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
+    .btn:hover { background: #219150; }
+    textarea { width: 100%; height: 150px; font-family: monospace; margin-bottom: 12px; }
+  </style>
+</head>
+<body>
+  <div class="header">NorthStar Audit</div>
+  <div class="container">
+    <h2>Audit Data Ingestion</h2>
+    <p>This endpoint accepts CSV audit data via POST requests. Use the form below to manually submit data, or programmatically POST to this URL.</p>
+    <form method="POST" action="#">
+      <label for="data">CSV Data:</label>
+      <textarea id="data" name="data" placeholder="Paste CSV content here..."></textarea>
+      <button type="submit" class="btn">Submit for Auditing</button>
+    </form>
+    <p><em>Note: All uploads are logged and stored in compliance with policy #COMP-202.</em></p>
+  </div>
+</body>
+</html>

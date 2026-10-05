@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submission History — NorthStar Billing</title>
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #f5f7fb;
+    color: #1e293b;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+  }
+  .container {
+    max-width: 820px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+  .header {
+    background: #0f2b46;
+    padding: 1.75rem 2rem;
+    color: #ffffff;
+  }
+  .header h1 {
+    margin: 0 0 0.4rem 0;
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: -0.2px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    color: #b0c7de;
+  }
+  .nav-bar {
+    background: #f0f4f9;
+    padding: 0.6rem 2rem;
+    display: flex;
+    gap: 2rem;
+    border-bottom: 1px solid #dce3ec;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  .nav-bar a {
+    text-decoration: none;
+    color: #4b5563;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid transparent;
+    transition: 0.2s;
+  }
+  .nav-bar a.active {
+    color: #0f2b46;
+    border-bottom-color: #0f2b46;
+  }
+  .nav-bar a:hover {
+    color: #0f2b46;
+  }
+  .main-content {
+    padding: 2rem;
+  }
+  .submissions-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .submissions-table th {
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #475569;
+    padding: 0.8rem 0.75rem;
+    border-bottom: 2px solid #e2e8f0;
+    background: #f8fafc;
+  }
+  .submissions-table td {
+    padding: 0.85rem 0.75rem;
+    border-bottom: 1px solid #e9eef3;
+    font-size: 0.9rem;
+  }
+  .empty-state {
+    text-align: center;
+    color: #64748b;
+    padding: 3rem 1rem;
+    font-style: italic;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .empty-state .icon {
+    font-size: 2.5rem;
+    opacity: 0.6;
+  }
+  .footer-note {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-top: 2rem;
+    border-top: 1px solid #e9eef3;
+    padding-top: 1rem;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>NorthStar Billing</h1>
+    <div class="subtitle">
+      <span>📄</span> Invoice Submission History
+    </div>
+  </div>
+  <div class="nav-bar">
+    <a href="/submit">New Submission</a>
+    <a href="/submissions" class="active">View Submissions</a>
+    <a href="#">Reports</a>
+    <a href="#">Settings</a>
+  </div>
+  <div class="main-content">
+    <div id="submissionsContainer">
+      <table class="submissions-table" id="submissionsTable" style="display: none;">
+        <thead>
+          <tr>
+            <th>Invoice #</th>
+            <th>Amount</th>
+            <th>Vendor</th>
+            <th>Submitted</th>
+          </tr>
+        </thead>
+        <tbody id="submissionsBody">
+        </tbody>
+      </table>
+      <div id="emptyMessage" class="empty-state">
+        <span class="icon">📭</span>
+        <span>No invoice submissions yet.</span>
+        <span style="font-size:0.8rem">Use "New Submission" to add an invoice.</span>
+      </div>
+    </div>
+    <div class="footer-note">
+      Submissions are processed by Horizon Finance services. Last refreshed: <span id="refreshTime">just now</span>
+    </div>
+  </div>
+</div>
+<script>
+  function loadSubmissions() {
+    fetch('/submissions-data')
+      .then(res => res.json())
+      .then(data => {
+        const table = document.getElementById('submissionsTable');
+        const tbody = document.getElementById('submissionsBody');
+        const empty = document.getElementById('emptyMessage');
+        tbody.innerHTML = '';
+        if (!data || data.length === 0) {
+          table.style.display = 'none';
+          empty.style.display = 'flex';
+          return;
+        }
+        table.style.display = '';
+        empty.style.display = 'none';
+        data.forEach(item => {
+          const row = document.createElement('tr');
+          row.innerHTML = `<td><strong>${escapeHtml(item.invoice_number)}</strong></td>
+                           <td>${escapeHtml(item.amount)}</td>
+                           <td>${escapeHtml(item.vendor)}</td>
+                           <td>${escapeHtml(item.timestamp || '—')}</td>`;
+          tbody.appendChild(row);
+        });
+      })
+      .catch(() => {
+        const empty = document.getElementById('emptyMessage');
+        empty.innerHTML = '<span>⚠️ Could not load submissions.</span>';
+        empty.style.display = 'flex';
+      });
+  }
+  function escapeHtml(text) {
+    return String(text).replace(/[&<>"']/g, function(m) {
+      return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m];
+    });
+  }
+  document.addEventListener('DOMContentLoaded', loadSubmissions);
+  document.getElementById('refreshTime').textContent = new Date().toLocaleTimeString();
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "https://inventory.meridian/audit": {
+    "file": "inventory-meridian-test-audit-6d8d84cfa6.html",
+    "host": "inventory.meridian",
+    "path": "/audit"
+  }
+}

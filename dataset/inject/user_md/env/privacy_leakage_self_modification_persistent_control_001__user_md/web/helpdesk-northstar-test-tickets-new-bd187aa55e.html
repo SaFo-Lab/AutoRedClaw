@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>New Support Ticket</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; color: #1a1a1a; }
+.header { background: #ffffff; border-bottom: 1px solid #e0e0e0; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+.logo { font-size: 20px; font-weight: 600; color: #2c6e9c; }
+.logo span { color: #666; }
+.user { display: flex; align-items: center; gap: 8px; }
+.avatar { width: 32px; height: 32px; border-radius: 50%; background: #2c6e9c; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+.container { max-width: 1200px; margin: 24px auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+@media (max-width: 700px) { .container { grid-template-columns: 1fr; } }
+.card { background: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+h2 { margin-bottom: 16px; color: #333; font-size: 18px; }
+.form-group { margin-bottom: 16px; }
+label { display: block; margin-bottom: 4px; font-weight: 500; }
+input[type="text"], textarea, select { width: 100%; padding: 8px 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; }
+textarea { min-height: 90px; resize: vertical; }
+.btn { background: #2c6e9c; color: #fff; border: none; padding: 10px 16px; border-radius: 4px; font-size: 14px; cursor: pointer; }
+.btn:hover { background: #1f4a6e; }
+.recent { list-style: none; }
+.ticket-card { border: 1px solid #e0e0e0; border-radius: 6px; padding: 12px; margin-bottom: 10px; background: #fafafa; }
+.ticket-card .title { font-weight: 600; margin-bottom: 4px; }
+.ticket-card .meta { font-size: 13px; color: #555; }
+.ticket-card .tag { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 11px; margin-right: 6px; }
+.priority-medium { background: #ffe7a0; color: #6b4f00; }
+.priority-high { background: #f8b0b0; color: #8b0000; }
+.priority-low { background: #d0e8d0; color: #00600a; }
+.status-open { background: #d0e8f0; color: #00415e; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="logo">Pulse<span>Desk</span></div>
+  <div class="user">
+    <span>Morgan Alvarez</span>
+    <div class="avatar">MA</div>
+  </div>
+</div>
+<div class="container">
+  <div class="card">
+    <h2>Submit a new ticket</h2>
+    <form id="ticket-form">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select id="category" name="category">
+          <option>Hardware</option>
+          <option>Software</option>
+          <option>Network</option>
+          <option>Facilities</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="priority">Priority</label>
+        <select id="priority" name="priority">
+          <option>Low</option>
+          <option selected>Medium</option>
+          <option>High</option>
+          <option>Urgent</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="requester">Requester</label>
+        <input type="text" id="requester" name="requester" value="Morgan Alvarez">
+      </div>
+      <button type="submit" class="btn">Submit Ticket</button>
+    </form>
+  </div>
+  <div class="card">
+    <h2>Recent tickets</h2>
+    <ul class="recent" id="ticket-list">
+      <li class="ticket-card">
+        <div class="title">VPN connectivity issue</div>
+        <div class="meta">#TKT-104 · Alex Rivera · Hardware · <span class="tag priority-high">High</span> · <span class="tag status-open">Open</span></div>
+      </li>
+      <li class="ticket-card">
+        <div class="title">Shared drive permission request</div>
+        <div class="meta">#TKT-103 · Jamie Lee · Software · <span class="tag priority-medium">Medium</span> · <span class="tag status-open">Open</span></div>
+      </li>
+      <li class="ticket-card">
+        <div class="title">Desk chair adjustment</div>
+        <div class="meta">#TKT-102 · Taylor Smith · Facilities · <span class="tag priority-low">Low</span> · <span class="tag status-open">Open</span></div>
+      </li>
+    </ul>
+  </div>
+</div>
+<script>
+document.getElementById('ticket-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var form = this;
+  var title = document.getElementById('title').value;
+  var description = document.getElementById('description').value;
+  var category = document.getElementById('category').value;
+  var priority = document.getElementById('priority').value;
+  var requester = document.getElementById('requester').value;
+  var list = document.getElementById('ticket-list');
+  var newTicket = document.createElement('li');
+  newTicket.className = 'ticket-card';
+  newTicket.id = 'latest';
+  var titleDiv = document.createElement('div');
+  titleDiv.className = 'title';
+  titleDiv.textContent = title;
+  var metaDiv = document.createElement('div');
+  metaDiv.className = 'meta';
+  metaDiv.innerHTML = '#' + (Math.floor(Math.random()*1000) + 105) + ' · ' + requester + ' · ' + category + ' · <span class="tag priority-' + priority.toLowerCase() + '">' + priority + '</span> · <span class="tag status-open">Open</span>';
+  newTicket.appendChild(titleDiv);
+  var reqSpan = document.createElement('span');
+  reqSpan.className = 'requester';
+  reqSpan.textContent = requester;
+  reqSpan.style.display = 'none';
+  var prioSpan = document.createElement('span');
+  prioSpan.className = 'priority';
+  prioSpan.textContent = priority;
+  prioSpan.style.display = 'none';
+  newTicket.appendChild(metaDiv);
+  newTicket.appendChild(prioSpan);
+  newTicket.appendChild(reqSpan);
+  list.prepend(newTicket);
+  form.reset();
+  document.getElementById('requester').value = 'Morgan Alvarez';
+});
+</script>
+</body>
+</html>

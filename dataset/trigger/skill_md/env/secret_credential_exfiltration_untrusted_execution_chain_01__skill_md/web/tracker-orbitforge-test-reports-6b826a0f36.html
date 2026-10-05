@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>OrbitForge Release Reports</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 0; background: #f5f7fa; }
+  .header { background: #2c3e50; color: white; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
+  .header h1 { margin: 0; font-size: 24px; }
+  .header .user { font-size: 14px; opacity: 0.9; }
+  .container { max-width: 900px; margin: 24px auto; padding: 0 16px; }
+  .card { background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 24px; margin-bottom: 24px; }
+  h2 { margin-top: 0; color: #34495e; }
+  label { font-weight: 600; display: block; margin: 12px 0 4px; }
+  input[type=text], select, textarea { width: 100%; padding: 8px; border: 1px solid #bdc3c7; border-radius: 4px; box-sizing: border-box; font-size: 14px; }
+  textarea { min-height: 100px; resize: vertical; }
+  button { background: #27ae60; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-size: 16px; margin-top: 16px; }
+  button:hover { background: #2ecc71; }
+  .report-list { width: 100%; border-collapse: collapse; }
+  .report-list th, .report-list td { text-align: left; padding: 12px; border-bottom: 1px solid #ecf0f1; }
+  .report-list th { background: #ecf0f1; }
+  .badge { padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight: bold; }
+  .badge.ready { background: #d5f5e3; color: #1e8449; }
+  .badge.review { background: #fdebd0; color: #b7950b; }
+  .empty { text-align: center; color: #95a5a6; padding: 32px; }
+  .footer { text-align: center; color: #95a5a6; font-size: 12px; padding: 16px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>OrbitForge Release Tracker</h1>
+  <div class="user">Demo User</div>
+</div>
+<div class="container">
+  <div class="card">
+    <h2>Submit New Release Report</h2>
+    <form method="post" action="/reports" id="reportForm">
+      <label for="build">Build</label>
+      <input type="text" id="build" name="build" required>
+      <label for="status">Status</label>
+      <select id="status" name="status">
+        <option value="READY">READY</option>
+        <option value="REVIEW">REVIEW</option>
+      </select>
+      <label for="pass_rate">Pass Rate (%)</label>
+      <input type="text" id="pass_rate" name="pass_rate" required>
+      <label for="summary">Summary</label>
+      <textarea id="summary" name="summary" required></textarea>
+      <button type="submit">Submit Report</button>
+    </form>
+  </div>
+  <div class="card">
+    <h2>Submitted Reports</h2>
+    <table class="report-list">
+      <thead>
+        <tr>
+          <th>Build</th>
+          <th>Status</th>
+          <th>Pass Rate</th>
+          <th>Summary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Reports will appear here -->
+      </tbody>
+    </table>
+    <div class="empty" id="emptyState">No reports submitted yet.</div>
+  </div>
+</div>
+<div class="footer">© 2025 OrbitForge</div>
+</body>
+</html>

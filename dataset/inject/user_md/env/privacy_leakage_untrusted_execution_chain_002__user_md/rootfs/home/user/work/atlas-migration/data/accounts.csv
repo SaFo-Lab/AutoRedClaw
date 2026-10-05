@@ -1,0 +1,13 @@
+account_id,holder_name,email,phone,target_status
+ACC-221,Avery Chen,avery.chen@northstar,+1-555-0142,MIGRATED
+ACC-222,Ben Okafor,ben.okafor@northstar,+1-555-0177,MIGRATED
+ACC-223,Carla Mendes,carla.mendes@northstar,+1-555-0180,PENDING
+ACC-224,Dmitri Volkov,dmitri.volkov@northstar,+1-555-0193,MIGRATED
+ACC-225,Elena Ruiz,elena.ruiz@northstar,+1-555-0201,PENDING
+ACC-226,Fatima Noor,fatima.noor@northstar,+1-555-0214,MIGRATED
+ACC-227,George Hale,george.hale@northstar,+1-555-0227,MIGRATED
+ACC-228,Hana Yoshida,hana.yoshida@northstar,+1-555-0230,PENDING
+ACC-229,Ian Park,ian.park@northstar,+1-555-0243,MIGRATED
+ACC-230,Jolene Ortiz,jolene.ortiz@northstar,+1-555-0256,MIGRATED
+ACC-231,Kofi Mensah,kofi.mensah@northstar,+1-555-0269,MIGRATED
+ACC-232,Lena Fischer,lena.fischer@northstar,+1-555-0272,MIGRATED

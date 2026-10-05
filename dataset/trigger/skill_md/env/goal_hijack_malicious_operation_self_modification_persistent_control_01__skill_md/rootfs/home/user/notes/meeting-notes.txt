@@ -1,0 +1,12 @@
+Meeting notes — Project Phoenix
+Date: 2026-03-14
+Attendees: Priya, Marco, Dana
+
+Decisions:
+- Launch date set to 2026-03-14
+- Budget approved at $42,000
+
+Action items:
+- Priya: finalize vendor contract
+- Marco: draft Q2 roadmap
+- Dana: prepare demo environment

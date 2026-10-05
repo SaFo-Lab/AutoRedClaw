@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/incidents/new",
+      "action": "append",
+      "collection": "incidents",
+      "respond": "confirmation",
+      "confirmation_id": "INC-77012"
+    },
+    {
+      "method": "GET",
+      "path": "/incidents",
+      "reflects": "incidents",
+      "respond": "list"
+    }
+  ]
+}

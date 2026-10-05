@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orbit Forge Intake Portal</title>
+<style>
+  :root {
+    --primary: #2c3e50;
+    --accent: #3498db;
+    --bg: #ecf0f1;
+    --card-bg: #ffffff;
+    --border: #d5d8dc;
+    --text: #333;
+    --text-light: #666;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+  header .logo { font-size: 1.4rem; font-weight: 600; letter-spacing: 0.05em; }
+  header .user { font-size: 0.9rem; background: rgba(255,255,255,0.2); padding: 0.3rem 0.8rem; border-radius: 20px; }
+  .container { max-width: 1200px; margin: 2rem auto; padding: 0 2rem; }
+  h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--primary); }
+  .subtitle { color: var(--text-light); margin-bottom: 2rem; }
+  .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+  .card h2 { font-size: 1.2rem; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; margin-bottom: 1rem; }
+  .form-row { display: flex; gap: 1.5rem; margin-bottom: 1.2rem; }
+  .form-row .field { flex: 1; }
+  label { display: block; font-weight: 600; margin-bottom: 0.3rem; color: var(--text); }
+  input, select { width: 100%; padding: 0.5rem; border: 1px solid var(--border); border-radius: 4px; font-size: 1rem; background: #f8f9fa; }
+  input:focus, select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 2px rgba(52,152,219,0.2); }
+  .btn-submit { background: var(--accent); color: white; border: none; padding: 0.75rem 2rem; font-size: 1rem; border-radius: 4px; cursor: pointer; margin-top: 0.5rem; transition: background 0.2s; }
+  .btn-submit:hover { background: #2980b9; }
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; background: #f8f9fa; padding: 0.5rem; border-bottom: 2px solid var(--border); color: var(--text-light); font-weight: 600; }
+  td { padding: 0.5rem; border-bottom: 1px solid var(--border); }
+  .empty-state { text-align: center; color: var(--text-light); padding: 2rem; }
+  .status { padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.8rem; font-weight: 600; }
+  .status-submitted { background: #d4edda; color: #155724; }
+  .status-draft { background: #ffeeba; color: #856404; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .footer { text-align: center; margin-top: 2rem; color: var(--text-light); font-size: 0.8rem; }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Orbit Forge</div>
+  <div class="user">Signed in as demo@orbitforge</div>
+</header>
+
+<div class="container">
+  <h1>Contractor Engagement Intake</h1>
+  <p class="subtitle">Submit and track vendor Engagement Requests</p>
+
+  <div class="card">
+    <h2>New Engagement Request</h2>
+    <form id="requestForm" action="/requests" method="POST">
+      <div class="form-row">
+        <div class="field">
+          <label for="vendor_name">Vendor Name</label>
+          <input type="text" id="vendor_name" name="vendor_name" placeholder="e.g., Northwind Industrial Co." required>
+        </div>
+        <div class="field">
+          <label for="contact_person">Contact Person</label>
+          <input type="text" id="contact_person" name="contact_person" placeholder="Full name" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="contact_email">Contact Email</label>
+          <input type="email" id="contact_email" name="contact_email" placeholder="name@company.com" required>
+        </div>
+        <div class="field">
+          <label for="role">Role / Title</label>
+          <input type="text" id="role" name="role" placeholder="e.g., Mechanical Consultant" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="daily_rate">Daily Rate (USD)</label>
+          <input type="number" id="daily_rate" name="daily_rate" min="0" step="10" placeholder="e.g., 980" required>
+        </div>
+        <div class="field">
+          <label for="engagement_type">Engagement Type</label>
+          <select id="engagement_type" name="engagement_type" required>
+            <option value="">Select type</option>
+            <option value="FIXED_SCOPE">FIXED_SCOPE</option>
+            <option value="TIME_AND_MATERIALS">TIME_AND_MATERIALS</option>
+            <option value="RETAINER">RETAINER</option>
+            <option value="OTHER">OTHER</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="start_date">Start Date</label>
+          <input type="date" id="start_date" name="start_date" required>
+        </div>
+        <div class="field">
+          <label for="end_date">End Date</label>
+          <input type="date" id="end_date" name="end_date" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="budget_code">Budget Code</label>
+          <input type="text" id="budget_code" name="budget_code" placeholder="e.g., ORB-2047-Q3" required>
+        </div>
+      </div>
+      <button type="submit" class="btn-submit">Submit Request</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <h2>Recent Requests</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Vendor</th>
+          <th>Contact</th>
+          <th>Role</th>
+          <th>Type</th>
+          <th>Budget Code</th>
+          <th>Status</th>
+          <th>Created</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Acme Logistics</td>
+          <td>J. Smith</td>
+          <td>Supply Chain Analyst</td>
+          <td>TIME_AND_MATERIALS</td>
+          <td>ORB-2045-Q2</td>
+          <td><span class="status status-submitted">Submitted</span></td>
+          <td>2025-04-02</td>
+        </tr>
+        <tr>
+          <td>Bluepeak Partners</td>
+          <td>M. Chen</td>
+          <td>Cloud Architect</td>
+          <td>RETAINER</td>
+          <td>ORB-2046-Q2</td>
+          <td><span class="status status-submitted">Submitted</span></td>
+          <td>2025-04-10</td>
+        </tr>
+        <tr>
+          <td>Fusion Wearables</td>
+          <td>K. Patel</td>
+          <td>IoT Engineer</td>
+          <td>FIXED_SCOPE</td>
+          <td>ORB-2049-Q3</td>
+          <td><span class="status status-draft">Draft</span></td>
+          <td>2025-05-01</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="empty-state" style="display:none;">No requests yet.</p>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>Orbit Forge Procurement &middot; Internal Use Only</p>
+</footer>
+</body>
+</html>

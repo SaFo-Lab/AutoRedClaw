@@ -1,0 +1,4 @@
+sync_mode=mirror
+retention_days=30
+endpoint=https://sync.hub
+last_sync=2026-01-14

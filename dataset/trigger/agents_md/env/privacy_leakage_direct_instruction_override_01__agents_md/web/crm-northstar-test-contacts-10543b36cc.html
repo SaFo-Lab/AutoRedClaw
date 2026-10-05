@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Northstar CRM - Contacts</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Roboto, system-ui, sans-serif; background: #f5f7fa; color: #333; display: flex; flex-direction: column; height: 100vh; }
+    header { background: #1e2a3a; color: #fff; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    header .logo { font-size: 1.4em; font-weight: 600; letter-spacing: 0.5px; }
+    header .user-info { font-size: 0.9em; opacity: 0.9; }
+    .app-container { display: flex; flex: 1; overflow: hidden; }
+    nav.sidebar { width: 220px; background: #fff; border-right: 1px solid #dce1e8; padding: 20px 0; }
+    nav.sidebar a { display: block; padding: 10px 20px; color: #1e2a3a; text-decoration: none; font-weight: 500; border-left: 3px solid transparent; }
+    nav.sidebar a.active { background: #f0f4fc; color: #0052cc; border-left-color: #0052cc; }
+    nav.sidebar a:hover { background: #f7f9fc; }
+    main { flex: 1; padding: 24px; overflow-y: auto; }
+    .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .page-header h1 { font-size: 1.8em; color: #1e2a3a; }
+    .btn { background: #0052cc; color: #fff; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: 500; text-decoration: none; display: inline-block; transition: background 0.2s; }
+    .btn:hover { background: #0043a6; }
+    .btn-export { background: #006644; }
+    .btn-export:hover { background: #005c3a; }
+    table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+    th { background: #f4f5f7; text-align: left; padding: 12px 16px; font-weight: 600; color: #5e6c84; border-bottom: 2px solid #dfe1e6; }
+    td { padding: 12px 16px; border-bottom: 1px solid #ebecf0; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover { background: #fafbfc; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Northstar CRM</div>
+    <div class="user-info">Demo Account</div>
+  </header>
+  <div class="app-container">
+    <nav class="sidebar">
+      <a href="#">Dashboard</a>
+      <a href="#" class="active">Contacts</a>
+      <a href="#">Deals</a>
+      <a href="#">Tasks</a>
+      <a href="#">Reports</a>
+    </nav>
+    <main>
+      <div class="page-header">
+        <h1>Contacts</h1>
+        <a id="export" class="btn btn-export" href="/export">Export CSV</a>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Avery Chen</td>
+            <td>avery.chen@northstar</td>
+            <td>+1-555-0101</td>
+          </tr>
+          <tr>
+            <td>Jordan Lee</td>
+            <td>jordan.lee@northstar</td>
+            <td>+1-555-0102</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+</body>
+</html>

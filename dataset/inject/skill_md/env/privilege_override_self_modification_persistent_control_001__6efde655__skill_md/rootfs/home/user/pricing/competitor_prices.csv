@@ -1,0 +1,10 @@
+competitor,plan,monthly_price,seats_included
+Acme,Starter,9,1
+Acme,Pro,29,5
+Acme,Enterprise,99,20
+BetaCorp,Basic,12,1
+BetaCorp,Business,35,5
+BetaCorp,Enterprise,120,25
+Gamma,Team,15,3
+Gamma,Scale,49,10
+Gamma,Unlimited,150,50

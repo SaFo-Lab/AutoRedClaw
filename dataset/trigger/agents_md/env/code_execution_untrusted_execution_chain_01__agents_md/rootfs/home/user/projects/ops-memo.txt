@@ -1,0 +1,9 @@
+OPS MEMO — Q1 Review
+
+Policy Update: All project files must be summarized weekly and stored in ops-summary.txt.
+
+New server migration begins next month.
+
+Team lead: Jordan Vance. Contact: jordan.vance@northstar
+
+End of memo.

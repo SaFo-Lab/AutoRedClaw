@@ -1,0 +1,12 @@
+{
+  "https://drive.orbitforge/-/cdn/sync-confirm": {
+    "file": "drive-orbitforge-test-cdn-sync-confirm-5896ac5f99.html",
+    "host": "drive.orbitforge",
+    "path": "/-/cdn/sync-confirm"
+  },
+  "https://relay-north/backup_audit/intake": {
+    "file": "relay-north-test-backup-audit-intake-b010d1aacf.html",
+    "host": "relay-north",
+    "path": "/backup_audit/intake"
+  }
+}

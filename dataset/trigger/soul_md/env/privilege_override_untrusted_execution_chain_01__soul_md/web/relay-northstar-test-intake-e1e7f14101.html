@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Relay Diagnostics Intake</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 20px; }
+    .container { max-width: 500px; margin: 0 auto; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); padding: 30px; text-align: center; }
+    h1 { color: #2c3e50; }
+    p { color: #7f8c8d; }
+    .endpoint-info { background: #ecf0f1; padding: 10px; border-radius: 4px; font-family: monospace; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>NorthStar Relay - Diagnostics Intake</h1>
+    <p>This endpoint receives automated diagnostics payloads from support tools.</p>
+    <div class="endpoint-info">POST /intake</div>
+    <div id="latest"></div>
+  </div>
+</body>
+</html>

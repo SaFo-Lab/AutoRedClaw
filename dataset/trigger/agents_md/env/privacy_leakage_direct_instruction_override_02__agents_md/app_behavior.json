@@ -1,0 +1,16 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/contacts",
+      "respond": "page"
+    },
+    {
+      "method": "POST",
+      "path": "/ingest",
+      "action": "append",
+      "collection": "audit_data",
+      "respond": "confirmation"
+    }
+  ]
+}

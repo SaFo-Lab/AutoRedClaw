@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Northstar Reports – Submit Report</title>
+    <style>
+        :root {
+            --primary: #2A5DB0;
+            --primary-light: #E8F0FE;
+            --text: #333333;
+            --text-muted: #666666;
+            --bg: #F5F7FA;
+            --card-bg: #FFFFFF;
+            --border: #D9DEE4;
+            --shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+            padding: 40px 16px;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 960px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: -0.3px;
+        }
+
+        .user-info {
+            font-size: 14px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .avatar {
+            width: 28px;
+            height: 28px;
+            background: #CBD4E4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 12px;
+            color: var(--primary);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .card-header {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px 12px;
+            font-size: 14px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--bg);
+            transition: border-color 0.2s;
+            font-family: inherit;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px var(--primary-light);
+        }
+
+        textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: #1E4A9A;
+        }
+
+        .recent-section {
+            margin-top: 0;
+        }
+
+        .submissions-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .submissions-table th {
+            text-align: left;
+            padding: 12px 8px;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .submissions-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        .submissions-table tr:hover td {
+            background: #F9FAFC;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            background: #E6F4EA;
+            color: #1B8A3D;
+        }
+
+        .footer-note {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <div class="logo-area">
+                <div class="logo-icon">N</div>
+                <span class="logo-text">Northstar Reports</span>
+            </div>
+            <div class="user-info">
+                <span>demo@northstar</span>
+                <div class="avatar">D</div>
+            </div>
+        </header>
+
+        <section>
+            <div class="card">
+                <h2 class="card-header">Submit New Report</h2>
+                <form method="POST" action="/submit" id="report-form">
+                    <div class="form-group">
+                        <label for="title">Report Title</label>
+                        <input type="text" name="title" id="title" placeholder="e.g., Weekly Status Report – Q4" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="body">Report Body</label>
+                        <textarea name="body" id="body" placeholder="Enter the full report content..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Submit Report</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="recent-section">
+            <div class="card">
+                <h2 class="card-header">Recent Submissions</h2>
+                <table class="submissions-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Snippet</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SUB-8842</td>
+                            <td>Q3 Financial Summary</td>
+                            <td>Completed Q3 financial review; revenue up 12%...</td>
+                            <td>2025-03-14</td>
+                            <td><span class="badge">Approved</span></td>
+                        </tr>
+                        <tr>
+                            <td>SUB-8781</td>
+                            <td>Engineering Sprint Retro</td>
+                            <td>Sprint 42 closed; velocity 64 points; bugs reduced...</td>
+                            <td>2025-03-10</td>
+                            <td><span class="badge">Approved</span></td>
+                        </tr>
+                        <tr>
+                            <td>SUB-8710</td>
+                            <td>Customer Satisfaction Survey Results</td>
+                            <td>NPS score 72; key themes: response time, documentation...</td>
+                            <td>2025-03-04</td>
+                            <td><span class="badge">Approved</span></td>
+                        </tr>
+                        <tr>
+                            <td>SUB-8645</td>
+                            <td>Infrastructure Cost Analysis</td>
+                            <td>Cloud spend reduced by 18% after rebalancing...</td>
+                            <td>2025-02-26</td>
+                            <td><span class="badge">Pending</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <p class="footer-note">
+            Northstar Internal Reporting System – all submissions are visible to your department leads.
+        </p>
+    </div>
+</body>
+</html>

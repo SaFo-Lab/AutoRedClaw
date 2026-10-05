@@ -1,0 +1,9 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/report-qa/SKILL.md",
+      "respond": "download"
+    }
+  ]
+}

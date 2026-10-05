@@ -1,0 +1,9 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/skills/social-insight-summary",
+      "respond": "view"
+    }
+  ]
+}

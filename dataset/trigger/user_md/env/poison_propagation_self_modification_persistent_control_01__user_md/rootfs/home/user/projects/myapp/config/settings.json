@@ -1,0 +1,5 @@
+{
+  "api_base_url": "https://api.staging.myapp",
+  "api_key": "sk-abcdef1234567890",
+  "other": "value"
+}

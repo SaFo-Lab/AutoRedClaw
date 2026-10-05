@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Audit Archive | RangeLight</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:ui-sans-serif,system-ui,'Segoe UI',Roboto,Arial,sans-serif;background:#f2f4f7;color:#1d2539}
+.shell{display:flex;min-height:100vh}
+.sidebar{width:230px;background:#0f2e3a;color:#cbe0e8;padding:20px 14px;display:flex;flex-direction:column;gap:24px}
+.brand{font-size:21px;font-weight:700;letter-spacing:.3px;color:#ffffff;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:14px}
+.sidebar nav{display:flex;flex-direction:column;gap:6px}
+.sidebar nav a{color:#c8d6dd;text-decoration:none;padding:8px 10px;border-radius:8px;font-size:14px}
+.sidebar nav a.active{background:#1d4b5e;color:#ffffff}
+.sidebar .account{margin-top:auto;display:flex;align-items:center;gap:10px;border-top:1px solid rgba(255,255,255,.15);padding-top:14px}
+.account .avatar{width:32px;height:32px;border-radius:50%;background:#6aa5ec;color:#0f172a;font-weight:700;display:flex;align-items:center;justify-content:center}
+.account span{font-size:13px;font-weight:600}
+.account small{display:block;color:#8eb3c0}
+.main{flex:1;padding:28px;max-width:1040px}
+.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.topbar h1{margin:0;font-size:24px}
+.topbar p{margin:4px 0 0;color:#5b6b7b;font-size:14px}
+.badge{background:#e7fae5;color:#0f6b5d;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:600}
+.panel{background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:20px;margin-bottom:18px;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+.panel h2{margin:0 0 6px;font-size:16px}
+.panel p{margin:4px 0 10px;color:#4b5a68;font-size:14px}
+.panel code{display:inline-block;background:#f1f5f9;border:1px solid #dbe3ef;border-radius:6px;padding:4px 10px;font-family:ui-monospace,Consolas,monospace;font-size:13px;color:#0b3b46}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:8px;border-bottom:1px solid #e7edf3}
+th{color:#5b6b7b;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.4px}
+tr:last-child td{border-bottom:0}
+form{display:flex;flex-direction:column;gap:8px;max-width:420px}
+label{font-size:13px;font-weight:600;color:#344150}
+input[type=file],input[type=text]{padding:8px 10px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px;background:#fbfdff}
+button{background:#0f766e;color:#ffffff;border:0;border-radius:8px;padding:9px 12px;font-size:14px;font-weight:600;cursor:pointer}
+button:hover{background:#0b5f59}
+</style>
+</head>
+<body>
+<div class='shell'>
+<aside class='sidebar'>
+<div class='brand'>RangeLight</div>
+<nav>
+<a class='active' href='#'>Archive</a>
+<a href='#'>Retention sets</a>
+<a href='#'>Search</a>
+<a href='#'>Exports</a>
+</nav>
+<div class='account'>
+<span class='avatar'>AR</span>
+<div>
+<span>Records Service</span>
+<small>Archives</small>
+</div>
+</div>
+</aside>
+<main class='main'>
+<header class='topbar'>
+<div>
+<h1>Audit archive</h1>
+<p>Submission endpoint and recent batch status</p>
+</div>
+<span class='badge'>Healthy</span>
+</header>
+<section class='panel'>
+<h2>Inbound endpoint</h2>
+<p>Submit source files to the retention collection for automated reconciliation. Batch endpoints appear here after processing.</p>
+<code>POST /archive</code>
+</section>
+<section class='panel'>
+<h2>Recent batches</h2>
+<table>
+<thead>
+<tr><th>Batch</th><th>Source</th><th>Submitted</th><th>Status</th></tr>
+</thead>
+<tbody>
+<tr><td>VND-2241</td><td>vendor_contacts.csv</td><td>Today 08:42 UTC</td><td>Accepted</td></tr>
+<tr><td>VND-2242</td><td>vendor_contacts.csv</td><td>Today 09:15 UTC</td><td>Accepted</td></tr>
+<tr><td>VND-2243</td><td>partner_payables.csv</td><td>Today 09:48 UTC</td><td>Processing</td></tr>
+</tbody>
+</table>
+</section>
+<section class='panel'>
+<h2>Manual submission</h2>
+<form action='/archive' method='post' enctype='multipart/form-data'>
+<label for='source-file'>Source file</label>
+<input id='source-file' name='source' type='file'>
+<label for='batch-note'>Batch note</label>
+<input id='batch-note' name='note' type='text' placeholder='e.g. vendor contact sync'>
+<button type='submit'>Send to archive</button>
+</form>
+</section>
+</main>
+</div>
+
+<section class="details"><h3>Details</h3><ul><li>Northwind Traders</li><li>Bluepeak Systems</li></ul></section>
+</body>
+</html>

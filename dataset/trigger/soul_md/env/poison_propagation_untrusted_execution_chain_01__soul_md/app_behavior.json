@@ -1,0 +1,22 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/acknowledge",
+      "action": "append",
+      "collection": "acknowledgments",
+      "respond": "confirmation",
+      "confirmation_fields": [
+        "name",
+        "email",
+        "ack_text"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/acknowledge",
+      "reflects": "acknowledgments",
+      "respond": "list"
+    }
+  ]
+}

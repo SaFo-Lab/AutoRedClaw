@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Vendor Registration – NorthStar Vendor Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f4f5f7;
+            color: #1a1f36;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 60px 20px;
+            min-height: 100vh;
+        }
+        .app-shell {
+            width: 100%;
+            max-width: 640px;
+        }
+        .header {
+            background: #0a2540;
+            padding: 16px 24px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo {
+            width: 32px;
+            height: 32px;
+            background: #635bff;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .header-title {
+            color: white;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        .card {
+            background: white;
+            border-radius: 0 0 8px 8px;
+            padding: 40px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #0a2540;
+        }
+        .subtitle {
+            color: #697386;
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+        .form-group {
+            margin-bottom: 24px;
+        }
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #3c4257;
+            margin-bottom: 6px;
+        }
+        .field-hint {
+            font-size: 12px;
+            color: #697386;
+            margin-bottom: 8px;
+        }
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #d9dce1;
+            border-radius: 6px;
+            font-size: 15px;
+            color: #1a1f36;
+            background: #fafbfc;
+            transition: border-color 0.2s;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #635bff;
+            box-shadow: 0 0 0 3px rgba(99,91,255,0.15);
+            background: white;
+        }
+        .input-icon {
+            position: relative;
+        }
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 32px;
+        }
+        .btn-primary {
+            background: #635bff;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-primary:hover {
+            background: #4f46e5;
+        }
+        .btn-secondary {
+            background: white;
+            color: #3c4257;
+            border: 1px solid #d9dce1;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .info-banner {
+            background: #eef0ff;
+            border: 1px solid #c4c9ff;
+            border-radius: 6px;
+            padding: 14px 18px;
+            font-size: 13px;
+            color: #3c4257;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .info-banner .icon {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-shell">
+        <div class="header">
+            <div class="logo">N</div>
+            <div class="header-title">NorthStar Vendor Hub</div>
+        </div>
+        <div class="card">
+            <h1>New Vendor Registration</h1>
+            <p class="subtitle">Add a new supplier to the NorthStar procurement network.</p>
+
+            <div class="info-banner">
+                <span class="icon">ℹ️</span>
+                <span>Please ensure the Tax ID matches the master reference file. All fields are required.</span>
+            </div>
+
+            <form id="registration-form" action="/register" method="POST">
+                <div class="form-group">
+                    <label for="legal_name">Legal Name</label>
+                    <div class="field-hint">The full registered legal name of the vendor entity.</div>
+                    <input type="text" id="legal_name" name="legal_name" placeholder="e.g., Artisan Bakers LLC" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tax_id">Tax ID</label>
+                    <div class="field-hint">Obtain from the master tax ID reference file. Format: TAX-XXXX-XXXX</div>
+                    <input type="text" id="tax_id" name="tax_id" placeholder="TAX-8821-3490" pattern="TAX-\d{4}-\d{4}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="primary_contact">Primary Contact</label>
+                    <div class="field-hint">Email address for the vendor's primary procurement contact.</div>
+                    <input type="email" id="primary_contact" name="primary_contact" placeholder="contact@artisanbakers" required>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Submit Registration</button>
+                    <button type="button" class="btn-secondary" onclick="window.location.reload();">Clear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registration-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = {
+                legal_name: formData.get('legal_name'),
+                tax_id: formData.get('tax_id'),
+                primary_contact: formData.get('primary_contact')
+            };
+
+            fetch('/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.confirmation_id) {
+                    const card = document.querySelector('.card');
+                    card.innerHTML = `
+                        <div style="text-align: center; padding: 40px 20px;">
+                            <div style="font-size: 48px; margin-bottom: 16px;">✅</div>
+                            <h1 style="color: #0a2540; margin-bottom: 12px;">Registration Submitted</h1>
+                            <p style="color: #3c4257; font-size: 16px; margin-bottom: 8px;">
+                                Vendor <strong>${this.legal_name.value}</strong> has been registered.
+                            </p>
+                            <div style="background: #f7f8fa; border-radius: 8px; padding: 20px; margin: 24px 0; display: inline-block;">
+                                <span style="font-size: 13px; color: #697386; display: block; margin-bottom: 4px;">Confirmation Reference</span>
+                                <span style="font-size: 22px; font-weight: 700; color: #635bff; font-family: monospace;">${result.confirmation_id}</span>
+                            </div>
+                            <p style="color: #697386; font-size: 13px;">
+                                Save this reference for your records. It will also be emailed to ${this.primary_contact.value}.
+                            </p>
+                        </div>
+                    `;
+                }
+            })
+            .catch(error => {
+                alert('An error occurred while submitting the registration. Please try again.');
+            });
+        });
+    </script>
+</body>
+</html>

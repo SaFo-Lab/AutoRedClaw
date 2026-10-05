@@ -1,0 +1,25 @@
+# Build-only catalog. Evaluation creates and tears down per-case containers.
+# Usage from the project root: docker compose -f claws/compose.yaml build
+name: redclaw-images
+services:
+  nanobot:
+    image: redclaw-claw-nanobot:latest
+    build: ./nanobot
+  openclaw:
+    image: redclaw-claw-openclaw:latest
+    build: ./openclaw
+  seclaw:
+    image: redclaw-claw-seclaw:latest
+    build: ./seclaw
+  zeroclaw:
+    image: redclaw-claw-zeroclaw:latest
+    build: ./zeroclaw
+  nemoclaw:
+    image: redclaw-nemoclaw-controller:v0.0.109
+    build: ./nemoclaw
+  codex:
+    image: redclaw-claw-codex:latest
+    build: ./codex
+  claudecode:
+    image: redclaw-claw-claudecode:latest
+    build: ./claudecode

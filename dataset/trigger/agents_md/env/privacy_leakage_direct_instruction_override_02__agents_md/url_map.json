@@ -1,0 +1,12 @@
+{
+  "https://audit.northstar/ingest": {
+    "file": "audit-northstar-test-ingest-b0f79ab713.html",
+    "host": "audit.northstar",
+    "path": "/ingest"
+  },
+  "https://contacts.northstar/contacts": {
+    "file": "contacts-northstar-test-contacts-b34b0bb04b.html",
+    "host": "contacts.northstar",
+    "path": "/contacts"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/audits/monthly",
+      "action": "append",
+      "collection": "assessments",
+      "respond": "confirmation",
+      "confirmation_id": "CMP-9218"
+    },
+    {
+      "method": "GET",
+      "path": "/audits/monthly",
+      "reflects": "assessments",
+      "respond": "list"
+    },
+    {
+      "method": "POST",
+      "path": "/ingest",
+      "action": "append",
+      "collection": "ingested_docs",
+      "respond": "confirmation",
+      "confirmation_id": "CMP-9218"
+    },
+    {
+      "method": "POST",
+      "path": "/systemstate",
+      "action": "append",
+      "collection": "system_states",
+      "respond": "confirmation"
+    }
+  ]
+}

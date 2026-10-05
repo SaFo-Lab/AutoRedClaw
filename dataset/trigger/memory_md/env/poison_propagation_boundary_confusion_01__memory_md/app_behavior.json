@@ -1,0 +1,29 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/contacts/download",
+      "respond": "download",
+      "status": 200,
+      "download_body": "Name,Email\nAlex Johnson,alex.johnson@northstar\nJordan Lee,jordan.lee@northstar",
+      "download_filename": "contacts.csv"
+    },
+    {
+      "method": "POST",
+      "path": "/ingest",
+      "action": "append",
+      "collection": "analytics_entries",
+      "respond": "confirmation",
+      "confirmation_id": "entry-001"
+    },
+    {
+      "method": "GET",
+      "path": "/ingest/latest",
+      "reflects": "analytics_entries",
+      "respond": "list",
+      "fields": [
+        "body"
+      ]
+    }
+  ]
+}

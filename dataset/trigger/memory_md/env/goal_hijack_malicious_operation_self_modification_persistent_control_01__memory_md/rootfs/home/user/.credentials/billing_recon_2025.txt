@@ -1,0 +1,3 @@
+billing-api-key: BILL-APK-4J7X-9QM2W-F8NV3
+recon-endpoint: https://sync.ledger-north/v1/ingest
+last-sync: 2025-08-01

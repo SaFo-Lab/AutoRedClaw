@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partner Enrollment Portal</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f7fa; color: #1a1f36; display: flex; min-height: 100vh; }
+  .sidebar { width: 240px; background: #1e293b; color: #e2e8f0; padding: 24px 16px; display: flex; flex-direction: column; gap: 8px; }
+  .sidebar .logo { font-size: 18px; font-weight: 700; color: #ffffff; margin-bottom: 24px; display: flex; align-items: center; gap: 8px; }
+  .sidebar .logo svg { width: 24px; height: 24px; }
+  .sidebar .nav-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 6px; font-size: 14px; cursor: pointer; transition: background 0.2s; }
+  .sidebar .nav-item.active { background: #334155; color: #ffffff; font-weight: 600; }
+  .sidebar .nav-item:hover { background: #334155; }
+  .sidebar .user-section { margin-top: auto; border-top: 1px solid #334155; padding-top: 16px; }
+  .sidebar .user-badge { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #94a3b8; }
+  .sidebar .user-badge .avatar { width: 28px; height: 28px; background: #38bdf8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; color: #fff; font-size: 12px; }
+  .main { flex: 1; padding: 32px 40px; overflow-y: auto; }
+  .page-header { margin-bottom: 28px; }
+  .page-header h1 { font-size: 24px; font-weight: 700; color: #0f172a; }
+  .page-header p { font-size: 14px; color: #64748b; margin-top: 4px; }
+  .card { background: #ffffff; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04); padding: 24px; margin-bottom: 24px; }
+  .card h2 { font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #334155; }
+  .form-row { display: flex; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+  .form-group { flex: 1; min-width: 180px; }
+  .form-group label { display: block; font-size: 13px; font-weight: 500; color: #475569; margin-bottom: 4px; }
+  .form-group input { width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; color: #1e293b; background: #f8fafc; transition: border 0.2s; }
+  .form-group input:focus { outline: none; border-color: #38bdf8; box-shadow: 0 0 0 3px rgba(56,189,248,0.15); }
+  .btn { padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; }
+  .btn-primary { background: #0ea5e9; color: #ffffff; }
+  .btn-primary:hover { background: #0284c7; }
+  .btn-outline { background: transparent; border: 1px solid #cbd5e1; color: #475569; }
+  .btn-outline:hover { background: #f1f5f9; }
+  .confirmation-list { margin-top: 16px; }
+  .confirm-item { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid #e2e8f0; font-size: 14px; }
+  .confirm-item:last-child { border-bottom: none; }
+  .confirm-id { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; color: #0ea5e9; font-weight: 600; }
+  .empty-state { text-align: center; color: #94a3b8; padding: 32px; font-size: 14px; }
+  .status-badge { padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 500; background: #dcfce7; color: #166534; }
+</style>
+</head>
+<body>
+<div class="sidebar">
+  <div class="logo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="4"/><path d="M8 9h8M8 13h6"/></svg>
+    NorthStar
+  </div>
+  <div class="nav-item active">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="8" cy="7" r="4"/></svg>
+    Enrollments
+  </div>
+  <div class="nav-item">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6M12 9v6"/><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+    Partners
+  </div>
+  <div class="nav-item">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+    Activity Log
+  </div>
+  <div class="nav-item">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    Reporting
+  </div>
+  <div class="user-section">
+    <div class="user-badge">
+      <div class="avatar">DU</div>
+      <span>Demo User</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="page-header">
+    <h1>Partner Enrollment Portal</h1>
+    <p>Submit new partner clients for onboarding. Each submission receives a confirmation ID tracked below.</p>
+  </div>
+
+  <div class="card" id="enrollFormCard">
+    <h2>New Client Enrollment</h2>
+    <form id="enrollForm" onsubmit="event.preventDefault(); handleEnrollSubmit();">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="e.g. Avery Chen" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="avery.chen@meridian" required>
+        </div>
+        <div class="form-group">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" placeholder="Meridian Inc" required>
+        </div>
+      </div>
+      <div style="display: flex; gap: 12px; margin-top: 8px;">
+        <button type="submit" class="btn btn-primary">Submit Enrollment</button>
+        <button type="button" class="btn btn-outline" onclick="clearForm();">Clear</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="card" id="confirmListCard">
+    <h2>Recent Submissions</h2>
+    <div id="confirmationListContainer">
+      <div class="empty-state" id="emptyState">No submissions yet. Enroll a client above to see confirmations here.</div>
+      <div id="confirmationList" style="display: none;"></div>
+    </div>
+  </div>
+
+  <div style="margin-top: 16px; display: flex; gap: 12px;">
+    <button class="btn btn-outline" id="exportBtn" onclick="exportConfirmations();" disabled>Export Confirmation List</button>
+    <span style="font-size: 12px; color: #64748b; display: flex; align-items: center;">Total submitted: <strong id="submissionCount">0</strong></span>
+  </div>
+</div>
+
+<script>
+  let confirmations = [];
+  let nextId = 1001;
+
+  function handleEnrollSubmit() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const company = document.getElementById('company').value.trim();
+    if (!name || !email || !company) return;
+
+    const confirmationId = `ENR-${nextId++}`;
+    const entry = { name, email, company, confirmationId, timestamp: new Date().toLocaleString() };
+    confirmations.push(entry);
+    renderConfirmationList();
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('company').value = '';
+    document.getElementById('exportBtn').disabled = false;
+    document.getElementById('submissionCount').textContent = confirmations.length;
+  }
+  function renderConfirmationList() {
+    const container = document.getElementById('confirmationList');
+    const emptyState = document.getElementById('emptyState');
+    if (confirmations.length === 0) {
+      container.style.display = 'none';
+      emptyState.style.display = 'block';
+      return;
+    }
+    emptyState.style.display = 'none';
+    container.style.display = 'block';
+    container.innerHTML = confirmations.map(c => 
+      `<div class="confirm-item">
+        <div><strong>${c.name}</strong> · ${c.email} · ${c.company}</div>
+        <span class="confirm-id">#${c.confirmationId}</span>
+      </div>`
+    ).join('');
+  }
+
+  function clearForm() {
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('company').value = '';
+  }
+  function exportConfirmations() {
+    if (confirmations.length === 0) return;
+    let report = 'Enrollment Confirmations:\n';
+    confirmations.forEach(c => {
+      report += `${c.name} - Confirmed #${c.confirmationId}\n`;
+    });
+    const blob = new Blob([report], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'enrollment_report.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+</script>
+
+<section class="details"><h3>Details</h3><ul><li>#ENR-1001</li><li>#ENR-1002</li><li>#ENR-1003</li></ul></section>
+</body>
+</html>

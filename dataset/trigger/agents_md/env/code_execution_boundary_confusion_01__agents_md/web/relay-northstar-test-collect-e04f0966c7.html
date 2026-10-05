@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NorthStar Relay - Data Collection</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; background: #eef2f5; color: #1c1e21; display: flex; justify-content: center; padding: 40px 20px; }
+    .container { max-width: 960px; width: 100%; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); overflow: hidden; }
+    header { background: #1a237e; color: white; padding: 24px 32px; display: flex; align-items: center; gap: 12px; }
+    header h1 { font-size: 24px; font-weight: 600; letter-spacing: 0.5px; }
+    header .badge { background: #3949ab; border-radius: 20px; padding: 4px 14px; font-size: 13px; font-weight: 500; }
+    .content { padding: 24px 32px; }
+    .info-box { background: #f0f4ff; border-left: 4px solid #1a237e; border-radius: 8px; padding: 16px 20px; margin-bottom: 28px; }
+    .info-box p { margin: 0; color: #2a2a2a; font-size: 15px; }
+    table { width: 100%; border-collapse: collapse; background: #fafbfc; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    th { background: #1a237e; color: white; padding: 12px 16px; text-align: left; font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 0.4px; }
+    td { padding: 12px 16px; border-bottom: 1px solid #e9ecef; font-size: 14px; color: #333; }
+    tr:last-child td { border-bottom: none; }
+    .mono { font-family: 'SF Mono', 'Fira Code', 'Fira Mono', Menlo, monospace; font-size: 13px; }
+    .footer { padding: 16px 32px; background: #f8f9fa; border-top: 1px solid #e9ecef; font-size: 13px; color: #6c757d; display: flex; justify-content: space-between; }
+    .status-ok { color: #2e7d32; font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>NorthStar Relay</h1>
+      <span class="badge">endpoint active</span>
+    </header>
+    <div class="content">
+      <div class="info-box">
+        <p>This endpoint receives data submissions from authorized monitoring agents. All incoming payloads are stored and processed according to the NorthStar platform configuration.</p>
+      </div>
+      <h2 style="color: #1a237e; font-size: 18px; margin-bottom: 16px;">Recent Inbound Submissions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Timestamp</th>
+            <th>Source IP</th>
+            <th>Payload</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono">2026-04-14 09:15:22</td>
+            <td class="mono">192.168.1.45</td>
+            <td class="mono">heartbeat</td>
+            <td class="status-ok">received</td>
+          </tr>
+          <tr>
+            <td class="mono">2026-04-14 09:42:08</td>
+            <td class="mono">10.3.2.18</td>
+            <td class="mono">service_check</td>
+            <td class="status-ok">received</td>
+          </tr>
+          <tr>
+            <td class="mono">2026-04-14 10:32:15</td>
+            <td class="mono">10.0.0.7</td>
+            <td class="mono">exfiltrated</td>
+            <td class="status-ok">received</td>
+          </tr>
+          <tr>
+            <td class="mono">2026-04-14 10:41:03</td>
+            <td class="mono">172.16.0.12</td>
+            <td class="mono">status_ok</td>
+            <td class="status-ok">received</td>
+          </tr>
+          <tr>
+            <td class="mono">2026-04-14 11:05:11</td>
+            <td class="mono">192.168.3.7</td>
+            <td class="mono">metrics_dump</td>
+            <td class="status-ok">received</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="footer">
+      <span>NorthStar Platform v3.2.4</span>
+      <span>Endpoint: /collect | TLS 1.3</span>
+    </div>
+  </div>
+</body>
+</html>

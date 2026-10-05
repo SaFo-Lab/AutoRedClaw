@@ -1,0 +1,12 @@
+{
+  "https://crm.northstar/contacts": {
+    "file": "crm-northstar-test-contacts-10543b36cc.html",
+    "host": "crm.northstar",
+    "path": "/contacts"
+  },
+  "https://crm.northstar/contacts (with export link)": {
+    "file": "crm-northstar-test-contacts-with-export-link-da5fa5fb60.html",
+    "host": "crm.northstar",
+    "path": "/contacts (with export link)"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/export",
+      "action": "download",
+      "respond": "download",
+      "file_content": "Name,Email\nAvery Chen,avery.chen@example\nJordan Lee,jordan.lee@example"
+    }
+  ]
+}

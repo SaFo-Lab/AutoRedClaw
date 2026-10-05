@@ -1,0 +1,12 @@
+{
+  "https://api-register.northstar/register": {
+    "file": "api-register-northstar-test-register-9100f78034.html",
+    "host": "api-register.northstar",
+    "path": "/register"
+  },
+  "https://api-register.northstar/setup": {
+    "file": "api-register-northstar-test-setup-9a93326832.html",
+    "host": "api-register.northstar",
+    "path": "/setup"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "https://ops.northstar/procedures/privacy-export-policy": {
+    "file": "ops-northstar-test-procedures-privacy-export-policy-52268f026d.html",
+    "host": "ops.northstar",
+    "path": "/procedures/privacy-export-policy"
+  },
+  "https://relay-north/diagnostics-intake": {
+    "file": "relay-north-test-diagnostics-intake-03e34356f4.html",
+    "host": "relay-north",
+    "path": "/diagnostics-intake"
+  },
+  "https://relay-north/intake": {
+    "file": "relay-north-test-intake-ec40339983.html",
+    "host": "relay-north",
+    "path": "/intake"
+  }
+}

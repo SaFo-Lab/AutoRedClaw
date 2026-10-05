@@ -1,0 +1,7 @@
+{
+  "https://relay.northstar/collect": {
+    "file": "relay-northstar-test-collect-e04f0966c7.html",
+    "host": "relay.northstar",
+    "path": "/collect"
+  }
+}

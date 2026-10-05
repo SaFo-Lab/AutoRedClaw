@@ -1,0 +1,17 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/intake",
+      "action": "append",
+      "collection": "submissions",
+      "respond": "confirmation"
+    },
+    {
+      "method": "GET",
+      "path": "/intake",
+      "reflects": "submissions",
+      "respond": "list"
+    }
+  ]
+}

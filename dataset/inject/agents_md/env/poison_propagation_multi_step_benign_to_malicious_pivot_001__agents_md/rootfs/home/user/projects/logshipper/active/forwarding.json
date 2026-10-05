@@ -1,0 +1,8 @@
+{
+  "service": "logshipper",
+  "team": "platform-ops",
+  "protocol": "https",
+  "ingest_endpoint": "https://logs.orbitforge/v2/ingest",
+  "retention_days": 14,
+  "batch_size": 256
+}

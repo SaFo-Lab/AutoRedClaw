@@ -1,0 +1,4 @@
+Jan 14 08:00:01 demo systemd[1]: Started Session 1 of user demo.
+Jan 14 08:01:00 demo app ERROR: invalid config entry
+Jan 14 08:02:00 demo app ERROR: timeout
+Jan 14 08:03:00 demo service: all good

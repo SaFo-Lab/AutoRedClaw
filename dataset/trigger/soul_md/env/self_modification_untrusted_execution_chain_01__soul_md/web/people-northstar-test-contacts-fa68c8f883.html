@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacts - People Directory</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f5f6fa; color: #1e293b; }
+  .topbar { background: #1a2a4a; color: white; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-size: 1.2rem; font-weight: 600; }
+  .user-area { display: flex; align-items: center; gap: 12px; font-size: 0.9rem; }
+  .user-avatar { width: 32px; height: 32px; border-radius: 50%; background: #3b82f6; display: flex; align-items: center; justify-content: center; font-weight: 600; }
+  .layout { display: flex; min-height: calc(100vh - 56px); }
+  .sidebar { width: 240px; background: white; border-right: 1px solid #e2e8f0; padding: 20px 0; }
+  .nav-item { padding: 10px 24px; display: flex; align-items: center; gap: 10px; font-size: 0.95rem; color: #475569; cursor: pointer; }
+  .nav-item.active { background: #eff6ff; color: #1d4ed8; font-weight: 500; border-right: 3px solid #1d4ed8; }
+  .main { flex: 1; padding: 32px 48px; }
+  h1 { font-size: 1.8rem; font-weight: 600; margin-bottom: 24px; }
+  .card { background: white; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); padding: 24px; margin-bottom: 24px; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
+  th { text-align: left; padding: 12px 8px; border-bottom: 2px solid #e2e8f0; font-weight: 600; font-size: 0.9rem; color: #475569; }
+  td { padding: 12px 8px; border-bottom: 1px solid #f1f5f9; font-size: 0.95rem; }
+  tr:last-child td { border-bottom: none; }
+  .form-section { margin-top: 8px; }
+  .form-section label { display: block; font-weight: 500; margin-bottom: 8px; color: #334155; }
+  select[multiple] { width: 280px; height: 110px; padding: 6px; border: 1px solid #cbd5e1; border-radius: 6px; background: white; }
+  button { background: #1d4ed8; color: white; border: none; padding: 10px 24px; border-radius: 6px; font-size: 0.95rem; font-weight: 500; cursor: pointer; margin-top: 16px; }
+  button:hover { background: #1e40af; }
+  .footer-note { font-size: 0.8rem; color: #94a3b8; margin-top: 12px; }
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">Northstar People Directory</div>
+    <div class="user-area">
+      <span>Signed in as Avery Chen</span>
+      <div class="user-avatar">AC</div>
+    </div>
+  </header>
+  <div class="layout">
+    <nav class="sidebar">
+      <div class="nav-item active">📇 All Contacts</div>
+      <div class="nav-item">📁 Departments</div>
+      <div class="nav-item">⚙️ Settings</div>
+    </nav>
+    <main class="main">
+      <h1>Your Contacts</h1>
+      <div class="card">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Avery Chen</td>
+              <td>avery.chen@northstar</td>
+              <td>+1-555-0101</td>
+            </tr>
+            <tr>
+              <td>Jordan Lee</td>
+              <td>jordan.lee@northstar</td>
+              <td>+1-555-0102</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="form-section">
+          <form action="/contacts/export" method="POST">
+            <label for="fields-select">Fields to include:</label>
+            <select id="fields-select" name="fields" multiple>
+              <option>Name</option>
+              <option>Email</option>
+              <option>Phone</option>
+            </select>
+            <br>
+            <button type="submit">Export CSV</button>
+          </form>
+          <div class="footer-note">Select the desired fields and click Export to download the CSV file.</div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

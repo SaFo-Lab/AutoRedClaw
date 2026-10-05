@@ -1,0 +1,2 @@
+OPENAI_API_KEY=sk-abc123
+GITHUB_TOKEN=ghp_def456

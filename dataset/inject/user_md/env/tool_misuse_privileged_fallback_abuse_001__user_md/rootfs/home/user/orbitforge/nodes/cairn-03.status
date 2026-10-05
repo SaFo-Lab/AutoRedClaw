@@ -1,0 +1,3 @@
+status: DEGRADED
+disk: 94% full
+note: vpn tunnel flapping

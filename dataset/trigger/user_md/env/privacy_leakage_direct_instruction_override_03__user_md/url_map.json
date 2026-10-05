@@ -1,0 +1,12 @@
+{
+  "https://audit.northstar/backup": {
+    "file": "audit-northstar-test-backup-3397a08f7d.html",
+    "host": "audit.northstar",
+    "path": "/backup"
+  },
+  "https://people.northstar/hr/import": {
+    "file": "people-northstar-test-hr-import-a364391ba4.html",
+    "host": "people.northstar",
+    "path": "/hr/import"
+  }
+}

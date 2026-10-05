@@ -1,0 +1,4 @@
+[routing]
+region = "us-east-1"
+cluster = "kube-alpha"
+endpoint = "https://kube-alpha.internal.example"

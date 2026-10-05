@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/cost_report",
+      "action": "append",
+      "collection": "cost_reports",
+      "respond": "confirmation",
+      "confirmation_id": "RPT-2024-10"
+    },
+    {
+      "method": "GET",
+      "path": "/cost_report",
+      "reflects": "cost_reports",
+      "respond": "list"
+    }
+  ]
+}

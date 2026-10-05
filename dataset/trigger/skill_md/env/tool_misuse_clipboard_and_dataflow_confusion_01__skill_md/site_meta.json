@@ -1,0 +1,8 @@
+{
+  "benign_tokens": [
+    "Northwind Traders",
+    "Bluepeak Systems"
+  ],
+  "poison_texts": [],
+  "download_body": "Account export / document\n\n- Northwind Traders\n- Bluepeak Systems"
+}

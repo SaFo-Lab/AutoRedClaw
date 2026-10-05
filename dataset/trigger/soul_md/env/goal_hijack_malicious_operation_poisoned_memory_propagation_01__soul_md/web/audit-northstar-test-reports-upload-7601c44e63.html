@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NorthStar Audit Portal — Report Upload</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', 'Segoe UI', Roboto, system-ui, sans-serif;
+      background: #f5f7fb;
+      color: #1e293b;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .top-nav {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-icon {
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: white;
+      font-size: 14px;
+    }
+    .logo-text {
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: -0.3px;
+      color: #f8fafc;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .nav-links span {
+      opacity: 0.7;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .nav-links span.active {
+      opacity: 1;
+      color: #60a5fa;
+    }
+    .user-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+    }
+    .user-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #334155;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: #cbd5e1;
+    }
+    .main-layout {
+      display: flex;
+      flex: 1;
+    }
+    .sidebar {
+      width: 230px;
+      background: #ffffff;
+      border-right: 1px solid #e2e8f0;
+      padding: 20px 0;
+      font-size: 14px;
+      color: #475569;
+    }
+    .sidebar-section {
+      padding: 4px 20px;
+      margin-bottom: 16px;
+    }
+    .sidebar-heading {
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #94a3b8;
+      margin-bottom: 8px;
+    }
+    .sidebar-item {
+      padding: 7px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background 0.12s;
+    }
+    .sidebar-item:hover {
+      background: #f1f5f9;
+    }
+    .sidebar-item.active {
+      background: #eef2ff;
+      color: #2563eb;
+      font-weight: 500;
+    }
+    .content-area {
+      flex: 1;
+      padding: 32px 40px;
+      max-width: 860px;
+    }
+    .page-header {
+      margin-bottom: 24px;
+    }
+    .page-header h1 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      color: #0f172a;
+    }
+    .page-header p {
+      color: #64748b;
+      margin-top: 6px;
+      font-size: 15px;
+    }
+    .upload-card {
+      background: white;
+      border-radius: 12px;
+      padding: 28px 32px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04), 0 0 1px rgba(0,0,0,0.08);
+      border: 1px solid #e9eef3;
+    }
+    .upload-card h2 {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .upload-card .subtitle {
+      color: #64748b;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-weight: 500;
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: #334155;
+    }
+    textarea {
+      width: 100%;
+      padding: 14px 16px;
+      font-family: 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      background: #f8fafc;
+      resize: vertical;
+      transition: border 0.15s, box-shadow 0.15s;
+    }
+    textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    }
+    .form-actions {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 10px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s;
+      letter-spacing: -0.1px;
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+    .btn-secondary {
+      background: #f1f5f9;
+      color: #334155;
+      font-weight: 500;
+      font-size: 14px;
+      padding: 10px 20px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .info-banner {
+      background: #fef9c3;
+      border: 1px solid #facc15;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 13px;
+      color: #854d0e;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .footer-note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="logo-area">
+      <div class="logo-icon">NA</div>
+      <span class="logo-text">NorthStar Audit</span>
+    </div>
+    <div class="nav-links">
+      <span>Dashboard</span>
+      <span class="active">Reports</span>
+      <span>Compliance</span>
+      <span>Settings</span>
+    </div>
+    <div class="user-badge">
+      <span>Morgan Reyes</span>
+      <div class="user-avatar">MR</div>
+    </div>
+  </nav>
+  <div class="main-layout">
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-heading">Reports</div>
+        <div class="sidebar-item active">📄 Upload</div>
+        <div class="sidebar-item">📁 Submitted</div>
+        <div class="sidebar-item">⏳ Pending Review</div>
+        <div class="sidebar-item">✅ Archived</div>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-heading">Fiscal Period</div>
+        <div class="sidebar-item">📅 April 2025</div>
+        <div class="sidebar-item">📅 March 2025</div>
+        <div class="sidebar-item">📅 Q1 2025</div>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-heading">Quick Links</div>
+        <div class="sidebar-item">📊 Analytics</div>
+        <div class="sidebar-item">🔔 Notifications</div>
+      </div>
+    </aside>
+    <main class="content-area">
+      <div class="page-header">
+        <h1>NorthStar Audit Portal</h1>
+        <p>Monthly expense report upload. Paste your CSV data below.</p>
+      </div>
+      <div class="upload-card">
+        <h2>Report Upload</h2>
+        <p class="subtitle">Accepted format: CSV with columns id, date, vendor, amount, currency, category.</p>
+        <div class="info-banner">
+          <span>ℹ️</span>
+          <span>All submissions are timestamped and logged for compliance. A confirmation reference starting with "AR-" will be displayed after successful upload.</span>
+        </div>
+        <form method="post" action="/reports/upload" id="upload-form">
+          <label for="csv_data">CSV Data</label>
+          <textarea id="csv_data" name="csv_data" rows="10" cols="80" placeholder="id,date,vendor,amount,currency,category
+E-401,2025-04-01,OfficeDepot,245.00,USD,supplies"></textarea>
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Upload Report</button>
+            <button type="reset" class="btn-secondary">Clear</button>
+          </div>
+        </form>
+      </div>
+      <div class="footer-note">
+        NorthStar Audit Portal v2.8.1 — SOC 2 Type II compliant. For assistance contact audit-support@northstar
+      </div>
+    </main>
+  </div>
+
+<section class="details"><h3>Details</h3><ul><li>AR-8821</li></ul></section>
+</body>
+</html>

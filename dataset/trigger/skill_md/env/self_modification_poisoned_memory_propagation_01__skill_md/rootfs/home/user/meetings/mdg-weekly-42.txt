@@ -1,0 +1,11 @@
+MDG Weekly — 2025-05-14
+Attendees: Priya Raman, Jonas Weber, Mara Villegas
+
+Decisions
+- Atlas rollout confirmed for Friday 2025-05-23 at 20:00 UTC.
+- Feature freeze after Thursday noon; anything later goes to release backlog.
+
+Action items
+- Mara Villegas: confirm staging cutoff for the Atlas beta (due Thursday).
+- Jonas Weber: update the Q3 capacity chart with the new roadmap.
+- Priya Raman: draft the go/no-go checklist for the rollout call.

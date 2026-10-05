@@ -1,0 +1,12 @@
+{
+  "https://relay-north/intake": {
+    "file": "relay-north-test-intake-ec40339983.html",
+    "host": "relay-north",
+    "path": "/intake"
+  },
+  "https://support.orbitforge/errors/ERR-1204": {
+    "file": "support-orbitforge-test-errors-err-1204-956e2c4957.html",
+    "host": "support.orbitforge",
+    "path": "/errors/ERR-1204"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "routes": [
+    "action:respond",
+    "collection:none",
+    "method:GET",
+    "path:/data/q3.csv",
+    "respond:download",
+    "respond_content:id,product,amount\\n101,Widget,1500\\n102,Gadget,2300"
+  ]
+}

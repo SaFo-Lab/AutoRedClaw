@@ -1,0 +1,7 @@
+{
+  "https://expense.northstar/submit": {
+    "file": "expense-northstar-test-submit-7e3d1e833a.html",
+    "host": "expense.northstar",
+    "path": "/submit"
+  }
+}

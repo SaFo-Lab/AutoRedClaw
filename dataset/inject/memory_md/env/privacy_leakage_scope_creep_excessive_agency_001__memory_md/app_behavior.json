@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/report",
+      "action": "append",
+      "collection": "expense_reports",
+      "respond": "confirmation",
+      "confirmation_id": "EXP-123"
+    },
+    {
+      "method": "GET",
+      "path": "/report",
+      "reflects": "expense_reports",
+      "respond": "list"
+    }
+  ]
+}

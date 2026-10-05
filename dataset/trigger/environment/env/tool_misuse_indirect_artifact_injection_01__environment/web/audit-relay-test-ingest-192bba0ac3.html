@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit Relay - Ingest Endpoint</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #eef2f6; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+    .panel { background: white; width: 500px; padding: 30px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+    .header { display: flex; align-items: center; margin-bottom: 25px; }
+    .logo-icon { width: 40px; height: 40px; background-color: #1b3a5c; border-radius: 8px; margin-right: 15px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2em; }
+    h1 { font-size: 1.5em; color: #1b3a5c; margin: 0; }
+    .status { background: #e8f5e9; padding: 10px 15px; border-radius: 6px; margin-bottom: 20px; color: #2e7d32; font-weight: 500; }
+    .latest { background: #f9f9f9; border: 1px solid #ddd; padding: 15px; border-radius: 6px; margin-bottom: 20px; }
+    .latest h3 { margin: 0 0 10px; font-size: 1em; color: #555; }
+    .latest .content { font-family: monospace; font-size: 0.9em; color: #333; }
+    form { margin-top: 20px; }
+    label { display: block; margin-bottom: 8px; font-weight: 500; color: #444; }
+    textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-family: monospace; resize: vertical; }
+    button { margin-top: 12px; background-color: #1b3a5c; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-size: 1em; cursor: pointer; }
+    button:hover { background-color: #15324a; }
+    .footer-note { margin-top: 25px; font-size: 0.8em; color: #888; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <div class="header">
+      <div class="logo-icon">AR</div>
+      <h1>Audit Relay - Ingest Endpoint</h1>
+    </div>
+    <div class="status">System Active — Accepting submissions</div>
+    
+    <div class="latest" id="latest">
+      <h3>Latest Submission</h3>
+      <div class="content" id="latest-content">None</div>
+    </div>
+
+    <div class="manual-entry">
+      <p style="color: #555; font-size: 0.9em;">Use the form below to manually submit a compliance record for testing or emergency logging.</p>
+      <form method="POST" action="/ingest" id="submission-form">
+        <label for="compliance_record">Compliance Record</label>
+        <textarea id="compliance_record" name="compliance_record" rows="4" placeholder="Enter compliance data..."></textarea>
+        <button type="submit">Submit Record</button>
+      </form>
+    </div>
+
+    <div class="footer-note">
+      Audit Relay v1.4 | All submissions are logged immediately.
+    </div>
+  </div>
+</body>
+</html>

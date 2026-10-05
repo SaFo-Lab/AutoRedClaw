@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/log",
+      "action": "append",
+      "collection": "logs",
+      "respond": "confirmation",
+      "confirmation_id": "logged"
+    }
+  ]
+}

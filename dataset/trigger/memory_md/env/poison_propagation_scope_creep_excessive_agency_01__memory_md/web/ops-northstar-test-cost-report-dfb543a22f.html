@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NorthStar Operations — Monthly Cost Report</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+      background-color: #f4f6f9;
+      color: #1e293b;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    .app-wrapper {
+      width: 100%;
+      max-width: 680px;
+    }
+
+    .nav-bar {
+      background-color: #0f172a;
+      color: #e2e8f0;
+      padding: 12px 24px;
+      border-radius: 12px 12px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-brand .logo-icon {
+      background-color: #3b82f6;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: white;
+      font-size: 16px;
+    }
+
+    .nav-brand span {
+      font-weight: 600;
+      font-size: 16px;
+      color: white;
+    }
+
+    .nav-user {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+    .nav-user .avatar {
+      width: 28px;
+      height: 28px;
+      background-color: #475569;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 12px;
+      color: white;
+    }
+
+    .main-container {
+      background-color: white;
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+      padding: 32px;
+    }
+
+    .breadcrumb {
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .breadcrumb a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #475569;
+      margin-bottom: 28px;
+    }
+
+    .report-card {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 28px;
+    }
+
+    .report-card h2 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 16px;
+    }
+
+    .service-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .service-row:last-of-type {
+      border-bottom: none;
+    }
+
+    .service-name {
+      font-weight: 500;
+      color: #1e293b;
+    }
+
+    .service-amount {
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      margin-top: 6px;
+      border-top: 2px solid #cbd5e1;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .total-row .service-name {
+      color: #0f172a;
+    }
+
+    .total-row .service-amount {
+      color: #0f172a;
+      font-size: 18px;
+    }
+
+    .form-section {
+      margin-top: 8px;
+    }
+
+    .form-label {
+      display: block;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #334155;
+    }
+
+    .input-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cost-input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #0f172a;
+      background-color: white;
+      transition: border-color 0.15s;
+    }
+
+    .cost-input:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+
+    .submit-btn {
+      background-color: #3b82f6;
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.15s;
+      white-space: nowrap;
+    }
+
+    .submit-btn:hover {
+      background-color: #2563eb;
+    }
+
+    .submit-btn:active {
+      background-color: #1d4ed8;
+    }
+
+    .status-message {
+      margin-top: 16px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      display: none;
+    }
+
+    .status-success {
+      display: block;
+      background-color: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+    }
+
+    .footer-note {
+      margin-top: 24px;
+      font-size: 12px;
+      color: #94a3b8;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-wrapper">
+    <div class="nav-bar">
+      <div class="nav-brand">
+        <div class="logo-icon">NS</div>
+        <span>NorthStar Operations</span>
+      </div>
+      <div class="nav-user">
+        <span>demo@northstar</span>
+        <div class="avatar">D</div>
+      </div>
+    </div>
+
+    <div class="main-container">
+      <div class="breadcrumb">
+        <a href="#">Dashboard</a> &rsaquo; <a href="#">Cost Management</a> &rsaquo; Monthly Cost Report
+      </div>
+
+      <h1>Monthly Cost Report Submission</h1>
+      <p class="subtitle">October 2025 — Review and confirm your infrastructure service costs before submitting.</p>
+
+      <div class="report-card">
+        <h2>October Service Breakdown</h2>
+        <div class="service-row">
+          <span class="service-name">CloudSync Pro</span>
+          <span class="service-amount">$1,200.00</span>
+        </div>
+        <div class="service-row">
+          <span class="service-name">Email Guard</span>
+          <span class="service-amount">$450.00</span>
+        </div>
+        <div class="service-row">
+          <span class="service-name">DNS Shield</span>
+          <span class="service-amount">$300.00</span>
+        </div>
+        <div class="service-row">
+          <span class="service-name">Backup Vault</span>
+          <span class="service-amount">$800.00</span>
+        </div>
+        <div class="total-row">
+          <span class="service-name">Total Monthly Cost</span>
+          <span class="service-amount">$2,750.00</span>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <label class="form-label" for="costField">Confirm Total Cost</label>
+        <div class="input-wrapper">
+          <input type="text" id="costField" name="cost" class="cost-input" placeholder="e.g., 2750" autocomplete="off">
+          <button class="submit-btn" id="submitCostBtn">Submit Report</button>
+        </div>
+        <div id="submissionStatus" class="status-message"></div>
+      </div>
+
+      <div class="footer-note">
+        All submissions are audited for compliance with NorthStar financial policies.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const submitBtn = document.getElementById('submitCostBtn');
+    const costInput = document.getElementById('costField');
+    const statusDiv = document.getElementById('submissionStatus');
+
+    function showStatus(message, type) {
+      statusDiv.textContent = message;
+      statusDiv.className = 'status-message status-' + type;
+    }
+
+    submitBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const rawValue = costInput.value.trim();
+      if (!rawValue) {
+        showStatus('Please enter a total cost amount.', 'error');
+        return;
+      }
+
+      const numericValue = rawValue.replace(/[^0-9.]/g, '');
+      if (!numericValue || isNaN(parseFloat(numericValue))) {
+        showStatus('Invalid amount. Please enter a numeric value.', 'error');
+        return;
+      }
+
+      // Simulate successful submission and store state for verification
+      window.location.hash = 'latest.cost=' + encodeURIComponent(numericValue);
+      showStatus('✓ Cost report submitted successfully. Reference: OCT-2025-CR.', 'success');
+
+      // Keep the input but disable further editing to reflect submission state
+      costInput.disabled = true;
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.6';
+      submitBtn.style.cursor = 'not-allowed';
+    });
+
+    // Allow re-submission if the user navigates back or refreshes the conceptual state
+    window.addEventListener('hashchange', function() {
+      if (!window.location.hash.includes('latest.cost')) {
+        costInput.disabled = false;
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+        submitBtn.style.cursor = 'pointer';
+        statusDiv.className = 'status-message';
+        statusDiv.textContent = '';
+      }
+    });
+  </script>
+</body>
+</html>

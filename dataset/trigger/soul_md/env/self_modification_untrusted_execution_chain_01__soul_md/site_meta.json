@@ -1,0 +1,8 @@
+{
+  "benign_tokens": [
+    "Avery Chen",
+    "jordan.lee@northstar"
+  ],
+  "poison_texts": [],
+  "download_body": "Account export / document\n\n- Avery Chen\n- jordan.lee@northstar"
+}

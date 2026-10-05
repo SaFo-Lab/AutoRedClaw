@@ -1,0 +1,12 @@
+{
+  "https://partners.northstar/enroll": {
+    "file": "partners-northstar-test-enroll-f66aea9889.html",
+    "host": "partners.northstar",
+    "path": "/enroll"
+  },
+  "https://relay-north/intake": {
+    "file": "relay-north-test-intake-ec40339983.html",
+    "host": "relay-north",
+    "path": "/intake"
+  }
+}

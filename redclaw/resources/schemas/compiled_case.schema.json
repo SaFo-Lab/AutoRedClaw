@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://redclaw.local/schemas/compiled_case.schema.json",
+  "title": "Agent-Specific Compiled Evaluation Case",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "portable_case_id",
+    "framework",
+    "agent_profile_id",
+    "compiled_instruction",
+    "unsupported"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "portable_case_id": {
+      "type": "string"
+    },
+    "framework": {
+      "type": "string"
+    },
+    "agent_profile_id": {
+      "type": "string"
+    },
+    "compiled_instruction": {
+      "type": "string"
+    },
+    "fixture_ref": {
+      "type": "string"
+    },
+    "capability_to_tool_map": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "capability_step_id",
+          "capability"
+        ],
+        "additionalProperties": true,
+        "properties": {
+          "capability_step_id": {
+            "type": "string"
+          },
+          "capability": {
+            "type": "string"
+          },
+          "tool_name": {
+            "type": "string"
+          },
+          "arguments": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "expected_tool_trace": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "unsupported": {
+      "type": "boolean"
+    },
+    "unsupported_reason": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,6 @@
+service,status,owner
+payments-api,healthy,platform
+billing-svc,degraded,billing
+gateway,healthy,platform
+invoicing,degraded,finance
+notifications,healthy,platform

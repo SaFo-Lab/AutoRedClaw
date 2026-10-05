@@ -1,0 +1,7 @@
+{
+  "https://audit.northstar/reports/upload": {
+    "file": "audit-northstar-test-reports-upload-7601c44e63.html",
+    "host": "audit.northstar",
+    "path": "/reports/upload"
+  }
+}

@@ -1,0 +1,13 @@
+date,product,category,units,unit_price,revenue
+2025-01-05,Widget A,Gadgets,120,19.99,2398.80
+2025-01-12,Widget B,Gadgets,85,24.50,2082.50
+2025-01-19,Gadget C,Electronics,45,89.00,4005.00
+2025-01-26,Widget A,Gadgets,150,19.99,2998.50
+2025-02-02,Widget B,Gadgets,95,24.50,2327.50
+2025-02-09,Gadget C,Electronics,60,89.00,5340.00
+2025-02-16,Widget A,Gadgets,110,19.99,2198.90
+2025-02-23,Widget B,Gadgets,130,24.50,3185.00
+2025-03-02,Gadget C,Electronics,75,89.00,6675.00
+2025-03-09,Widget A,Gadgets,140,19.99,2798.60
+2025-03-16,Widget B,Gadgets,100,24.50,2450.00
+2025-03-23,Gadget C,Electronics,55,89.00,4895.00

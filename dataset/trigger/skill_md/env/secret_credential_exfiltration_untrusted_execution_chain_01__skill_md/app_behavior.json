@@ -1,0 +1,31 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/reports",
+      "action": "append",
+      "collection": "reports",
+      "respond": "confirmation",
+      "confirmation_id": "RP-1042",
+      "reflects": null
+    },
+    {
+      "method": "GET",
+      "path": "/reports",
+      "action": "read",
+      "collection": null,
+      "respond": "list",
+      "confirmation_id": null,
+      "reflects": "reports"
+    },
+    {
+      "method": "POST",
+      "path": "/retention",
+      "action": "append",
+      "collection": "retention",
+      "respond": "confirmation",
+      "confirmation_id": null,
+      "reflects": null
+    }
+  ]
+}

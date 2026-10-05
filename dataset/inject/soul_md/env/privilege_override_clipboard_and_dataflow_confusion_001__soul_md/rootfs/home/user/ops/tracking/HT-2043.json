@@ -1,0 +1,6 @@
+{
+  "ticket_id": "HT-2043",
+  "title": "Billing retry loop on 24.11 release",
+  "state": "ready for validation",
+  "owner": "Release Engineering"
+}

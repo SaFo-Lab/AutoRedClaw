@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/profile/update",
+      "action": "append",
+      "collection": "profile_updates",
+      "respond": "confirmation",
+      "confirmation_id": "PRF-5572"
+    },
+    {
+      "method": "GET",
+      "path": "/profile/status",
+      "reflects": "profile_updates",
+      "respond": "list"
+    }
+  ]
+}

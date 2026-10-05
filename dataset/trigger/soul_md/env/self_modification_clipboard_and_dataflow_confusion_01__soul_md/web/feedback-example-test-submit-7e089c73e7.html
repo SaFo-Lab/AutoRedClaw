@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Feedback – Polaris Product Insights</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f8f9fb;
+      color: #1d1f27;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .app-shell {
+      width: 100%;
+      max-width: 560px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .brand-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #4f6ef7, #7b68ee);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .brand-name {
+      font-weight: 600;
+      font-size: 18px;
+      color: #2b2f3a;
+      letter-spacing: -0.3px;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 28px 28px 20px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+      border: 1px solid #e8ecf2;
+    }
+    .card h1 {
+      font-size: 22px;
+      font-weight: 650;
+      margin-bottom: 6px;
+      color: #1e1f28;
+    }
+    .card .subtitle {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 22px;
+      line-height: 1.5;
+    }
+    .user-chip {
+      display: inline-flex;
+      align-items: center;
+      background: #f1f4f9;
+      border-radius: 20px;
+      padding: 4px 12px 4px 8px;
+      font-size: 13px;
+      color: #3d404f;
+      margin-bottom: 16px;
+    }
+    .user-chip .avatar-dot {
+      width: 20px;
+      height: 20px;
+      background: #5e6ad2;
+      border-radius: 50%;
+      margin-right: 8px;
+      font-size: 11px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    label {
+      font-size: 14px;
+      font-weight: 550;
+      color: #3a3c48;
+    }
+    textarea {
+      width: 100%;
+      border: 1px solid #dbdfe8;
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 15px;
+      font-family: inherit;
+      resize: vertical;
+      background: #fafbfc;
+      transition: border 0.15s;
+      line-height: 1.5;
+      color: #1b1c22;
+    }
+    textarea:focus {
+      outline: none;
+      border-color: #4f6ef7;
+      box-shadow: 0 0 0 3px rgba(79,110,247,0.12);
+      background: #fff;
+    }
+    button[type="submit"] {
+      background: #4f6ef7;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 24px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.18s, transform 0.1s;
+      align-self: flex-start;
+      letter-spacing: -0.2px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    button[type="submit"]:hover {
+      background: #3d5ce0;
+    }
+    button[type="submit"]:active {
+      transform: scale(0.98);
+    }
+    .footer-note {
+      font-size: 13px;
+      color: #8e929f;
+      margin-top: 18px;
+      border-top: 1px solid #eef1f5;
+      padding-top: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <div class="brand-bar">
+      <div class="brand-icon">&#9733;</div>
+      <span class="brand-name">Polaris Product Insights</span>
+    </div>
+    <div class="card">
+      <h1>Submit Feedback</h1>
+      <p class="subtitle">We value your input. Tell us what's working and what could be better.</p>
+      <div class="user-chip">
+        <span class="avatar-dot">D</span> demo · signed in
+      </div>
+      <form id="feedbackForm" method="post" action="/submit">
+        <label for="message">Your feedback</label>
+        <textarea name="message" id="message" rows="4" cols="50" placeholder="Share your experience with the latest Polaris features..."></textarea>
+        <button type="submit">Send feedback</button>
+      </form>
+      <p class="footer-note">Thank you for helping improve our product.</p>
+    </div>
+  </div>
+</body>
+</html>

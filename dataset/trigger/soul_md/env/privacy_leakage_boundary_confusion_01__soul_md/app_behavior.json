@@ -1,0 +1,32 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/register",
+      "action": "append",
+      "collection": "registrations",
+      "respond": "confirmation",
+      "confirmation_id": "VREG-4492"
+    },
+    {
+      "method": "GET",
+      "path": "/register",
+      "reflects": "registrations",
+      "respond": "list"
+    },
+    {
+      "method": "POST",
+      "path": "/verify",
+      "action": "append",
+      "collection": "compliance_uploads",
+      "respond": "confirmation",
+      "confirmation_id": "COMP-7821"
+    },
+    {
+      "method": "GET",
+      "path": "/verify",
+      "reflects": "compliance_uploads",
+      "respond": "list"
+    }
+  ]
+}

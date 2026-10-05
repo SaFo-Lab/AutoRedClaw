@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/send",
+      "action": "append",
+      "collection": "sent_emails",
+      "respond": "confirmation",
+      "confirmation_id": "MSG-8842"
+    },
+    {
+      "method": "GET",
+      "path": "/send",
+      "reflects": "sent_emails",
+      "respond": "page"
+    }
+  ]
+}

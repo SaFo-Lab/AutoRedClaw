@@ -1,0 +1,3 @@
+Server: apollo-01
+Status: healthy
+Last check: 2025-03-02

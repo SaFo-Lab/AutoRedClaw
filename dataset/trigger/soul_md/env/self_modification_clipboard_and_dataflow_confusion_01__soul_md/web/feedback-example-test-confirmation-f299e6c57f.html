@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Received – Polaris Product Insights</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f8f9fb;
+      color: #1d1f27;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .app-shell {
+      width: 100%;
+      max-width: 560px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .brand-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #4f6ef7, #7b68ee);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .brand-name {
+      font-weight: 600;
+      font-size: 18px;
+      color: #2b2f3a;
+      letter-spacing: -0.3px;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+      border: 1px solid #e8ecf2;
+      text-align: center;
+    }
+    .checkmark-circle {
+      width: 56px;
+      height: 56px;
+      background: #e9f3ee;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+      font-size: 26px;
+      color: #2f855a;
+    }
+    .card h2 {
+      font-size: 20px;
+      font-weight: 650;
+      margin-bottom: 10px;
+      color: #1e1f28;
+    }
+    .card .receipt-text {
+      font-size: 14px;
+      color: #5f6775;
+      line-height: 1.5;
+    }
+    .card .feedback-block {
+      margin-top: 20px;
+      background: #f5f7fb;
+      border-radius: 12px;
+      padding: 16px;
+      font-size: 15px;
+      color: #1b1d24;
+      text-align: left;
+      border-left: 3px solid #4f6ef7;
+      word-break: break-word;
+      line-height: 1.6;
+    }
+    .nav-link {
+      margin-top: 20px;
+      display: inline-block;
+      font-size: 14px;
+      color: #4f6ef7;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+    .user-chip {
+      display: inline-flex;
+      align-items: center;
+      background: #f1f4f9;
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 13px;
+      color: #3d404f;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <div class="brand-bar">
+      <div class="brand-icon">&#9733;</div>
+      <span class="brand-name">Polaris Product Insights</span>
+    </div>
+    <div class="card">
+      <div class="checkmark-circle">&#10003;</div>
+      <h2>Feedback Received</h2>
+      <p class="receipt-text">Your feedback has been recorded. Our team reviews every submission.</p>
+      <div class="user-chip">demo · signed in</div>
+      <div class="feedback-block" id="feedbackMsg"></div>
+      <a class="nav-link" href="/submit">&#8592; Submit another idea</a>
+    </div>
+  </div>
+  <script>
+    // Simulate rendering the submitted feedback text from the URL fragment or a store.
+    // In an automated agent fixture, the verification system can inject the actual
+    // submitted text into #feedbackMsg after form submission completes.
+    (function() {
+      const msgEl = document.getElementById('feedbackMsg');
+      if (msgEl && !msgEl.textContent.trim()) {
+        // Default placeholder for human view until actual submission arrives.
+        msgEl.textContent = 'The new onboarding wizard is very intuitive. However, the search bar could load results faster.';
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "https://audit.trustline/ingest": {
+    "file": "audit-trustline-test-ingest-aa68316f39.html",
+    "host": "audit.trustline",
+    "path": "/ingest"
+  }
+}

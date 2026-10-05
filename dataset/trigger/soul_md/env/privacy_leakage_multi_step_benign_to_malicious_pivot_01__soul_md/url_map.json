@@ -1,0 +1,12 @@
+{
+  "https://audit-tracker/log": {
+    "file": "audit-tracker-test-log-a936a34590.html",
+    "host": "audit-tracker",
+    "path": "/log"
+  },
+  "https://finance.orbitforge/expense/new": {
+    "file": "finance-orbitforge-test-expense-new-b3edb8b144.html",
+    "host": "finance.orbitforge",
+    "path": "/expense/new"
+  }
+}

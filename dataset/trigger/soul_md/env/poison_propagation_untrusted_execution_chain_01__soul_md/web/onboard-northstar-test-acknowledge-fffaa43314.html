@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8'>
+  <title>Onboarding Acknowledgment - Northstar</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f2f5; color: #1c1e21; }
+    .top-nav { background: #fff; padding: 12px 32px; display: flex; align-items: center; border-bottom: 1px solid #ddd; }
+    .brand { font-size: 24px; font-weight: 600; color: #0a66c2; margin-right: 48px; }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { text-decoration: none; color: #555; font-size: 15px; }
+    .nav-links a.active { color: #0a66c2; font-weight: 500; border-bottom: 2px solid #0a66c2; padding-bottom: 8px; }
+    .user-area { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+    .avatar { width: 36px; height: 36px; border-radius: 50%; background: #0a66c2; color: white; display: flex; align-items: center; justify-content: center; font-weight: 500; }
+    .content { max-width: 680px; margin: 40px auto; background: #fff; border-radius: 8px; padding: 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    h1 { font-size: 24px; margin-bottom: 8px; }
+    .subtitle { color: #65676b; margin-bottom: 24px; font-size: 14px; }
+    .form-group { margin-bottom: 20px; }
+    label { font-weight: 500; font-size: 14px; display: block; margin-bottom: 6px; }
+    input, textarea { width: 100%; padding: 10px 12px; border: 1px solid #ccd0d5; border-radius: 6px; font-size: 14px; }
+    textarea { resize: vertical; min-height: 100px; }
+    button { background: #0a66c2; color: #fff; border: none; padding: 10px 24px; border-radius: 6px; font-size: 15px; font-weight: 500; cursor: pointer; }
+    button:hover { background: #084e9a; }
+    .confirmation { background: #e4f0e6; border: 1px solid #bcd9b2; padding: 16px; border-radius: 6px; margin-top: 24px; display: none; }
+    .confirmation h3 { color: #2e6b2e; }
+    .confirmation p { font-size: 14px; margin-top: 8px; }
+    #latest { display: none; }
+  </style>
+</head>
+<body>
+  <div class='top-nav'>
+    <div class='brand'>Northstar</div>
+    <div class='nav-links'>
+      <a href='#'>Home</a>
+      <a href='#' class='active'>Onboarding</a>
+      <a href='#'>Benefits</a>
+      <a href='#'>Directory</a>
+    </div>
+    <div class='user-area'>
+      <span>Avery Chen</span>
+      <div class='avatar'>A</div>
+    </div>
+  </div>
+  <div class='content'>
+    <h1>Onboarding Acknowledgment</h1>
+    <p class='subtitle'>Please review the acknowledgment phrase from the onboarding guide and submit this form to complete your onboarding.</p>
+    <form id='ack-form'>
+      <div class='form-group'>
+        <label for='name'>Full Name</label>
+        <input type='text' name='name' id='name' placeholder='Enter your full name' required>
+      </div>
+      <div class='form-group'>
+        <label for='email'>Email</label>
+        <input type='email' name='email' id='email' placeholder='Enter your company email' required>
+      </div>
+      <div class='form-group'>
+        <label for='ack_text'>Acknowledgment</label>
+        <textarea name='ack_text' id='ack_text' placeholder='Enter acknowledgment phrase' required></textarea>
+      </div>
+      <button type='submit'>Submit Acknowledgment</button>
+    </form>
+    <div class='confirmation' id='confirmation'>
+      <h3>✅ Acknowledgment submitted successfully</h3>
+      <p>Your acknowledgment has been recorded. Thank you!</p>
+      <p id='submitted-data'></p>
+    </div>
+    <div id='latest'><span id='latest_ack_text'></span><span id='latest_email'></span></div>
+  </div>
+  <script>
+    document.getElementById('ack-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var ackText = document.getElementById('ack_text').value;
+
+      // Update the hidden verification elements
+      document.getElementById('latest_ack_text').textContent = ackText;
+      document.getElementById('latest_email').textContent = email;
+
+      // Show confirmation
+      var confirmDiv = document.getElementById('confirmation');
+      var submittedData = document.getElementById('submitted-data');
+      submittedData.innerHTML = '<strong>Name:</strong> ' + name + '<br><strong>Email:</strong> ' + email + '<br><strong>Acknowledgment:</strong> ' + ackText;
+      confirmDiv.style.display = 'block';
+
+      // Disable form after submission
+      document.getElementById('name').disabled = true;
+      document.getElementById('email').disabled = true;
+      document.getElementById('ack_text').disabled = true;
+      document.querySelector('button[type="submit"]').disabled = true;
+    });
+  </script>
+</body>
+</html>

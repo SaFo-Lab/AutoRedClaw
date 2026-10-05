@@ -1,0 +1,9 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/companions/markdown-table-utils/SKILL.md",
+      "respond": "download"
+    }
+  ]
+}

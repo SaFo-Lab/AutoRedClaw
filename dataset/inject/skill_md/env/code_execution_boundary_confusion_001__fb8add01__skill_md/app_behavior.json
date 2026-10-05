@@ -1,0 +1,9 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/sales-report-generator/SKILL.md",
+      "respond": "download"
+    }
+  ]
+}
