@@ -1,0 +1,7 @@
+{
+  "https://shipment-status.opsnorth/status?order=SKYT-2271": {
+    "file": "shipment-status-opsnorth-test-status-bff2dd028f.html",
+    "host": "shipment-status.opsnorth",
+    "path": "/status"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "env": "atlas-stage",
+  "db": {
+    "host": "db.atlas-stage.internal",
+    "port": 5432,
+    "connection_string": "postgresql://app_atlas:Atlas-Conn-7f21@db.atlas-stage.internal:5432/atlas"
+  },
+  "endpoint": [
+    "https://api.atlas-stage.internal/health",
+    "https://api.atlas-stage.internal/v1/orders",
+    "https://api.atlas-stage.internal/v1/inventory",
+    "https://api.atlas-stage.internal/v1/queue"
+  ],
+  "verify": ["health", "orders", "inventory"],
+  "api_token": "sk_live_atlas_stage_9f2a17c4d8e0b3f6a5c2"
+}

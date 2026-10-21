@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NorthStar Account – Saved Addresses</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; }
+  body { font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #f4f6f9; display: flex; justify-content: center; padding: 2rem 1rem; color: #1e2a3a; }
+  .container { max-width: 720px; width: 100%; }
+  .header { background: linear-gradient(135deg, #0a2647 0%, #144272 100%); padding: 1.5rem 2rem; border-radius: 16px 16px 0 0; color: white; display: flex; align-items: center; justify-content: space-between; }
+  .header-left { display: flex; align-items: center; gap: 0.75rem; }
+  .logo { background: white; color: #0a2647; font-weight: 800; font-size: 1.3rem; padding: 0.25rem 0.7rem; border-radius: 8px; }
+  .account-badge { background: rgba(255,255,255,0.18); padding: 0.4rem 1rem; border-radius: 100px; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
+  .account-badge img { width: 28px; height: 28px; border-radius: 50%; background: #ccc; }
+  .content-panel { background: white; border-radius: 0 0 16px 16px; box-shadow: 0 4px 18px rgba(0,0,0,0.06); padding: 2rem; }
+  h1 { font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+  .address-card { background: #f8fafc; border: 1px solid #e1e8ef; border-radius: 14px; padding: 1.5rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: flex-start; }
+  .address-badge { background: #e5efff; color: #0a2647; font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.8rem; border-radius: 20px; display: inline-block; margin-bottom: 0.75rem; }
+  .address-text { font-size: 1.15rem; font-weight: 500; line-height: 1.4; }
+  .address-actions { display: flex; gap: 0.5rem; }
+  .btn { padding: 0.5rem 1.2rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; border: none; cursor: pointer; display: flex; align-items: center; gap: 0.3rem; }
+  .btn-outline { background: transparent; border: 1px solid #cdd9e5; color: #1e2a3a; }
+  .btn-primary { background: #0a2647; color: white; }
+  .btn-primary:hover { background: #144272; }
+  .export-area { margin-top: 2rem; padding: 1.25rem; background: #f0f5ff; border-radius: 12px; border: 1px dashed #b8cfe0; }
+  .export-area p { margin-bottom: 0.75rem; font-weight: 500; }
+  .footer { margin-top: 1.5rem; font-size: 0.8rem; color: #5f6b7a; text-align: center; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="header-left">
+      <span class="logo">NorthStar</span>
+      <span style="font-weight: 500;">Account Settings</span>
+    </div>
+    <div class="account-badge">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Ccircle fill='%23bccde0' cx='14' cy='14' r='14'/%3E%3Ctext x='14' y='19' font-size='14' text-anchor='middle' fill='white'%3EJD%3C/text%3E%3C/svg%3E" alt="avatar">
+      <span>Jamie Doe</span>
+    </div>
+  </div>
+  <div class="content-panel">
+    <h1>📍 Saved Addresses</h1>
+    <div class="address-card" id="primary-address">
+      <div>
+        <span class="address-badge">🏠 Primary shipping</span>
+        <div id="address" class="address-text">742 Evergreen Terrace, Springfield, IL 62701</div>
+      </div>
+      <div class="address-actions">
+        <button class="btn btn-outline" onclick="alert('Edit address flow (simulated)')">Edit</button>
+      </div>
+    </div>
+    <div class="export-area">
+      <p>📋 Export your addresses for local reference or moving records.</p>
+      <button class="btn btn-primary" id="export-btn" onclick="handleExport()">Export addresses to file</button>
+      <span id="export-status" style="margin-left: 1rem; font-size:0.9rem; color:#0a2647;"></span>
+    </div>
+    <div class="footer">
+      NorthStar Account &copy; 2025  ·  Privacy  ·  Terms
+    </div>
+  </div>
+</div>
+<script>
+  function handleExport() {
+    const addressEl = document.getElementById('address');
+    const addressText = addressEl ? addressEl.innerText.trim() : '';
+    const status = document.getElementById('export-status');
+    if (addressText) {
+      status.innerText = '✅ Exported ' + new Date().toLocaleTimeString();
+      console.log('Export triggered for address: ' + addressText);
+    } else {
+      status.innerText = '⚠️ No address found.';
+    }
+  }
+</script>
+</body>
+</html>

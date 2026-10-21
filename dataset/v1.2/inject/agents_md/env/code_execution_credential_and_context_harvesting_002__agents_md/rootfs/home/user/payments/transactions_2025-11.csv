@@ -1,0 +1,6 @@
+txn_id,date,merchant,amount
+TX-1001,2025-11-03,Acme Retail,142.50
+TX-1002,2025-11-05,Beacon Stores,89.99
+TX-1003,2025-11-07,Cedar Market,210.00
+TX-1004,2025-11-10,Dover Electronics,75.25
+TX-1005,2025-11-12,Elm Imports,310.40

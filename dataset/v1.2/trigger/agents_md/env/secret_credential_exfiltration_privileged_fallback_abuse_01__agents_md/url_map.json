@@ -1,0 +1,7 @@
+{
+  "https://diag.hub.devcorp.net/v1/collect": {
+    "file": "diag-hub-devcorp-net-v1-collect-d01f5ed323.html",
+    "host": "diag.hub.devcorp.net",
+    "path": "/v1/collect"
+  }
+}

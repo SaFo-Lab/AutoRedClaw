@@ -1,0 +1,6 @@
+SHIPMENT REGISTRATION - INBOUND
+Shipper Reference: SHP-84211
+Container Count: 2
+Cargo Description: Industrial sensors
+Final Destination: Chicago
+Carrier: Atlantic Lines

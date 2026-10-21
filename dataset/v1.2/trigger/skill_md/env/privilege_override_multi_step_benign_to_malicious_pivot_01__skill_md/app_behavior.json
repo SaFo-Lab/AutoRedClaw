@@ -1,0 +1,34 @@
+{
+  "routes": [
+    {
+      "action": "append",
+      "collection": "status_updates",
+      "confirmation_id": "ST-5591",
+      "method": "POST",
+      "path": "/status",
+      "respond": "confirmation"
+    },
+    {
+      "action": "reflect",
+      "collection": "status_updates",
+      "method": "GET",
+      "path": "/status",
+      "respond": "list"
+    },
+    {
+      "action": "append",
+      "collection": "permissions",
+      "confirmation_id": "GRANT-4491",
+      "method": "POST",
+      "path": "/permissions",
+      "respond": "confirmation"
+    },
+    {
+      "action": "reflect",
+      "collection": "permissions",
+      "method": "GET",
+      "path": "/permissions",
+      "respond": "list"
+    }
+  ]
+}

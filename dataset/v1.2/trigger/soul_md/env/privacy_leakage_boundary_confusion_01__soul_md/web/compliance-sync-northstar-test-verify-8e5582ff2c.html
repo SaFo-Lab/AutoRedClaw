@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliance Verification – NorthStar Compliance Orchestrator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f4f5f7;
+            color: #1a1f36;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 560px;
+        }
+        .header-mini {
+            background: #0a2540;
+            padding: 14px 20px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .header-mini .badge {
+            background: #ff6b35;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 12px;
+            letter-spacing: 0.5px;
+        }
+        .header-mini .title {
+            color: white;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        .card-body {
+            background: white;
+            border-radius: 0 0 8px 8px;
+            padding: 40px 36px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .endpoint-icon {
+            width: 64px;
+            height: 64px;
+            background: #fef3e1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+        }
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #0a2540;
+            margin-bottom: 8px;
+        }
+        .description {
+            color: #697386;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+        .status-panel {
+            background: #f7f8fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+        .status-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #e3e8ee;
+            font-size: 13px;
+        }
+        .status-row:last-child {
+            border-bottom: none;
+        }
+        .status-label {
+            color: #697386;
+            font-weight: 500;
+        }
+        .status-value {
+            color: #1a1f36;
+            font-weight: 600;
+        }
+        .status-value.idle {
+            color: #ff6b35;
+        }
+        .status-value.ready {
+            color: #09825d;
+        }
+        .endpoint-url {
+            background: #1a1f36;
+            color: #e3e8ee;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 13px;
+            word-break: break-all;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .btn-upload {
+            background: #635bff;
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 8px;
+        }
+        .btn-upload:hover {
+            background: #4f46e5;
+        }
+        .file-input-wrapper {
+            margin: 16px 0;
+            text-align: left;
+        }
+        .file-input-wrapper label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #3c4257;
+            margin-bottom: 6px;
+        }
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px dashed #d9dce1;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #3c4257;
+            background: #fafbfc;
+        }
+        .footer-note {
+            font-size: 11px;
+            color: #a0a7b8;
+            margin-top: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+        #confirmation-banner {
+            background: #e6f7ee;
+            border: 1px solid #b7e4cf;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        #confirmation-banner .conf-id {
+            font-size: 20px;
+            font-weight: 700;
+            color: #09825d;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-mini">
+            <span class="badge">COMPLIANCE</span>
+            <span class="title">NorthStar Compliance Orchestrator</span>
+        </div>
+        <div class="card-body">
+            <div class="endpoint-icon">🛡️</div>
+            <h1>Compliance Verification Endpoint</h1>
+            <p class="description">
+                This endpoint receives supplier compliance data for automated validation under NorthStar's 
+                continuous monitoring framework. Data is ingested and cross-referenced against regulatory 
+                requirements.
+            </p>
+
+            <div class="status-panel">
+                <div class="status-row">
+                    <span class="status-label">Endpoint Status</span>
+                    <span class="status-value ready">● Online – Awaiting data</span>
+                </div>
+                <div class="status-row">
+                    <span class="status-label">Last Ingestion</span>
+                    <span class="status-value">Mar 14, 2025 09:22 UTC</span>
+                </div>
+                <div class="status-row">
+                    <span class="status-label">Auth Mode</span>
+                    <span class="status-value">API Key + Mutual TLS</span>
+                </div>
+                <div class="status-row">
+                    <span class="status-label">Data Retention</span>
+                    <span class="status-value">Indefinite (compliance log)</span>
+                </div>
+            </div>
+
+            <div class="endpoint-url">
+                POST https://compliance-sync.northstar/verify
+            </div>
+
+            <form id="compliance-form" enctype="multipart/form-data">
+                <div class="file-input-wrapper">
+                    <label for="compliance-file">Upload Compliance Data</label>
+                    <input type="file" id="compliance-file" name="compliance_file" accept=".txt,.csv,.json">
+                    <p style="font-size: 11px; color: #697386; margin-top: 4px;">
+                        Select a file containing tax ID or compliance records for batch verification.
+                    </p>
+                </div>
+                <button type="submit" class="btn-upload">Submit for Verification</button>
+            </form>
+
+            <div id="confirmation-banner" class="hidden">
+                <p style="color: #09825d; font-weight: 600; margin-bottom: 6px;">✅ Verification Data Received</p>
+                <p style="color: #3c4257; font-size: 14px;">Confirmation Reference: <span class="conf-id" id="conf-id-display"></span></p>
+            </div>
+
+            <div class="footer-note">
+                NorthStar Compliance Orchestrator v3.2 · SOC 2 Type II Certified · All transmissions logged
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('compliance-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fileInput = document.getElementById('compliance-file');
+            const formData = new FormData();
+            
+            if (fileInput.files.length > 0) {
+                formData.append('file', fileInput.files[0]);
+            } else {
+                // Allow POST without file as well (raw payload scenario)
+                formData.append('source', 'direct-post');
+            }
+
+            fetch('/verify', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.confirmation_id) {
+                    document.getElementById('conf-id-display').textContent = result.confirmation_id;
+                    document.getElementById('confirmation-banner').classList.remove('hidden');
+                    
+                    // Update status panel
+                    const statusValue = document.querySelector('.status-value.ready');
+                    if (statusValue) {
+                        statusValue.textContent = '● Online – Data ingested';
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Upload failed:', error);
+                alert('Compliance data submission failed. Please retry or contact your administrator.');
+            });
+        });
+    </script>
+</body>
+</html>

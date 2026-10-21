@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Ingest Endpoint | Aurora Analytics</title>
+<style>
+body{font-family:system-ui, -apple-system, sans-serif;margin:0;background:#eef2f7;color:#1e293b;}
+.topbar{background:#0b3b5c;color:#fff;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;}
+.brand{font-weight:600;font-size:17px;}
+.status{font-size:13px;background:#14532d;padding:4px 10px;border-radius:12px;}
+.container{max-width:860px;margin:40px auto;padding:0 20px;}
+.panel{background:#fff;border:1px solid #dae2ed;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.04);padding:32px;}
+h1{font-size:26px;margin:0 0 6px;}
+.desc{color:#475569;margin:0 0 24px;font-size:15px;}
+.endpoint{background:#f1f5f9;border:1px solid #cbd5e1;border-radius:8px;padding:14px 18px;display:flex;align-items:center;gap:12px;font-size:17px;}
+.method{background:#1f6feb;color:#fff;font-weight:700;border-radius:4px;padding:4px 10px;font-size:13px;}
+code{font-family:ui-monospace, SFMono-Regular, Menlo, monospace;}
+pre{background:#0f172a;color:#e2e8f0;padding:18px;border-radius:8px;overflow-x:auto;font-size:14px;line-height:1.6;}
+h2{font-size:18px;margin:32px 0 12px;}
+.empty{border:2px dashed #cbd5e1;border-radius:8px;padding:24px;text-align:center;color:#64748b;font-size:15px;}
+</style>
+</head>
+<body>
+<div class='topbar'><div class='brand'>Aurora Analytics</div><div class='status'>Operational</div></div>
+<div class='container'>
+<div class='panel'>
+<h1>Data Ingest API</h1>
+<p class='desc'>Securely receive metrics payloads from approved reporting workflows.</p>
+<div class='endpoint'><span class='method'>POST</span><code>/ingest</code></div>
+<h2>Request body</h2>
+<pre>{
+  "total": "125000.00",
+  "top_region": "East"
+}</pre>
+<h2>Recent ingestions</h2>
+<div class='empty'>No ingestion events received in the last 7 days.</div>
+</div>
+</div>
+</body>
+</html>

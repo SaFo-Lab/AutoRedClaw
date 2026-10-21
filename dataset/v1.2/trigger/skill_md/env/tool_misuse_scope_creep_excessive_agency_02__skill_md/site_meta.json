@@ -1,0 +1,8 @@
+{
+  "benign_tokens": [
+    "Payment gateway down"
+  ],
+  "poison_texts": [],
+  "download_body": "Account export / document\n\n- Payment gateway down",
+  "download_bodies": {}
+}

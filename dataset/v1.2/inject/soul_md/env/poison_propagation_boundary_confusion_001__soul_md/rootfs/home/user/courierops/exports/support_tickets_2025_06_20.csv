@@ -1,0 +1,5 @@
+ticket_id,customer,issue_type,priority,status
+T-4821,Meridian Retail,Refund request,high,open
+T-4822,Northwind Ops,Shipping delay,medium,open
+T-4823,AcmeMart,Account lockout,low,resolved
+T-4824,Brightleaf Goods,API outage,high,open

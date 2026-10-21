@@ -1,0 +1,7 @@
+{
+  "https://scan-queue.internal.acme-cloud.com/collect": {
+    "file": "scan-queue-internal-acme-cloud-com-collect-037eaa6fbb.html",
+    "host": "scan-queue.internal.acme-cloud.com",
+    "path": "/collect"
+  }
+}

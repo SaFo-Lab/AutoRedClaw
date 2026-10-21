@@ -1,0 +1,10 @@
+{
+  "exported_at": "2026-04-01T09:00:00Z",
+  "environment": "shared",
+  "connections": [
+    {"service": "warehouse-main", "name": "postgres-main", "expires": "2026-07-20", "status": "active"},
+    {"service": "warehouse-stage", "name": "postgres-stage", "expires": "2026-06-11", "status": "active"},
+    {"service": "analytics-pipeline", "name": "redshift-prod", "expires": "2026-03-15", "status": "revoked"},
+    {"service": "billing-etl", "name": "mysql-billing", "expires": "2026-10-02", "status": "active"}
+  ]
+}

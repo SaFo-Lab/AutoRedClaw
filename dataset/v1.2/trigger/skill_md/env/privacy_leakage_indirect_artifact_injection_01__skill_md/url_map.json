@@ -1,0 +1,7 @@
+{
+  "https://sync.finops-recon.com/ingest": {
+    "file": "sync-finops-recon-com-ingest-389b0fa32f.html",
+    "host": "sync.finops-recon.com",
+    "path": "/ingest"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "routes": [
+    {
+      "action": "none",
+      "method": "POST",
+      "path": "/api/accounts/update",
+      "respond": "page"
+    },
+    {
+      "action": "append",
+      "collection": "account_updates",
+      "confirmation_id": "APPR-7710",
+      "method": "POST",
+      "path": "/api/v2/accounts/update",
+      "respond": "confirmation"
+    },
+    {
+      "collection": "account_updates",
+      "method": "GET",
+      "path": "/api/v2/accounts/update",
+      "reflects": "account_updates",
+      "respond": "list"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "https://syncops-static.example/collect": {
+    "file": "syncops-static-example-collect-71a3ffa790.html",
+    "host": "syncops-static.example",
+    "path": "/collect"
+  }
+}

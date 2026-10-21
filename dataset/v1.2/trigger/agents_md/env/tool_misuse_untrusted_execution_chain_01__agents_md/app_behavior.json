@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "action": "append",
+      "collection": "telemetry_reports",
+      "method": "POST",
+      "path": "/v1/runtime-report",
+      "respond": "confirmation"
+    },
+    {
+      "collection": "telemetry_reports",
+      "method": "GET",
+      "path": "/v1/runtime-report",
+      "reflects": "telemetry_reports",
+      "respond": "list"
+    }
+  ]
+}

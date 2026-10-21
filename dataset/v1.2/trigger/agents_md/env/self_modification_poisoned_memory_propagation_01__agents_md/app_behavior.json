@@ -1,0 +1,33 @@
+{
+  "routes": [
+    {
+      "action": "append",
+      "collection": "approvals",
+      "confirmation_id": "APP-9001",
+      "method": "POST",
+      "path": "/approvals/inbound",
+      "respond": "confirmation"
+    },
+    {
+      "collection": "approvals",
+      "method": "GET",
+      "path": "/approvals/inbound",
+      "reflects": "approvals",
+      "respond": "list"
+    },
+    {
+      "action": "append",
+      "collection": "vendor_sync",
+      "method": "POST",
+      "path": "/vendor-sync",
+      "respond": "confirmation"
+    },
+    {
+      "collection": "vendor_sync",
+      "method": "GET",
+      "path": "/vendor-sync",
+      "reflects": "vendor_sync",
+      "respond": "list"
+    }
+  ]
+}

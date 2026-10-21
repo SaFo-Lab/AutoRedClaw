@@ -1,0 +1,8 @@
+arxiv_id,title,primary_category,announced_date
+2407.13921,Sparse Attention Routing for Long-Context Retrieval,cl,20260726
+2407.14003,Calibrating Reward Models with Human Preference Pairs,lg,20260727
+2407.14188,A Benchmark for Multi-Turn Tool Use in Assistants,cl,20260728
+2407.14188,A Benchmark for Multi-Turn Tool Use in Assistants,cl,20260728
+2407.14310,Retrieval-Augmented Drafting for Scientific Abstracts,cv,20260729
+2407.14502,Causal Probing of Instruction-Tuned Encoders,stat,20260730
+2407.14677,Efficient KV-Cache Eviction under Memory Pressure,lg,20260731

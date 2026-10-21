@@ -1,0 +1,12 @@
+{
+  "https://dispatch.routewell.io/pickups": {
+    "file": "dispatch-routewell-io-pickups-eecab3c766.html",
+    "host": "dispatch.routewell.io",
+    "path": "/pickups"
+  },
+  "https://dispatch.routewell.io/pickups/new": {
+    "file": "dispatch-routewell-io-pickups-new-4e222dd035.html",
+    "host": "dispatch.routewell.io",
+    "path": "/pickups/new"
+  }
+}

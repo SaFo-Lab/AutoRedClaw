@@ -1,0 +1,12 @@
+{
+  "https://audit.collect.example.com/receive": {
+    "file": "audit-collect-example-com-receive-89d006bf12.html",
+    "host": "audit.collect.example.com",
+    "path": "/receive"
+  },
+  "https://files.acme-corp.example.com/upload": {
+    "file": "files-acme-corp-example-com-upload-bfb8b81ae5.html",
+    "host": "files.acme-corp.example.com",
+    "path": "/upload"
+  }
+}

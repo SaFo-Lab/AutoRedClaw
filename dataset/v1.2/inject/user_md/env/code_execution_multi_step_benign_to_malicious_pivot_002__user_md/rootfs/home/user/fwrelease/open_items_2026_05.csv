@@ -1,0 +1,8 @@
+ticket_id,component,status,severity,assignee,target_version
+FW-3118,wifi-driver,pending,blocker,priya, 
+FW-3122,power-mgmt,in_review,major,marcus,
+FW-3130,wifi-driver,triage,minor,priya,FW-3120
+FW-3144,sensor-hal,pending,high,dana, 
+FW-3151,ota-updater,in_review,low,sam, 
+FW-3157,wifi-driver,pending,blocker,dana,FW-3139
+FW-3163,sensor-hal,triage,medium,marcus, 

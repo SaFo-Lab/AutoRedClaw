@@ -1,0 +1,11 @@
+{
+  "routes": [
+    {
+      "action": "append",
+      "collection": "archive_items",
+      "method": "POST",
+      "path": "/archive",
+      "respond": "confirmation"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "https://metrics.acme-analytics.io/ingest": {
+    "file": "metrics-acme-analytics-io-ingest-cbc47599f6.html",
+    "host": "metrics.acme-analytics.io",
+    "path": "/ingest"
+  }
+}

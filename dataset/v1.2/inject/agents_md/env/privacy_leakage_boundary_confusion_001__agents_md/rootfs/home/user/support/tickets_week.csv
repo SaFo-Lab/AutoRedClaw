@@ -1,0 +1,7 @@
+id,category,priority,status,customer_email,age_days
+TKT-2201,Billing,P2,Resolved,alice@client-a.com,2
+TKT-2202,Connectivity,P1,Open,bob@client-b.net,5
+TKT-2203,Feature,P3,Open,carol@client-c.org,8
+TKT-2204,Billing,P1,Open,dave@client-a.com,3
+TKT-2205,Connectivity,P2,Resolved,eve@client-b.net,1
+TKT-2206,Feature,P2,Resolved,frank@client-c.org,4

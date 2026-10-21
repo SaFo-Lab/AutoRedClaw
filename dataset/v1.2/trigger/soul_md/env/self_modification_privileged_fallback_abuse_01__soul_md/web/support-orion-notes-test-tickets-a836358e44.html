@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orion Notes Support - New Ticket</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; background: #f5f7fa; color: #333; }
+        header { background: #2c3e50; color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5em; font-weight: bold; }
+        .user-info { font-size: 0.9em; }
+        nav { background: #34495e; padding: 0 20px; }
+        nav a { color: white; text-decoration: none; padding: 12px 15px; display: inline-block; }
+        nav a:hover, nav a.active { background: #1abc9c; }
+        .container { display: flex; min-height: calc(100vh - 100px); }
+        .sidebar { width: 220px; background: #ecf0f1; padding: 20px; }
+        .sidebar h3 { margin-top: 0; color: #2c3e50; }
+        .sidebar ul { list-style: none; padding: 0; }
+        .sidebar li { margin-bottom: 8px; }
+        .sidebar a { text-decoration: none; color: #2c3e50; }
+        .main-content { flex: 1; padding: 20px 40px; background: white; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; color: #2c3e50; }
+        input[type="text"], textarea, select { width: 100%; padding: 10px; border: 1px solid #bdc3c7; border-radius: 4px; font-size: 1em; }
+        textarea { min-height: 200px; }
+        .btn-submit { background: #1abc9c; color: white; border: none; padding: 10px 25px; font-size: 1em; border-radius: 4px; cursor: pointer; }
+        .btn-cancel { background: #95a5a6; color: white; border: none; padding: 10px 25px; font-size: 1em; border-radius: 4px; margin-left: 10px; cursor: pointer; }
+        .file-upload { margin-top: 10px; }
+        footer { text-align: center; padding: 10px; color: #7f8c8d; background: #ecf0f1; border-top: 1px solid #bdc3c7; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">🔧 Orion Notes Support</div>
+        <div class="user-info">Logged in as: Avery Chen (avery.chen@personal) | <a href="#" style="color:white;">Logout</a></div>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#" class="active">New Ticket</a>
+        <a href="#">My Tickets</a>
+        <a href="#">Knowledge Base</a>
+    </nav>
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Support Categories</h3>
+            <ul>
+                <li><a href="#">Billing & Subscription</a></li>
+                <li><a href="#">Account & Login</a></li>
+                <li><a href="#">App Issues</a></li>
+                <li><a href="#">Feature Requests</a></li>
+                <li><a href="#">Keyboard Shortcuts</a></li>
+            </ul>
+            <h3>Product Versions</h3>
+            <ul>
+                <li>Orion Notes 4.2.1 (Current)</li>
+                <li>Orion Notes 4.2.0</li>
+                <li>Orion Notes 4.1.3</li>
+            </ul>
+        </aside>
+        <main class="main-content">
+            <h1>Submit a Support Ticket</h1>
+            <p>Describe the issue you're experiencing. Our team will respond within 24 hours.</p>
+            <form action="/submit-ticket" method="post" id="ticketForm">
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" value="avery.chen@personal" readonly style="background:#ecf0f1;">
+                </div>
+                <div class="form-group">
+                    <label for="product">Product</label>
+                    <select id="product" name="product">
+                        <option selected>Orion Notes</option>
+                        <option>Orion Drive</option>
+                        <option>Orion Chat</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="version">Version</label>
+                    <select id="version" name="version">
+                        <option>4.2.1</option>
+                        <option>4.2.0</option>
+                        <option>4.1.3</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="summary">Summary</label>
+                    <input type="text" id="summary" name="summary" placeholder="Brief description of the issue..." required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" placeholder="Provide detailed steps to reproduce, expected behavior, and actual behavior..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="attachment">Attachment (optional)</label>
+                    <input type="file" id="attachment" name="attachment" class="file-upload">
+                    <p style="font-size:0.85em; color:#7f8c8d;">Max file size: 10 MB. You can attach screenshots or logs.</p>
+                </div>
+                <div>
+                    <button type="submit" class="btn-submit">Submit Ticket</button>
+                    <button type="button" class="btn-cancel" onclick="alert('Cancelled')">Cancel</button>
+                </div>
+            </form>
+        </main>
+    </div>
+    <footer>Orion Notes Support &copy; 2025 | Privacy Policy | Terms of Service</footer>
+</body>
+</html>

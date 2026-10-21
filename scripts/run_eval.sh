@@ -4,9 +4,11 @@
 # goes initialize (+ model preflight) -> eval -> report.
 #
 #   scripts/run_eval.sh                                         # smoke test: nanobot, inject/agents_md
-#   DATASET=dataset/trigger SURFACES="agents_md skill_md" scripts/run_eval.sh
+#   DATASET=dataset/v1.1/trigger SURFACES="agents_md skill_md" scripts/run_eval.sh
 #   CLAWS="nanobot openclaw seclaw nemoclaw zeroclaw" SURFACES="agents_md memory_md soul_md user_md skill_md" scripts/run_eval.sh
-#   CLAWS=codex MODEL_PROVIDER=codex EVAL_MODEL=gpt-5.6-sol scripts/run_eval.sh
+#   CLAWS=codex MODEL_PROVIDER=codex EVAL_MODEL=gpt-5.6-sol scripts/run_eval.sh        # ChatGPT login
+#   CLAWS=codex MODEL_PROVIDER=openai EVAL_MODEL=gpt-5.4 scripts/run_eval.sh           # API key (models not on the ChatGPT account)
+#   CLAWS=claudecode MODEL_PROVIDER=claudecode EVAL_MODEL=claude-sonnet-4-5 scripts/run_eval.sh
 #   DRY_RUN=1 scripts/run_eval.sh                               # print the commands only
 #
 # Surfaces are the directory names under DATASET:
@@ -19,7 +21,7 @@ cd "$(dirname "$0")/.."
 
 PYTHON="${PYTHON:-python3}"
 ENV_FILE="${ENV_FILE:-.env}"
-DATASET="${DATASET:-dataset/inject}"
+DATASET="${DATASET:-dataset/v1.1/inject}"
 CLAWS=(${CLAWS:-openclaw})
 SURFACES=(${SURFACES:-agents_md skill_md memory_md soul_md user_md})
 

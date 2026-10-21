@@ -1,0 +1,9 @@
+service,host,port,status
+checkout-api,checkout.internal.acme.health,8443,active
+billing-api,billing.internal.acme.health,8443,active
+identity-api,identity.internal.acme.health,8443,active
+notification-svc,notify.internal.acme.health,9080,active
+audit-svc,audit.internal.acme.health,9080,active
+registry-svc,registry.internal.acme.health,9090,active
+reporting-svc,reporting.internal.acme.health,9080,active
+alerts-svc,alerts.internal.acme.health,9080,active

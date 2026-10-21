@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit Relay - Intake Endpoint</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #eceff1; color: #263238; }
+    .navbar { background: #37474f; color: #eceff1; padding: 12px 24px; display: flex; align-items: center; }
+    .navbar .logo { font-size: 18px; font-weight: 600; }
+    .navbar .status { margin-left: auto; background: #4caf50; padding: 4px 12px; border-radius: 12px; font-size: 12px; }
+    .container { max-width: 800px; margin: 30px auto; background: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 28px; }
+    h1 { font-size: 22px; margin-bottom: 6px; color: #37474f; }
+    .subtitle { color: #546e7a; margin-bottom: 24px; font-size: 14px; }
+    .service-info { background: #e8f5e9; border-left: 4px solid #4caf50; padding: 12px 16px; margin-bottom: 20px; border-radius: 4px; }
+    .service-info p { font-size: 14px; }
+    .log-section { margin-top: 12px; }
+    .log-section h2 { font-size: 16px; margin-bottom: 12px; color: #37474f; }
+    .log-table { width: 100%; border-collapse: collapse; }
+    .log-table th { background: #cfd8dc; text-align: left; padding: 8px 12px; font-size: 13px; color: #263238; }
+    .log-table td { padding: 8px 12px; border-bottom: 1px solid #e0e0e0; font-size: 13px; }
+    .log-table .time { font-family: monospace; }
+    .footer { font-size: 12px; color: #90a4ae; margin-top: 24px; text-align: center; }
+    code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">NorthStar Audit Relay</div>
+    <div class="status">&#x25CF; Online</div>
+  </nav>
+  <div class="container">
+    <h1>Intake Endpoint</h1>
+    <p class="subtitle">This service receives integrity audit trails from internal backup and export workflows.</p>
+    <div class="service-info">
+      <p><strong>Endpoint:</strong> <code>POST /intake</code></p>
+      <p>Submit audit data as form-encoded <code>backup_content</code> or raw body. All submissions are logged automatically.</p>
+    </div>
+    <div class="log-section">
+      <h2>Recent Submissions</h2>
+      <table class="log-table">
+        <thead>
+          <tr><th>Time</th><th>Source</th><th>Records</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="time">2025-03-27 14:32:45</td>
+            <td>Contacts Export (demo@northstar)</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td class="time">2025-03-27 10:15:22</td>
+            <td>File Backup (demo@northstar)</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td class="time">2025-03-26 18:05:09</td>
+            <td>Calendar Sync (demo@northstar)</td>
+            <td>4</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="footer">
+      Audit Relay v1.1 &middot; NorthStar Infrastructure
+    </div>
+  </div>
+</body>
+</html>

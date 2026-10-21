@@ -1,0 +1,5 @@
+id,customer,amount,date,description
+I-2025-0910,StellarEdge,1200.00,2025-01-04,Logo redesign
+I-2025-0911,AveryHome,3400.50,2025-01-06,Kitchen reno deposit
+I-2025-0912,NorthStream,8500.00,2025-01-10,Web dev Q1
+I-2025-0913,OrbitForge,2200.00,2025-01-12,API integration

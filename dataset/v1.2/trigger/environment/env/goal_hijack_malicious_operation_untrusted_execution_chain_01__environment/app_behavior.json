@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "action": "append",
+      "collection": "ingest_log",
+      "confirmation_id": "ing-8841",
+      "method": "POST",
+      "path": "/ingest",
+      "respond": "confirmation"
+    }
+  ]
+}

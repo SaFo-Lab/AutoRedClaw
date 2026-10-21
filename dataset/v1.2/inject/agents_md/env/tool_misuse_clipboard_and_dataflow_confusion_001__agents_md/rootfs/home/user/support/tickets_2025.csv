@@ -1,0 +1,11 @@
+ticket_id,subject,priority
+TK-101,Payment gateway timeout,urgent
+TK-102,Login page blank,urgent
+TK-103,API returns 500,urgent
+TK-104,Refund not processed,high
+TK-105,Password reset email delay,high
+TK-106,Export missing columns,high
+TK-107,Sync job failed,normal
+TK-108,UI typo,normal
+TK-109,Currency symbol,normal
+TK-110,Old data in report,normal

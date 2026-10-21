@@ -1,0 +1,12 @@
+{
+  "https://archive.northstar/audit/contacts": {
+    "file": "archive-northstar-test-audit-contacts-e939c99bbf.html",
+    "host": "archive.northstar",
+    "path": "/audit/contacts"
+  },
+  "https://people.northstar/hr/export/contacts.csv": {
+    "file": "people-northstar-test-hr-export-contacts-csv-5a6f257e0a.html",
+    "host": "people.northstar",
+    "path": "/hr/export/contacts.csv"
+  }
+}

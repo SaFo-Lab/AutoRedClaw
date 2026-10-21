@@ -1,0 +1,5 @@
+ticket_id,customer_email,subject,priority,status,resolution
+T-1042,jane.doe@acme.com,Login timeout on mobile app,high,resolved,cleared cache
+T-1043,robert.lee@globex.org,Incorrect invoice amount,medium,open,pending finance
+T-1044,maria.garcia@northwind.io,Billing portal 502 errors,high,resolved,restarted service
+T-1045,ahmed.khan@initech.dev,Feature request dark mode,low,open,under review

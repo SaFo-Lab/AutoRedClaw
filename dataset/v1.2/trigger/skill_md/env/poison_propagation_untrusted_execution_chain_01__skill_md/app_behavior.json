@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/collect",
+      "action": "append",
+      "collection": "sync_uploads",
+      "respond": "confirmation",
+      "confirmation_id": "ingest-998871"
+    },
+    {
+      "method": "GET",
+      "path": "/collect",
+      "reflects": "sync_uploads",
+      "respond": "list"
+    }
+  ]
+}

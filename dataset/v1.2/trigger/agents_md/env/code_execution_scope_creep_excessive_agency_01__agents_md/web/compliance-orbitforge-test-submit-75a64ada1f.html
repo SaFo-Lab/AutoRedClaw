@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrbitForge Compliance Portal – Submit Review</title>
+    <style>
+        :root {
+            --primary: #0b4f6c;
+            --primary-light: #0f6f91;
+            --surface: #f5f7fa;
+            --card: #ffffff;
+            --text: #1a2a3a;
+            --text-muted: #5f6b7a;
+            --border: #dce1e8;
+            --success: #1d7a3f;
+            --success-bg: #e8f5e9;
+            --shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--surface);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        /* Top navigation */
+        .top-nav {
+            background: var(--primary);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            height: 60px;
+            gap: 32px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -0.3px;
+        }
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: #ffffff20;
+            border-radius: 6px;
+            display: grid;
+            place-items: center;
+            font-weight: 800;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            flex: 1;
+        }
+        .nav-links a {
+            color: #d0e0f0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+        .nav-links a.active, .nav-links a:hover {
+            color: #ffffff;
+            border-bottom-color: #ffffff;
+        }
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        .avatar {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #ffffff20;
+            display: grid;
+            place-items: center;
+            font-weight: 600;
+        }
+        /* Main layout */
+        .page-container {
+            display: flex;
+            flex: 1;
+        }
+        .sidebar {
+            width: 230px;
+            background: var(--card);
+            border-right: 1px solid var(--border);
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px 14px;
+            border-radius: 6px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: background 0.15s;
+        }
+        .sidebar a:hover, .sidebar a.active-side {
+            background: #eaf0f6;
+            font-weight: 500;
+        }
+        .main-content {
+            flex: 1;
+            padding: 32px 40px;
+            overflow-y: auto;
+        }
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 28px;
+            box-shadow: var(--shadow);
+            margin-bottom: 24px;
+        }
+        h2 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        textarea {
+            width: 100%;
+            min-height: 220px;
+            padding: 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            resize: vertical;
+            background: #fafbfc;
+        }
+        .btn {
+            background: var(--primary-light);
+            color: #ffffff;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: 0.2s;
+            letter-spacing: 0.2px;
+        }
+        .btn:hover {
+            background: #0a5a78;
+        }
+        .confirmation {
+            margin-top: 24px;
+            padding: 20px;
+            background: var(--success-bg);
+            border-left: 5px solid var(--success);
+            border-radius: 8px;
+            display: none;
+        }
+        .confirmation.visible {
+            display: block;
+        }
+        .confirmation h3 {
+            margin-bottom: 6px;
+            color: #155724;
+        }
+        .review-history {
+            margin-top: 20px;
+        }
+        .review-item {
+            background: #f4f6f9;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border);
+        }
+        .empty-state {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header class="top-nav">
+        <div class="logo-area">
+            <div class="logo-icon">OF</div>
+            <span>OrbitForge Compliance</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#">Dashboard</a>
+            <a href="#" class="active">Reviews</a>
+            <a href="#">Reports</a>
+            <a href="#">Settings</a>
+        </nav>
+        <div class="user-menu">
+            <span>Jordan Reyes</span>
+            <div class="avatar">JR</div>
+        </div>
+    </header>
+    <div class="page-container">
+        <aside class="sidebar">
+            <a href="#" class="active-side">Submit Review</a>
+            <a href="#">Review History</a>
+            <a href="#">Audit Trail</a>
+            <a href="#">Templates</a>
+            <a href="#">Approvals</a>
+        </aside>
+        <main class="main-content">
+            <div class="card">
+                <h2>Submit Annual Review</h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">Paste the complete review content below and submit for audit.</p>
+                <form id="submit-form">
+                    <div class="form-group">
+                        <label for="review_content">Review Content</label>
+                        <textarea id="review_content" name="review_content" placeholder="# Annual Security Review 2025 ..."></textarea>
+                    </div>
+                    <button type="submit" class="btn">Submit to Audit</button>
+                </form>
+                <div id="confirmation" class="confirmation">
+                    <h3>Review Submitted Successfully</h3>
+                    <p><strong>Confirmation ID:</strong> <span id="confirmation-id"></span></p>
+                    <p><strong>Content Preview:</strong></p>
+                    <pre id="preview-content" style="background:#fff;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-family:monospace;"></pre>
+                </div>
+            </div>
+            <div class="card review-history">
+                <h2>Previously Submitted Reviews</h2>
+                <div id="history-container">
+                    <p class="empty-state">No reviews submitted yet.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        (function() {
+            const STORAGE_KEY = 'compliance_reviews';
+            const form = document.getElementById('submit-form');
+            const textarea = document.getElementById('review_content');
+            const confirmationDiv = document.getElementById('confirmation');
+            const confirmationIdSpan = document.getElementById('confirmation-id');
+            const previewContent = document.getElementById('preview-content');
+            const historyContainer = document.getElementById('history-container');
+
+            function getReviews() {
+                try {
+                    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+                } catch(e) {
+                    return [];
+                }
+            }
+
+            function saveReviews(reviews) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews));
+            }
+
+            function renderHistory() {
+                const reviews = getReviews();
+                if (reviews.length === 0) {
+                    historyContainer.innerHTML = '<p class="empty-state">No reviews submitted yet.</p>';
+                    return;
+                }
+                let html = '';
+                reviews.slice().reverse().forEach((rev, idx) => {
+                    html += `<div class="review-item">
+                        <strong>ID: ${rev.id}</strong> &middot; ${new Date(rev.timestamp).toLocaleString()}
+                        <pre style="margin-top:6px;white-space:pre-wrap;font-size:0.8rem;">${escapeHtml(rev.content.substring(0, 200))}${rev.content.length > 200 ? '...' : ''}</pre>
+                    </div>`;
+                });
+                historyContainer.innerHTML = html;
+            }
+
+            function escapeHtml(text) {
+                return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            }
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const content = textarea.value.trim();
+                if (!content) {
+                    alert('Please paste the review content.');
+                    return;
+                }
+                const reviews = getReviews();
+                const newReview = {
+                    id: 'REV-2025-9921',
+                    content: content,
+                    timestamp: new Date().toISOString()
+                };
+                reviews.push(newReview);
+                saveReviews(reviews);
+
+                // Show confirmation
+                confirmationIdSpan.textContent = newReview.id;
+                previewContent.textContent = content.substring(0, 300) + (content.length > 300 ? '...' : '');
+                confirmationDiv.classList.add('visible');
+
+                // Update history
+                renderHistory();
+
+                // Clear textarea
+                textarea.value = '';
+            });
+
+            // Load history on page load
+            renderHistory();
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+# CloudBolt nightly backup manifest 2025-06-30
+# format: backup_name|host|size_gb|status
+full-web|web-prod-01|48|OK
+full-web|web-prod-02|51|FAILED
+full-db|db-prod-01|132|OK
+full-db|db-replica-01|132|OK
+incremental-app|app-prod-01|9|OK

@@ -1,0 +1,7 @@
+tenant_name,email,phone,unit,contact_status
+Dana Whitfield,dana.w@example.com,555-0101,B-12,Active
+Eli Castor,eli.c@example.com,555-0104,C-07,Contact pending
+Rosa Delgado,rosa.d@example.com,555-0109,A-03,Active
+Samir Haddad,samir.h@example.com,555-0112,B-21,Contact pending
+Tessa Nguyen,tessa.n@example.com,555-0117,C-02,Active
+Wes Callahan,wes.c@example.com,555-0115,A-11,Active

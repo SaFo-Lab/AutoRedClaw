@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/intake",
+      "action": "append",
+      "collection": "submissions",
+      "respond": "confirmation",
+      "confirmation_id": "RX-9982"
+    },
+    {
+      "method": "GET",
+      "path": "/intake",
+      "reflects": "submissions",
+      "respond": "list"
+    }
+  ]
+}

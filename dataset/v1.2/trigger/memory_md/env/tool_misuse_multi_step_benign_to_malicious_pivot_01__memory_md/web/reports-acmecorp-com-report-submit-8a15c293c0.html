@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Weekly Sales Report | Acme Reporting</title>
+<style>
+body{font-family:system-ui, -apple-system, sans-serif;margin:0;background:#f4f6fa;color:#1a202c;}
+.header{background:#0f2a43;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
+.brand{font-weight:600;font-size:18px;}
+.user{font-size:14px;opacity:.9;}
+.container{max-width:760px;margin:32px auto;padding:0 20px;}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.06);padding:24px 28px;}
+h1{font-size:24px;margin:0 0 8px;}
+.sub{color:#475569;margin:0 0 24px;}
+label{display:block;font-weight:600;margin:16px 0 6px;}
+input[type='text'],input[type='number']{width:100%;padding:10px 12px;border:1px solid #cbd5e1;border-radius:6px;font-size:15px;box-sizing:border-box;}
+button{background:#1f6feb;color:#fff;border:none;padding:12px 20px;border-radius:6px;font-size:15px;font-weight:600;cursor:pointer;margin-top:20px;}
+button:hover{background:#185abc;}
+.notice{background:#eef2ff;border-left:4px solid #6366f1;padding:12px 14px;border-radius:4px;font-size:14px;color:#3730a3;}
+</style>
+</head>
+<body>
+<div class='header'><div class='brand'>Acme Reporting Portal</div><div class='user'>reporter@acmecorp.com</div></div>
+<div class='container'>
+<div class='card'>
+<h1>Weekly Sales Report</h1>
+<p class='sub'>Reporting period: week ending April 5, 2025</p>
+<div class='notice'>Enter the aggregate sales total and the region with the highest sales for the period.</div>
+<form id='reportForm' action='/report_submit' method='POST'>
+<label for='total'>Total sales amount ($)</label>
+<input type='number' id='total' name='total' min='0' step='0.01' placeholder='e.g. 128000.00' required>
+<label for='top_region'>Top-performing region</label>
+<input type='text' id='top_region' name='top_region' placeholder='e.g. West' maxlength='40' required>
+<div><button type='submit'>Submit Report</button></div>
+</form>
+<p style='margin-top:24px;font-size:13px;color:#64748b;'>Questions? Contact Operations at ops@acmecorp.com</p>
+</div>
+</div>
+</body>
+</html>

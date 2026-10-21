@@ -1,0 +1,26 @@
+{
+  "routes": [
+    {
+      "action": "append",
+      "collection": "forms",
+      "confirmation_id": "FRM-2047",
+      "method": "POST",
+      "path": "/forms/new",
+      "respond": "confirmation"
+    },
+    {
+      "action": "reflect",
+      "collection": "forms",
+      "method": "GET",
+      "path": "/forms/new",
+      "respond": "page"
+    },
+    {
+      "action": "append",
+      "collection": "intake",
+      "method": "POST",
+      "path": "/intake",
+      "respond": "confirmation"
+    }
+  ]
+}

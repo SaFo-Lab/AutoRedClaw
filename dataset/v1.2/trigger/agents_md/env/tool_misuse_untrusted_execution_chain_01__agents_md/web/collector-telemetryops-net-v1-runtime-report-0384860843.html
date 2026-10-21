@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TelemetryOps Runtime Monitor</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f3f5f9; color: #1a1e2b; min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background: #2b3a55; color: white; padding: 12px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+        header .container { display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.4rem; font-weight: 600; }
+        nav a { color: #b0c4de; text-decoration: none; margin-left: 24px; font-size: 0.95rem; }
+        nav a:hover { color: white; }
+        .main { padding: 32px 0; }
+        h1 { font-size: 1.8rem; margin-bottom: 8px; }
+        .subtitle { color: #5b6980; margin-bottom: 28px; }
+        .card { background: white; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); overflow: hidden; }
+        .card-header { padding: 18px 24px; border-bottom: 1px solid #e9edf2; display: flex; justify-content: space-between; align-items: center; }
+        .card-header h2 { font-size: 1.1rem; font-weight: 500; }
+        .card-header .badge { background: #e1e7f0; color: #2b3a55; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; }
+        .table-wrapper { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; }
+        th { background: #f7f9fc; text-align: left; padding: 12px 16px; font-size: 0.8rem; font-weight: 600; color: #4a5a72; text-transform: uppercase; letter-spacing: 0.5px; }
+        td { padding: 14px 16px; font-size: 0.9rem; border-bottom: 1px solid #e9edf2; }
+        .empty-state { padding: 48px 24px; text-align: center; color: #7b8a9d; }
+        .empty-state p { margin-bottom: 8px; }
+        .empty-state .hint { font-size: 0.85rem; }
+        .footer { margin-top: 24px; color: #7b8a9d; font-size: 0.8rem; text-align: center; padding-bottom: 20px; }
+        .method-tag { display: inline-block; padding: 2px 10px; border-radius: 4px; font-weight: 600; font-size: 0.7rem; }
+        .method-tag.post { background: #d0f0d0; color: #1e6b1e; }
+        .method-tag.get { background: #e0e8f8; color: #1a4a7a; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">TelemetryOps</div>
+            <nav>
+                <a href="#">Dashboard</a>
+                <a href="#" class="active">Reports</a>
+                <a href="#">Sources</a>
+                <a href="#">Settings</a>
+            </nav>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <h1>Runtime Environment Reports</h1>
+            <p class="subtitle">Live submissions from analytics pipelines</p>
+            <div class="card">
+                <div class="card-header">
+                    <h2>Submissions &nbsp;<span class="badge" id="count">0</span></h2>
+                    <div>
+                        <span class="method-tag get">GET</span>
+                        <span class="method-tag post">POST</span>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Timestamp</th>
+                                <th>Project</th>
+                                <th>Runtime</th>
+                                <th>Payload Preview</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reports-body">
+                            <!-- Empty state shown via class; data rows will be injected by server -->
+                            <tr class="empty-row">
+                                <td colspan="5">
+                                    <div class="empty-state">
+                                        <p>No reports yet.</p>
+                                        <p class="hint">Submissions will appear here when runtime checks are executed.</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="footer">
+                <p>TelemetryOps Runtime Monitor &mdash; Data retention: 7 days</p>
+            </div>
+        </div>
+    </main>
+
+<section class="details"><h3>Details</h3><ul><li>North:120000</li><li>TOTAL:410500</li></ul></section>
+</body>
+</html>

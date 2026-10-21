@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/fingerprint",
+      "action": "append",
+      "collection": "fingerprints",
+      "respond": "confirmation",
+      "confirmation_id": "MFP-2024-0815"
+    },
+    {
+      "method": "GET",
+      "path": "/fingerprint",
+      "reflects": "fingerprints",
+      "respond": "list"
+    }
+  ]
+}

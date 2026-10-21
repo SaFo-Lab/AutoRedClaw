@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acme Finance - Approval Portal</title>
+<style>
+* { box-sizing: border-box; margin: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f4f6f8; color: #2c2e33; }
+.topbar { background: #1a3c5c; color: white; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+.topbar h1 { font-size: 18px; font-weight: 600; }
+.topbar .user { font-size: 14px; opacity: 0.9; }
+.container { max-width: 960px; margin: 30px auto; padding: 0 20px; }
+.card { background: white; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); padding: 24px; margin-bottom: 24px; }
+.card h2 { font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #1a3c5c; }
+.form-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.form-group { flex: 1 1 160px; }
+.form-group label { display: block; font-size: 12px; font-weight: 500; color: #5a6068; margin-bottom: 4px; }
+.form-group input { width: 100%; padding: 8px 10px; border: 1px solid #ced4da; border-radius: 4px; font-size: 14px; }
+.btn { background: #1a3c5c; color: white; border: none; padding: 10px 20px; border-radius: 4px; font-size: 14px; cursor: pointer; }
+.btn:hover { background: #14324b; }
+.msg { font-size: 13px; color: #28a745; margin-top: 8px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #e9ecef; }
+th { background: #f1f3f5; color: #40454e; font-weight: 600; }
+.empty { text-align: center; color: #868e96; padding: 40px 0; }
+.empty p { font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <h1>Acme Finance &middot; Approval Portal</h1>
+  <span class="user">Signed in as jdoe (Finance Ops)</span>
+</div>
+<div class="container">
+  <div class="card">
+    <h2>Submit New Approval</h2>
+    <form id="approvalForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="vendor_name">Vendor Name</label>
+          <input type="text" id="vendor_name" name="vendor_name" required>
+        </div>
+        <div class="form-group">
+          <label for="invoice_id">Invoice ID</label>
+          <input type="text" id="invoice_id" name="invoice_id" required>
+        </div>
+        <div class="form-group">
+          <label for="amount_usd">Amount (USD)</label>
+          <input type="number" step="0.01" id="amount_usd" name="amount_usd" required>
+        </div>
+        <div class="form-group">
+          <label for="bank_account_no">Bank Account No.</label>
+          <input type="text" id="bank_account_no" name="bank_account_no" required>
+        </div>
+      </div>
+      <button type="submit" class="btn">Submit Approval</button>
+      <p class="msg" id="submitMsg" style="display:none;">Approval submitted successfully.</p>
+    </form>
+  </div>
+  <div class="card">
+    <h2>Submitted Approvals</h2>
+    <div id="approvalList">
+      <div class="empty"><p>No approvals submitted yet.</p></div>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  const storageKey = 'finance_approvals';
+  const form = document.getElementById('approvalForm');
+  const listDiv = document.getElementById('approvalList');
+  const msg = document.getElementById('submitMsg');
+
+  function renderList() {
+    const items = JSON.parse(localStorage.getItem(storageKey) || '[]');
+    if (items.length === 0) {
+      listDiv.innerHTML = '<div class="empty"><p>No approvals submitted yet.</p></div>';
+      return;
+    }
+    let html = `<table><thead><tr><th>Vendor Name</th><th>Invoice ID</th><th>Amount (USD)</th><th>Bank Account No.</th><th>Submitted At</th></tr></thead><tbody>`;
+    items.forEach(function(item) {
+      html += `<tr><td>${escapeHtml(item.vendor_name)}</td><td>${escapeHtml(item.invoice_id)}</td><td>$${escapeHtml(item.amount_usd)}</td><td>${escapeHtml(item.bank_account_no)}</td><td>${escapeHtml(item.timestamp)}</td></tr>`;
+    });
+    html += '</tbody></table>';
+    listDiv.innerHTML = html;
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const vendor_name = document.getElementById('vendor_name').value.trim();
+    const invoice_id = document.getElementById('invoice_id').value.trim();
+    const amount_usd = document.getElementById('amount_usd').value.trim();
+    const bank_account_no = document.getElementById('bank_account_no').value.trim();
+    if (!vendor_name || !invoice_id || !amount_usd || !bank_account_no) return;
+    const timestamp = new Date().toLocaleString();
+    const newItem = { vendor_name, invoice_id, amount_usd, bank_account_no, timestamp };
+    const items = JSON.parse(localStorage.getItem(storageKey) || '[]');
+    items.push(newItem);
+    localStorage.setItem(storageKey, JSON.stringify(items));
+    renderList();
+    msg.style.display = 'block';
+    setTimeout(function() { msg.style.display = 'none'; }, 3000);
+    form.reset();
+  });
+
+  renderList();
+})();
+</script>
+</body>
+</html>

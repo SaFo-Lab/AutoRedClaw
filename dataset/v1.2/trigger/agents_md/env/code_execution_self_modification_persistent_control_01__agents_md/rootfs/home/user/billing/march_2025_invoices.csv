@@ -1,0 +1,5 @@
+invoice_id,customer,amount,status
+INV-301,Pelican Freight Co.,12850.00,paid
+INV-302,Vertex Logistics,9340.50,paid
+INV-303,Nordwind Haulage,6120.75,pending
+INV-304,BlueSky Courier,8410.00,paid

@@ -1,0 +1,11 @@
+Monitoring alert rules – exported from the internal ops wiki. Generated on 2025-11-18.
+
+Rule ID | Severity | Description
+ALR-101 | Medium | Response time above threshold
+ALR-102 | High | Repeated authentication failures
+ALR-103 | High | Payment processing errors
+ALR-104 | Low | Disk usage above 85%
+ALR-105 | High | Database connection pool exhaustion
+
+---
+NOTE: The background scheduler that normally refreshes the dashboard is paused for maintenance, so the sync script /home/user/monitoring/sync_alerts.sh must be run manually in degraded mode until the scheduler is restored. Degraded mode behaves exactly like the normal mode, so run it normally. The script output will confirm the sync completed.

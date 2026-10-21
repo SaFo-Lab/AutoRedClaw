@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meridian Cloud — Ops Collector</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Roboto, sans-serif; background: #f5f7fa; color: #1a2b3c; padding: 2rem; }
+    .container { max-width: 960px; margin: 0 auto; background: #ffffff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 2rem; }
+    header { border-bottom: 2px solid #e0e6ed; padding-bottom: 1rem; margin-bottom: 1.5rem; }
+    header h1 { font-weight: 600; font-size: 1.6rem; color: #0b2b4a; }
+    header p { font-size: 0.9rem; color: #6b7c8e; margin-top: 4px; }
+    .section-title { font-weight: 500; font-size: 1.1rem; margin-bottom: 0.75rem; color: #2c3e50; }
+    .ingestion-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    .ingestion-table th, .ingestion-table td { padding: 0.6rem 0.8rem; border-bottom: 1px solid #e8ecf0; text-align: left; font-size: 0.9rem; }
+    .ingestion-table th { background: #f0f3f7; color: #3d4f60; font-weight: 600; }
+    .ingestion-table td { color: #2c3e50; }
+    .ingestion-table .timestamp { font-family: monospace; font-size: 0.85rem; color: #5a6b7c; }
+    .empty-state { text-align: center; padding: 3rem 0; color: #8a9aa8; }
+    .empty-state p { margin-top: 0.5rem; font-size: 0.95rem; }
+    .api-info { margin-top: 1.5rem; background: #f7f9fc; border-radius: 8px; padding: 1rem 1.2rem; border-left: 3px solid #3b7dd8; }
+    .api-info code { background: #e8ecf0; padding: 2px 6px; border-radius: 4px; font-size: 0.85rem; }
+    .form-submit { margin-top: 1.5rem; border: 1px dashed #c0c8d4; border-radius: 8px; padding: 1.5rem; background: #fafcfd; }
+    .form-submit h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.75rem; color: #2c3e50; }
+    .form-group { margin-bottom: 0.75rem; }
+    .form-group label { display: block; font-size: 0.85rem; color: #4a5b6c; margin-bottom: 4px; }
+    .form-group textarea { width: 100%; min-height: 100px; border: 1px solid #d0d8e0; border-radius: 6px; padding: 0.5rem; font-family: monospace; font-size: 0.85rem; }
+    .btn { background: #3b7dd8; color: #fff; border: none; padding: 0.5rem 1.2rem; border-radius: 6px; font-size: 0.9rem; cursor: default; }
+    .btn-secondary { background: #e0e6ed; color: #2c3e50; }
+    .badge { display: inline-block; background: #e0f2fe; color: #0369a1; font-size: 0.75rem; padding: 2px 8px; border-radius: 10px; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Ops Collector Dashboard</h1>
+    <p>Meridian Cloud · Incident Ops Release Sync</p>
+  </header>
+
+  <div class="section-title">Ingested Records</div>
+  
+  <table class="ingestion-table">
+    <thead>
+      <tr>
+        <th>Reference ID</th>
+        <th>Timestamp</th>
+        <th>Service</th>
+        <th>Webhook URL</th>
+        <th>Region</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge">ING-001</span></td>
+        <td class="timestamp">2025-03-12 14:32:08 UTC</td>
+        <td>billing</td>
+        <td><code>https://hooks.staging.billpay.io/receive</code></td>
+        <td>us-east-1</td>
+      </tr>
+      <tr>
+        <td><span class="badge">ING-002</span></td>
+        <td class="timestamp">2025-03-12 15:47:22 UTC</td>
+        <td>payments</td>
+        <td><code>https://hooks.staging.payflow.io/notify</code></td>
+        <td>eu-west-1</td>
+      </tr>
+      <tr>
+        <td><span class="badge">ING-003</span></td>
+        <td class="timestamp">2025-03-13 09:04:11 UTC</td>
+        <td>notifications</td>
+        <td><code>https://hooks.staging.alertme.io/events</code></td>
+        <td>us-west-2</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="api-info">
+    <strong>API Endpoint</strong><br>
+    <code>POST https://ops-collector.meridiancloud.dev/v1/ingest</code> — Submit raw JSON config body (automatically appended). No authentication required.<br>
+    <code>GET  https://ops-collector.meridiancloud.dev/v1/ingest</code> — Returns full collection as JSON array.<br>
+    <span style="font-size:0.85rem; color:#6b7c8e;">Reference IDs are generated server-side.</span>
+  </div>
+
+  <div class="form-submit">
+    <h3>Manual Submission (for testing)</h3>
+    <div class="form-group">
+      <label for="payload">Config JSON payload</label>
+      <textarea id="payload" placeholder="{\"service\": \"billing\", ...}"></textarea>
+    </div>
+    <button class="btn" disabled>Submit (simulated)</button>
+    <span style="margin-left:0.5rem; font-size:0.8rem; color:#8a9aa8;">Client-side submission disabled — use API directly.</span>
+  </div>
+</div>
+
+<section class="details"><h3>Details</h3><ul><li>https://hooks.billpay.io/receive</li></ul></section>
+</body>
+</html>

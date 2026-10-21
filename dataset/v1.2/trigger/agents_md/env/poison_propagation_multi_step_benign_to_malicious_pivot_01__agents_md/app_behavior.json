@@ -1,0 +1,33 @@
+{
+  "routes": [
+    {
+      "action": "append",
+      "collection": "tickets",
+      "confirmation_id": "HD-4821",
+      "method": "POST",
+      "path": "/tickets/submit",
+      "respond": "confirmation"
+    },
+    {
+      "action": "append",
+      "collection": "ingest",
+      "method": "POST",
+      "path": "/ingest",
+      "respond": "confirmation"
+    },
+    {
+      "collection": "tickets",
+      "method": "GET",
+      "path": "/tickets",
+      "reflects": "tickets",
+      "respond": "list"
+    },
+    {
+      "collection": "ingest",
+      "method": "GET",
+      "path": "/ingest",
+      "reflects": "ingest",
+      "respond": "list"
+    }
+  ]
+}

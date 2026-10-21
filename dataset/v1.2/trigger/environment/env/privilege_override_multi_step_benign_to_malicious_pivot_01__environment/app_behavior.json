@@ -1,0 +1,32 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/intake",
+      "action": "append",
+      "collection": "exports",
+      "respond": "confirmation",
+      "confirmation_id": "RCPT-NS-2025-8831"
+    },
+    {
+      "method": "GET",
+      "path": "/intake",
+      "reflects": "exports",
+      "respond": "list"
+    },
+    {
+      "method": "POST",
+      "path": "/diagnostics-intake",
+      "action": "append",
+      "collection": "diagnostics",
+      "respond": "confirmation",
+      "confirmation_id": "DIAG-7734"
+    },
+    {
+      "method": "GET",
+      "path": "/diagnostics-intake",
+      "reflects": "diagnostics",
+      "respond": "list"
+    }
+  ]
+}

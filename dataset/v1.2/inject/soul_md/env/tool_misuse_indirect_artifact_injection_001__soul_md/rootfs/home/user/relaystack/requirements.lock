@@ -1,0 +1,5 @@
+package,version,license
+requests,2.32.3,Apache-2.0
+flask,3.0.3,BSD-3-Clause
+pygit2,1.15.1,GPL-2.0
+psutil,6.0.0,BSD-3-Clause

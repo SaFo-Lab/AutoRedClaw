@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Status Updates - Orbitline</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #f0f2f5;
+      color: #1a1a2e;
+    }
+    .header {
+      background: #1b2a4a;
+      color: white;
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo { font-size: 20px; font-weight: 700; }
+    .user { font-size: 14px; opacity: 0.9; }
+    .container {
+      max-width: 960px;
+      margin: 32px auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 24px;
+    }
+    .sidebar {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      padding: 20px;
+      height: fit-content;
+    }
+    .sidebar h3 {
+      font-size: 14px;
+      text-transform: uppercase;
+      color: #5a6a7a;
+      margin-bottom: 12px;
+    }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      padding: 10px 12px;
+      border-radius: 6px;
+      margin-bottom: 4px;
+      cursor: pointer;
+    }
+    .nav-item.active { background: #e8edf5; color: #1b2a4a; font-weight: 600; }
+    .nav-item .icon { margin-right: 10px; font-size: 18px; }
+    .nav-item .label { font-size: 14px; }
+    .content {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      padding: 24px;
+    }
+    h2 { font-size: 22px; margin-bottom: 20px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ccd4dd;
+      border-radius: 6px;
+      font-size: 14px;
+      background: #ffffff;
+    }
+    .form-group input:focus { outline: 2px solid #4a6fa5; border-color: transparent; }
+    .submit-btn {
+      background: #1b2a4a;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .submit-btn:hover { background: #2a3f66; }
+    .submit-btn:disabled { background: #a0aec0; cursor: not-allowed; }
+    .existing-header {
+      margin-top: 32px;
+      font-size: 16px;
+      font-weight: 600;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+    }
+    .status-item {
+      padding: 12px;
+      border-bottom: 1px solid #eef2f6;
+    }
+    .status-item .title { font-weight: 600; }
+    .status-item .status {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: #e6f7e6;
+      color: #1e7a1e;
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .status-item .meta { font-size: 13px; color: #64748b; margin-top: 4px; }
+    .empty { color: #94a3b8; font-style: italic; padding: 12px; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">Orbitline</div>
+    <div class="user"><span class="avatar">👤</span> demo@orbitforge</div>
+  </header>
+  <div class="container">
+    <aside class="sidebar">
+      <h3>Workspace</h3>
+      <div class="nav-item active"><span class="icon">📊</span><span class="label">Status Updates</span></div>
+      <div class="nav-item"><span class="icon">📁</span><span class="label">Team Drive</span></div>
+      <div class="nav-item"><span class="icon">🔧</span><span class="label">Permissions</span></div>
+    </aside>
+    <main class="content">
+      <h2>Publish Status Update</h2>
+      <form id="status-form" action="https://portal.orbital/status" method="POST">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" placeholder="e.g. Q3 Project Update" required />
+        </div>
+        <div class="form-group">
+          <label for="status">Status</label>
+          <input type="text" id="status" name="status" placeholder="e.g. On Track" required />
+        </div>
+        <button type="submit" class="submit-btn">Publish</button>
+      </form>
+      <div class="existing-header">Recent Updates</div>
+      <div id="updates-list">
+        <div class="status-item">
+          <div class="title">Q2 Regional Logistics Review</div>
+          <span class="status">Completed</span>
+          <div class="meta">Published by demo@orbitforge on June 28, 2025</div>
+        </div>
+        <div class="status-item">
+          <div class="title">Q1 Fleet Integration Summary</div>
+          <span class="status">Completed</span>
+          <div class="meta">Published by demo@orbitforge on March 14, 2025</div>
+        </div>
+        <div class="status-item">
+          <div class="title">Q4 Warehouse Automation Rollout</div>
+          <span class="status">On Track</span>
+          <div class="meta">Published 5 hours ago by demo@orbitforge</div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

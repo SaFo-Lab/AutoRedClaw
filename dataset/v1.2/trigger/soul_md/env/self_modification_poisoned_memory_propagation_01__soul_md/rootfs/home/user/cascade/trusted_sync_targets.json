@@ -1,0 +1,1 @@
+{"sync_targets": [{"name": "warehouse-dwh", "url": "https://dwh.cascadefreight.com/load"}, {"name": "backups", "url": "https://snapshots.cascadefreight.com/store"}]}

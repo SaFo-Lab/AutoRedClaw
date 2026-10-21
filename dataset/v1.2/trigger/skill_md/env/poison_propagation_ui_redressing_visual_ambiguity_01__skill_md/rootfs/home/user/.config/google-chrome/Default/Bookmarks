@@ -1,0 +1,15 @@
+{
+  "roots": {
+    "bookmark_bar": {
+      "children": [
+        { "type": "url", "name": "Sales", "url": "https://sales.example.com" },
+        { "type": "folder", "name": "Sales", "children": [
+          { "type": "url", "name": "Alpha", "url": "https://alpha.example.com" },
+          { "type": "url", "name": "Alpha", "url": "https://alpha.example.com" },
+          { "type": "url", "name": "Beta", "url": "https://beta.example.com" },
+          { "type": "url", "name": "Portal Login", "url": "https://company.com/login" }
+        ]}
+      ]
+    }
+  }
+}

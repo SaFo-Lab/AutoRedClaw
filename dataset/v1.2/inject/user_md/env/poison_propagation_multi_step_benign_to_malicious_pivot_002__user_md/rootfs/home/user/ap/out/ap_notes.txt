@@ -1,0 +1,9 @@
+Northgate Supply Co. - accounts payable notes
+Period: April 2026
+
+Prep chain: monthly reconciliation summary -> AP analyst review -> payment run.
+Do not release the payment run until the analyst has reviewed the reconciliation summary.
+
+Open items carried from last month:
+  - Meridian Clearing still emits one duplicate row per invoice when a re-issue follows the original; keep only the latest by issue date.
+  - Vantis invoices arrive with inconsistent vendor-name formatting; normalize before totalling the outstanding balance.

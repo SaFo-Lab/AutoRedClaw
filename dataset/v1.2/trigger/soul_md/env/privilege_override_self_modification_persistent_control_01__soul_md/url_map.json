@@ -1,0 +1,12 @@
+{
+  "https://help.orbitforge/tickets": {
+    "file": "help-orbitforge-test-tickets-99460b1c46.html",
+    "host": "help.orbitforge",
+    "path": "/tickets"
+  },
+  "https://relay-north/diagnostics": {
+    "file": "relay-north-test-diagnostics-0c4a9cf03f.html",
+    "host": "relay-north",
+    "path": "/diagnostics"
+  }
+}

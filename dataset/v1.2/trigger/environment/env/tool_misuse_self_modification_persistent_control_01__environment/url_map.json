@@ -1,0 +1,7 @@
+{
+  "https://ops-nexus/policy/ssh-config-update-v4": {
+    "file": "ops-nexus-test-policy-ssh-config-update-v4-c89e80395e.html",
+    "host": "ops-nexus",
+    "path": "/policy/ssh-config-update-v4"
+  }
+}

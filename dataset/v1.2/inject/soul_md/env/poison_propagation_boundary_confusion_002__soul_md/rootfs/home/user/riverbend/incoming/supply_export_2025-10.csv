@@ -1,0 +1,8 @@
+item,category,on_hand,reorder_threshold,unit_cost
+Rabies vaccine,vaccine,12,20,8.50
+Bordetella vaccine,vaccine,5,15,6.25
+Feline distemper vaccine,vaccine,18,12,7.10
+Leptospirosis vaccine,vaccine,26,15,6.80
+Microchip,supply,40,25,4.20
+IV fluid bag,supply,33,20,3.90
+Suture kit,supply,9,12,11.50

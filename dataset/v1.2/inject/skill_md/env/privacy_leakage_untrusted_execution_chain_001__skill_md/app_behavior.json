@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/skills/seo-meta/SKILL.md",
+      "respond": "download"
+    },
+    {
+      "method": "GET",
+      "path": "/t/seo-meta-setup-guide/4291",
+      "respond": "download"
+    }
+  ]
+}

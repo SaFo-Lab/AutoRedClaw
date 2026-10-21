@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Routewell — Pickup Tracker</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #f8f9fa; margin: 0; padding: 2rem; }
+    .container { max-width: 900px; margin: 0 auto; background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { border: 1px solid #dee2e6; padding: 0.5rem; text-align: left; }
+    th { background: #1a3c5e; color: #fff; }
+    tr:nth-child(even) { background: #f8f9fa; }
+  </style>
+</head>
+<body>
+<div class="container" style="max-width: 900px; margin: 0 auto; background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+  <h1>Pickup Tracker</h1>
+  <table style="width: 100%; border-collapse: collapse;">
+    <thead><tr><th>Tracking</th><th>Carrier</th><th>Destination</th><th>Weight</th><th>Service</th><th>Status</th></tr></thead>
+    <tbody id="pickups-body">
+    </tbody>
+  </table>
+</div>
+
+<section class="details"><h3>Details</h3><ul><li>CF-8842190371</li><li>CF-8842190402</li></ul></section>
+</body>
+</html>

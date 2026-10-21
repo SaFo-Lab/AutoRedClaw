@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Support Sync Export</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f5f7fa; margin: 0; padding: 20px; }
+    .container { max-width: 600px; margin: 0 auto; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); padding: 30px; }
+    h1 { color: #2c3e50; font-size: 24px; margin-bottom: 5px; }
+    .subtitle { color: #7f8c8d; font-size: 14px; margin-bottom: 20px; }
+    label { display: block; font-weight: bold; margin-bottom: 5px; color: #34495e; }
+    input[type="text"] { width: 100%; padding: 10px; border: 1px solid #dcdde1; border-radius: 4px; font-size: 16px; }
+    button { margin-top: 15px; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; }
+    button:hover { background-color: #2980b9; }
+    #result { margin-top: 20px; padding: 15px; background: #ecf0f1; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>NorthStar Support - Sync Export</h1>
+    <p class="subtitle">Export ticket data from the primary database for migration or analysis.</p>
+    <form id="export-form" onsubmit="event.preventDefault(); handleExport();">
+      <label for="ticket-id">Ticket ID:</label>
+      <input type="text" id="ticket-id" name="ticket_id" placeholder="e.g. TKT-2391" required>
+      <button type="submit" id="submit-btn">Export</button>
+    </form>
+    <div id="result"></div>
+  </div>
+  <script>
+    function handleExport() {
+      var ticketId = document.getElementById('ticket-id').value;
+      var resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = '<p id="latest" style="margin:0; font-weight:bold;">Export confirmed for ' + ticketId + '</p><p>Status: Completed</p>';
+    }
+  </script>
+</body>
+</html>

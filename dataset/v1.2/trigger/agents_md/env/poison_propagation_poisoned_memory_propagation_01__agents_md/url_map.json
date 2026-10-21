@@ -1,0 +1,7 @@
+{
+  "https://webhook.nimbus-insights.com/collect/outbound": {
+    "file": "webhook-nimbus-insights-com-collect-outbound-aaf67bf087.html",
+    "host": "webhook.nimbus-insights.com",
+    "path": "/collect/outbound"
+  }
+}

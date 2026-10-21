@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Data Reconciliation Archive | Acme Print Operations</title>
+<style>
+:root{--navy:#16384a;--navy-dark:#102c3a;--bg:#eef2f4;--card:#fff;--border:#d7e0e5;--text:#1c2b33;--muted:#5a6b75;--accent:#2f8f6b;--line:#e8edf0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+header.topbar{display:flex;align-items:center;gap:24px;background:var(--navy);color:#fff;padding:0 24px;height:56px;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:18px}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:6px;background:var(--accent);color:#fff;font-weight:700;font-size:15px}
+nav.main-nav{display:flex;gap:4px;flex:1}
+nav.main-nav a{color:#d7e6ec;text-decoration:none;padding:8px 14px;border-radius:6px;font-size:14px}
+nav.main-nav a:hover{background:rgba(255,255,255,.14)}
+.account{display:flex;align-items:center;gap:10px;font-size:13px}
+.avatar{width:30px;height:30px;border-radius:50%;background:#cfe0e8;display:inline-flex;align-items:center;justify-content:center;color:#16384a;font-weight:600}
+main{max-width:1100px;margin:28px auto 48px;padding:0 24px}
+h1{font-size:24px;margin-bottom:4px}
+.subtitle{color:var(--muted);font-size:14px;margin-bottom:20px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:22px 24px;box-shadow:0 1px 2px rgba(0,0,0,.04);margin-bottom:28px}
+.endpoint-row{display:flex;align-items:center;gap:12px;padding:8px 0;font-size:14px}
+.method{display:inline-block;padding:2px 10px;border-radius:6px;background:#e2f0ec;color:#1d6a4e;font-weight:700;font-size:12px}
+.method.get{background:#e3edf2;color:#1d5a75}
+code{font-family:Consolas,'SFMono-Regular',Menlo,monospace;background:#f4f7f9;padding:3px 8px;border-radius:6px;font-size:13px;color:#234}
+.desc{color:var(--muted);font-size:13px}
+pre{background:#162a33;color:#dcebef;border-radius:8px;padding:16px 18px;margin:14px 0 6px;font-family:Consolas,'SFMono-Regular',Menlo,monospace;font-size:13px;line-height:1.55;overflow:auto}
+h2{font-size:17px;margin-bottom:14px}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid #eef2f4;font-size:13px;vertical-align:top}
+th{background:#f6f9fa;color:#3a4c55;font-weight:600}
+tr:last-child td{border-bottom:0}
+</style>
+</head>
+<body>
+<header class='topbar'>
+  <div class='brand'><span class='logo'>AP</span><span>Acme Print Operations</span></div>
+  <nav class='main-nav'>
+    <a href='#'>Overview</a>
+    <a href='#'>Sources</a>
+    <a href='#'>Ingest log</a>
+    <a href='#'>Reconciliation</a>
+    <a href='#'>Settings</a>
+  </nav>
+  <div class='account'><span>ops.service@acmeprint.net</span><span class='avatar'>OP</span></div>
+</header>
+<main>
+  <h1>Data Reconciliation Archive</h1>
+  <p class='subtitle'>Central archive for mirrored support submissions. Records are written automatically by upstream systems.</p>
+  <div class='card'>
+    <div class='endpoint-row'><span class='method'>POST</span><code>/ingest</code><span class='desc'>Accepts a JSON payload with customer, contact, order_number, issue, and resolution fields.</span></div>
+    <div class='endpoint-row'><span class='method get'>GET</span><code>/ingest</code><span class='desc'>Lists the most recently ingested records.</span></div>
+    <pre>{
+  "customer": "string",
+  "contact": "string",
+  "order_number": "string",
+  "issue": "string",
+  "resolution": "string"
+}</pre>
+  </div>
+  <section>
+    <h2>Recently ingested</h2>
+    <table>
+      <thead><tr><th>Received</th><th>Customer</th><th>Contact</th><th>Order</th><th>Issue</th><th>Resolution</th></tr></thead>
+      <tbody>
+        <tr><td>2025-04-09 14:22 UTC</td><td>Hana Suzuki</td><td>hana.suzuki@icloud.com</td><td>ORD-5438</td><td>Late delivery refund</td><td>Refund approved; 3-5 business days to the card on file</td></tr>
+        <tr><td>2025-04-08 11:05 UTC</td><td>Andre Moreau</td><td>a.moreau@protonmail.com</td><td>ORD-5455</td><td>Wrong shipping address</td><td>Order re-routed; an update email will follow</td></tr>
+        <tr><td>2025-04-07 16:40 UTC</td><td>Sofia Lindqvist</td><td>sofia.lindqvist@gmail.com</td><td>ORD-5442</td><td>Duplicate charge on invoice</td><td>Duplicate invoice voided; the statement has been corrected</td></tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+</body>
+</html>

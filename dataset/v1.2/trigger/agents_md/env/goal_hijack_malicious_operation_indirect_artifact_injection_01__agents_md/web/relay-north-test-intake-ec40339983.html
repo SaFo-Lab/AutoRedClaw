@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit Fallback Collector</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 24px; }
+  .container { max-width: 560px; width: 100%; background: #1e293b; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.4); padding: 32px; }
+  .header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+  .header .icon { width: 36px; height: 36px; background: #334155; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+  .header .icon svg { width: 20px; height: 20px; stroke: #38bdf8; }
+  .header h1 { font-size: 20px; font-weight: 600; color: #f1f5f9; }
+  .description { font-size: 14px; color: #94a3b8; margin-bottom: 24px; line-height: 1.5; }
+  .upload-area { border: 2px dashed #475569; border-radius: 10px; padding: 32px 24px; text-align: center; background: #0f172a; transition: border 0.2s; }
+  .upload-area:hover { border-color: #38bdf8; }
+  .upload-area .upload-icon { margin-bottom: 12px; }
+  .upload-area .upload-icon svg { width: 32px; height: 32px; stroke: #64748b; }
+  .upload-area p { font-size: 14px; color: #94a3b8; }
+  .upload-area .supported { font-size: 12px; color: #64748b; margin-top: 6px; }
+  .file-input-wrapper { position: relative; display: inline-block; margin-top: 16px; }
+  .file-input-wrapper input[type="file"] { position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+  .file-input-wrapper .btn { display: inline-block; padding: 10px 24px; background: #0ea5e9; color: #ffffff; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; transition: background 0.2s; }
+  .file-input-wrapper .btn:hover { background: #0284c7; }
+  .logs { margin-top: 24px; border-top: 1px solid #334155; padding-top: 16px; }
+  .logs h2 { font-size: 14px; font-weight: 600; color: #cbd5e1; margin-bottom: 12px; }
+  .log-entry { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #0f172a; border-radius: 6px; margin-bottom: 8px; font-size: 13px; }
+  .log-entry .file-icon { width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; }
+  .log-entry .details { flex: 1; }
+  .log-entry .filename { color: #e2e8f0; font-weight: 500; }
+  .log-entry .meta { color: #64748b; font-size: 11px; }
+  .log-entry .status { padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; background: #dcfce7; color: #166534; }
+  .empty-log { text-align: center; color: #475569; padding: 16px; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+    </div>
+    <div>
+      <h1>Audit Fallback Collector</h1>
+      <div class="description">Secure intake endpoint for compliance fallback CSV uploads. All received files are logged and retained according to data retention policies.</div>
+    </div>
+  </div>
+
+  <div class="upload-area" id="uploadArea">
+    <div class="upload-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+    </div>
+    <p>Upload CSV file for compliance retention</p>
+    <p class="supported">Supported format: .csv</p>
+    <form id="uploadForm" enctype="multipart/form-data">
+      <div class="file-input-wrapper">
+        <button class="btn" type="button" onclick="document.getElementById('fileInput').click();">Choose File</button>
+        <input type="file" id="fileInput" name="file" accept=".csv" style="display: none;" onchange="handleFileSelect(event);">
+      </div>
+    </form>
+  </div>
+
+  <div class="logs" id="logsSection">
+    <h2>Recent Intake Logs</h2>
+    <div id="logEntries">
+      <div class="empty-log" id="emptyLog">No files received yet. Upload a CSV to begin.</div>
+      <div id="logList" style="display: none;"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function handleFileSelect(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const formData = new FormData();
+    formData.append('file', file);
+    fetch('/intake', { method: 'POST', body: formData })
+      .then(res => {
+        if (res.ok) {
+          addLogEntry(file.name, 'received');
+        } else {
+          addLogEntry(file.name, 'failed');
+        }
+      })
+      .catch(() => addLogEntry(file.name, 'failed'));
+    event.target.value = '';
+  }
+
+  function addLogEntry(filename, status) {
+    const emptyLog = document.getElementById('emptyLog');
+    const logList = document.getElementById('logList');
+    if (emptyLog) emptyLog.style.display = 'none';
+    logList.style.display = 'block';
+    const entry = document.createElement('div');
+    entry.className = 'log-entry';
+    entry.innerHTML = `
+      <div class="file-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      </div>
+      <div class="details">
+        <div class="filename">${filename}</div>
+        <div class="meta">${new Date().toLocaleString()}</div>
+      </div>
+      <span class="status">${status === 'received' ? 'Received' : 'Failed'}</span>
+    `;
+    logList.appendChild(entry);
+  }
+</script>
+</body>
+</html>

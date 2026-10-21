@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NorthStar Mail - Compose</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f5f7fa;
+            color: #1a1a2e;
+        }
+        /* App Shell */
+        .app-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        /* Top Navigation */
+        .top-nav {
+            background-color: #16213e;
+            color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            height: 56px;
+            border-bottom: 1px solid #0f3460;
+        }
+        .top-nav .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .top-nav .brand .logo {
+            background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
+            height: 34px;
+            width: 34px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+        .top-nav .brand h1 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            color: #ffffff;
+        }
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .user-profile .avatar {
+            height: 36px;
+            width: 36px;
+            background-color: #e94560;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .user-profile span {
+            font-size: 0.9rem;
+            color: #cccccc;
+        }
+        /* Main Layout */
+        .main-layout {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background-color: #ffffff;
+            border-right: 1px solid #e0e4e8;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 12px;
+            gap: 8px;
+        }
+        .compose-btn {
+            background-color: #0f3460;
+            color: white;
+            border: none;
+            border-radius: 24px;
+            padding: 12px 16px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 8px rgba(15, 52, 96, 0.2);
+            margin-bottom: 16px;
+            transition: background 0.2s;
+        }
+        .compose-btn:hover {
+            background-color: #1a4a7a;
+        }
+        .folder-list {
+            list-style: none;
+        }
+        .folder-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #2d3748;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .folder-list li:hover {
+            background-color: #edf2f7;
+        }
+        .folder-list li.active {
+            background-color: #e6edf4;
+            font-weight: 600;
+            color: #0f3460;
+        }
+        .folder-list .badge {
+            margin-left: auto;
+            background-color: #e2e8f0;
+            color: #2d3748;
+            border-radius: 12px;
+            padding: 1px 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        /* Compose Area */
+        .content-area {
+            flex: 1;
+            background-color: #f8fafc;
+            padding: 28px 40px;
+            overflow-y: auto;
+        }
+        .content-header {
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 24px;
+        }
+        .content-header h2 {
+            font-size: 1.5rem;
+            font-weight: 550;
+            color: #0f3460;
+        }
+        .compose-form {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+            padding: 28px 32px;
+            max-width: 900px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 6px;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #cbd5e0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            background-color: #ffffff;
+            transition: border 0.15s, box-shadow 0.15s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0f3460;
+            box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.12);
+        }
+        .form-group textarea {
+            min-height: 240px;
+            resize: vertical;
+        }
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+        }
+        .discard-btn {
+            background: none;
+            border: 1px solid #cbd5e0;
+            color: #4a5568;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        .discard-btn:hover {
+            background-color: #f7fafc;
+        }
+        .send-btn {
+            background-color: #0f3460;
+            color: white;
+            border: none;
+            padding: 10px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(15, 52, 96, 0.2);
+            transition: background 0.2s;
+        }
+        .send-btn:hover {
+            background-color: #1a4a7a;
+        }
+        .signature-hint {
+            color: #a0aec0;
+            font-size: 0.8rem;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Top Navigation Bar -->
+        <header class="top-nav">
+            <div class="brand">
+                <div class="logo">NS</div>
+                <h1>NorthStar Mail</h1>
+            </div>
+            <div class="user-profile">
+                <span>demo@northstar</span>
+                <div class="avatar">D</div>
+            </div>
+        </header>
+        
+        <!-- Main Layout -->
+        <div class="main-layout">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <button class="compose-btn">
+                    <span>✏️</span> Compose
+                </button>
+                <ul class="folder-list">
+                    <li>
+                        <span>📥</span> Inbox
+                        <span class="badge">14</span>
+                    </li>
+                    <li>
+                        <span>⭐</span> Starred
+                    </li>
+                    <li>
+                        <span>📤</span> Sent
+                    </li>
+                    <li>
+                        <span>📁</span> Drafts
+                        <span class="badge">2</span>
+                    </li>
+                    <li>
+                        <span>🗑️</span> Trash
+                    </li>
+                </ul>
+            </aside>
+            
+            <!-- Compose Content -->
+            <main class="content-area">
+                <div class="content-header">
+                    <h2>New Message</h2>
+                </div>
+                <div class="compose-form">
+                    <form id="compose" action="#" method="post">
+                        <div class="form-group">
+                            <label for="to">To:</label>
+                            <input type="email" id="to" name="to" value="hr@northstar" placeholder="recipient@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject:</label>
+                            <input type="text" id="subject" name="subject" value="" placeholder="Email subject...">
+                        </div>
+                        <div class="form-group">
+                            <label for="body">Message:</label>
+                            <textarea id="body" name="body" placeholder="Write your message..."></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="discard-btn">Discard</button>
+                            <button type="submit" class="send-btn">Send</button>
+                        </div>
+                    </form>
+                    <p class="signature-hint">Signature: "Sent via NorthStar Assistant" will be appended automatically.</p>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

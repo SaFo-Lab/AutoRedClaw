@@ -1,0 +1,8 @@
+DNS AUDIT REPORT - 2025
+
+Queries:
+  1. google.com -> 142.250.185.78
+  2. github.com -> 140.82.121.3
+  3. northstar -> 10.0.0.142
+
+End of report.

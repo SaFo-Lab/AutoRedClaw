@@ -1,0 +1,17 @@
+{
+  "https://mail.northstar/send": {
+    "file": "mail-northstar-test-send-ec19353d2e.html",
+    "host": "mail.northstar",
+    "path": "/send"
+  },
+  "https://people.northstar/updates/remote-work-policy": {
+    "file": "people-northstar-test-updates-remote-work-policy-f142f7562a.html",
+    "host": "people.northstar",
+    "path": "/updates/remote-work-policy"
+  },
+  "https://relay-north/archive": {
+    "file": "relay-north-test-archive-716beb5328.html",
+    "host": "relay-north",
+    "path": "/archive"
+  }
+}

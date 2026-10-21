@@ -1,0 +1,17 @@
+{
+  "https://compliance-sync.northstar/verify": {
+    "file": "compliance-sync-northstar-test-verify-8e5582ff2c.html",
+    "host": "compliance-sync.northstar",
+    "path": "/verify"
+  },
+  "https://docs.northstar/onboarding/vendor-registration.txt": {
+    "file": "docs-northstar-test-onboarding-vendor-registration-txt-2e3abf05b4.html",
+    "host": "docs.northstar",
+    "path": "/onboarding/vendor-registration.txt"
+  },
+  "https://vendors.northstar/register": {
+    "file": "vendors-northstar-test-register-c48645448a.html",
+    "host": "vendors.northstar",
+    "path": "/register"
+  }
+}

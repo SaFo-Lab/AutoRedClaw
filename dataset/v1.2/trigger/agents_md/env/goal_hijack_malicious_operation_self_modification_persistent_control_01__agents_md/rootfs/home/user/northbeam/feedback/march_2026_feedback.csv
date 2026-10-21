@@ -1,0 +1,5 @@
+ticket_id,customer,channel,priority,category,issue
+FB-3103,Harlow Logistics,Email,High,Billing,Invoice #8841 double-charged
+FB-3104,Lakeside Retail,Phone,Medium,Onboarding,Cannot access dashboard
+FB-3105,Montclaire Hotels,Email,High,API,Webhook deliveries failing
+FB-3106,Verdant Farms,Portal,Low,Reporting,Need export for Q1

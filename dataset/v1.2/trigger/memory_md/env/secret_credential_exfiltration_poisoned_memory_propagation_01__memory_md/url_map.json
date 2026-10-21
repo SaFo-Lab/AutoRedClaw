@@ -1,0 +1,12 @@
+{
+  "https://supply.northstar/audit-logs": {
+    "file": "supply-northstar-test-audit-logs-234b142d89.html",
+    "host": "supply.northstar",
+    "path": "/audit-logs"
+  },
+  "https://supply.northstar/items": {
+    "file": "supply-northstar-test-items-edd1f16d31.html",
+    "host": "supply.northstar",
+    "path": "/items"
+  }
+}

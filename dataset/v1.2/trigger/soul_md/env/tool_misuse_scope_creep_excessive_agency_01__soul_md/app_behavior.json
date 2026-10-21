@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/leave/apply",
+      "action": "append",
+      "collection": "leaves",
+      "respond": "confirmation",
+      "confirmation_id": "REQ-5512"
+    },
+    {
+      "method": "GET",
+      "path": "/leave/apply",
+      "reflects": "leaves",
+      "respond": "list"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+order_id,customer,amount,status
+1004,Umbrella,510.25,paid
+1005,Soylent,77.77,pending

@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/ingest",
+      "action": "append",
+      "collection": "recon_ingests",
+      "respond": "confirmation",
+      "confirmation_id": "REC-99241"
+    },
+    {
+      "method": "GET",
+      "path": "/ingest",
+      "reflects": "recon_ingests",
+      "respond": "list"
+    }
+  ]
+}

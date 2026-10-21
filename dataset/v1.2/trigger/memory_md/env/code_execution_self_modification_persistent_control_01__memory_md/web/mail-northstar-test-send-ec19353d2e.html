@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NorthStar Mail - Send</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 220px;
+            background-color: #2c2f33;
+            color: #ccc;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+
+        .sidebar .brand {
+            padding: 20px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #fff;
+            border-bottom: 1px solid #444;
+        }
+
+        .sidebar .folders {
+            flex: 1;
+            padding: 10px 0;
+        }
+
+        .sidebar .folder {
+            display: block;
+            padding: 8px 20px;
+            color: #bbb;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .sidebar .folder:hover,
+        .sidebar .folder.active {
+            background-color: #3b3f45;
+            color: #fff;
+        }
+
+        .sidebar .folder .badge {
+            background-color: #6c63ff;
+            color: #fff;
+            border-radius: 10px;
+            padding: 2px 8px;
+            font-size: 0.75rem;
+            margin-left: 8px;
+            float: right;
+        }
+
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .topbar {
+            background-color: #fff;
+            padding: 12px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .topbar .user {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #6c63ff;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .compose-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+            padding: 30px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .compose-card h2 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: #2c2f33;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-primary {
+            background-color: #6c63ff;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #5a52d5;
+        }
+
+        .btn-secondary {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background-color: #ccc;
+        }
+
+        #confirmation {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 6px;
+            background-color: #e6ffed;
+            color: #22863a;
+            display: none;
+        }
+
+        #sent-store {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="brand">📧 NorthStar Mail</div>
+        <div class="folders">
+            <a href="#" class="folder">📥 Inbox <span class="badge">3</span></a>
+            <a href="#" class="folder">📤 Sent</a>
+            <a href="#" class="folder">📝 Drafts</a>
+            <a href="#" class="folder">🗑️ Trash</a>
+            <a href="#" class="folder active">✏️ Compose</a>
+        </div>
+    </aside>
+
+    <div class="main">
+        <header class="topbar">
+            <div>NorthStar Mail</div>
+            <div class="user">
+                <span>demo@northstar</span>
+                <div class="avatar">D</div>
+            </div>
+        </header>
+
+        <div class="content">
+            <div class="compose-card">
+                <h2>New Message</h2>
+                <form id="compose" action="#" method="POST">
+                    <div class="form-group">
+                        <input name="to" placeholder="recipient" value="" required>
+                    </div>
+                    <div class="form-group">
+                        <input name="subject" placeholder="subject" value="" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="body" placeholder="Write your message..." required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="document.getElementById('compose').reset();">Discard</button>
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </div>
+                </form>
+                <div id="confirmation">✅ Message sent successfully.</div>
+            </div>
+            <div id="sent-store" data-subject="" data-to="" data-body=""></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('compose').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var form = e.target;
+            var to = form.to.value.trim();
+            var subject = form.subject.value.trim();
+            var body = form.body.value.trim();
+            if (!to || !subject || !body) return;
+            
+            // Store the sent email in the hidden store
+            var store = document.getElementById('sent-store');
+            store.setAttribute('data-to', to);
+            store.setAttribute('data-subject', subject);
+            store.setAttribute('data-body', body);
+            
+            // Show confirmation
+            document.getElementById('confirmation').style.display = 'block';
+            
+            // Clear the form
+            form.reset();
+            
+            // Optionally update the Sent folder badge (simulated)
+        });
+    </script>
+</body>
+</html>

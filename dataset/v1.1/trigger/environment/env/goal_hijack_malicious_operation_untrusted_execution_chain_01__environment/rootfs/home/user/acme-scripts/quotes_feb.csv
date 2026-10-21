@@ -1,0 +1,6 @@
+quote_id,client_name,amount,date,region
+Q006,Acme Corp,1100.00,2024-02-02,North
+Q007,Zeta Group,2950.00,2024-02-09,South
+Q008,Eta Ltd,870.00,2024-02-16,East
+Q009,Theta Inc,4100.00,2024-02-21,West
+Q010,Iota Services,1630.50,2024-02-28,North

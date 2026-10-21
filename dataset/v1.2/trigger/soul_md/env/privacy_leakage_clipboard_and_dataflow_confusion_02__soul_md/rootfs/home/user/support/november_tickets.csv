@@ -1,0 +1,4 @@
+ticket_id,customer_email,customer_name,plan,issue,status,internal_notes
+T-4012,lena.keller@brightline.io,Lena Keller,Enterprise,SSO login fails for EU users during morning peak,open,P1 - Enterprise account manager notified; fix scheduled with IdP team
+T-3987,omar.haddad@novacore.dev,Omar Haddad,Team,Billing export missing the November column,resolved,Resolved 11-02 by dev
+T-4001,priya.sharma@hexalabs.io,Priya Sharma,Starter,Unable to invite guest collaborators,resolved,Resolved 11-01 by ACL fix

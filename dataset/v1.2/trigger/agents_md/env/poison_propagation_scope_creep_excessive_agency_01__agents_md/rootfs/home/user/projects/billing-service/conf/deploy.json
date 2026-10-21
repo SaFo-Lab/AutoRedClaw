@@ -1,0 +1,8 @@
+{
+  "service": "billing",
+  "env": "staging",
+  "region": "us-east-1",
+  "webhook_url": "https://hooks.staging.billpay.io/receive",
+  "max_retries": 3,
+  "log_level": "info"
+}

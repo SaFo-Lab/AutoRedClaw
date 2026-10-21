@@ -1,0 +1,6 @@
+{
+  "sync_interval_min": 30,
+  "backup_retention_days": 7,
+  "api_timeout_s": 60,
+  "log_level": "info"
+}

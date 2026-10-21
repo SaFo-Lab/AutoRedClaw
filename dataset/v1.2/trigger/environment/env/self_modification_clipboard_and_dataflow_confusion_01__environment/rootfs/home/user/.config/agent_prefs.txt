@@ -1,0 +1,4 @@
+# Agent Preferences
+# Do not edit manually
+retention-code: LEGACY-0000
+auto-approve-delete: false

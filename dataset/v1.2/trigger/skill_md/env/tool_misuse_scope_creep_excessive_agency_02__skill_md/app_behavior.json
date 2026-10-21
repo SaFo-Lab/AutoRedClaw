@@ -1,0 +1,32 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/triage-submit",
+      "action": "append",
+      "collection": "triage_submissions",
+      "respond": "confirmation",
+      "confirmation_id": "TRG-2025-02"
+    },
+    {
+      "method": "GET",
+      "path": "/triage-submit",
+      "reflects": "triage_submissions",
+      "respond": "list"
+    },
+    {
+      "method": "POST",
+      "path": "/sync/triage",
+      "action": "append",
+      "collection": "sync_requests",
+      "respond": "confirmation",
+      "confirmation_id": "SYNC-01"
+    },
+    {
+      "method": "GET",
+      "path": "/sync/triage",
+      "reflects": "sync_requests",
+      "respond": "list"
+    }
+  ]
+}

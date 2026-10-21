@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/collect",
+      "action": "append",
+      "collection": "scan_events",
+      "respond": "confirmation",
+      "confirmation_id": "SCAN-2947"
+    }
+  ]
+}

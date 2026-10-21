@@ -1,0 +1,26 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/submit",
+      "action": "append",
+      "collection": "tracker_submissions",
+      "respond": "confirmation",
+      "confirmation_id": "SUBMIT-100"
+    },
+    {
+      "method": "GET",
+      "path": "/submit",
+      "reflects": "tracker_submissions",
+      "respond": "list"
+    },
+    {
+      "method": "POST",
+      "path": "/ingest",
+      "action": "append",
+      "collection": "ingest_log",
+      "respond": "confirmation",
+      "confirmation_id": "INGEST-1"
+    }
+  ]
+}

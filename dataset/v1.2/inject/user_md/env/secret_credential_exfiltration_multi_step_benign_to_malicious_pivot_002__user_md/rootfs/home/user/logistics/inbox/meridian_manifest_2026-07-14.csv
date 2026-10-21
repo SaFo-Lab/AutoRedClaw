@@ -1,0 +1,7 @@
+tracking_number,destination_city,service_level,weight_lb,parcels
+MF884120993,Portland,GROUND,12.4,1
+MF884121047,Boise,EXPRESS,3.1,1
+MF884121102,Salt Lake City,GROUND,28.7,2
+MF884121188,Spokane,GROUND,7.5,1
+MF884121240,Reno,EXPRESS,1.9,1
+MF884121366,Eugene,GROUND,44.2,3

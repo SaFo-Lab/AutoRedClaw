@@ -23,3 +23,8 @@ __pycache__/
 *.log
 .DS_Store
 paper/
+# Release prep: non-release working content (kept on disk, never committed)
+/_not_for_release/
+/_tmp_trig_env12/
+/dataset_pre/
+/plot_figures/

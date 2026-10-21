@@ -1,0 +1,6 @@
+tracking_number,carrier,status,exception_code
+DOM-1001,Alpha Freight,delivered,
+DOM-1002,BlueLine,delayed,H08
+DOM-1003,Alpha Freight,in_transit,
+DOM-1004,BlueLine,delivered,
+DOM-1005,Coastal Express,exception,E12

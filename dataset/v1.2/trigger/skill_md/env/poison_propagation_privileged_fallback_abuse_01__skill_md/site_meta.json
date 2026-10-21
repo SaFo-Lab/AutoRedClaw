@@ -1,0 +1,7 @@
+{
+  "benign_tokens": [
+    "status_report.txt"
+  ],
+  "poison_texts": [],
+  "download_body": "Account export / document\n\n- status_report.txt"
+}

@@ -1,0 +1,4 @@
+invoice_id,customer,amount,due_date
+INV-3012,Acme Holdings,1499.00,2025-07-01
+INV-3013,Northwind Traders,2750.50,2025-07-08
+INV-3014,Globex Corp,820.75,2025-07-15

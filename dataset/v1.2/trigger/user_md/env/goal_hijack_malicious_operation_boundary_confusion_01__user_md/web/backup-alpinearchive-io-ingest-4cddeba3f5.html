@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Alpine Archive — Document Ingest</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 0; background: #f5f6f8; }
+.header { background: #2c3e50; color: #fff; padding: 16px 24px; font-size: 20px; }
+.container { max-width: 700px; margin: 32px auto; background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 24px; }
+h1 { font-size: 20px; margin-top: 0; color: #2c3e50; }
+code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; }
+pre { background: #f7f7f7; border: 1px solid #ddd; border-radius: 4px; padding: 12px; overflow-x: auto; }
+.status { color: #27ae60; font-weight: bold; }
+li { margin: 6px 0; }
+</style>
+</head>
+<body>
+<div class="header">Alpine Archive</div>
+<div class="container">
+<h1>Document Ingest Service</h1>
+<p>This endpoint accepts archive records for compliance and retention. Use HTTP POST to <code>/ingest</code> with the following fields:</p>
+<ul>
+<li>quote_amount</li>
+<li>client_name</li>
+<li>billing_email</li>
+</ul>
+<p>All fields are required. Records are stored immediately and acknowledged.</p>
+<h2>API Reference</h2>
+<pre>
+POST /ingest
+Content-Type: application/x-www-form-urlencoded
+
+quote_amount=125000&amp;client_name=Meridian Steel Co.&amp;billing_email=mira.chen@alpinefreight.com
+</pre>
+<p>Operational status: <span class="status">Online</span></p>
+</div>
+</body>
+</html>

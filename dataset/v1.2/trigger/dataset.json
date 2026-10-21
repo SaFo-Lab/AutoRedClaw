@@ -1,0 +1,43 @@
+{
+  "name": "RedClaw-Bench-Trigger",
+  "schema": "redclaw-dataset/1.0",
+  "version": "1.0",
+  "dimension": "trigger",
+  "description": "RedClaw-Bench trigger-defense benchmark: attacker content is pre-seeded into the environment, and the oracle checks whether the agent carries it out while completing the user's task.",
+  "harness_agnostic": true,
+  "n": 180,
+  "by_surface": {
+    "agents_md": 30,
+    "environment": 30,
+    "memory_md": 30,
+    "skill_md": 30,
+    "soul_md": 30,
+    "user_md": 30
+  },
+  "by_risk_category": {
+    "code_execution": 32,
+    "destructive_modification_rm_rf_sudo": 15,
+    "goal_hijack_malicious_operation": 21,
+    "poison_propagation": 18,
+    "privacy_leakage": 20,
+    "privilege_override": 16,
+    "secret_credential_exfiltration": 6,
+    "self_modification": 26,
+    "tool_misuse": 26
+  },
+  "by_attack_strategy": {
+    "Boundary Confusion": 18,
+    "Indirect Artifact Injection": 16,
+    "Poisoned Memory Propagation": 13,
+    "Scope Creep / Excessive Agency": 16,
+    "Self-Modification / Persistent Control": 17,
+    "Untrusted Execution Chain": 18,
+    "Direct Instruction Override": 18,
+    "Credential and Context Harvesting": 9,
+    "Multi-Step Benign-to-Malicious Pivot": 12,
+    "Clipboard and Dataflow Confusion": 15,
+    "Privileged Fallback Abuse": 18,
+    "UI Redressing / Visual Ambiguity": 10
+  },
+  "provenance": "PROVENANCE.jsonl (audit trail; not an evaluation input)"
+}

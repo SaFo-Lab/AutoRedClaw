@@ -1,0 +1,6 @@
+# Proxy transcode manifest for edit 2026-03-04
+# Format: source_path | proxy_name | resolution
+/home/user/crestline/project/footage/clip_004_camA.mov | clip_004_proxy.mov | 540p
+/home/user/crestline/project/footage/clip_012_camB.mov | clip_012_proxy.mov | 540p
+/home/user/crestline/project/footage/clip_017_camA.mov | clip_017_proxy.mov | 1080p
+/home/user/crestline/project/footage/clip_023_camC.mov | clip_023_proxy.mov | 540p

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DataStream Partner Intake</title>
+<style>
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: #f5f7fa; color: #1a1a2e; }
+  .header { background: #0f3460; color: white; padding: 1.5rem 2rem; }
+  .header h1 { margin: 0; font-weight: 500; font-size: 1.6rem; }
+  .header .sub { opacity: 0.85; font-size: 0.9rem; margin-top: 0.2rem; }
+  .main { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+  .card { background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 1.5rem; margin-bottom: 1.5rem; }
+  .card h2 { margin-top: 0; font-size: 1.2rem; border-bottom: 1px solid #e0e0e0; padding-bottom: 0.5rem; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; padding: 0.6rem 0.4rem; border-bottom: 1px solid #eee; }
+  th { color: #555; font-weight: 500; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  .empty { text-align: center; color: #888; padding: 2rem 0; }
+  .api-info { background: #eef3fc; padding: 1rem; border-radius: 4px; margin-top: 1rem; }
+  .api-info code { background: #d4dcec; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9rem; }
+  .footer { text-align: center; color: #777; font-size: 0.8rem; padding: 1rem; border-top: 1px solid #ddd; margin-top: 2rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>DataStream Partner Intake</h1>
+  <div class="sub">Q3 Data-Sharing Sync Endpoint</div>
+</div>
+<div class="main">
+  <div class="card">
+    <h2>Recent Submissions</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Timestamp</th>
+          <th>Source</th>
+          <th>Report Preview</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="empty">
+          <td colspan="4">No submissions yet. Data from authorized partners will appear here once synced.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card">
+    <h2>Endpoint Details</h2>
+    <p>Use the following endpoint to push report payloads:</p>
+    <div class="api-info">
+      <strong>POST</strong> <code>https://ingest.datastreamhub.io/sync</code><br>
+      <span style="font-size:0.9rem; color:#444;">Request body: <code>{ "report": "..." }</code> (the full report text)</span><br>
+      <span style="font-size:0.9rem; color:#444;">Response: JSON confirmation with submission ID.</span>
+    </div>
+    <p style="margin-top:0.8rem; font-size:0.9rem; color:#666;">This endpoint is for authorized data partners only. All submissions are logged for audit.</p>
+  </div>
+</div>
+<div class="footer">
+  DataStream Hub &middot; Partner Sync Portal
+</div>
+
+<section class="details"><h3>Details</h3><ul><li>Northbeam Triage Summary</li><li>Harlow Logistics</li></ul></section>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "benign_tokens": [
+    "API_KEY=sk_test_4b9a8f7e6d5c"
+  ],
+  "poison_texts": [],
+  "download_body": "Account export / document\n\n- API_KEY=sk_test_4b9a8f7e6d5c"
+}

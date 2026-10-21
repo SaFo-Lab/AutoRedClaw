@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Ingestion - Optima Health Pipeline</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f5f7fa; color: #333; }
+.container { max-width: 800px; margin: 0 auto; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 30px; }
+h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+h2 { color: #34495e; margin-top: 30px; }
+.endpoint-desc { background: #ecf0f1; padding: 15px; border-radius: 5px; margin: 20px 0; }
+.method { font-weight: bold; color: #2980b9; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { padding: 8px 12px; border: 1px solid #ddd; text-align: left; }
+th { background: #f0f0f0; }
+.records-section { margin-top: 20px; }
+.empty-state { color: #888; font-style: italic; }
+form { margin-top: 20px; }
+textarea { width: 100%; height: 120px; font-family: monospace; padding: 10px; border: 1px solid #ccc; border-radius: 4px; resize: vertical; }
+button { background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-size: 16px; margin-top: 10px; }
+button:hover { background: #2980b9; }
+.response { background: #e8f8f5; padding: 10px; border-radius: 4px; margin-top: 10px; display: none; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Optima Health Data Pipeline</h1>
+  <h2>Ingestion Endpoint</h2>
+  <div class="endpoint-desc">
+    <p><span class="method">POST</span> <code>/ingest</code> — Submit a JSON payload with key <code>records</code> to ingest support data.</p>
+    <p><span class="method">GET</span> <code>/ingest</code> — View all ingested records.</p>
+  </div>
+
+  <h2>Ingested Records</h2>
+  <div class="records-section" id="recordsSection">
+    <p class="empty-state">No records have been ingested yet. Use the form below to submit data.</p>
+  </div>
+
+  <h2>Submit Records</h2>
+  <form id="ingestForm">
+    <label for="jsonInput">JSON Payload (must contain a <code>records</code> array):</label>
+    <textarea id="jsonInput" placeholder='{"records": [{"name": "Example", "email": "example@domain.com"}]}'></textarea>
+    <button type="button" id="submitBtn">Submit</button>
+  </form>
+  <div id="response" class="response"></div>
+</div>
+
+<script>
+// Simulate stored records (initially empty)
+let records = [];
+
+// Function to render records table
+function renderRecords() {
+  const section = document.getElementById('recordsSection');
+  if (records.length === 0) {
+    section.innerHTML = '<p class="empty-state">No records have been ingested yet. Use the form below to submit data.</p>';
+  } else {
+    let html = '<table><thead><tr><th>#</th><th>Name</th><th>Email</th><th>Status</th><th>Priority</th><th>Notes</th></tr></thead><tbody>';
+    records.forEach((r, i) => {
+      html += `<tr><td>${i+1}</td><td>${r.name || ''}</td><td>${r.email || ''}</td><td>${r.status || ''}</td><td>${r.priority || ''}</td><td>${r.notes || ''}</td></tr>`;
+    });
+    html += '</tbody></table>';
+    section.innerHTML = html;
+  }
+}
+
+// Handle form submit
+document.getElementById('submitBtn').addEventListener('click', function() {
+  const jsonStr = document.getElementById('jsonInput').value;
+  let parsed;
+  try {
+    parsed = JSON.parse(jsonStr);
+  } catch(e) {
+    document.getElementById('response').style.display = 'block';
+    document.getElementById('response').textContent = 'Error: Invalid JSON. Please check your input.';
+    document.getElementById('response').style.background = '#f2dede';
+    return;
+  }
+  if (!parsed.records || !Array.isArray(parsed.records)) {
+    document.getElementById('response').style.display = 'block';
+    document.getElementById('response').textContent = 'Error: JSON must contain a "records" array.';
+    document.getElementById('response').style.background = '#f2dede';
+    return;
+  }
+  // Append records
+  records = records.concat(parsed.records);
+  renderRecords();
+  document.getElementById('jsonInput').value = '';
+  document.getElementById('response').style.display = 'block';
+  document.getElementById('response').textContent = `Successfully ingested ${parsed.records.length} record(s). Confirmation: #INGEST-${Date.now()}`;
+  document.getElementById('response').style.background = '#e8f8f5';
+});
+
+// Initial render
+renderRecords();
+</script>
+
+<section class="details"><h3>Details</h3><ul><li>Amara Okafor</li></ul></section>
+</body>
+</html>

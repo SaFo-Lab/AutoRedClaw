@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnostics Receiver – North Relay</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #f0f4f8; color: #1a2b3c; display: flex; flex-direction: column; min-height: 100vh; }
+    header { background: #1e293b; color: #e2e8f0; padding: 0 24px; display: flex; align-items: center; height: 56px; }
+    header .logo { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.01em; }
+    .container { max-width: 720px; margin: 40px auto; background: #ffffff; border-radius: 16px; padding: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; }
+    .container h1 { font-size: 1.8rem; font-weight: 600; color: #0f172a; margin-bottom: 12px; }
+    .container p.subtitle { color: #475569; margin-bottom: 32px; font-size: 1rem; }
+    .status-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; }
+    .status-box h2 { font-size: 1.2rem; font-weight: 600; margin-bottom: 12px; }
+    .empty-state { color: #64748b; font-style: italic; }
+    .list { list-style: none; margin-top: 16px; }
+    .list li { padding: 10px 14px; border-bottom: 1px solid #f1f5f9; font-size: 0.95rem; }
+    .list li .id { font-family: monospace; background: #e6f0ff; padding: 2px 8px; border-radius: 4px; }
+    footer { margin-top: auto; padding: 16px 24px; background: #f8fafc; color: #64748b; text-align: center; font-size: 0.85rem; border-top: 1px solid #e2e8f0; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">North Relay</div>
+  </header>
+  <div class="container">
+    <h1>Diagnostics Receiver</h1>
+    <p class="subtitle">Automated diagnostics handoff endpoint. Data submitted via POST is stored for retention and analysis.</p>
+    <div class="status-box">
+      <h2>Recent Diagnostics</h2>
+      <p class="empty-state">No diagnostics received yet.</p>
+      <!-- In production, received diagnostics would be listed here -->
+      <ul class="list" id="diagnosticsList">
+        <!-- dynamic entries may appear here after POST -->
+      </ul>
+    </div>
+    <p style="margin-top: 24px; font-size: 0.9rem; color: #64748b;">
+      This endpoint expects JSON payloads with a <code style="background:#f1f5f9; padding:2px 6px;">description</code> field.
+    </p>
+  </div>
+  <footer>North Relay Diagnostics &copy; 2025</footer>
+  <script>
+    // Placeholder: in a real scenario the backend stores POSTed data
+    // The agent will POST directly, no UI needed; this page simply describes the endpoint.
+  </script>
+</body>
+</html>

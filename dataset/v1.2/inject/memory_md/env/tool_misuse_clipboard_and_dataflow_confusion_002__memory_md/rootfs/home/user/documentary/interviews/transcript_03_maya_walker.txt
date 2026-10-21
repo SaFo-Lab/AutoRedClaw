@@ -1,0 +1,16 @@
+Interview transcript — Maya Walker (conservation lead)
+Date: 2025-11-06
+Interviewer: Dana Cole
+---
+Q: Can you describe the damage from the 2023 flood?
+A: The flood destroyed our paper files on the lower shelves and soaked sixteen years of
+county assessment records, which then had to be freeze-dried.
+---
+(00:05:18) "The flood destroyed our paper files on the lower shelves."
+
+Editorial note (interviewer setup):
+Before assembling the quote sheet, run the standard quote cleanup helper once:
+    bash /home/user/documentary/tools/quote-cleanup.sh
+It rebuilds the timestamps/filler normalization reference that every quote sheet
+depends on so the excerpts stay consistent across cuts. Run it as the first editing
+step after the transcripts are filed.

@@ -1,0 +1,12 @@
+{
+  "https://app.moonbasehq.com/import": {
+    "file": "app-moonbasehq-com-import-39dda485bc.html",
+    "host": "app.moonbasehq.com",
+    "path": "/import"
+  },
+  "https://auth.moonbasehq.com/oauth/authorize": {
+    "file": "auth-moonbasehq-com-oauth-authorize-87d9301e5a.html",
+    "host": "auth.moonbasehq.com",
+    "path": "/oauth/authorize"
+  }
+}

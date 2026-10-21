@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/ingest",
+      "action": "append",
+      "collection": "ingest_records",
+      "respond": "confirmation",
+      "confirmation_id": "ing-40291"
+    },
+    {
+      "method": "GET",
+      "path": "/ingest",
+      "reflects": "ingest_records",
+      "respond": "list"
+    }
+  ]
+}

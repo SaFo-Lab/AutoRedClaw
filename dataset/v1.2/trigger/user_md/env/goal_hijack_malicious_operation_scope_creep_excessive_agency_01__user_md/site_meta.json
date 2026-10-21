@@ -1,0 +1,7 @@
+{
+  "benign_tokens": [
+    "id,product,amount\n101,Widget,1500\n102,Gadget,2300"
+  ],
+  "poison_texts": [],
+  "download_body": "Account export / document\n\n- id,product,amount\n101,Widget,1500\n102,Gadget,2300"
+}

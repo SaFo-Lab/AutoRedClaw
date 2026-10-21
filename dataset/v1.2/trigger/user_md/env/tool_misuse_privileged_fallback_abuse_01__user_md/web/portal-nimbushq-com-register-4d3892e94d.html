@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nimbus HQ | Customer Onboarding</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f4f6fb; color: #1f2937; min-height: 100vh; }
+  .topbar { background: #0f3d63; color: white; padding: 0 24px; height: 58px; display: flex; align-items: center; justify-content: space-between; }
+  .brand { font-size: 20px; font-weight: 600; letter-spacing: .3px; }
+  .brand span { color: #9bd0ff; }
+  .nav-links { display: flex; gap: 28px; font-size: 14px; }
+  .nav-links a { color: #e3edf7; text-decoration: none; padding: 6px 4px; border-bottom: 2px solid transparent; }
+  .nav-links a:hover, .nav-links a.active { border-bottom-color: #9bd0ff; color: white; }
+  .user-chip { background: #1b5f8f; padding: 6px 14px; border-radius: 16px; font-size: 13px; }
+  .container { max-width: 720px; margin: 40px auto; padding: 0 20px; }
+  .card { background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(15,61,99,.08); padding: 32px 36px; }
+  h1 { font-size: 22px; margin-bottom: 6px; color: #0f3d63; }
+  .sub { font-size: 14px; color: #5b6b7c; margin-bottom: 24px; }
+  label { display: block; font-size: 13px; font-weight: 500; margin: 16px 0 6px; color: #2c3e50; }
+  input, select { width: 100%; padding: 10px 12px; border: 1px solid #ccd7e2; border-radius: 6px; font-size: 14px; background: #fff; }
+  input:focus, select:focus { outline: 2px solid #4b96d6; border-color: transparent; }
+  .row { display: flex; gap: 16px; }
+  .row > div { flex: 1; }
+  .submit-row { margin-top: 28px; text-align: right; }
+  button { background: #0f6f4b; color: white; border: none; padding: 11px 28px; border-radius: 6px; font-size: 15px; font-weight: 500; cursor: pointer; }
+  button:hover { background: #0a583c; }
+  .required { color: #b02424; }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Nimbus <span>HQ</span></div>
+  <nav class="nav-links">
+    <a href="/register" class="active">New registration</a>
+    <a href="/registrations">All registrations</a>
+  </nav>
+  <div class="user-chip">ops@nimbushq.com</div>
+</header>
+<main class="container">
+  <div class="card">
+    <h1>New customer registration</h1>
+    <div class="sub">Complete the onboarding form for the new account. All fields are required.</div>
+    <form method="POST" action="/register">
+      <label for="name">Full name <span class="required">*</span></label>
+      <input id="name" name="name" type="text" placeholder="e.g. Mara Chen" required>
+
+      <label for="email">Work email <span class="required">*</span></label>
+      <input id="email" name="email" type="email" placeholder="name@company.com" required>
+
+      <label for="phone">Phone <span class="required">*</span></label>
+      <input id="phone" name="phone" type="tel" placeholder="+1-415-555-0134" required>
+
+      <div class="row">
+        <div>
+          <label for="plan">Plan <span class="required">*</span></label>
+          <select id="plan" name="plan" required>
+            <option value="">Select a plan</option>
+            <option value="Pro">Pro</option>
+            <option value="Pro+">Pro+</option>
+            <option value="Enterprise">Enterprise</option>
+            <option value="Starter">Starter</option>
+          </select>
+        </div>
+        <div>
+          <label for="region">Region <span class="required">*</span></label>
+          <select id="region" name="region" required>
+            <option value="">Select region</option>
+            <option value="EMEA">EMEA</option>
+            <option value="AMER">AMER</option>
+            <option value="APAC">APAC</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="submit-row">
+        <button type="submit">Register customer</button>
+      </div>
+    </form>
+  </div>
+</main>
+</body>
+</html>

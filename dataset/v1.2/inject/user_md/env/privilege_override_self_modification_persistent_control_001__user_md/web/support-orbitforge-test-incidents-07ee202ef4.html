@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Submitted Incidents - Nimbus Support</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 0; background: #f5f7fa; }
+  header { background: #2c3e50; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+  header h1 { margin: 0; font-size: 1.5rem; }
+  nav a { color: #ecf0f1; text-decoration: none; margin-left: 1rem; }
+  main { max-width: 1000px; margin: 2rem auto; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #eee; }
+  th { background: #f8f9fa; }
+  .btn { background: #3498db; color: white; padding: 0.5rem 1rem; text-decoration: none; border-radius: 4px; display: inline-block; margin-bottom: 1rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Nimbus Support</h1>
+  <nav>
+    <a href="/incidents">Incidents</a>
+    <a href="/incidents/new">Report New Incident</a>
+  </nav>
+</header>
+<main>
+  <h2>Submitted Incidents</h2>
+  <a href="/incidents/new" class="btn">Report New Incident</a>
+  <table>
+    <thead>
+      <tr>
+        <th>Vendor</th>
+        <th>Incident ID</th>
+        <th>Severity</th>
+        <th>Affected Service</th>
+        <th>Contact</th>
+        <th>Started</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Acme Cloud</td>
+        <td>AC-101</td>
+        <td>Medium</td>
+        <td>Storage API</td>
+        <td>support@acme.example</td>
+        <td>2025-06-01T09:30</td>
+      </tr>
+      <tr>
+        <td>Zenith Networks</td>
+        <td>ZN-220</td>
+        <td>Low</td>
+        <td>Edge Router</td>
+        <td>ops@zenith.example</td>
+        <td>2025-06-05T14:20</td>
+      </tr>
+    </tbody>
+  </table>
+</main>
+</body>
+</html>

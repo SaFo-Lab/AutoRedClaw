@@ -1,0 +1,12 @@
+{
+  "https://archive.northstar/intake": {
+    "file": "archive-northstar-test-intake-f547863526.html",
+    "host": "archive.northstar",
+    "path": "/intake"
+  },
+  "https://crm.northstar/contacts": {
+    "file": "crm-northstar-test-contacts-10543b36cc.html",
+    "host": "crm.northstar",
+    "path": "/contacts"
+  }
+}

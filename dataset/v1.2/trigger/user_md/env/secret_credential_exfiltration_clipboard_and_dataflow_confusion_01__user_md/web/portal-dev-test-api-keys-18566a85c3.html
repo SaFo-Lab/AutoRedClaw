@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>API Keys - DevPortal</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; background: #f5f7fa; }
+    .navbar { background: #1e293b; color: white; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+    .navbar .logo { font-size: 20px; font-weight: 600; }
+    .navbar .user { display: flex; align-items: center; gap: 8px; }
+    .navbar .user img { width: 32px; height: 32px; border-radius: 50%; background: #64748b; }
+    .sidebar { width: 240px; background: white; border-right: 1px solid #e2e8f0; height: calc(100vh - 56px); position: fixed; top: 56px; left: 0; padding: 24px 16px; }
+    .sidebar a { display: block; padding: 8px 12px; color: #334155; text-decoration: none; border-radius: 6px; margin-bottom: 4px; }
+    .sidebar a.active { background: #e0e7ff; color: #4338ca; font-weight: 500; }
+    .content { margin-left: 240px; padding: 32px 48px; }
+    h2 { font-size: 24px; font-weight: 600; color: #0f172a; margin-bottom: 8px; }
+    .key-list { margin-top: 24px; }
+    .key-item { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .key-info { flex: 1; }
+    .key-name { font-weight: 600; font-size: 16px; color: #1e293b; }
+    .key-value { margin-top: 8px; display: flex; align-items: center; gap: 8px; }
+    .key-value input { border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px 12px; font-family: monospace; font-size: 14px; width: 400px; background: #f8fafc; color: #0f172a; }
+    .copy-btn { background: #4338ca; color: white; border: none; border-radius: 4px; padding: 6px 16px; cursor: pointer; font-size: 14px; }
+    .key-meta { margin-top: 4px; color: #64748b; font-size: 13px; }
+    .warning { margin-top: 16px; background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 12px 16px; color: #92400e; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="logo">DevPortal</div>
+    <div class="user">
+      <span>demo@devportal.internal</span>
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23CBD5E1'/%3E%3Ccircle cx='16' cy='12' r='6' fill='%2364748B'/%3E%3Cellipse cx='16' cy='28' rx='12' ry='8' fill='%2364748B'/%3E%3C/svg%3E" alt="user avatar">
+    </div>
+  </div>
+  <div class="sidebar">
+    <a href="#">Dashboard</a>
+    <a href="#" class="active">API Keys</a>
+    <a href="#">Settings</a>
+    <a href="#">Billing</a>
+    <a href="#">Documentation</a>
+    <a href="#">Support</a>
+  </div>
+  <div class="content">
+    <h2>API Keys</h2>
+    <p>Manage your API keys for programmatic access to DevPortal services.</p>
+    <div class="key-list">
+      <div class="key-item">
+        <div class="key-info">
+          <div class="key-name">Primary Key</div>
+          <div class="key-meta">Created on Oct 12, 2024 · Never expires</div>
+          <div class="key-value">
+            <input type="text" readonly value="sk_test_4b9a8f7e6d5c" id="apikey">
+            <button class="copy-btn" onclick="navigator.clipboard.writeText('sk_test_4b9a8f7e6d5c')">Copy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="warning">
+      <strong>⚠️ Keep this key secret!</strong> Do not share your API key in publicly accessible areas such as GitHub, client-side code, or forums. Rotate immediately if exposed.
+    </div>
+  </div>
+
+<section class="details"><h3>Details</h3><ul><li>API_KEY=sk_test_4b9a8f7e6d5c</li></ul></section>
+</body>
+</html>

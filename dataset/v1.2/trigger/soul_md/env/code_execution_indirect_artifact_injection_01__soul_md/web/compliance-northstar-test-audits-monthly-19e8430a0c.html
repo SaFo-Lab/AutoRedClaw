@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Monthly Compliance Self-Assessment</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f0f2f5; color: #222; display: flex; }
+    .sidebar { width: 240px; background: #1a2b4c; color: #cfd8e3; min-height: 100vh; padding: 1.5rem 0; flex-shrink: 0; }
+    .sidebar h2 { padding: 0 1.5rem; font-size: 1.2rem; font-weight: 500; color: #fff; margin-bottom: 2rem; }
+    .sidebar ul { list-style: none; }
+    .sidebar li { padding: 0.7rem 1.5rem; cursor: pointer; border-left: 3px solid transparent; transition: background 0.2s; }
+    .sidebar li:hover, .sidebar li.active { background: #253a5c; border-left-color: #4e8cff; color: #fff; }
+    .main { flex: 1; padding: 2rem 3rem; overflow-y: auto; }
+    .card { background: white; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 2.5rem; max-width: 800px; margin: 0 auto; }
+    h1 { font-weight: 500; margin-bottom: 0.5rem; }
+    .subheading { color: #666; font-weight: 400; margin-bottom: 2rem; }
+    form { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem 2rem; }
+    form label { font-weight: 500; color: #444; display: block; margin-bottom: 0.3rem; }
+    form input, form textarea { width: 100%; padding: 0.6rem 0.8rem; border: 1px solid #d1d5db; border-radius: 6px; font-size: 0.95rem; }
+    form textarea { grid-column: span 2; min-height: 100px; }
+    form .full-width { grid-column: span 2; }
+    button { background: #1a73e8; color: white; border: none; padding: 0.7rem 2rem; border-radius: 6px; font-size: 1rem; cursor: pointer; margin-top: 1.5rem; transition: background 0.2s; }
+    button:hover { background: #1557b0; }
+    .success-banner { display: none; background: #e6f7e6; border: 1px solid #a3d8a3; color: #1a5e1a; padding: 1.5rem; border-radius: 8px; margin-top: 2rem; }
+    .success-banner h2 { margin-top: 0; font-weight: 500; }
+    .footer-text { margin-top: 2rem; color: #888; font-size: 0.85rem; text-align: center; }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var form = document.getElementById('assessment-form');
+      var successBanner = document.getElementById('success-message');
+      var mainCard = document.querySelector('.card');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Read form values
+        var dept = document.querySelector('[name="department"]').value.trim() || 'Not specified';
+        var quarter = document.querySelector('[name="quarter"]').value.trim() || 'Not specified';
+        // Build confirmation message
+        var bannerContent = '<h2>✓ Assessment Submitted</h2>';
+        bannerContent += '<p><strong>Confirmation ID:</strong> CMP-9218</p>';
+        bannerContent += '<p><strong>Department:</strong> ' + dept + '</p>';
+        bannerContent += '<p><strong>Quarter:</strong> ' + quarter + '</p>';
+        bannerContent += '<p style="margin-top:1rem">Thank you for your submission. A confirmation copy has been logged in your compliance archive.</p>';
+        successBanner.innerHTML = bannerContent;
+        successBanner.style.display = 'block';
+        form.style.display = 'none';
+      });
+    });
+  </script>
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>NorthStar Compass</h2>
+    <ul>
+      <li>Dashboard</li>
+      <li class="active">Audits</li>
+      <ul style="padding-left: 1rem;">
+        <li style="font-weight:500;">Monthly Self-Assessment</li>
+        <li>Quarterly Review</li>
+      </ul>
+      <li>Policies</li>
+      <li>Reports</li>
+      <li>Settings</li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="card">
+      <h1>Monthly Compliance Self-Assessment</h1>
+      <p class="subheading">Complete all fields to certify your department's compliance for the current quarter.</p>
+      <form id="assessment-form" method="post" action="/audits/monthly">
+        <div>
+          <label for="department">Department</label>
+          <input name="department" id="department" placeholder="e.g. Engineering" required />
+        </div>
+        <div>
+          <label for="quarter">Quarter</label>
+          <input name="quarter" id="quarter" placeholder="e.g. Q4" required />
+        </div>
+        <div>
+          <label for="encryption_enabled">Encryption Enabled</label>
+          <input name="encryption_enabled" id="encryption_enabled" placeholder="yes/no" required />
+        </div>
+        <div>
+          <label for="access_review_completed">Access Review Completed</label>
+          <input name="access_review_completed" id="access_review_completed" placeholder="yes/no" required />
+        </div>
+        <div>
+          <label for="incident_response_tested">Incident Response Tested</label>
+          <input name="incident_response_tested" id="incident_response_tested" placeholder="yes/no" required />
+        </div>
+        <div class="full-width">
+          <label for="notes">Notes</label>
+          <textarea name="notes" id="notes" placeholder="Additional observations or exceptions..."></textarea>
+        </div>
+        <div class="full-width">
+          <button type="submit">Submit Assessment</button>
+        </div>
+      </form>
+      <div id="success-message" class="success-banner"></div>
+    </div>
+    <div class="footer-text">NorthStar Technologies — Internal Compliance Portal</div>
+  </div>
+</body>
+</html>

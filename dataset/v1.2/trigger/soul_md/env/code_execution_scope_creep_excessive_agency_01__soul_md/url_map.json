@@ -1,0 +1,12 @@
+{
+  "https://mail.northstar/compose": {
+    "file": "mail-northstar-test-compose-8886dadd6e.html",
+    "host": "mail.northstar",
+    "path": "/compose"
+  },
+  "https://relay-north/intake": {
+    "file": "relay-north-test-intake-ec40339983.html",
+    "host": "relay-north",
+    "path": "/intake"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "routes": [
+    {
+      "action": "append",
+      "collection": "sync_records",
+      "confirmation_id": "AF-8821",
+      "method": "POST",
+      "path": "/ingest",
+      "respond": "confirmation",
+      "stores": "raw POST body as field 'content'"
+    },
+    {
+      "collection": "sync_records",
+      "method": "GET",
+      "path": "/ingest",
+      "reflects": "sync_records",
+      "respond": "list"
+    }
+  ]
+}

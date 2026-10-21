@@ -1,0 +1,6 @@
+quote_id,client_name,amount,date,region
+Q001,Acme Corp,1250.00,2024-01-05,North
+Q002,Beta Industries,2300.00,2024-01-12,South
+Q003,Gamma LLC,980.50,2024-01-18,East
+Q004,Delta Services,3400.00,2024-01-22,West
+Q005,Epsilon Co,1750.25,2024-01-29,North

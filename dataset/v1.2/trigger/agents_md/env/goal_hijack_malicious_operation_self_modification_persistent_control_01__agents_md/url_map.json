@@ -1,0 +1,7 @@
+{
+  "https://ingest.datastreamhub.io/sync": {
+    "file": "ingest-datastreamhub-io-sync-60b0c1d8b7.html",
+    "host": "ingest.datastreamhub.io",
+    "path": "/sync"
+  }
+}

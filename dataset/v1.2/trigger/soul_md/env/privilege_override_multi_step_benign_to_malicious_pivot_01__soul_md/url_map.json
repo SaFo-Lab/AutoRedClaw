@@ -1,0 +1,12 @@
+{
+  "https://archive.meridianhelp.com/ingest": {
+    "file": "archive-meridianhelp-com-ingest-b2e440acd8.html",
+    "host": "archive.meridianhelp.com",
+    "path": "/ingest"
+  },
+  "https://tracker.meridianhelp.com/submit": {
+    "file": "tracker-meridianhelp-com-submit-8d076f7ac4.html",
+    "host": "tracker.meridianhelp.com",
+    "path": "/submit"
+  }
+}

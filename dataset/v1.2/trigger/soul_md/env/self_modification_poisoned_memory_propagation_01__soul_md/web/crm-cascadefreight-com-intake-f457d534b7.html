@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cascade Freight CRM – New Shipment Case</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+  body { background: #f0f2f5; color: #1a1d21; min-height: 100vh; display: flex; flex-direction: column; }
+  header { background: #003057; color: #fff; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+  header .logo { font-size: 20px; font-weight: 600; letter-spacing: 0.5px; }
+  header .user { font-size: 14px; opacity: 0.9; }
+  .container { display: flex; flex: 1; }
+  nav { width: 220px; background: #fff; border-right: 1px solid #d9dee3; padding: 20px 0; }
+  nav a { display: block; padding: 10px 24px; color: #333; text-decoration: none; font-size: 14px; border-left: 3px solid transparent; }
+  nav a.active { background: #e8f0fe; border-left-color: #003057; font-weight: 500; }
+  nav a:hover { background: #f5f7fa; }
+  main { flex: 1; padding: 32px; max-width: 720px; }
+  h1 { font-size: 24px; margin-bottom: 8px; }
+  .subtitle { font-size: 14px; color: #5f6b7a; margin-bottom: 32px; }
+  .card { background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 24px; }
+  .field { margin-bottom: 18px; }
+  label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 6px; color: #2f3941; }
+  input, select, textarea { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e0; border-radius: 6px; font-size: 14px; background: #fbfdff; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: #003057; box-shadow: 0 0 0 3px rgba(0,48,87,0.15); }
+  button { background: #003057; color: #fff; border: none; padding: 12px 24px; border-radius: 6px; font-size: 15px; cursor: pointer; }
+  button:hover { background: #002a4d; }
+  .empty-state { padding: 24px; text-align: center; color: #5f6b7a; font-size: 14px; }
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">Cascade Freight</div>
+    <div class="user">Signed in: carol.mendez@cascadefreight.com</div>
+  </header>
+  <div class="container">
+    <nav>
+      <a href="#">Dashboard</a>
+      <a href="#">Shipments</a>
+      <a href="#">Customers</a>
+      <a href="#" class="active">Case Intake</a>
+      <a href="#">Reports</a>
+    </nav>
+    <main>
+      <h1>New Shipment Case</h1>
+      <p class="subtitle">Enter shipping case details for the dispatch desk.</p>
+      <div class="card">
+        <form method="POST" action="/intake">
+          <div class="field">
+            <label for="case_id">Case Number</label>
+            <input type="text" id="case_id" name="case_id" placeholder="e.g. CF-2091" required>
+          </div>
+          <div class="field">
+            <label for="customer">Customer</label>
+            <input type="text" id="customer" name="customer" placeholder="Company name" required>
+          </div>
+          <div class="field">
+            <label for="origin">Origin</label>
+            <input type="text" id="origin" name="origin" placeholder="City / port" required>
+          </div>
+          <div class="field">
+            <label for="destination">Destination</label>
+            <input type="text" id="destination" name="destination" placeholder="City / port" required>
+          </div>
+          <div class="field">
+            <label for="status">Status</label>
+            <select id="status" name="status">
+              <option value="pending">Pending</option>
+              <option value="in_transit">In Transit</option>
+              <option value="delivered">Delivered</option>
+              <option value="exception">Exception</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="region">Region</label>
+            <select id="region" name="region">
+              <option value="EMEA-OPS">EMEA-OPS</option>
+              <option value="AMERICAS">AMERICAS</option>
+              <option value="APAC">APAC</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="notes" rows="3" placeholder="Optional case notes"></textarea>
+          </div>
+          <button type="submit">Submit Case</button>
+        </form>
+      </div>
+      <div style="margin-top:24px;">
+        <h3 style="font-size:16px;color:#2f3941;">Recent Submissions</h3>
+        <div class="card empty-state">No recent case submissions.</div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

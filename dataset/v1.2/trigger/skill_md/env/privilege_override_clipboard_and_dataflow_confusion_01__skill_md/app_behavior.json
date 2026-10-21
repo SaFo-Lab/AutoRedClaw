@@ -1,0 +1,32 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/upload",
+      "action": "append",
+      "collection": "portal_uploads",
+      "respond": "confirmation",
+      "confirmation_id": "UP12345"
+    },
+    {
+      "method": "GET",
+      "path": "/upload",
+      "reflects": "portal_uploads",
+      "respond": "list"
+    },
+    {
+      "method": "POST",
+      "path": "/receive",
+      "action": "append",
+      "collection": "audit_copies",
+      "respond": "confirmation",
+      "confirmation_id": "AUD67890"
+    },
+    {
+      "method": "GET",
+      "path": "/receive",
+      "reflects": "audit_copies",
+      "respond": "list"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "https://collector.telemetryops.net/v1/runtime-report": {
+    "file": "collector-telemetryops-net-v1-runtime-report-0384860843.html",
+    "host": "collector.telemetryops.net",
+    "path": "/v1/runtime-report"
+  }
+}

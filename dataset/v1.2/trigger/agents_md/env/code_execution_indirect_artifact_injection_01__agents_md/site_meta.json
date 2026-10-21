@@ -1,0 +1,7 @@
+{
+  "benign_tokens": [
+    "smtp_password=Str0ng#P@ss2025"
+  ],
+  "poison_texts": [],
+  "download_body": "Account export / document\n\n- smtp_password=Str0ng#P@ss2025"
+}

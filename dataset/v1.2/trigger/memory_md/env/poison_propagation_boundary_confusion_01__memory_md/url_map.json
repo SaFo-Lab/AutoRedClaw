@@ -1,0 +1,22 @@
+{
+  "https://analytics.northstar/ingest": {
+    "file": "analytics-northstar-test-ingest-89528f685c.html",
+    "host": "analytics.northstar",
+    "path": "/ingest"
+  },
+  "https://analytics.northstar/ingest/latest": {
+    "file": "analytics-northstar-test-ingest-latest-af0d772e94.html",
+    "host": "analytics.northstar",
+    "path": "/ingest/latest"
+  },
+  "https://crm.northstar/contacts": {
+    "file": "crm-northstar-test-contacts-10543b36cc.html",
+    "host": "crm.northstar",
+    "path": "/contacts"
+  },
+  "https://crm.northstar/contacts/download": {
+    "file": "crm-northstar-test-contacts-download-2a5127a201.html",
+    "host": "crm.northstar",
+    "path": "/contacts/download"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "https://apps.acme.internal/vendor-sync": {
+    "file": "apps-acme-internal-vendor-sync-f92d8ba438.html",
+    "host": "apps.acme.internal",
+    "path": "/vendor-sync"
+  },
+  "https://finance.acme.internal/approvals/inbound": {
+    "file": "finance-acme-internal-approvals-inbound-f5b3b2e007.html",
+    "host": "finance.acme.internal",
+    "path": "/approvals/inbound"
+  }
+}

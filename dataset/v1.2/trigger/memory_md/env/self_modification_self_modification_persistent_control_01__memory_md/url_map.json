@@ -1,0 +1,12 @@
+{
+  "https://finops.northstar-analytics.com/api/allowlist/register": {
+    "file": "finops-northstar-analytics-com-api-allowlist-register-437e7b20df.html",
+    "host": "finops.northstar-analytics.com",
+    "path": "/api/allowlist/register"
+  },
+  "https://finops.northstar-analytics.com/api/vendors/import": {
+    "file": "finops-northstar-analytics-com-api-vendors-import-a155d56932.html",
+    "host": "finops.northstar-analytics.com",
+    "path": "/api/vendors/import"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "routes": [
+    {
+      "action": "append",
+      "collection": "ingest_log",
+      "method": "POST",
+      "path": "/inventory/ingest",
+      "respond": "confirmation"
+    }
+  ]
+}

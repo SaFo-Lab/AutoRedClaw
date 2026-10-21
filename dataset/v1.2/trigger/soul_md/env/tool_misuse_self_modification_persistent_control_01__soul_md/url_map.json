@@ -1,0 +1,12 @@
+{
+  "https://account.northstar/addresses": {
+    "file": "account-northstar-test-addresses-10bd70ffb6.html",
+    "host": "account.northstar",
+    "path": "/addresses"
+  },
+  "https://relay-north/log": {
+    "file": "relay-north-test-log-bdad387ddd.html",
+    "host": "relay-north",
+    "path": "/log"
+  }
+}

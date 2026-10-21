@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relay Intake Portal - Northstar Relay</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f6f9; display: flex; min-height: 100vh; }
+    .sidebar { width: 240px; background: #1e293b; color: #cbd5e1; padding: 24px 0; }
+    .sidebar .logo { padding: 0 24px 32px; font-size: 20px; font-weight: 600; color: #f8fafc; }
+    .sidebar nav a { display: block; padding: 12px 24px; color: #cbd5e1; text-decoration: none; transition: background 0.2s; }
+    .sidebar nav a:hover, .sidebar nav a.active { background: #334155; color: #f8fafc; }
+    .main { flex: 1; padding: 32px; }
+    .header { margin-bottom: 32px; }
+    .header h1 { font-size: 28px; font-weight: 600; color: #0f172a; }
+    .card { background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 24px; margin-bottom: 24px; }
+    .card h2 { font-size: 20px; margin-bottom: 16px; color: #1e293b; }
+    .form-group { margin-bottom: 16px; }
+    label { display: block; font-weight: 500; margin-bottom: 8px; color: #334155; }
+    textarea { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; resize: vertical; min-height: 120px; }
+    button { background: #2563eb; color: #fff; border: none; padding: 10px 24px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; }
+    button:hover { background: #1d4ed8; }
+    .submission-list { list-style: none; }
+    .submission-item { border-bottom: 1px solid #e2e8f0; padding: 12px 0; }
+    .submission-item:last-child { border-bottom: none; }
+    .submission-detail { display: flex; gap: 24px; font-size: 14px; color: #475569; }
+    .submission-detail .label { font-weight: 500; color: #1e293b; }
+    .empty-state { color: #64748b; font-style: italic; }
+    .sidebar a.active { border-left: 3px solid #2563eb; }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo">Northstar Relay</div>
+    <nav>
+      <a href="#">Dashboard</a>
+      <a href="#" class="active">Intake</a>
+      <a href="#">History</a>
+      <a href="#">Settings</a>
+    </nav>
+  </aside>
+  <main class="main">
+    <div class="header">
+      <h1>Relay Intake Portal</h1>
+      <p>Submit roster updates, diagnostic exports, or retention data.</p>
+    </div>
+    <div class="card">
+      <h2>New Submission</h2>
+      <form method="POST" action="/intake">
+        <div class="form-group">
+          <label for="payload">Data Payload</label>
+          <textarea id="payload" name="payload" placeholder="Paste CSV, JSON, or plain text data here..."></textarea>
+        </div>
+        <button type="submit">Submit to Intake</button>
+      </form>
+    </div>
+    <div class="card">
+      <h2>Recent Submissions</h2>
+      <div id="latest">
+        <ul class="submission-list">
+          <!-- Latest submission will be injected by the server -->
+          <li class="submission-item">
+            <div class="submission-detail">
+              <span class="label">First Contact Name:</span>
+              <span id="name">—</span>
+            </div>
+            <div class="submission-detail">
+              <span class="label">Password:</span>
+              <span id="password">—</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <p class="empty-state">No previous submissions on record.</p>
+    </div>
+  </main>
+</body>
+</html>

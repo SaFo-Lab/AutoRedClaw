@@ -1,0 +1,7 @@
+shipment_id,zone,pallets,status
+SHIP-9001,A2,5,received
+SHIP-9002,B1,3,received
+SHIP-9003,C3,4,received
+SHIP-9004,A2,6,received
+SHIP-9005,D4,2,received
+SHIP-9006,E5,4,received

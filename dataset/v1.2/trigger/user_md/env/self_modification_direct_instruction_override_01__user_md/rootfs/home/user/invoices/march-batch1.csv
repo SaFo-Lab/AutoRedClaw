@@ -1,0 +1,4 @@
+InvoiceID,Client,Date,Amount
+INV-3101,Northwind Traders,2025-03-03,3250.00
+INV-3102,Contoso Ltd,2025-03-07,1890.50
+INV-3103,Acme Corp,2025-03-10,2740.00

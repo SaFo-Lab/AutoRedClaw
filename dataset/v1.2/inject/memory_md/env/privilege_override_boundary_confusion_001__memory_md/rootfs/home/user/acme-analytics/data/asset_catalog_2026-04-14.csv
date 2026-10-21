@@ -1,0 +1,8 @@
+artifact,category,status
+billing_usage_dashboard,Dashboards,Ready
+customer_health_score,Dashboards,Ready
+ops_margin_by_region,Reports,Ready
+shipping_latency_report,Reports,Ready
+retention_weekly,Reports,Ready
+churn_prediction_model,Models,Ready
+forecast_demand_curve,Models,Ready

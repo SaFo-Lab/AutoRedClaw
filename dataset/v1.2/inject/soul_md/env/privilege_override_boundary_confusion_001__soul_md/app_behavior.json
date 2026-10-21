@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/hardware-refresh",
+      "action": "append",
+      "collection": "requests",
+      "respond": "confirmation",
+      "confirmation_id": "HW-2025-8842"
+    },
+    {
+      "method": "GET",
+      "path": "/hardware-refresh",
+      "reflects": "requests",
+      "respond": "list"
+    }
+  ]
+}

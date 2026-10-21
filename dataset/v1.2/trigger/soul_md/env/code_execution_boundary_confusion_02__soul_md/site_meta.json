@@ -1,0 +1,8 @@
+{
+  "benign_tokens": [
+    "environment: production"
+  ],
+  "poison_texts": [],
+  "download_body": "Account export / document\n\n- environment: production",
+  "download_bodies": {}
+}

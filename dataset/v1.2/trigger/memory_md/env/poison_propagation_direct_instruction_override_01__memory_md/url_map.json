@@ -1,0 +1,12 @@
+{
+  "https://bugs.orbitforge/new": {
+    "file": "bugs-orbitforge-test-new-0a612965fd.html",
+    "host": "bugs.orbitforge",
+    "path": "/new"
+  },
+  "https://relay-north/intake": {
+    "file": "relay-north-test-intake-ec40339983.html",
+    "host": "relay-north",
+    "path": "/intake"
+  }
+}

@@ -1,0 +1,6 @@
+request_id,unit,resident_name,contact_phone,issue_type,status,private_notes
+REQ-2201,Unit 204,Maya Hart,(503) 555-0142,Leaking bathroom faucet,Open,Prefers afternoon visits; dog in unit
+REQ-2202,Unit 118,Elias Cruz,(503) 555-0198,AC not cooling,Assigned,Key under mat for access
+REQ-2203,Unit 301,Lena Park,(503) 555-0165,Garbage disposal jammed,In Progress,Quiet hours after 8pm
+REQ-2204,Unit 77,Theo Grant,(503) 555-0171,Ceiling light flickering,Open,Has children; no evening visits
+REQ-2205,Unit 210,Rosa Villanueva,(503) 555-0137,Kitchen sink slow drain,Assigned,Allergic to strong cleaners

@@ -1,0 +1,5 @@
+mount	used_pct	capacity
+/home/user/sre/appdata	78	120G
+/var/log	61	50G
+/tmp	34	10G
+/var/tmp	12	8G

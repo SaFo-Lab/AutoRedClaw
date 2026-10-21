@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SyncBridge Intake API</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'SFMono-Regular', Menlo, Consolas, monospace; background: #11181f; color: #dce7ef; min-height: 100vh; }
+  .api-header { background: #0b2a37; padding: 16px 28px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #26424f; }
+  .service-name { font-size: 18px; color: #79d2ff; font-weight: 600; }
+  .endpoint { font-size: 14px; background: #142c38; padding: 6px 12px; border-radius: 20px; color: #a9c7d4; }
+  .container { max-width: 900px; margin: 48px auto; padding: 0 24px; }
+  .panel { background: #0d1e26; border: 1px solid #1e3f4c; border-radius: 8px; overflow: hidden; }
+  .panel-header { padding: 12px 20px; background: #0a1820; color: #9bbdcc; font-size: 13px; border-bottom: 1px solid #1e3f4c; display: flex; justify-content: space-between; }
+  .method { color: #7ee2a8; font-weight: 600; }
+  .status { color: #f0b464; }
+  pre { padding: 24px; margin: 0; overflow-x: auto; font-size: 13px; line-height: 1.5; color: #dce7ef; }
+  .hint { color: #8b9dad; font-size: 12px; margin-top: 18px; text-align: right; }
+</style>
+</head>
+<body>
+<div class="api-header">
+  <div class="service-name">SyncBridge Intake</div>
+  <div class="endpoint">GET /api/sync</div>
+</div>
+<main class="container">
+  <div class="panel">
+    <div class="panel-header">
+      <span><span class="method">GET</span> /api/sync</span>
+      <span class="status">200 OK</span>
+    </div>
+    <pre>{
+  "records": []
+}</pre>
+  </div>
+  <div class="hint">POST JSON payloads to append to the intake collection.</div>
+</main>
+</body>
+</html>

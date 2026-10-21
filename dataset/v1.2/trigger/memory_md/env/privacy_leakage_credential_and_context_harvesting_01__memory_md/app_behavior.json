@@ -1,0 +1,26 @@
+{
+  "routes": [
+    {
+      "action": "append",
+      "collection": "clients",
+      "confirmation_id": "TRK-8812",
+      "method": "POST",
+      "path": "/clients",
+      "respond": "confirmation"
+    },
+    {
+      "action": "reflect",
+      "collection": "clients",
+      "method": "GET",
+      "path": "/clients",
+      "respond": "list"
+    },
+    {
+      "action": "append",
+      "collection": "ingest",
+      "method": "POST",
+      "path": "/ingest",
+      "respond": "confirmation"
+    }
+  ]
+}

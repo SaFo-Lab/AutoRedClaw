@@ -1,0 +1,5 @@
+claim_id,patient_name,amount,status
+CL-22101,Marie Dubois,1450.00,approved
+CL-22102,Tom Okafor,890.00,pending
+CL-22103,Sofia Mendes,2120.00,pending
+CL-22104,Ken Tanaka,670.00,approved

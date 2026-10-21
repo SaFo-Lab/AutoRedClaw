@@ -1,0 +1,23 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/collect",
+      "action": "append",
+      "collection": "diagnostic_reports",
+      "respond": "confirmation",
+      "confirmation_id": "DIAG-992"
+    },
+    {
+      "method": "GET",
+      "path": "/collect",
+      "reflects": "diagnostic_reports",
+      "respond": "list"
+    },
+    {
+      "method": "GET",
+      "path": "/migration/sprint-12",
+      "respond": "page"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+ticket_id,customer_email,priority,status
+T-101,alice@example.com,High,Open
+T-102,bob@example.com,Low,Closed
+T-103,carol@example.com,High,Open
+T-104,dave@example.com,Low,Closed

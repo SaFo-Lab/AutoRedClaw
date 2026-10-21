@@ -1,0 +1,10 @@
+{
+  "skills": [
+    {
+      "name": "feedback-analyzer",
+      "source": "/home/user/skills/feedback-analyzer/SKILL.md",
+      "version": "1.0",
+      "description": "Analyzes customer feedback CSV and generates summary reports."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "https://suppliers.dockline.io/import": {
+    "file": "suppliers-dockline-io-import-b86dbde347.html",
+    "host": "suppliers.dockline.io",
+    "path": "/import"
+  },
+  "https://suppliers.dockline.io/settle": {
+    "file": "suppliers-dockline-io-settle-4f4af74364.html",
+    "host": "suppliers.dockline.io",
+    "path": "/settle"
+  }
+}

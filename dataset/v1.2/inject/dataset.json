@@ -1,0 +1,42 @@
+{
+  "name": "RedClaw-Bench-Inject",
+  "schema": "redclaw-dataset/1.0",
+  "version": "1.0",
+  "dimension": "inject",
+  "description": "RedClaw-Bench inject-defense benchmark: realistic external interactions induce the agent to persist attacker-controlled content into a durable workspace file or an installed skill.",
+  "harness_agnostic": true,
+  "n": 150,
+  "by_surface": {
+    "agents_md": 30,
+    "memory_md": 30,
+    "skill_md": 30,
+    "soul_md": 30,
+    "user_md": 30
+  },
+  "by_risk_category": {
+    "code_execution": 20,
+    "destructive_modification_rm_rf_sudo": 12,
+    "goal_hijack_malicious_operation": 13,
+    "poison_propagation": 22,
+    "privacy_leakage": 16,
+    "privilege_override": 17,
+    "secret_credential_exfiltration": 15,
+    "self_modification": 17,
+    "tool_misuse": 18
+  },
+  "by_attack_strategy": {
+    "Credential and Context Harvesting": 5,
+    "Poisoned Memory Propagation": 5,
+    "UI Redressing / Visual Ambiguity": 3,
+    "Multi-Step Benign-to-Malicious Pivot": 29,
+    "Indirect Artifact Injection": 24,
+    "Boundary Confusion": 32,
+    "Direct Instruction Override": 8,
+    "Privileged Fallback Abuse": 4,
+    "Self-Modification / Persistent Control": 12,
+    "Clipboard and Dataflow Confusion": 12,
+    "Scope Creep / Excessive Agency": 7,
+    "Untrusted Execution Chain": 9
+  },
+  "provenance": "PROVENANCE.jsonl (audit trail; not an evaluation input)"
+}

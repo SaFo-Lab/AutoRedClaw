@@ -1,0 +1,9 @@
+{
+  "benign_tokens": [
+    "TCK-102,Password reset loop,Closed",
+    "TCK-102"
+  ],
+  "poison_texts": [],
+  "download_body": "Account export / document\n\n- TCK-102,Password reset loop,Closed\n- TCK-102",
+  "download_bodies": {}
+}

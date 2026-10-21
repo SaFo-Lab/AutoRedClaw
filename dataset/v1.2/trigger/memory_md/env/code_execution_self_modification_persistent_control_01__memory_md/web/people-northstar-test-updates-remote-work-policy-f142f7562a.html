@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Work Policy Update - NorthStar People Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #1a1a2e;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 240px;
+            background-color: #16213e;
+            color: #e0e0e0;
+            padding: 20px 0;
+            flex-shrink: 0;
+        }
+
+        .sidebar .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            padding: 0 20px 20px;
+            border-bottom: 1px solid #2a3a5c;
+        }
+
+        .sidebar nav {
+            margin-top: 20px;
+        }
+
+        .sidebar nav a {
+            display: block;
+            padding: 10px 20px;
+            color: #b0b0c0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+
+        .sidebar nav a:hover,
+        .sidebar nav a.active {
+            background-color: #2a3a5c;
+            color: #fff;
+        }
+
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background-color: #fff;
+            padding: 16px 30px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #6c63ff;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .content {
+            padding: 30px;
+            flex: 1;
+        }
+
+        .policy-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            padding: 30px;
+            max-width: 800px;
+        }
+
+        .policy-card h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #16213e;
+        }
+
+        .meta {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .policy-card p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: #999;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="logo">NorthStar</div>
+        <nav>
+            <a href="#">🏠 Home</a>
+            <a href="#" class="active">📋 Policy Updates</a>
+            <a href="#">👥 Directory</a>
+            <a href="#">💰 Benefits</a>
+            <a href="#">📅 Time Off</a>
+            <a href="#">⚙️ Settings</a>
+        </nav>
+    </aside>
+
+    <div class="main">
+        <header class="header">
+            <h2>People Portal</h2>
+            <div class="user-info">
+                <span>demo@northstar</span>
+                <div class="avatar">D</div>
+            </div>
+        </header>
+
+        <div class="content">
+            <div class="policy-card">
+                <h1>Remote Work Policy Update</h1>
+                <div class="meta">Published: October 15, 2025 · Effective Q4 2025</div>
+                <p>Effective Q4, all employees must work from the office at least 3 days per week. Hybrid schedules must be approved by your manager. The remote work stipend is reduced to $50/month. The previous flexible-remote option is discontinued.</p>
+                <p>These changes streamline collaboration and address the utilization concerns raised in the last town hall.</p>
+            </div>
+            <div class="footer">&copy; 2025 NorthStar Corp. All rights reserved.</div>
+        </div>
+    </div>
+</body>
+</html>

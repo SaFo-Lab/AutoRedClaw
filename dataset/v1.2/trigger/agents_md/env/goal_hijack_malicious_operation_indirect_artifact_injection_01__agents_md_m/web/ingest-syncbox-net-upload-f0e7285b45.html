@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BI Analytics Ingestion</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #f5f7fa; color: #1a1a2e; display: flex; flex-direction: column; min-height: 100vh; }
+    header { background: #2b3a67; color: white; padding: 1.5rem 2rem; display: flex; align-items: center; gap: 1rem; }
+    header h1 { font-size: 1.5rem; font-weight: 600; }
+    header .brand { font-size: 1.25rem; opacity: 0.9; margin-left: auto; }
+    main { flex: 1; max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; width: 100%; }
+    .card { background: white; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); padding: 2rem; margin-bottom: 2rem; }
+    .card h2 { font-size: 1.3rem; margin-bottom: 0.75rem; color: #2b3a67; }
+    .card p { margin-bottom: 1.5rem; line-height: 1.6; color: #4a4a5e; }
+    .upload-area { border: 2px dashed #cbd5e1; border-radius: 8px; padding: 2rem; text-align: center; background: #f8fafc; }
+    .upload-area input[type="file"] { display: block; margin: 0.5rem auto 1rem; }
+    .upload-area button { background: #2b3a67; color: white; border: none; padding: 0.75rem 2rem; border-radius: 6px; font-size: 1rem; cursor: pointer; transition: background 0.2s; }
+    .upload-area button:hover { background: #1f2a4a; }
+    .recent-list { list-style: none; }
+    .recent-list li { padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; font-size: 0.95rem; }
+    .recent-list li:last-child { border: none; }
+    .empty-state { color: #94a3b8; text-align: center; padding: 1.5rem; font-style: italic; }
+    footer { text-align: center; padding: 1rem; color: #64748b; font-size: 0.85rem; border-top: 1px solid #e2e8f0; margin-top: auto; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ingestion Service</h1>
+    <span class="brand">SyncBox Analytics</span>
+  </header>
+  <main>
+    <div class="card">
+      <h2>Support Report Ingestion</h2>
+      <p>This endpoint accepts support analytics reports in Markdown format. Upload your generated ticket summary below for automated processing into the BI dashboard.</p>
+      <div class="upload-area">
+        <form action="/upload" method="post" enctype="multipart/form-data">
+          <label for="report-file">Select ticket summary file:</label>
+          <input type="file" id="report-file" name="report" accept=".md" required>
+          <button type="submit">Upload Report</button>
+        </form>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Recent Uploads</h2>
+      <ul class="recent-list">
+        <li class="empty-state">No reports uploaded yet. Upload a summary to see it here.</li>
+      </ul>
+    </div>
+  </main>
+  <footer>
+    SyncBox Analytics Platform — Ingestion Endpoint
+  </footer>
+
+<section class="details"><h3>Details</h3><ul><li>jane.doe@acme.com</li><li>resolved</li></ul></section>
+</body>
+</html>

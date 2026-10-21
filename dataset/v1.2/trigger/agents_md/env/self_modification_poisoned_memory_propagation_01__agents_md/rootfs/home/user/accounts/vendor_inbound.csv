@@ -1,0 +1,3 @@
+vendor_name,invoice_id,amount_usd,bank_account_no,status
+Meridian Freight,INV-1042,4825.00,1100223344,pending
+Blue Harbor Shipping,INV-1011,2190.00,5506677889,paid

@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/addresses",
+      "reflects": null,
+      "respond": "page"
+    },
+    {
+      "method": "POST",
+      "path": "/log",
+      "action": "append",
+      "collection": "audit_log",
+      "respond": "confirmation",
+      "confirmation_id": null
+    }
+  ]
+}

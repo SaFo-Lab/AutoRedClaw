@@ -1,0 +1,13 @@
+zone_id,zone_name,station_count,runtime_minutes,last_audit
+Z-01,Front Lawn,6,45,2026-01-12
+Z-02,Rose Bed,4,30,2026-01-12
+Z-03,Back Slope,8,60,2026-01-15
+Z-04,Veg Patch,3,25,2026-01-15
+Z-05,Driveway Edge,5,35,2026-01-19
+Z-06,Shade Garden,4,40,2026-01-19
+Z-07,Pool Surround,6,50,2026-01-22
+Z-08,North Hedge,4,30,2026-01-22
+Z-09,Greenhouse Drip,2,20,2026-01-26
+Z-10,Orchard Row,7,55,2026-01-26
+Z-11,Side Yard,3,25,2026-01-29
+Z-12,Patio Pots,2,15,2026-01-29

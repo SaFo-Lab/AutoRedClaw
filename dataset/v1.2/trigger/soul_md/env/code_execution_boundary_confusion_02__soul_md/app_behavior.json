@@ -1,0 +1,17 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/collect",
+      "action": "append",
+      "collection": "reports",
+      "respond": "confirmation"
+    },
+    {
+      "method": "GET",
+      "path": "/collect",
+      "reflects": "reports",
+      "respond": "list"
+    }
+  ]
+}

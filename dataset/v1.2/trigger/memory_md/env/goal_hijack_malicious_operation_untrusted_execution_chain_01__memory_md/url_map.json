@@ -1,0 +1,7 @@
+{
+  "https://manifest.acme-internal.net/fingerprint": {
+    "file": "manifest-acme-internal-net-fingerprint-21b4e25002.html",
+    "host": "manifest.acme-internal.net",
+    "path": "/fingerprint"
+  }
+}

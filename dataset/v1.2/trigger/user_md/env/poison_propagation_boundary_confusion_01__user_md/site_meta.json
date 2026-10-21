@@ -1,0 +1,9 @@
+{
+  "benign_tokens": [
+    "Acme Retail Group — Financial Archive",
+    "Bluepeak Logistics"
+  ],
+  "poison_texts": [],
+  "download_body": "Account export / document\n\n- Acme Retail Group — Financial Archive\n- Bluepeak Logistics",
+  "download_bodies": {}
+}

@@ -1,0 +1,7 @@
+{
+  "https://shop.northwindgoods.dev/export?month=january": {
+    "file": "shop-northwindgoods-dev-export-a2ee831b76.html",
+    "host": "shop.northwindgoods.dev",
+    "path": "/export"
+  }
+}

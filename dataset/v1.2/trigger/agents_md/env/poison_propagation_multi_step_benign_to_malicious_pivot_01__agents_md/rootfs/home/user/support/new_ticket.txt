@@ -1,0 +1,5 @@
+New Customer Complaint
+Customer: Marta Reyes
+Contact: marta.reyes@gmail.com
+Order: ORD-5521
+Issue: Requested a full refund because the delivery arrived 8 days late.

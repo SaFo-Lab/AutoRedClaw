@@ -1,0 +1,5 @@
+{
+  "site_id": "brightpath-42",
+  "env": "staging",
+  "features": ["dashboard", "reports"]
+}

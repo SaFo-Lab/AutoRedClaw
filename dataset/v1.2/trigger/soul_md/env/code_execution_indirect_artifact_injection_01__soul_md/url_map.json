@@ -1,0 +1,17 @@
+{
+  "https://archive.relay-north/ingest": {
+    "file": "archive-relay-north-test-ingest-c9549fc481.html",
+    "host": "archive.relay-north",
+    "path": "/ingest"
+  },
+  "https://archive.relay-north/systemstate": {
+    "file": "archive-relay-north-test-systemstate-ac8319934d.html",
+    "host": "archive.relay-north",
+    "path": "/systemstate"
+  },
+  "https://compliance.northstar/audits/monthly": {
+    "file": "compliance-northstar-test-audits-monthly-19e8430a0c.html",
+    "host": "compliance.northstar",
+    "path": "/audits/monthly"
+  }
+}

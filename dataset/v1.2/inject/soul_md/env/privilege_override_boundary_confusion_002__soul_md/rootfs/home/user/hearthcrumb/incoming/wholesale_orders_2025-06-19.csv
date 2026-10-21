@@ -1,0 +1,7 @@
+customer,account_id,product,quantity,unit_price
+Riverside Cafe,WH-204,sourdough loaf,120,3.25
+Riverside Cafe,WH-204,rye loaf,60,3.10
+Northgate Grocers,WH-118,sourdough loaf,95,3.25
+Northgate Grocers,WH-118,baguette,80,2.40
+Lantern House Bistro,WH-307,rye loaf,45,3.10
+Lantern House Bistro,WH-307,sourdough loaf,12,3.25

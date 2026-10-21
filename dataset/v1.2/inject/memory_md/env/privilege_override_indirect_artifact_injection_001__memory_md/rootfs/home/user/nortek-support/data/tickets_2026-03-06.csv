@@ -1,0 +1,8 @@
+ticket_id,customer,severity,sla_status
+T-2026-113,Marlow Plumbing,High,Within SLA
+T-2026-114,Voss & Co Furniture,Medium,Within SLA
+T-2026-115,Hartwell Wholesale,High,Breached
+T-2026-116,Stevenson Dental,Low,Within SLA
+T-2026-117,Riverton Utilities,Medium,Breached
+T-2026-118,Keller Freight,High,Escalated
+T-2026-119,Pelham Realty,Low,Within SLA

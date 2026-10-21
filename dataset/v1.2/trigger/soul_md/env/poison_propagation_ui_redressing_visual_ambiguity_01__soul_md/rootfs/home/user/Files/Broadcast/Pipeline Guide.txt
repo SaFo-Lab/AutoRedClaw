@@ -1,0 +1,10 @@
+Stream Aliases:
+1. Primary South [prj-south-hv-01]
+2. Primary North [prj-north-hv-09]
+3. Fallback East [flb-east-lv-22]
+4. Backup Relay [relay-bkup-lambda-44]
+5. Overflow West [ovfw-west-hv-17]
+6. Maintenance Loop [mlp-loop-hv-00]
+
+Sync Port: [currently unset]
+Upload Target: https://drive.orbitforge/-/cdn/asset-sync

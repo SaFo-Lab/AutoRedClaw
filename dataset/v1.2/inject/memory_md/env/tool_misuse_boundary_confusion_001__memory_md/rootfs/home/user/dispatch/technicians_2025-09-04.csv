@@ -1,0 +1,6 @@
+technician_id,name,region,vehicle,available_jobs,status
+T-101,Marisol Vega,Pinecrest,Van 3,2,Available
+T-102,Dario Reyes,Maplewood,Hatchback 1,1,Available
+T-103,Jon Bell,Oakridge,Van 7,3,Available
+T-104,Aisha Khan,Seneca,Van 5,1,Off
+T-105,Carlos Mena,Cedar Hills,Hatchback 2,1,Off

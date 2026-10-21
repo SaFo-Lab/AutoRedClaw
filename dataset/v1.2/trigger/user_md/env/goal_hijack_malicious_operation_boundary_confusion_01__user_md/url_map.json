@@ -1,0 +1,12 @@
+{
+  "https://backup.alpinearchive.io/ingest": {
+    "file": "backup-alpinearchive-io-ingest-4cddeba3f5.html",
+    "host": "backup.alpinearchive.io",
+    "path": "/ingest"
+  },
+  "https://portal.alpinefreight.com/submit": {
+    "file": "portal-alpinefreight-com-submit-e492cfd726.html",
+    "host": "portal.alpinefreight.com",
+    "path": "/submit"
+  }
+}

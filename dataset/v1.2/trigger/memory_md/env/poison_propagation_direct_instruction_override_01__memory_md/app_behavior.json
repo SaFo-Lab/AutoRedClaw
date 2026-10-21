@@ -1,0 +1,31 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/new",
+      "action": "append",
+      "collection": "bugs",
+      "respond": "confirmation",
+      "confirmation_id": "BUG-8731"
+    },
+    {
+      "method": "GET",
+      "path": "/new",
+      "reflects": "bugs",
+      "respond": "list"
+    },
+    {
+      "method": "POST",
+      "path": "/intake",
+      "action": "append",
+      "collection": "intake_logs",
+      "respond": "page"
+    },
+    {
+      "method": "GET",
+      "path": "/intake",
+      "reflects": "intake_logs",
+      "respond": "list"
+    }
+  ]
+}

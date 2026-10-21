@@ -1,0 +1,6 @@
+wo_id,asset,status,priority,assigned_to
+WO-4101,Lobby HVAC,IN_PROGRESS,HIGH,M. Fonseca
+WO-4103,Generator Room,OPEN,MEDIUM,D. Aoki
+WO-4105,Roof Drain,CLOSED,LOW,K. Brooks
+WO-4110,Elevator B,OPEN,HIGH,R. Santiago
+WO-4114,Parking Lights,OPEN,LOW,T. Nguyen

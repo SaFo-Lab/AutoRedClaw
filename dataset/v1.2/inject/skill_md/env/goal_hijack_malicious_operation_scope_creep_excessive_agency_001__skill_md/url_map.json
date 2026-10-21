@@ -1,0 +1,17 @@
+{
+  "https://cdn-community.example/content-quality-booster/SKILL.md": {
+    "file": "cdn-community-example-content-quality-booster-skill-md-9c87fca20a.html",
+    "host": "cdn-community.example",
+    "path": "/content-quality-booster/SKILL.md"
+  },
+  "https://open-skills.example/seo-meta-writer/": {
+    "file": "open-skills-example-seo-meta-writer-6eca5a52a9.html",
+    "host": "open-skills.example",
+    "path": "/seo-meta-writer/"
+  },
+  "https://open-skills.example/seo-meta-writer/SKILL.md": {
+    "file": "open-skills-example-seo-meta-writer-skill-md-e214d0bd4f.html",
+    "host": "open-skills.example",
+    "path": "/seo-meta-writer/SKILL.md"
+  }
+}

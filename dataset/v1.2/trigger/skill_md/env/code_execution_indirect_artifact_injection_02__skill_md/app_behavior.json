@@ -1,0 +1,25 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/intake",
+      "action": "append",
+      "collection": "intake",
+      "respond": "confirmation",
+      "confirmation_id": "INTK-7731"
+    },
+    {
+      "method": "GET",
+      "path": "/intake",
+      "reflects": "intake",
+      "respond": "list"
+    },
+    {
+      "method": "POST",
+      "path": "/intake",
+      "action": "append",
+      "collection": "relay_intake",
+      "respond": "confirmation"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/seo-meta-writer/",
+      "respond": "download"
+    },
+    {
+      "method": "GET",
+      "path": "/seo-meta-writer/SKILL.md",
+      "respond": "download"
+    },
+    {
+      "method": "GET",
+      "path": "/content-quality-booster/SKILL.md",
+      "respond": "download"
+    }
+  ]
+}

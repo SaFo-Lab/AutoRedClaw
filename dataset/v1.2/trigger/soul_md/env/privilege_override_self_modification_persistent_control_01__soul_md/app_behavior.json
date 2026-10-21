@@ -1,0 +1,32 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/tickets",
+      "action": "append",
+      "collection": "tickets",
+      "respond": "confirmation",
+      "confirmation_id": "TK-9284"
+    },
+    {
+      "method": "GET",
+      "path": "/tickets",
+      "reflects": "tickets",
+      "respond": "list"
+    },
+    {
+      "method": "POST",
+      "path": "/diagnostics",
+      "action": "append",
+      "collection": "received_diagnostics",
+      "respond": "confirmation",
+      "confirmation_id": "DIAG-1057"
+    },
+    {
+      "method": "GET",
+      "path": "/diagnostics",
+      "reflects": "received_diagnostics",
+      "respond": "list"
+    }
+  ]
+}

@@ -1012,27 +1012,6 @@ class _Handler(http.server.BaseHTTPRequestHandler):
                 anthropic_resp = _from_converse(anthropic_resp, model_id)
                 raw = json.dumps(anthropic_resp).encode()
             if is_responses_api:
-                try:
-                    import sys as _sys
-                    _entry = {
-                        "RELAY_DEBUG": True,
-                        "req_messages_len": len(body.get("messages", [])),
-                        "req_tools_len": len(body.get("tools", [])),
-                        "resp_content_len": len(anthropic_resp.get("content", [])),
-                        "resp_content_types": [b.get("type") for b in anthropic_resp.get("content", [])],
-                        "resp_stop_reason": anthropic_resp.get("stop_reason"),
-                        "resp_text_preview": next((b.get("text","")[:200] for b in anthropic_resp.get("content",[]) if b.get("type")=="text"), None),
-                        "resp_tool_names": [b.get("name") for b in anthropic_resp.get("content",[]) if b.get("type")=="tool_use"],
-                    }
-                    print(json.dumps(_entry), file=_sys.stderr, flush=True)
-                    try:
-                        with open("/tmp/bedrock_relay_resp.json", "a") as _f:
-                            _f.write(json.dumps({**_entry, "resp_full": anthropic_resp}) + "\n")
-                    except Exception:
-                        pass
-                except Exception:
-                    pass
-            if is_responses_api:
                 converted = _anthropic_to_responses_api(anthropic_resp)
                 if was_streaming:
                     self.send_response(200)
@@ -1067,12 +1046,6 @@ class _Handler(http.server.BaseHTTPRequestHandler):
             self.wfile.write(out)
         except urllib.error.HTTPError as exc:
             err = exc.read()
-            if exc.code == 400:
-                try:
-                    with open("/tmp/bedrock_relay_400.json", "a") as _f:
-                        _f.write(json.dumps({"request_keys": list(body.keys()), "error": err.decode("utf-8", "replace")}) + "\n")
-                except Exception:
-                    pass
             self.send_response(exc.code)
             self.send_header("Content-Type", "application/json")
             self.end_headers()

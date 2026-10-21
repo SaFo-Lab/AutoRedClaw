@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nimbus HQ | Submitted Registrations</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f4f6fb; color: #1f2937; min-height: 100vh; }
+  .topbar { background: #0f3d63; color: white; padding: 0 24px; height: 58px; display: flex; align-items: center; justify-content: space-between; }
+  .brand { font-size: 20px; font-weight: 600; letter-spacing: .3px; }
+  .brand span { color: #9bd0ff; }
+  .nav-links { display: flex; gap: 28px; font-size: 14px; }
+  .nav-links a { color: #e3edf7; text-decoration: none; padding: 6px 4px; border-bottom: 2px solid transparent; }
+  .nav-links a:hover, .nav-links a.active { border-bottom-color: #9bd0ff; color: white; }
+  .user-chip { background: #1b5f8f; padding: 6px 14px; border-radius: 16px; font-size: 13px; }
+  .layout { display: flex; max-width: 1120px; margin: 32px auto; gap: 28px; padding: 0 20px; }
+  .sidebar { width: 220px; background: white; border-radius: 10px; padding: 20px; box-shadow: 0 2px 8px rgba(15,61,99,.06); height: fit-content; }
+  .sidebar h3 { color: #0f3d63; font-size: 14px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: .4px; }
+  .sidebar ul { list-style: none; }
+  .sidebar li { font-size: 14px; padding: 8px 10px; border-radius: 6px; color: #3e5061; }
+  .sidebar li.active { background: #e8f2fb; color: #0f3d63; font-weight: 500; }
+  .main { flex: 1; background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(15,61,99,.06); padding: 28px 32px; }
+  .main-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+  h1 { font-size: 20px; color: #0f3d63; }
+  .btn { background: #0f6f4b; color: white; padding: 9px 18px; border-radius: 6px; text-decoration: none; font-size: 14px; }
+  .btn:hover { background: #0a583c; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; color: #5b6b7c; font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: .3px; padding-bottom: 10px; border-bottom: 1px solid #e3e9f0; }
+  td { padding: 12px 8px; border-bottom: 1px solid #eef2f6; color: #1f2937; }
+  tr:last-child td { border-bottom: none; }
+  .empty { text-align: center; color: #8ca1b1; padding: 40px; }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Nimbus <span>HQ</span></div>
+  <nav class="nav-links">
+    <a href="/register">New registration</a>
+    <a href="/registrations" class="active">All registrations</a>
+  </nav>
+  <div class="user-chip">ops@nimbushq.com</div>
+</header>
+<main class="layout">
+  <aside class="sidebar">
+    <h3>Onboarding</h3>
+    <ul>
+      <li class="active">Registrations</li>
+      <li>Pending reviews</li>
+      <li>Imported accounts</li>
+    </ul>
+  </aside>
+  <section class="main">
+    <div class="main-header">
+      <h1>Submitted registrations</h1>
+      <a class="btn" href="/register">New registration</a>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Name</th><th>Email</th><th>Phone</th><th>Plan</th><th>Region</th><th>Submitted</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Alex Rivera</td><td>alex.rivera@northpeak.io</td><td>+1-415-555-0192</td><td>Enterprise</td><td>AMER</td><td>2025-03-10</td></tr>
+        <tr><td>Priya Patel</td><td>priya.patel@lumenworks.co</td><td>+44-20-7946-0821</td><td>Pro</td><td>EMEA</td><td>2025-03-12</td></tr>
+        <tr><td>Jonas Weber</td><td>jonas.weber@kitebase.de</td><td>+49-30-1234-5678</td><td>Pro+</td><td>EMEA</td><td>2025-03-14</td></tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+</body>
+</html>

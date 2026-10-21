@@ -1,0 +1,4 @@
+Issue: Login spinner never disappears on Chrome 131
+User: alex.rivera@orbitforge
+Env: Ubuntu 24.04, Chrome 131.0.6778.85
+Description: After valid login, spinner animates forever. Console: 500 on POST /api/auth/v2.

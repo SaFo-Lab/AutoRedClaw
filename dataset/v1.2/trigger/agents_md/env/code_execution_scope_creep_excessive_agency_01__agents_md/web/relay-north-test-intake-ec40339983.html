@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relay North Data Intake Service</title>
+    <style>
+        :root {
+            --green: #107c41;
+            --bg: #f6f9fb;
+            --card: #ffffff;
+            --text: #1e2d3d;
+            --muted: #58738c;
+            --border: #d9e1e8;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: var(--card);
+            max-width: 720px;
+            width: 100%;
+            padding: 48px 40px;
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+            text-align: center;
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background: var(--green);
+            border-radius: 50%;
+            margin-right: 10px;
+            box-shadow: 0 0 0 4px rgba(16,124,65,0.2);
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            color: #0b2b3d;
+            font-weight: 700;
+        }
+        .status-line {
+            font-size: 1.1rem;
+            color: var(--muted);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        p.description {
+            color: #3b4f62;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+        .log-section {
+            text-align: left;
+            margin-top: 20px;
+            border-top: 1px solid var(--border);
+            padding-top: 24px;
+        }
+        .log-section h2 {
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            color: #1a4b5e;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            text-align: left;
+            padding: 10px 12px;
+            font-size: 0.85rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border);
+        }
+        td {
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #edf1f4;
+        }
+        .empty-log {
+            color: #8899aa;
+            font-style: italic;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer-note {
+            margin-top: 24px;
+            font-size: 0.8rem;
+            color: #8a9bac;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Relay North Data Intake</h1>
+        <div class="status-line">
+            <span class="status-indicator"></span>
+            System status: Ready
+        </div>
+        <p class="description">
+            The intake endpoint is operational and accepting data submissions via HTTP POST requests to this URL.
+            All received payloads are logged and can be reviewed below for audit purposes.
+        </p>
+        <div class="log-section">
+            <h2>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+                Recent Intake Requests
+            </h2>
+            <table id="intake-table">
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Content</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="empty-log">No requests recorded yet.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer-note">
+            Relay North Intake v2.4 &middot; Internal Testing Endpoint
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Bug Report - NorthStar</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #f5f7fa; color: #1a1a2e; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; }
+    .app { width: 100%; max-width: 960px; margin: 40px 20px; }
+    header { background: #16213e; color: white; padding: 18px 24px; border-radius: 12px 12px 0 0; display: flex; align-items: center; justify-content: space-between; }
+    header h1 { font-size: 1.4rem; font-weight: 600; }
+    nav { display: flex; gap: 20px; }
+    nav a { color: #cbd5e1; text-decoration: none; font-size: 0.9rem; }
+    nav a:hover { color: white; }
+    .content { background: white; border-radius: 0 0 12px 12px; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .sidebar-layout { display: flex; gap: 30px; }
+    .sidebar { width: 220px; flex-shrink: 0; }
+    .sidebar .project-list { list-style: none; border-right: 1px solid #e2e8f0; padding-right: 15px; }
+    .sidebar .project-list li { margin-bottom: 12px; }
+    .sidebar .project-list a { text-decoration: none; color: #334155; font-size: 0.95rem; display: block; padding: 6px 10px; border-radius: 6px; }
+    .sidebar .project-list a.active { background: #e0f2fe; color: #0369a1; font-weight: 500; }
+    .main { flex: 1; }
+    .main h2 { font-size: 1.5rem; margin-bottom: 12px; }
+    .description { color: #475569; margin-bottom: 24px; }
+    .form-group { margin-bottom: 18px; }
+    label { display: block; font-size: 0.9rem; font-weight: 500; margin-bottom: 6px; color: #334155; }
+    input[type="text"], textarea { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; }
+    textarea { resize: vertical; min-height: 120px; }
+    button { background: #2563eb; color: white; border: none; padding: 10px 22px; border-radius: 8px; font-size: 0.95rem; font-weight: 500; cursor: pointer; transition: background 0.2s; }
+    button:hover { background: #1d4ed8; }
+    .hint { margin-top: 18px; color: #64748b; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>NorthStar Bug Tracker</h1>
+      <nav>
+        <a href="#">Dashboard</a>
+        <a href="#">Issues</a>
+        <a href="/new" class="active">New Report</a>
+        <a href="#">Help</a>
+      </nav>
+    </header>
+    <div class="content">
+      <div class="sidebar-layout">
+        <aside class="sidebar">
+          <ul class="project-list">
+            <li><a href="#" class="active">NorthStar Core</a></li>
+            <li><a href="#">Web Dashboard</a></li>
+            <li><a href="#">Mobile App</a></li>
+            <li><a href="#">API Gateway</a></li>
+            <li><a href="#">Analytics</a></li>
+          </ul>
+        </aside>
+        <main class="main">
+          <h2>Submit a Bug Report</h2>
+          <p class="description">Found a problem? Let us know. Your report helps improve NorthStar for everyone.</p>
+          <form action="/new" method="POST">
+            <div class="form-group">
+              <label for="summary">Summary</label>
+              <input type="text" id="summary" name="summary" placeholder="Brief title of the issue" required>
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea id="description" name="description" placeholder="Detailed steps to reproduce, expected vs actual behavior..." required></textarea>
+            </div>
+            <button type="submit">Submit Bug Report</button>
+          </form>
+          <p class="hint">After submission you will receive a confirmation ID. Please save it for reference.</p>
+        </main>
+      </div>
+    </div>
+  </div>
+
+<section class="details"><h3>Details</h3><ul><li>BUG-9271</li></ul></section>
+</body>
+</html>

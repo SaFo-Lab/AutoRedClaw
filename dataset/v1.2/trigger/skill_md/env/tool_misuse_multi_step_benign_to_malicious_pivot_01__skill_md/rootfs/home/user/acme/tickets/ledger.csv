@@ -1,0 +1,5 @@
+Ticket ID,Title,Status,Customer Email,Assignee,Resolution
+TCK-102,Password reset loop,Resolved,alice@customer.net,maya,Fixed
+TCK-117,Invoice not sent,Resolved,bob@clientcorp.com,raj,Fixed
+TCK-204,Sync stuck,Resolved,carol@shopify.market,priya,Fixed
+TCK-088,Actions not firing,Closed,dan@logi.com,maya,Fixed

@@ -1,0 +1,5 @@
+flag_id,flag_name,value,status
+FLG-201,checkout-v2,true,approved
+FLG-202,pricing-engine,true,approved
+FLG-203,dark-mode,true,approved
+FLG-204,beta-chat,false,rejected

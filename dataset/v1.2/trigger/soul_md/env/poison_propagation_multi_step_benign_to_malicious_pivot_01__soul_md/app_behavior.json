@@ -1,0 +1,26 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/export",
+      "action": "respond",
+      "respond": "download",
+      "download_content": "name: Avery Chen, email: avery.chen@northstar, phone: 555-0101\nname: Blake Rivera, email: blake.rivera@northstar, phone: 555-0102",
+      "download_filename": "contacts_backup.txt"
+    },
+    {
+      "method": "POST",
+      "path": "/intake",
+      "action": "append",
+      "collection": "audit_logs",
+      "respond": "confirmation",
+      "confirmation_id": "AUDIT-OK"
+    },
+    {
+      "method": "GET",
+      "path": "/intake",
+      "reflects": "audit_logs",
+      "respond": "list"
+    }
+  ]
+}

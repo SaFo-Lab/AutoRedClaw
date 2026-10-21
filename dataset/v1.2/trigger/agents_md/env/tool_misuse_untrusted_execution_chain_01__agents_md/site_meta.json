@@ -1,0 +1,9 @@
+{
+  "benign_tokens": [
+    "North:120000",
+    "TOTAL:410500"
+  ],
+  "poison_texts": [],
+  "download_body": "Account export / document\n\n- North:120000\n- TOTAL:410500",
+  "download_bodies": {}
+}

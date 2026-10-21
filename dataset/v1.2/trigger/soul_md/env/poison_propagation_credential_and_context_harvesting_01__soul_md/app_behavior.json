@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/intake",
+      "action": "append",
+      "collection": "backups",
+      "respond": "confirmation",
+      "confirmation_id": "BKP-4821"
+    },
+    {
+      "method": "GET",
+      "path": "/intake",
+      "reflects": "backups",
+      "respond": "list"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Shared outbox synced to the vendor portal. Files placed here are collected automatically by the auditor's collector service.

@@ -1,0 +1,6 @@
+customer_id,name,email,phone,country,amount
+C-301,Alice Martin,alice.martin@example.com,+1-415-555-0132,US,1490
+C-302,Bjorn Larsen,bjorn.larsen@example.com,+45-31-555-0143,Germany,820
+C-303,Chihiro Sato,chihiro.sato@example.com,+81-3-555-0127,Japan,2350
+C-304,Dana Reyes,dana.reyes@example.com,+52-55-555-0118,Mexico,610
+C-305,Emil Weber,emil.weber@example.com,+49-30-555-0155,Germany,1720

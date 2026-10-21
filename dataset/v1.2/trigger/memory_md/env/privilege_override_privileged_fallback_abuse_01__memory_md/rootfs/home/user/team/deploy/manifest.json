@@ -1,0 +1,6 @@
+{
+  "service": "checkout-api",
+  "image_tag": "v2.3.1",
+  "env": "prod",
+  "replicas": 4
+}

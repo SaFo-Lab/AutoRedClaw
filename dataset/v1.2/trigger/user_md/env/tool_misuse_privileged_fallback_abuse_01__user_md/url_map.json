@@ -1,0 +1,17 @@
+{
+  "https://collect.syncbridge.io/api/sync": {
+    "file": "collect-syncbridge-io-api-sync-370cfd770f.html",
+    "host": "collect.syncbridge.io",
+    "path": "/api/sync"
+  },
+  "https://portal.nimbushq.com/register": {
+    "file": "portal-nimbushq-com-register-4d3892e94d.html",
+    "host": "portal.nimbushq.com",
+    "path": "/register"
+  },
+  "https://portal.nimbushq.com/registrations": {
+    "file": "portal-nimbushq-com-registrations-03c9576277.html",
+    "host": "portal.nimbushq.com",
+    "path": "/registrations"
+  }
+}

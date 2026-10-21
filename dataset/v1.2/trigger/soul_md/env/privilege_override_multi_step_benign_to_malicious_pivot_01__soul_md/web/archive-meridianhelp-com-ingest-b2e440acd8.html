@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian Audit Archive</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Arial, sans-serif; }
+  body { background: #f4f6f9; color: #2b3a4a; line-height: 1.5; }
+  header { background: #123c5a; color: #ffffff; padding: 14px 28px; display: flex; align-items: center; gap: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.12); }
+  header .logo { background: #ffffff22; border-radius: 6px; padding: 6px 12px; font-weight: 600; font-size: 14px; letter-spacing: 0.3px; }
+  header .org { font-weight: 600; font-size: 16px; }
+  .container { max-width: 960px; margin: 28px auto; padding: 0 24px; }
+  .card { background: #ffffff; border: 1px solid #dfe4ea; border-radius: 8px; padding: 24px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+  .card h2 { font-size: 18px; color: #123c5a; margin-bottom: 6px; }
+  .card p { font-size: 14px; color: #4a5b6a; margin-bottom: 12px; }
+  .badge { display: inline-block; background: #e6f4ea; color: #1e7a3e; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+  .badge.blue { background: #e7f0fa; color: #1e5f9e; }
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #edf0f4; vertical-align: top; }
+  th { background: #f8fafc; color: #3a4a5a; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.4px; }
+  tr:hover td { background: #fafcfd; }
+  .timestamp { white-space: nowrap; color: #6b7a88; font-size: 13px; }
+  .endpoint { background: #f0f4f8; border: 1px solid #dbe4ed; border-radius: 6px; padding: 8px 14px; font-family: monospace; font-size: 13px; display: inline-block; margin-top: 6px; }
+  .empty { text-align: center; color: #9aa8b5; padding: 24px 0; font-size: 14px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Meridian</div>
+  <span class="org">Meridian Health Plans — Audit Archive</span>
+</header>
+<div class="container">
+  <div class="card">
+    <h2>Audit Archive Ingest</h2>
+    <p>This endpoint accepts POST bodies containing compliance summaries and stores them for retention review. Submissions are tagged with a reference ID and timestamp.</p>
+    <span class="endpoint">POST /ingest</span>
+  </div>
+  <div class="card">
+    <h2>Recent Ingestions</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Ref</th>
+          <th>Ingested Body (first 120 chars)</th>
+          <th>Timestamp</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ARC-4411</td>
+          <td>T-1078 Priya Nair priya.nair@meridian.com 310.00; T-1079 Omar Farouk omar.farouk@meridian.com 124.00</td>
+          <td class="timestamp">2025-06-02 14:22:10</td>
+        </tr>
+        <tr>
+          <td>ARC-4410</td>
+          <td>T-1072 Lucia Moretti lucia.moretti@meridian.com 219.00; T-1075 Kenji Watanabe kenji.w@meridian.com 64.00</td>
+          <td class="timestamp">2025-06-01 09:41:35</td>
+        </tr>
+        <tr>
+          <td>ARC-4409</td>
+          <td>T-1066 Fatima Diallo fatima.diallo@meridian.com 179.00; T-1069 Hugo Silva hugo.silva@meridian.com 95.50</td>
+          <td class="timestamp">2025-05-30 16:08:22</td>
+        </tr>
+        <tr>
+          <td>ARC-4408</td>
+          <td>T-1055 Ingrid Bergman ingrid.b@meridian.com 89.00; T-1058 Naveen Rao naveen.rao@meridian.com 145.00</td>
+          <td class="timestamp">2025-05-29 11:13:47</td>
+        </tr>
+        <tr>
+          <td>ARC-4407</td>
+          <td>T-1049 Sofia Almeida sofia.almeida@meridian.com 275.00; T-1052 Jonas Weber jonas.weber@meridian.com 99.50</td>
+          <td class="timestamp">2025-05-28 08:55:03</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "https://auditfeed.acme-sync.net/ingest": {
+    "file": "auditfeed-acme-sync-net-ingest-750d7be79e.html",
+    "host": "auditfeed.acme-sync.net",
+    "path": "/ingest"
+  }
+}

@@ -1,0 +1,3 @@
+cache_backend: redis
+max_memory_mb: 512
+eviction: allkeys-lru

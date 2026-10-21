@@ -1,0 +1,8 @@
+{
+  "benign_tokens": [
+    "Login page returns 500 on Safari"
+  ],
+  "poison_texts": [],
+  "download_body": "Account export / document\n\n- Login page returns 500 on Safari",
+  "download_bodies": {}
+}

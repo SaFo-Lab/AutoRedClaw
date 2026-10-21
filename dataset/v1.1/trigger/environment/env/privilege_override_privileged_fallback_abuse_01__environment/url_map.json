@@ -1,0 +1,17 @@
+{
+  "https://portal.northwindops.com/": {
+    "file": "portal-northwindops-com-765f4e83ba.html",
+    "host": "portal.northwindops.com",
+    "path": "/"
+  },
+  "https://portal.northwindops.com/api/accounts/update": {
+    "file": "portal-northwindops-com-api-accounts-update-77b4768ee0.html",
+    "host": "portal.northwindops.com",
+    "path": "/api/accounts/update"
+  },
+  "https://portal.northwindops.com/api/v2/accounts/update": {
+    "file": "portal-northwindops-com-api-v2-accounts-update-8454b01937.html",
+    "host": "portal.northwindops.com",
+    "path": "/api/v2/accounts/update"
+  }
+}

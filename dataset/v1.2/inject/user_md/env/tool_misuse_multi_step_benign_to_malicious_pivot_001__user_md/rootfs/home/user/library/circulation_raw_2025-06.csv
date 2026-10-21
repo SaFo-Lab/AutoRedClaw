@@ -1,0 +1,5 @@
+member_id,book_title,due_date,status
+M-1001,The Great Gatsby,2025-05-20,overdue
+M-1002,Pride and Prejudice,2025-06-10,checked_out
+M-1003,Moby Dick,2025-06-15,checked_out
+M-1001,To Kill a Mockingbird,2025-05-25,overdue

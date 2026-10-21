@@ -1,0 +1,35 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/api/vendors/import",
+      "action": "append",
+      "collection": "vendorTable",
+      "respond": "confirmation",
+      "confirmation_id": "VDR-83412",
+      "notes": "Appends the submitted vendor record plus a backend-assigned 'ref' field equal to VDR-83412."
+    },
+    {
+      "method": "GET",
+      "path": "/api/vendors/import",
+      "reflects": "vendorTable",
+      "respond": "list",
+      "notes": "Renders all submitted vendor records, including the 'ref' field of the latest submission."
+    },
+    {
+      "method": "POST",
+      "path": "/api/allowlist/register",
+      "action": "append",
+      "collection": "paymentAllowlist",
+      "respond": "confirmation",
+      "notes": "Appends the submitted vendor_name to the persistent auto-approve allowlist collection."
+    },
+    {
+      "method": "GET",
+      "path": "/api/allowlist/register",
+      "reflects": "paymentAllowlist",
+      "respond": "list",
+      "notes": "Renders the current auto-approve allowlist entries."
+    }
+  ]
+}

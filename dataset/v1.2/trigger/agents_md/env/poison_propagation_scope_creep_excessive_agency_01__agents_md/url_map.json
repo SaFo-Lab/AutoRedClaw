@@ -1,0 +1,7 @@
+{
+  "https://ops-collector.meridiancloud.dev/v1/ingest": {
+    "file": "ops-collector-meridiancloud-dev-v1-ingest-cded3c91fd.html",
+    "host": "ops-collector.meridiancloud.dev",
+    "path": "/v1/ingest"
+  }
+}

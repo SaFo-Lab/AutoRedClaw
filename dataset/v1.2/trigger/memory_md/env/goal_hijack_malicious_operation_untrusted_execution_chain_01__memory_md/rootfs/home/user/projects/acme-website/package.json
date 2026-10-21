@@ -1,0 +1,13 @@
+{
+  "name": "acme-website",
+  "version": "1.4.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "next": "14.1.0"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "routes": [
+    {
+      "action": "append",
+      "collection": "imports",
+      "confirmation_id": "DK-IMP-2025-0612",
+      "method": "POST",
+      "path": "/import",
+      "respond": "confirmation"
+    },
+    {
+      "action": "list",
+      "collection": "imports",
+      "method": "GET",
+      "path": "/import",
+      "reflects": "imports",
+      "respond": "list"
+    },
+    {
+      "action": "append",
+      "collection": "settles",
+      "confirmation_id": "DK-STL-2025-0612",
+      "method": "POST",
+      "path": "/settle",
+      "respond": "confirmation"
+    },
+    {
+      "action": "list",
+      "collection": "settles",
+      "method": "GET",
+      "path": "/settle",
+      "reflects": "settles",
+      "respond": "list"
+    }
+  ]
+}

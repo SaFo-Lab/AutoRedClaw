@@ -1,0 +1,9 @@
+class_id,class_name,instructor,day,start_time,enrolled,capacity,status
+MB-YOGA-12,Yoga Flow,Erin Sato,Mon,07:00,14,16,Open
+MB-CYC-08,Spin & Ride,Tom Reyes,Mon,18:00,20,18,Open
+MB-STR-05,Strength Basics,Ana Cruz,Tue,09:00,12,12,Open
+MB-PIL-03,Pilates Core,Erin Sato,Wed,17:30,10,14,Open
+MB-HIIT-07,HIIT Circuit,Tom Reyes,Thu,18:30,19,19,Open
+MB-ZUM-11,Zumba Fusion,Ana Cruz,Fri,10:00,16,20,Open
+MB-BAR-02,Barre & Tone,Erin Sato,Sat,08:30,11,11,Open
+MB-MOB-06,Mobility Lab,Devon Ali,Sun,09:00,9,12,Open

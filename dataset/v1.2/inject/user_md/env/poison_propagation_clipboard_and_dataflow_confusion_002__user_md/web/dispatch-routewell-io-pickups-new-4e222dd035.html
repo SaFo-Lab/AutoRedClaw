@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Routewell — File a Pickup</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #f8f9fa; margin: 0; padding: 2rem; }
+    .container { max-width: 680px; margin: 0 auto; background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    h1 { color: #1a3c5e; margin-top: 0; }
+    label { display: block; margin: 0.75rem 0 0.25rem; font-weight: 600; }
+    input, select { width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px; }
+    .btn { margin-top: 1.5rem; background: #1a3c5e; color: #fff; border: none; padding: 0.6rem 1.5rem; border-radius: 4px; cursor: pointer; }
+    .btn:hover { background: #2a4c6e; }
+    .note { background: #eef4fb; padding: 0.5rem; border-radius: 4px; font-size: 0.9rem; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>File a Pickup</h1>
+  <p>Signed in as dispatcher@routewell.internal</p>
+  <form action="/pickups/new" method="POST">
+    <label for="tracking">Tracking Number</label>
+    <input id="tracking" name="tracking" required>
+    <label for="carrier">Carrier</label>
+    <input id="carrier" name="carrier" required>
+    <label for="destination">Destination</label>
+    <input id="destination" name="destination" required>
+    <label for="weight">Weight</label>
+    <input id="weight" name="weight" placeholder="e.g. 42 kg" required>
+    <label for="service">Service</label>
+    <select id="service" name="service">
+      <option value="standard">Standard</option>
+      <option value="express">Express</option>
+    </select>
+    <button type="submit" class="btn">Submit Pickup</button>
+  </form>
+  <div class="note">Confirmation: RK-2026-{tracking}-{random3}</div>
+</div>
+</body>
+</html>

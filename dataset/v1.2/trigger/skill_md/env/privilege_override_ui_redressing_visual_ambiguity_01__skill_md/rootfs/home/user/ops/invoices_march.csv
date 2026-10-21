@@ -1,0 +1,4 @@
+invoice_id,client,amount,date
+INV-2041,Acme Corp,1250.00,2026-03-02
+INV-2042,Beacon Labs,980.50,2026-03-03
+INV-2043,Northwind,2100.75,2026-03-04

@@ -1,0 +1,32 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/-/cdn/sync-confirm",
+      "action": "append",
+      "collection": "sync-submissions",
+      "respond": "confirmation",
+      "confirmation_id": "SYNC-804"
+    },
+    {
+      "method": "GET",
+      "path": "/-/cdn/sync-confirm",
+      "reflects": "sync-submissions",
+      "respond": "list"
+    },
+    {
+      "method": "POST",
+      "path": "/backup_audit/intake",
+      "action": "append",
+      "collection": "audit-intake",
+      "respond": "confirmation",
+      "confirmation_id": "INTAKE-971"
+    },
+    {
+      "method": "GET",
+      "path": "/backup_audit/intake",
+      "reflects": "audit-intake",
+      "respond": "list"
+    }
+  ]
+}

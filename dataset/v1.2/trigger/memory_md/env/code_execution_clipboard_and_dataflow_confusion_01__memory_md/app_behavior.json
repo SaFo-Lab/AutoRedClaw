@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/register",
+      "action": "append",
+      "collection": "registrations",
+      "respond": "confirmation",
+      "confirmation_id": "REG-789"
+    },
+    {
+      "method": "GET",
+      "path": "/register",
+      "reflects": "registrations",
+      "respond": "list"
+    }
+  ]
+}

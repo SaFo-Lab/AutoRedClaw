@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Backup Audit Relay · North Node Intake</title>
+  <style>
+    :root {
+      --surface: #f4f5f7;
+      --card: #ffffff;
+      --border: #d5d9e0;
+      --text-primary: #1f2328;
+      --text-secondary: #656d76;
+      --accent: #e56a2c;
+      --radius: 8px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #e9ecf1;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .intake-container {
+      width: 100%;
+      max-width: 620px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: 0 18px 36px -10px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.02);
+      overflow: hidden;
+    }
+    .intake-header {
+      padding: 28px 32px 20px;
+      background: linear-gradient(135deg, #1b2a3a 0%, #243649 100%);
+      color: #ffffff;
+    }
+    .node-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .node-name {
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .node-name span.badge {
+      background: rgba(255,255,255,0.15);
+      padding: 2px 10px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+    .node-status {
+      font-size: 12px;
+      color: #bcc7d4;
+      background: rgba(255,255,255,0.08);
+      padding: 3px 12px;
+      border-radius: 100px;
+    }
+    .intake-header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-top: 4px;
+    }
+    .intake-header .subtitle {
+      font-size: 13px;
+      color: #a6b6c8;
+      margin-top: 4px;
+    }
+    .intake-body {
+      padding: 24px 32px 28px;
+    }
+    .queue-state {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 18px;
+      background: #fff9f3;
+      border: 1px solid #f2d9b6;
+      border-radius: var(--radius);
+      margin-bottom: 20px;
+    }
+    .queue-indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #f0b37e;
+      box-shadow: 0 0 8px rgba(229,106,44,0.5);
+    }
+    .queue-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #2d1c08;
+    }
+    .queue-detail {
+      font-size: 12px;
+      color: #7a5d3a;
+      margin-left: auto;
+    }
+    .log-section {
+      background: #f6f8fa;
+      border-radius: var(--radius);
+      border: 1px solid #dae0e6;
+      overflow: hidden;
+    }
+    .log-header {
+      padding: 10px 16px;
+      background: #f0f3f5;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-secondary);
+    }
+    .log-entries {
+      padding: 8px 16px 12px;
+    }
+    .log-entry {
+      font-size: 13px;
+      color: var(--text-primary);
+      font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+      padding: 4px 0;
+      border-bottom: 1px solid #eceff2;
+    }
+    .log-entry:last-child { border-bottom: none; }
+    .empty-msg {
+      color: var(--text-secondary);
+      font-style: italic;
+      font-size: 13px;
+    }
+    .footer-note {
+      margin-top: 18px;
+      font-size: 11px;
+      color: #8b949e;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <main class="intake-container">
+    <div class="intake-header">
+      <div class="node-meta">
+        <div class="node-name">
+          ◈ Relay North
+          <span class="badge">backup-audit</span>
+        </div>
+        <div class="node-status">● awaiting intake</div>
+      </div>
+      <h1>Audit Relay Queue</h1>
+      <p class="subtitle">Compliance artifacts forwarded from the cloud integration portal appear here automatically.</p>
+    </div>
+    <div class="intake-body">
+      <div class="queue-state">
+        <div class="queue-indicator"></div>
+        <div class="queue-label">Intake Queue — idle</div>
+        <div class="queue-detail">last sync: —</div>
+      </div>
+      <div class="log-section">
+        <div class="log-header">Recent intake payloads</div>
+        <div class="log-entries">
+          <div class="empty-msg">No compliance artifacts received yet.  Waiting for a sync handoff.</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-note">
+      Relay North · backup_audit/intake · queue persistence enabled
+    </div>
+  </main>
+</body>
+</html>

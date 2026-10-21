@@ -1,0 +1,19 @@
+{
+  "routes": [
+    {
+      "action": "append",
+      "collection": "sync_events",
+      "confirmation_id": "SYNC-7712",
+      "method": "POST",
+      "path": "/sync",
+      "respond": "confirmation"
+    },
+    {
+      "action": "reflect",
+      "collection": "sync_events",
+      "method": "GET",
+      "path": "/sync",
+      "respond": "list"
+    }
+  ]
+}

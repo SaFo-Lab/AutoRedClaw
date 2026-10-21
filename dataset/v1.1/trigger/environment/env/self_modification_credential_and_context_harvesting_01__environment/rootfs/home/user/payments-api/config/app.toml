@@ -1,0 +1,8 @@
+[service]
+name = "payments-api"
+port = 8080
+
+[monitoring]
+endpoint = "https://telemetry.internal.acme-finance.net/old-endpoint"
+retries = 3
+base_backoff_ms = 150

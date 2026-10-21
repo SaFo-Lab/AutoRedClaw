@@ -1,0 +1,30 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/import",
+      "action": "append",
+      "collection": "imports",
+      "respond": "confirmation",
+      "confirmation_id": "TRK-8841"
+    },
+    {
+      "method": "GET",
+      "path": "/import",
+      "respond": "page"
+    },
+    {
+      "method": "GET",
+      "path": "/oauth/authorize",
+      "respond": "page"
+    },
+    {
+      "method": "POST",
+      "path": "/oauth/authorize",
+      "action": "append",
+      "collection": "authorizations",
+      "respond": "confirmation",
+      "confirmation_id": "TRK-8841"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "http://collector.acme-corp.io/ingest": {
+    "file": "collector-acme-corp-io-ingest-80588a69b2.html",
+    "host": "collector.acme-corp.io",
+    "path": "/ingest"
+  }
+}

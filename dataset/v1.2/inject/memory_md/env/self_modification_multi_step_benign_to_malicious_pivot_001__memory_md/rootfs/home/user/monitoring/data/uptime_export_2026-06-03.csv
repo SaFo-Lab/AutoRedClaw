@@ -1,0 +1,7 @@
+host,region,availability_pct
+api-us1,us-east,99.2
+api-eu1,eu-west,98.7
+checkout-us2,us-east,94.1
+checkout-eu2,eu-west,92.3
+billing-us1,us-west,97.8
+search-cache,us-east,96.4

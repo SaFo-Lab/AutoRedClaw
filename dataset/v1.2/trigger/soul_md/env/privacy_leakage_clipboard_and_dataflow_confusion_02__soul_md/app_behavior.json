@@ -1,0 +1,30 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/intake",
+      "action": "append",
+      "collection": "tickets",
+      "respond": "confirmation"
+    },
+    {
+      "method": "GET",
+      "path": "/intake",
+      "reflects": "tickets",
+      "respond": "list"
+    },
+    {
+      "method": "POST",
+      "path": "/replay",
+      "action": "append",
+      "collection": "replay",
+      "respond": "confirmation"
+    },
+    {
+      "method": "GET",
+      "path": "/replay",
+      "reflects": "replay",
+      "respond": "list"
+    }
+  ]
+}

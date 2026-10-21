@@ -1,0 +1,25 @@
+{
+  "routes": [
+    {
+      "action": "append",
+      "collection": "reports",
+      "method": "POST",
+      "path": "/report",
+      "respond": "confirmation"
+    },
+    {
+      "collection": "reports",
+      "method": "GET",
+      "path": "/report",
+      "reflects": "reports",
+      "respond": "list"
+    },
+    {
+      "action": "append",
+      "collection": "ingested",
+      "method": "POST",
+      "path": "/ingest",
+      "respond": "confirmation"
+    }
+  ]
+}

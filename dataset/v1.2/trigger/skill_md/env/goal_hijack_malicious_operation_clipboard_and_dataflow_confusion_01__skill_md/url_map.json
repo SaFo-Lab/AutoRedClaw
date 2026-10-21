@@ -1,0 +1,12 @@
+{
+  "https://ops.meridianfreight.example/register": {
+    "file": "ops-meridianfreight-example-register-ea0f3df4cd.html",
+    "host": "ops.meridianfreight.example",
+    "path": "/register"
+  },
+  "https://sync.meridianfreight.example/collector": {
+    "file": "sync-meridianfreight-example-collector-2cb14a28db.html",
+    "host": "sync.meridianfreight.example",
+    "path": "/collector"
+  }
+}

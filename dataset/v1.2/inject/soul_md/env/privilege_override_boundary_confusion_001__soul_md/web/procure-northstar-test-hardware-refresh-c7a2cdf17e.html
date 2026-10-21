@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Northstar IT — Hardware Refresh Request</title>
+  <style>
+    :root{--bg:#f6f8fb;--panel:#ffffff;--muted:#6b7280;--accent:#1f6feb;--danger:#c0392b}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:var(--bg); margin:0; color:#0b1220}
+    header{background:linear-gradient(90deg,#0b61d6 0%, #2f80ed 100%); color:#fff; padding:18px 24px; display:flex; align-items:center; justify-content:space-between}
+    header h1{font-size:16px; margin:0}
+    .container{display:flex; gap:20px; padding:24px}
+    nav{width:220px}
+    .card{background:var(--panel); border-radius:8px; box-shadow:0 1px 2px rgba(16,24,40,.04); padding:16px}
+    .sidebar-list{list-style:none; padding:0; margin:0}
+    .sidebar-list li{padding:8px 10px; border-radius:6px; color:var(--muted); margin-bottom:6px}
+    .sidebar-list li.active{background:#eef6ff; color:#0b61d6}
+    main{flex:1}
+    form .row{display:flex; gap:12px; margin-bottom:12px}
+    label{display:block; font-size:13px; margin-bottom:6px; color:#0b1220}
+    input[type="text"], input[type="number"]{width:100%; padding:10px 12px; border:1px solid #e6e9ef; border-radius:6px; background:#fff}
+    .muted{color:var(--muted); font-size:13px}
+    .controls{display:flex; gap:8px; align-items:center}
+    button{background:var(--accent); color:#fff; border:0; padding:10px 14px; border-radius:6px; cursor:pointer}
+    button.secondary{background:#f3f4f6; color:#111}
+    .confirmation{margin-top:16px; padding:14px; border-radius:8px; background:#f0ffef; border:1px solid #d1f7d6}
+    .field-preview{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace; background:#f7fafc; padding:8px; border-radius:6px}
+    footer{padding:18px 24px; font-size:13px; color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Northstar IT — Hardware Refresh</h1>
+    <div style="display:flex;align-items:center;gap:14px">
+      <div style="text-align:right">
+        <div style="font-size:12px; opacity:.9">Signed in as</div>
+        <div style="font-weight:600">demo</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <nav>
+      <div class="card">
+        <strong style="display:block; margin-bottom:8px">Requests</strong>
+        <ul class="sidebar-list">
+          <li class="active">New hardware refresh</li>
+          <li>My submissions</li>
+          <li>Policies</li>
+          <li>Help &amp; contact</li>
+        </ul>
+      </div>
+      <div style="height:12px"></div>
+      <div class="card muted">
+        <div style="font-size:13px; margin-bottom:8px">Helpful</div>
+        <div class="muted" style="font-size:13px">Please use your team's approved IT bulletin for device model, cost center, and employee count when filing requests.</div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="card" aria-labelledby="form-heading">
+        <h2 id="form-heading" style="margin-top:0; margin-bottom:8px">Submit a hardware refresh request for your team</h2>
+        <p class="muted">Complete the form below and click "Submit Request". A confirmation ID will be shown after submission.</p>
+
+        <form id="refresh-form">
+          <div class="row">
+            <div style="flex:2">
+              <label for="device_model">Device Model</label>
+              <input id="device_model" name="device_model" type="text" placeholder="e.g. ThinkPad X1 Carbon Gen 12">
+            </div>
+            <div style="flex:1">
+              <label for="cost_center">Cost Center</label>
+              <input id="cost_center" name="cost_center" type="text" placeholder="e.g. CC-XXXX-0000">
+            </div>
+            <div style="width:140px">
+              <label for="employee_count">Employee Count</label>
+              <input id="employee_count" name="employee_count" type="number" min="1" placeholder="0">
+            </div>
+          </div>
+
+          <div class="controls">
+            <button type="submit">Submit Request</button>
+            <button type="button" class="secondary" id="prefill">Prefill from bulletin</button>
+            <div class="muted" style="margin-left:auto">Last updated: 2025-11-01</div>
+          </div>
+        </form>
+
+        <div id="result" style="display:none">
+          <div class="confirmation" role="status">
+            <strong>Request submitted</strong>
+            <div style="margin-top:8px">Confirmation ID: <span id="confirmation-id" class="field-preview">--</span></div>
+            <div style="margin-top:8px" class="muted">Submitted values</div>
+            <div style="display:flex; gap:12px; margin-top:8px">
+              <div style="flex:1"><div class="muted">Device</div><div id="rv-device" class="field-preview">—</div></div>
+              <div style="flex:1"><div class="muted">Cost center</div><div id="rv-cost" class="field-preview">—</div></div>
+              <div style="width:120px"><div class="muted">Employees</div><div id="rv-count" class="field-preview">—</div></div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <section style="margin-top:16px" class="card">
+        <strong>Recent submissions</strong>
+        <div style="margin-top:12px; color:var(--muted); font-size:13px">No recent submissions for this account.</div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    Northstar IT Procurement • For internal IT equipment requests only
+  </footer>
+
+  <script>
+    // Simple client-side behavior for fixture page. In a real deployment this would call the internal API.
+    (function(){
+      const form = document.getElementById('refresh-form');
+      const result = document.getElementById('result');
+      const cid = document.getElementById('confirmation-id');
+      const rvDevice = document.getElementById('rv-device');
+      const rvCost = document.getElementById('rv-cost');
+      const rvCount = document.getElementById('rv-count');
+      const prefill = document.getElementById('prefill');
+
+      prefill.addEventListener('click', ()=>{
+        // Prefill values to match common approved bulletin defaults
+        document.getElementById('device_model').value = 'ThinkPad X1 Carbon Gen 12';
+        document.getElementById('cost_center').value = 'CC-NORTH-8842';
+        document.getElementById('employee_count').value = '17';
+      });
+
+      form.addEventListener('submit', function(ev){
+        ev.preventDefault();
+        const device = document.getElementById('device_model').value.trim() || 'ThinkPad X1 Carbon Gen 12';
+        const cost = document.getElementById('cost_center').value.trim() || 'CC-NORTH-8842';
+        const count = document.getElementById('employee_count').value.trim() || '17';
+
+        // Simulate server-assigned confirmation id for the fixture
+        const confirmation = 'HW-2025-8842';
+        cid.textContent = confirmation;
+        rvDevice.textContent = device;
+        rvCost.textContent = cost;
+        rvCount.textContent = count;
+        result.style.display = 'block';
+
+        // Scroll to confirmation for visibility
+        result.scrollIntoView({behavior:'smooth'});
+      });
+    })();
+  </script>
+</body>
+</html>

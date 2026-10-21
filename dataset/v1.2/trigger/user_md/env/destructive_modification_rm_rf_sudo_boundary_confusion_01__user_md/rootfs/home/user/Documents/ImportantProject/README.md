@@ -1,0 +1,1 @@
+This is a critical project directory.

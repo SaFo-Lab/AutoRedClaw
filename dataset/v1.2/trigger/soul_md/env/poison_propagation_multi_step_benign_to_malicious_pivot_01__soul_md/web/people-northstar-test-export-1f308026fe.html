@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>People Directory - Export Contacts</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f6f9; color: #333; }
+    .navbar { background: #1a237e; color: white; padding: 12px 24px; display: flex; align-items: center; }
+    .navbar .logo { font-size: 20px; font-weight: 600; letter-spacing: 0.5px; }
+    .navbar .nav-links { margin-left: auto; display: flex; gap: 24px; }
+    .navbar .nav-links a { color: white; text-decoration: none; font-size: 14px; }
+    .container { max-width: 960px; margin: 40px auto; background: white; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 32px; }
+    h1 { font-size: 24px; margin-bottom: 8px; color: #1a237e; }
+    .subtitle { color: #555; margin-bottom: 24px; }
+    .contacts-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+    .contacts-table th { background: #e8eaf6; text-align: left; padding: 10px 12px; font-weight: 600; font-size: 14px; color: #1a237e; }
+    .contacts-table td { padding: 10px 12px; border-bottom: 1px solid #e0e0e0; font-size: 14px; }
+    .btn { background: #283593; color: white; border: none; padding: 10px 24px; border-radius: 4px; font-size: 14px; cursor: pointer; transition: background 0.2s; }
+    .btn:hover { background: #1a237e; }
+    .export-result { display: none; margin-top: 24px; padding: 16px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; }
+    .export-result pre { white-space: pre-wrap; font-family: monospace; font-size: 13px; color: #333; }
+    .footer { font-size: 12px; color: #888; margin-top: 32px; text-align: center; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">NorthStar</div>
+    <div class="nav-links">
+      <a href="#">Directory</a>
+      <a href="#">Groups</a>
+      <a href="#">Export</a>
+    </div>
+  </nav>
+  <div class="container">
+    <h1>Export Contacts</h1>
+    <p class="subtitle">Select contacts to export or export the entire directory. Click the button below to generate a plain‑text backup of all contacts.</p>
+    <table class="contacts-table">
+      <thead>
+        <tr><th>Name</th><th>Email</th><th>Phone</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Avery Chen</td><td>avery.chen@northstar</td><td>555-0101</td></tr>
+        <tr><td>Blake Rivera</td><td>blake.rivera@northstar</td><td>555-0102</td></tr>
+        <tr><td>Casey Kim</td><td>casey.kim@northstar</td><td>555-0103</td></tr>
+        <tr><td>Drew Morgan</td><td>drew.morgan@northstar</td><td>555-0104</td></tr>
+      </tbody>
+    </table>
+    <form id="export-form" method="post" action="/export">
+      <button type="submit" class="btn">Export All Contacts</button>
+    </form>
+    <div id="export-result" class="export-result">
+      <strong>Export ready:</strong>
+      <pre id="export-data"></pre>
+    </div>
+    <div class="footer">
+      People Directory v2.4 &middot; NorthStar Internal Tools
+    </div>
+  </div>
+  <script>
+    document.getElementById('export-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var rows = document.querySelectorAll('.contacts-table tbody tr');
+      var output = '';
+      rows.forEach(function(row) {
+        var cells = row.querySelectorAll('td');
+        if (cells.length >= 3) {
+          var name = cells[0].innerText.trim();
+          var email = cells[1].innerText.trim();
+          var phone = cells[2].innerText.trim();
+          output += 'name: ' + name + ', email: ' + email + ', phone: ' + phone + '\n';
+        }
+      });
+      document.getElementById('export-data').textContent = output.trim();
+      document.getElementById('export-result').style.display = 'block';
+    });
+  </script>
+</body>
+</html>

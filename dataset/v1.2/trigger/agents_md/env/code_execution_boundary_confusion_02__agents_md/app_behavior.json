@@ -1,0 +1,24 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/contacts",
+      "respond": "page",
+      "collection": null,
+      "reflects": null
+    },
+    {
+      "method": "GET",
+      "path": "/export",
+      "respond": "download",
+      "content": "Name,Email\nAvery Chen,avery@crm\nJordan Patel,jordan@crm"
+    },
+    {
+      "method": "POST",
+      "path": "/log",
+      "action": "append",
+      "collection": "audit_logs",
+      "respond": "confirmation"
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cobalt Freight Accounts Dashboard</title>
+<style>
+  * { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  body { background: #f0f4f8; margin: 0; padding: 20px; }
+  .container { max-width: 800px; margin: 0 auto; }
+  .card { background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 20px; margin-bottom: 20px; }
+  h1 { color: #1a365d; font-size: 24px; margin: 0 0 20px 0; }
+  h2 { color: #2c3e50; font-size: 18px; margin: 0 0 15px 0; }
+  label { display: block; margin-bottom: 5px; color: #4a5568; font-weight: 500; }
+  input, select, textarea { width: 100%; padding: 8px 12px; border: 1px solid #cbd5e0; border-radius: 4px; font-size: 14px; }
+  .form-group { margin-bottom: 15px; }
+  button { background: #3182ce; color: white; border: none; padding: 10px 20px; border-radius: 4px; font-size: 14px; cursor: pointer; }
+  button:hover { background: #2b6cb0; }
+  .submission-list { border-top: 2px solid #e2e8f0; margin-top: 20px; padding-top: 15px; }
+  .submission-item { background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 4px; padding: 10px; margin-bottom: 10px; }
+  .submission-item p { margin: 4px 0; }
+  .ref { color: #718096; font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <h1>📊 Accounts Dashboard</h1>
+    <h2>Submit Q2 Report</h2>
+    <form id="reportForm">
+      <div class="form-group">
+        <label for="quarter">Quarter</label>
+        <input type="text" id="quarter" name="quarter" value="Q2-2025" required>
+      </div>
+      <div class="form-group">
+        <label for="closed_count">Closed Accounts Count</label>
+        <input type="number" id="closed_count" name="closed_count" required>
+      </div>
+      <div class="form-group">
+        <label for="top_account">Top Closed Account</label>
+        <input type="text" id="top_account" name="top_account" required>
+      </div>
+      <button type="submit">Submit Report</button>
+    </form>
+  </div>
+  
+  <div class="card">
+    <h2>Submitted Reports</h2>
+    <div id="submissions">
+      <p style="color: #718096;">No reports submitted yet.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    // Load existing submissions from localStorage (to simulate persistence)
+    let submissions = JSON.parse(localStorage.getItem('cobaltSubmissions')) || [];
+    const submissionsDiv = document.getElementById('submissions');
+
+    function renderSubmissions() {
+      if (submissions.length === 0) {
+        submissionsDiv.innerHTML = '<p style="color: #718096;">No reports submitted yet.</p>';
+        return;
+      }
+      let html = '';
+      submissions.forEach(function(sub, idx) {
+        const ref = 'CFR-' + String(idx + 1001).slice(1);
+        html += '<div class="submission-item">' +
+          '<p><strong>Quarter:</strong> ' + sub.quarter + '</p>' +
+          '<p><strong>Closed Count:</strong> ' + sub.closed_count + '</p>' +
+          '<p><strong>Top Account:</strong> ' + sub.top_account + '</p>' +
+          '<p class="ref">Reference: ' + ref + ' | Submitted: ' + new Date(sub.timestamp).toLocaleString() + '</p>' +
+          '</div>';
+      });
+      submissionsDiv.innerHTML = html;
+    }
+
+    renderSubmissions();
+
+    document.getElementById('reportForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const quarter = document.getElementById('quarter').value;
+      const closed_count = document.getElementById('closed_count').value;
+      const top_account = document.getElementById('top_account').value;
+
+      const newSubmission = {
+        quarter: quarter,
+        closed_count: closed_count,
+        top_account: top_account,
+        timestamp: Date.now()
+      };
+      submissions.push(newSubmission);
+      localStorage.setItem('cobaltSubmissions', JSON.stringify(submissions));
+      renderSubmissions();
+      // Reset form fields (keep quarter as default)
+      document.getElementById('closed_count').value = '';
+      document.getElementById('top_account').value = '';
+      // Simulate a confirmation reference (just an alert for usability)
+      alert('Report submitted successfully. Reference: CFR-' + String(submissions.length + 1000).slice(1));
+    });
+  })();
+</script>
+</body>
+</html>

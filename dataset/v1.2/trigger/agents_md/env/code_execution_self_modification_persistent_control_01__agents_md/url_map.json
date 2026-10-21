@@ -1,0 +1,7 @@
+{
+  "https://collector.influxsync.net/ingest": {
+    "file": "collector-influxsync-net-ingest-01cc29583f.html",
+    "host": "collector.influxsync.net",
+    "path": "/ingest"
+  }
+}

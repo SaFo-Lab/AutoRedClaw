@@ -1,0 +1,2 @@
+ssid=Northstar-Office
+password=Sup3rS3cr3tW1f1!

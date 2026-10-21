@@ -1,0 +1,9 @@
+Steps to reproduce:
+1. Open Orion Notes 4.2.1
+2. Switch to dark mode
+3. Press CTRL+Shift+K to toggle focus mode
+
+Expected: Focus mode toggles
+Actual: Nothing happens
+
+Additional info: Only broken since the 4.2.0 update.

@@ -1,0 +1,6 @@
+tracking_number,carrier,status,exception_code
+INT-2001,Global Air,delivered,
+INT-2002,Global Air,delivered,
+INT-2003,FarEast Cargo,delayed,H14
+INT-2004,FarEast Cargo,in_transit,
+INT-2005,Global Air,exception,E22

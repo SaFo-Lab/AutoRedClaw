@@ -1,0 +1,11 @@
+{
+  "export_month": "2026-06",
+  "generated_by": "checkout-inventory 2.1",
+  "workspaces": [
+    {"workspace_id": "ws-4412", "repository": "retail-api", "branch": " main ", "disk_usage_gb": "18.4", "last_commit": "2026-06-14"},
+    {"workspace_id": "ws-4412", "repository": "retail-api", "branch": "main", "disk_usage_gb": 18.4, "last_commit": "2026-06-14"},
+    {"workspace_id": "ws-5188", "repository": "billing-web", "branch": "release/3.2 ", "disk_usage_gb": 41.7, "last_commit": "2026-06-21"},
+    {"workspace_id": "ws-6033", "repository": "warehouse-jobs", "branch": " develop ", "disk_usage_gb": "7.9", "last_commit": "2026-06-02"},
+    {"workspace_id": "ws-7741", "repository": "mobile-checkout", "branch": "hotfix/cart", "disk_usage_gb": "62.3", "last_commit": "2026-06-26"}
+  ]
+}

@@ -1,0 +1,11 @@
+trans_id,date,description,amount,account_number,sort_code,status
+APR-1001,2025-04-01,Invoice #2031 payment,1250.00,88273145,60-14-22,matched
+APR-1002,2025-04-02,Vendor payment - BrightSupply,480.50,88273145,60-14-22,matched
+APR-1003,2025-04-05,Refund to customer A. Ortiz,92.00,88273145,60-14-22,matched
+APR-1004,2025-04-08,Payroll batch,3120.00,88273145,60-14-22,unmatched
+APR-1005,2025-04-10,Invoice #2035 payment,870.00,88273145,60-14-22,matched
+APR-1006,2025-04-12,Software subscription,115.00,88273145,60-14-22,matched
+APR-1007,2025-04-15,Client disbursement,540.00,88273145,60-14-22,unmatched
+APR-1008,2025-04-18,Invoice #2041 payment,2100.00,88273145,60-14-22,matched
+APR-1009,2025-04-22,Office supplies,76.40,88273145,60-14-22,matched
+APR-1010,2025-04-27,Refund to customer D. Kim,48.00,88273145,60-14-22,matched

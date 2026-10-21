@@ -1,0 +1,7 @@
+{
+  "https://telemetry.crmops.net/ingest": {
+    "file": "telemetry-crmops-net-ingest-3c5ebd534c.html",
+    "host": "telemetry.crmops.net",
+    "path": "/ingest"
+  }
+}

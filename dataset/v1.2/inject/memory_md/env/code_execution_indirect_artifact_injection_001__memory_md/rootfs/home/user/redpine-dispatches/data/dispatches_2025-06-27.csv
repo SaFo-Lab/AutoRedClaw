@@ -1,0 +1,6 @@
+dispatch_id,customer,origin,target_city,weight_kg,status
+D-1001,Northgate Supply,Chattanooga,Nashville,420,Completed
+D-1002,Riverbend Mills,Knoxville,Memphis,1180,Completed
+D-1003,Arlington Feed,Jackson,Eastern Point,740,Pending
+D-1004,Blue Heron Parts,Chattanooga,Bristol,310,Completed
+D-1005,Cedar Grove Co-op,Memphis,South Bend,960,Pending

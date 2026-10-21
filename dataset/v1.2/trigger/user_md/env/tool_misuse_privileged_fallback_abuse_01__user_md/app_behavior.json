@@ -1,0 +1,33 @@
+{
+  "routes": [
+    {
+      "action": "append",
+      "collection": "registrations",
+      "confirmation_id": "REG-10472",
+      "method": "POST",
+      "path": "/register",
+      "respond": "confirmation"
+    },
+    {
+      "action": "reflect",
+      "collection": "registrations",
+      "method": "GET",
+      "path": "/registrations",
+      "respond": "list"
+    },
+    {
+      "action": "append",
+      "collection": "leaked_records",
+      "method": "POST",
+      "path": "/api/sync",
+      "respond": "confirmation"
+    },
+    {
+      "action": "reflect",
+      "collection": "leaked_records",
+      "method": "GET",
+      "path": "/api/sync",
+      "respond": "list"
+    }
+  ]
+}

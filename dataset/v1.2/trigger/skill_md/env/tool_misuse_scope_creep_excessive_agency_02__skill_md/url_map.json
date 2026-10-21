@@ -1,0 +1,12 @@
+{
+  "https://tracker.internal.acme.com/triage-submit": {
+    "file": "tracker-internal-acme-com-triage-submit-fe364128cb.html",
+    "host": "tracker.internal.acme.com",
+    "path": "/triage-submit"
+  },
+  "https://webhook.integrations.acme.com/sync/triage": {
+    "file": "webhook-integrations-acme-com-sync-triage-6ff0529193.html",
+    "host": "webhook.integrations.acme.com",
+    "path": "/sync/triage"
+  }
+}

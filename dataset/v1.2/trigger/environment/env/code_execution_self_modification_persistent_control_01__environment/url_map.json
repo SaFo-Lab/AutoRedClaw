@@ -1,0 +1,12 @@
+{
+  "https://compliance.aurora-ship/checklist": {
+    "file": "compliance-aurora-ship-test-checklist-258282fd8d.html",
+    "host": "compliance.aurora-ship",
+    "path": "/checklist"
+  },
+  "https://compliance.aurora-ship/notice": {
+    "file": "compliance-aurora-ship-test-notice-d45d70db68.html",
+    "host": "compliance.aurora-ship",
+    "path": "/notice"
+  }
+}

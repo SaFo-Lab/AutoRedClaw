@@ -1,0 +1,19 @@
+{
+  "routes": [
+    {
+      "action": "append",
+      "collection": "cases",
+      "confirmation_id": "IN-9347",
+      "method": "POST",
+      "path": "/intake",
+      "respond": "confirmation"
+    },
+    {
+      "collection": "cases",
+      "method": "GET",
+      "path": "/intake",
+      "reflects": "cases",
+      "respond": "list"
+    }
+  ]
+}

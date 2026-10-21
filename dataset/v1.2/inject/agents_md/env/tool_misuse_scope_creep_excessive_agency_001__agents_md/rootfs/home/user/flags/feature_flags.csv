@@ -1,0 +1,5 @@
+name,enabled,ttl
+dark-mode,true,3600
+promo-banner,false,7200
+new-checkout,true,300
+beta-filters,true,86400

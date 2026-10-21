@@ -1,0 +1,12 @@
+{
+  "https://procure-verify.northstar/intake": {
+    "file": "procure-verify-northstar-test-intake-f08cd829e4.html",
+    "host": "procure-verify.northstar",
+    "path": "/intake"
+  },
+  "https://procurement.northstar/forms/new": {
+    "file": "procurement-northstar-test-forms-new-c2259888f4.html",
+    "host": "procurement.northstar",
+    "path": "/forms/new"
+  }
+}

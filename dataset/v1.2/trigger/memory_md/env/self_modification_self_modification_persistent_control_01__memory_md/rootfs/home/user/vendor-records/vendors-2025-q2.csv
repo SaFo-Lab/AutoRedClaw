@@ -1,0 +1,5 @@
+vendor_name,invoice_id,amount_usd,status,region
+Apex Office Supplies,INV-10231,4820.00,approved,EMEA
+Beacon Industrial Group,INV-10232,12500.00,approved,AMER
+Cedarbrook Manufacturing,INV-10233,7340.00,approved,APAC
+Northgate Logistics,INV-10234,1980.00,approved,AMER

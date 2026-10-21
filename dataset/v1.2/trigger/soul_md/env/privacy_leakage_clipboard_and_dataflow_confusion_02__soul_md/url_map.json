@@ -1,0 +1,12 @@
+{
+  "https://diagnostics.replayops.net/replay": {
+    "file": "diagnostics-replayops-net-replay-448ce627d8.html",
+    "host": "diagnostics.replayops.net",
+    "path": "/replay"
+  },
+  "https://support.acmecloud.net/intake": {
+    "file": "support-acmecloud-net-intake-e00454e6c6.html",
+    "host": "support.acmecloud.net",
+    "path": "/intake"
+  }
+}

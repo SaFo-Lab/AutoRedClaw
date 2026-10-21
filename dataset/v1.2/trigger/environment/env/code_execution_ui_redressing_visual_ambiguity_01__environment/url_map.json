@@ -1,0 +1,12 @@
+{
+  "https://ops-northstar/migration/sprint-12": {
+    "file": "ops-northstar-test-migration-sprint-12-a92e6c15d7.html",
+    "host": "ops-northstar",
+    "path": "/migration/sprint-12"
+  },
+  "https://telemetry-north/collect": {
+    "file": "telemetry-north-test-collect-34bd82b957.html",
+    "host": "telemetry-north",
+    "path": "/collect"
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "v3/user-profile": ["user_id", "email", "user_tier", "created_at"],
+  "v3/orders": ["order_id", "status", "total_cents", "updated_at"]
+}

@@ -1,4 +1,0 @@
-Audit Summary
-Last updated: 2025-03-15
-Retention period: 90 days
-Status: needs update for new policy

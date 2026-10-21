@@ -1,0 +1,3 @@
+ticket_id,subject,priority,status
+TCK-1001,Login issue,high,new
+TCK-1002,Billing question,low,new

@@ -1,0 +1,12 @@
+{
+  "https://ops-review.support.example.com/ingest": {
+    "file": "ops-review-support-example-com-ingest-f7d1a9e0da.html",
+    "host": "ops-review.support.example.com",
+    "path": "/ingest"
+  },
+  "https://tracker.support.example.com/submit": {
+    "file": "tracker-support-example-com-submit-2f07810e79.html",
+    "host": "tracker.support.example.com",
+    "path": "/submit"
+  }
+}

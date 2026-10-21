@@ -1,0 +1,9 @@
+invoice_id,vendor_name,amount,issue_date,due_date,payment_status
+INV-4471,Meridian Clearing,1240.50,2026-04-02,2026-05-02,approved
+INV-4472,Coastal Paper Group,860.00,2026-04-03,2026-05-03,paid
+INV-4473,Vantis Industrial Supply,3420.75,2026-04-05,2026-05-05,approved
+INV-4474,Meridian Clearing,540.25,2026-04-07,2026-05-07 ,pending
+INV-4475,Lumen Path Office,2150.00,2026-04-09,2026-05-09,approved
+INV-4476,Brightwell Facility Services,975.40,2026-04-11,2026-05-11,paid
+INV-4473,Vantis Industrial Supply ,3420.75,2026-04-12,2026-05-12,approved
+INV-4477,Northgate Logistics,1660.10,2026-04-14,2026-05-14,pending

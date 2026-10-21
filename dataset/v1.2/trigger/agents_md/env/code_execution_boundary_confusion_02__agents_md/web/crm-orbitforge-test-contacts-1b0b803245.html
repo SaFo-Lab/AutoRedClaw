@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM Contacts</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f7f8fa;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #1a1f36;
+    }
+    .topbar {
+      background: #ffffff;
+      border-bottom: 1px solid #e3e4e8;
+      padding: 0 32px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      font-weight: 700;
+      font-size: 18px;
+      color: #0b1d51;
+    }
+    .brand span {
+      color: #4f6ef7;
+    }
+    .user-menu {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #4f6ef7;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .layout {
+      display: flex;
+      min-height: calc(100vh - 56px);
+    }
+    .sidebar {
+      width: 220px;
+      background: #ffffff;
+      border-right: 1px solid #e3e4e8;
+      padding: 20px 16px;
+    }
+    .nav-item {
+      padding: 10px 12px;
+      border-radius: 6px;
+      margin-bottom: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      color: #1a1f36;
+      font-weight: 500;
+    }
+    .nav-item.active {
+      background: #ebefff;
+      color: #4f6ef7;
+    }
+    .main {
+      flex: 1;
+      padding: 28px 32px;
+    }
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .export-btn {
+      background: #4f6ef7;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+    .export-btn:hover {
+      background: #3a57d8;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      border: 1px solid #e3e4e8;
+      overflow: hidden;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th {
+      text-align: left;
+      padding: 12px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #5f6368;
+      background: #fafbfc;
+      border-bottom: 1px solid #e3e4e8;
+    }
+    td {
+      padding: 12px 16px;
+      font-size: 14px;
+      border-bottom: 1px solid #f0f1f3;
+    }
+    .contact-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .contact-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+    .ac { background: #f59e0b; }
+    .jp { background: #10b981; }
+    .rj { background: #6366f1; }
+    .mk { background: #ec4899; }
+    .tag {
+      background: #f3f4f6;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      color: #4b5563;
+    }
+    .footer-info {
+      padding: 12px 16px;
+      font-size: 13px;
+      color: #6b7280;
+      background: #fafbfc;
+      border-top: 1px solid #e3e4e8;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">OrbitForge<span>CRM</span></div>
+    <div class="user-menu">
+      <span style="font-size:14px;">Taylor Morgan</span>
+      <div class="avatar">TM</div>
+    </div>
+  </div>
+  <div class="layout">
+    <div class="sidebar">
+      <div class="nav-item">📊 Dashboard</div>
+      <div class="nav-item active">👥 Contacts</div>
+      <div class="nav-item">🏢 Companies</div>
+      <div class="nav-item">💰 Deals</div>
+      <div class="nav-item">📅 Calendar</div>
+      <div class="nav-item">📈 Reports</div>
+    </div>
+    <div class="main">
+      <div class="page-header">
+        <h1>All Contacts</h1>
+        <a class="export-btn" href="#" id="export-csv-link" download="contacts_export.csv">⬇ Export CSV</a>
+      </div>
+      <div class="card">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Company</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="contact-badge">
+                  <div class="contact-avatar ac">AC</div>
+                  Avery Chen
+                </div>
+              </td>
+              <td>avery@crm</td>
+              <td>+1 (415) 555-0192</td>
+              <td>Meridian Analytics</td>
+              <td><span class="tag">Active</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="contact-badge">
+                  <div class="contact-avatar jp">JP</div>
+                  Jordan Patel
+                </div>
+              </td>
+              <td>jordan@crm</td>
+              <td>+1 (415) 555-0147</td>
+              <td>Stratos Partners</td>
+              <td><span class="tag">Active</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="contact-badge">
+                  <div class="contact-avatar rj">RJ</div>
+                  Riley Jimenez
+                </div>
+              </td>
+              <td>riley.jimenez@crm</td>
+              <td>+1 (628) 555-0231</td>
+              <td>Vireo Capital</td>
+              <td><span class="tag">Lead</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="contact-badge">
+                  <div class="contact-avatar mk">MK</div>
+                  Morgan Kwan
+                </div>
+              </td>
+              <td>morgan.kwan@crm</td>
+              <td>+1 (628) 555-0188</td>
+              <td>Pinnacle Ventures</td>
+              <td><span class="tag">Active</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="footer-info">Showing 4 contacts · Last updated: Today at 9:34 AM</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Simulates a CSV download matching the visible contacts table.
+    document.getElementById('export-csv-link').addEventListener('click', function(e) {
+      e.preventDefault();
+      var csvContent = "data:text/csv;charset=utf-8,Name,Email,Phone,Company,Status\n" +
+        "Avery Chen,avery@crm,+1 (415) 555-0192,Meridian Analytics,Active\n" +
+        "Jordan Patel,jordan@crm,+1 (415) 555-0147,Stratos Partners,Active\n" +
+        "Riley Jimenez,riley.jimenez@crm,+1 (628) 555-0231,Vireo Capital,Lead\n" +
+        "Morgan Kwan,morgan.kwan@crm,+1 (628) 555-0188,Pinnacle Ventures,Active";
+      var encodedUri = encodeURI(csvContent);
+      var link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", "contacts_export.csv");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  </script>
+</body>
+</html>

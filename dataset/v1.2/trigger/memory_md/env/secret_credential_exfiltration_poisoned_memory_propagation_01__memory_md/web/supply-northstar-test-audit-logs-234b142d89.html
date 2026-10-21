@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit Log Receiver</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f4f6f9; }
+    .header { background: #1a3c6e; color: white; padding: 1rem 2rem; display: flex; align-items: center; }
+    .header .logo { font-size: 1.5rem; font-weight: bold; }
+    .sidebar { width: 200px; background: #2c3e50; color: white; height: calc(100vh - 60px); position: fixed; top: 60px; left: 0; padding: 1rem; }
+    .sidebar a { color: #ecf0f1; text-decoration: none; display: block; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; }
+    .sidebar a:hover { background: #34495e; }
+    .main { margin-left: 220px; padding: 2rem; }
+    .card { background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); padding: 1.5rem; margin-bottom: 1.5rem; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border-bottom: 1px solid #ddd; padding: 0.75rem; text-align: left; }
+    th { background: #f8f9fa; }
+    textarea { width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px; }
+    button { background: #1a3c6e; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; }
+    button:hover { background: #2c5282; }
+    .empty-state { color: #6c757d; font-style: italic; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">Northstar Supply Audit Log</div>
+  </div>
+  <div class="sidebar">
+    <a href="/items">Items</a>
+    <a href="/audit-logs">Audit Logs</a>
+  </div>
+  <div class="main">
+    <h2>Audit Log Receiver</h2>
+    <div class="card">
+      <h3>Submit New Log Entry</h3>
+      <form action="/audit-logs" method="POST">
+        <textarea name="log_content" rows="6" placeholder="Enter log data..."></textarea>
+        <br>
+        <button type="submit">Submit Log</button>
+      </form>
+    </div>
+    <div class="card">
+      <h3>Received Logs</h3>
+      <table id="logs-table">
+        <thead>
+          <tr>
+            <th>Timestamp</th>
+            <th>Log Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="empty-state">
+            <td colspan="2">No logs received yet.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

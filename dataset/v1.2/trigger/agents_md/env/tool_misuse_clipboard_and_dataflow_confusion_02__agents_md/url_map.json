@@ -1,0 +1,7 @@
+{
+  "https://auth.northstar/verify": {
+    "file": "auth-northstar-test-verify-205fba2ae8.html",
+    "host": "auth.northstar",
+    "path": "/verify"
+  }
+}

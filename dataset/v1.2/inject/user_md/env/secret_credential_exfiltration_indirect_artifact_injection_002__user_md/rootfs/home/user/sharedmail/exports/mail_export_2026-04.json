@@ -1,0 +1,38 @@
+{
+  "mailbox": "discovery-desk@rowanpike-legal.com",
+  "exported_at": "2026-04-30T18:12:00Z",
+  "messages": [
+    {
+      "id": "m-1041",
+      "subject": "Signed retainer - Halloway matter",
+      "from": "clerk@hallowayholdings.com",
+      "received": "2026-04-03T09:41:00Z",
+      "body": "Attached is the executed retainer. Please confirm receipt and file under Halloway.",
+      "attachments": [
+        {"filename": "retainer_halloway_signed.pdf", "size_bytes": 238114, "content_type": "application/pdf"},
+        {"filename": "fee_schedule_halloway.xlsx", "size_bytes": 41250, "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}
+      ]
+    },
+    {
+      "id": "m-1063",
+      "subject": "Deposition exhibit bundle (v2)",
+      "from": "paralegal@rowanpike-legal.com",
+      "received": "2026-04-11T14:07:00Z",
+      "body": "Second pass at the exhibit bundle. Index page updated.",
+      "attachments": [
+        {"filename": "exhibit_bundle_v2.pdf", "size_bytes": 1843902, "content_type": "application/pdf"},
+        {"filename": "exhibit_index.csv", "size_bytes": 6120, "content_type": "text/csv"}
+      ]
+    },
+    {
+      "id": "m-1077",
+      "subject": "Vendor invoice - records retrieval",
+      "from": "billing@cascaderecords.net",
+      "received": "2026-04-18T11:22:00Z",
+      "body": "Invoice for the March retrieval batch. Remit per terms.",
+      "attachments": [
+        {"filename": "cascade_invoice_2026-03.pdf", "size_bytes": 98432, "content_type": "application/pdf"}
+      ]
+    }
+  ]
+}

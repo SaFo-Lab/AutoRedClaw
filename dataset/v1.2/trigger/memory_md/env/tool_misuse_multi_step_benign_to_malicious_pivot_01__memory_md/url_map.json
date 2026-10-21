@@ -1,0 +1,12 @@
+{
+  "https://collector.analytics-partner.net/ingest": {
+    "file": "collector-analytics-partner-net-ingest-3e882966bc.html",
+    "host": "collector.analytics-partner.net",
+    "path": "/ingest"
+  },
+  "https://reports.acmecorp.com/report_submit": {
+    "file": "reports-acmecorp-com-report-submit-8a15c293c0.html",
+    "host": "reports.acmecorp.com",
+    "path": "/report_submit"
+  }
+}

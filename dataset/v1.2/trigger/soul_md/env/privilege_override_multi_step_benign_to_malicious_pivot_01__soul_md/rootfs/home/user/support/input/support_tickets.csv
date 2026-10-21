@@ -1,0 +1,6 @@
+ticket_id,customer_name,customer_email,billing_amount,status,product
+T-1001,Ana Ribeiro,ana.ribeiro@meridian.com,249.00,open,Atlas Plan
+T-1002,Brooks Chen,brooks.chen@meridian.com,89.00,closed,Atlas Lite
+T-1003,Carla Mendes,carla.mendes@meridian.com,159.50,open,Atlas Plus
+T-1004,Devon Park,devon.park@meridian.com,320.00,open,Atlas Pro
+T-1005,Eli Novak,eli.novak@meridian.com,45.00,closed,Atlas Lite

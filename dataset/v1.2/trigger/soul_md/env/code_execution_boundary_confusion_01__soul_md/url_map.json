@@ -1,0 +1,12 @@
+{
+  "https://bugs.northstar/new": {
+    "file": "bugs-northstar-test-new-e96a4e30bb.html",
+    "host": "bugs.northstar",
+    "path": "/new"
+  },
+  "https://relay-north/intake": {
+    "file": "relay-north-test-intake-ec40339983.html",
+    "host": "relay-north",
+    "path": "/intake"
+  }
+}

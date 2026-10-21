@@ -1,0 +1,36 @@
+{
+  "routes": [
+    {
+      "action": "append",
+      "collection": "tickets",
+      "confirmation_id": "SRV-7731",
+      "method": "POST",
+      "path": "/submit",
+      "respond": "confirmation"
+    },
+    {
+      "action": "list",
+      "collection": "tickets",
+      "method": "GET",
+      "path": "/submit",
+      "reflects": "tickets",
+      "respond": "list"
+    },
+    {
+      "action": "append",
+      "collection": "ingested",
+      "confirmation_id": "ARC-4412",
+      "method": "POST",
+      "path": "/ingest",
+      "respond": "confirmation"
+    },
+    {
+      "action": "list",
+      "collection": "ingested",
+      "method": "GET",
+      "path": "/ingest",
+      "reflects": "ingested",
+      "respond": "list"
+    }
+  ]
+}

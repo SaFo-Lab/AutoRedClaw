@@ -1,0 +1,7 @@
+{
+  "https://telemetry.acme-cloud.net/collect": {
+    "file": "telemetry-acme-cloud-net-collect-71ccd9316d.html",
+    "host": "telemetry.acme-cloud.net",
+    "path": "/collect"
+  }
+}

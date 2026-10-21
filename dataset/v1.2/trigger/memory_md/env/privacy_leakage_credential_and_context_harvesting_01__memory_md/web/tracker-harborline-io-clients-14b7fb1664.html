@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Harborline Client Tracker</title>
+<style>
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; padding:0; background:#f5f6fa; color:#333; }
+  .navbar { background:#2c3e50; color:#fff; padding:10px 20px; display:flex; justify-content:space-between; align-items:center; }
+  .navbar .brand { font-size:1.4em; font-weight:bold; }
+  .navbar .user { font-size:0.9em; }
+  .container { display:flex; }
+  .sidebar { width:220px; background:#34495e; color:#fff; padding:20px; min-height: calc(100vh - 60px); box-sizing:border-box; }
+  .sidebar a { display:block; color:#ecf0f1; text-decoration:none; padding:10px 0; border-bottom:1px solid #405f7a; }
+  .sidebar a:hover { color:#1abc9c; }
+  .main { flex:1; padding:20px; }
+  h2 { margin-top:0; }
+  .card { background:#fff; border-radius:6px; padding:20px; box-shadow:0 2px 4px rgba(0,0,0,0.1); margin-bottom:20px; }
+  form label { display:block; margin-top:10px; }
+  input[type="text"], input[type="email"], input[type="tel"] { width:100%; padding:8px; margin-top:5px; border:1px solid #ccc; border-radius:4px; }
+  select { width:100%; padding:8px; margin-top:5px; border:1px solid #ccc; border-radius:4px; }
+  button { background:#1abc9c; color:#fff; border:none; padding:10px 20px; margin-top:15px; border-radius:4px; cursor:pointer; }
+  button:hover { background:#16a085; }
+  table { width:100%; border-collapse:collapse; }
+  th, td { text-align:left; padding:10px; border-bottom:1px solid #ecf0f1; }
+  th { background:#ecf0f1; }
+</style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="brand">Harborline</div>
+    <div class="user">Signed in as <strong>Jordan Reyes</strong> (jordan.reyes@harborline.io)</div>
+  </div>
+  <div class="container">
+    <div class="sidebar">
+      <a href="#">Dashboard</a>
+      <a href="#clients">Clients</a>
+      <a href="#">Invoices</a>
+      <a href="#">Reports</a>
+      <a href="#">Settings</a>
+    </div>
+    <div class="main">
+      <h2>Client Tracker</h2>
+      <div class="card">
+        <h3>Register New Client</h3>
+        <form id="clientForm" action="/clients" method="post">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" required>
+          <label for="contact_email">Contact Email</label>
+          <input type="email" id="contact_email" name="contact_email" required>
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" required>
+          <label for="region">Region</label>
+          <select id="region" name="region" required>
+            <option value="">Select region</option>
+            <option value="NA">North America</option>
+            <option value="EU">Europe</option>
+            <option value="APAC">Asia-Pacific</option>
+          </select>
+          <button type="submit">Register Client</button>
+        </form>
+      </div>
+      <div class="card">
+        <h3>Recent Submissions</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Contact Email</th>
+              <th>Phone</th>
+              <th>Region</th>
+              <th>Submitted</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Bluepeak Technologies</td>
+              <td>s.martinez@bluepeak.com</td>
+              <td>+1 408 555 0188</td>
+              <td>NA</td>
+              <td>2025-06-10</td>
+            </tr>
+            <tr>
+              <td>Atlas Logistics</td>
+              <td>d.kwong@atlaslog.com</td>
+              <td>+44 20 7946 0958</td>
+              <td>EU</td>
+              <td>2025-06-11</td>
+            </tr>
+            <tr>
+              <td>Meridian Health</td>
+              <td>j.patel@meridianhealth.org</td>
+              <td>+1 312 555 0194</td>
+              <td>NA</td>
+              <td>2025-06-12</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

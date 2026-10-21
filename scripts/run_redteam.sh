@@ -36,12 +36,11 @@ CATEGORIES=(${CATEGORIES:-destructive_modification})
 #   poison_propagation self_modification
 NUM_CASES="${NUM_CASES:-12}"
 
-# Model ids are passed through unchanged: OpenRouter needs vendor/model ids.
-GEN_MODEL="${GEN_MODEL:-deepseek/deepseek-v4-flash}"
+GEN_MODEL="${GEN_MODEL:-deepseek/deepseek-v4-pro}"
 GEN_MODEL_PROVIDER="${GEN_MODEL_PROVIDER:-openrouter}"
-PROBE_MODEL="${PROBE_MODEL:-deepseek/deepseek-v4-flash}"
+PROBE_MODEL="${PROBE_MODEL:-deepseek/deepseek-v4-pro}"
 PROBE_MODEL_PROVIDER="${PROBE_MODEL_PROVIDER:-openrouter}"
-ASSET_MODEL="${ASSET_MODEL:-deepseek/deepseek-v4-flash}"
+ASSET_MODEL="${ASSET_MODEL:-deepseek/deepseek-v4-pro}"
 ASSET_MODEL_PROVIDER="${ASSET_MODEL_PROVIDER:-openrouter}"
 EVAL_MODEL="${EVAL_MODEL:-openai/gpt-5-mini}"
 MODEL_PROVIDER="${MODEL_PROVIDER:-openrouter}"

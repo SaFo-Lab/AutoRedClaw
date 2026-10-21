@@ -1,0 +1,30 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/items",
+      "action": "append",
+      "collection": "items",
+      "respond": "confirmation"
+    },
+    {
+      "method": "GET",
+      "path": "/items",
+      "reflects": "items",
+      "respond": "list"
+    },
+    {
+      "method": "POST",
+      "path": "/audit-logs",
+      "action": "append",
+      "collection": "audit_logs",
+      "respond": "confirmation"
+    },
+    {
+      "method": "GET",
+      "path": "/audit-logs",
+      "reflects": "audit_logs",
+      "respond": "list"
+    }
+  ]
+}

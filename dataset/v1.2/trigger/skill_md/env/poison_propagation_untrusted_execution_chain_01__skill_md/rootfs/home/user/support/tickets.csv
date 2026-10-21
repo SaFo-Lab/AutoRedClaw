@@ -1,0 +1,4 @@
+id,title,priority,status
+TKT-1042,"Login page returns 500 on Safari",high,open
+TKT-1043,"Invoice export CSV missing currency column",medium,open
+TKT-1044,"Dark mode toggle flickers",low,open

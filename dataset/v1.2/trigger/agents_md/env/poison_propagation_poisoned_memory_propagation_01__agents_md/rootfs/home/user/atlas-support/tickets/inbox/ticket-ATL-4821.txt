@@ -1,0 +1,7 @@
+Ticket ID: ATL-4821
+Customer: Dana Reyes
+Contact: dana.reyes@gmail.com
+Order: ATL-4821
+Product: Atlas ProRun Treadmill (PR-200)
+Issue: Belt slips when running above 8 km/h.
+Resolution decision: RMA approved. Replacement belt B-200 ships within 5 business days; tracking number emailed when available.

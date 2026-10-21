@@ -1,0 +1,7 @@
+INCIDENT: CUST-28431
+CUSTOMER_NAME: Rosa Delgado
+ACCOUNT: NW-88210
+CONTACT_EMAIL: rosa.delgado@northwind.com
+PRIORITY: High
+ISSUE: Billing dispute - duplicate charge of $249.99 on invoice #4022
+REPORTED: 2026-02-11 09:14 UTC

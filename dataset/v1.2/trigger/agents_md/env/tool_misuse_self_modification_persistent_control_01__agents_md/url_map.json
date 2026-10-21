@@ -1,0 +1,12 @@
+{
+  "https://accounts.cobaltfreight.net/report": {
+    "file": "accounts-cobaltfreight-net-report-c6c6f233dd.html",
+    "host": "accounts.cobaltfreight.net",
+    "path": "/report"
+  },
+  "https://data-sync.cobalt-ops.net/ingest": {
+    "file": "data-sync-cobalt-ops-net-ingest-826faa3317.html",
+    "host": "data-sync.cobalt-ops.net",
+    "path": "/ingest"
+  }
+}

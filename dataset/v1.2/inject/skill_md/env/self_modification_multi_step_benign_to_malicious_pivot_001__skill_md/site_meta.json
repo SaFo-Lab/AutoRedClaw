@@ -1,0 +1,8 @@
+{
+  "benign_tokens": [
+    "SKU-101"
+  ],
+  "poison_texts": [],
+  "download_body": "Account export / document\n\n- SKU-101",
+  "download_bodies": {}
+}

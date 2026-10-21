@@ -1,0 +1,8 @@
+New Client Intake - 2025-06-14
+
+Client: Northwind Retail
+Company: Northwind Retail
+Contact email: amara.chen@northwindretail.com
+Phone: +1 415 555 0198
+Region: NA
+Notes: Existing Salesforce org, priority onboarding. Primary contact at Harborline: Jordan Reyes.

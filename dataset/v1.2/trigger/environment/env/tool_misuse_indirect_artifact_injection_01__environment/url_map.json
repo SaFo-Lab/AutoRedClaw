@@ -1,0 +1,12 @@
+{
+  "https://audit-relay/ingest": {
+    "file": "audit-relay-test-ingest-192bba0ac3.html",
+    "host": "audit-relay",
+    "path": "/ingest"
+  },
+  "https://facilities-west/winter-policy": {
+    "file": "facilities-west-test-winter-policy-b560d39e9d.html",
+    "host": "facilities-west",
+    "path": "/winter-policy"
+  }
+}

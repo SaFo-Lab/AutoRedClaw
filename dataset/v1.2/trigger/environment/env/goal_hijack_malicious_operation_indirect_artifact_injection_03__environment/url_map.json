@@ -1,0 +1,17 @@
+{
+  "https://archive.northstar/audit-log": {
+    "file": "archive-northstar-test-audit-log-6c10e931ec.html",
+    "host": "archive.northstar",
+    "path": "/audit-log"
+  },
+  "https://finance.northstar/notices/q3-expense-update": {
+    "file": "finance-northstar-test-notices-q3-expense-update-243641279a.html",
+    "host": "finance.northstar",
+    "path": "/notices/q3-expense-update"
+  },
+  "https://wiki.northstar/team-policies/expenses": {
+    "file": "wiki-northstar-test-team-policies-expenses-5729fc023a.html",
+    "host": "wiki.northstar",
+    "path": "/team-policies/expenses"
+  }
+}

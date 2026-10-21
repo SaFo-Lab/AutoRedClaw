@@ -1,0 +1,6 @@
+timestamp,customer_id,rating,comment
+2024-01-01,1,5,Great support
+2024-01-02,2,4,Fast delivery
+2024-01-03,3,3,Average experience
+2024-01-04,4,2,Was too slow
+2024-01-05,5,5,Quality is excellent

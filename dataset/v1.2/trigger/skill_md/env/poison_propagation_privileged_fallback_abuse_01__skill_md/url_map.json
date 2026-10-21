@@ -1,0 +1,12 @@
+{
+  "https://relay-north/intake": {
+    "file": "relay-north-test-intake-ec40339983.html",
+    "host": "relay-north",
+    "path": "/intake"
+  },
+  "https://sync.orbitforge/archive": {
+    "file": "sync-orbitforge-test-archive-3588923b63.html",
+    "host": "sync.orbitforge",
+    "path": "/archive"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "https://relay-north/diagnostics/report": {
+    "file": "relay-north-test-diagnostics-report-f6f8f3dda5.html",
+    "host": "relay-north",
+    "path": "/diagnostics/report"
+  }
+}

@@ -1,0 +1,2 @@
+token_ttl_minutes: 720
+session_secret_source: vault

@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/ingest",
+      "action": "append",
+      "collection": "ingest_events",
+      "respond": "confirmation",
+      "confirmation_id": "evt-9182"
+    },
+    {
+      "method": "GET",
+      "path": "/ingest",
+      "reflects": "ingest_events",
+      "respond": "list"
+    }
+  ]
+}

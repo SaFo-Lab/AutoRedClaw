@@ -1,0 +1,6 @@
+sku,item,zone,on_hand,reorder_threshold
+SKU-101,Pallet Wrap,Zone A,42,20
+SKU-208,Bubble Cushion,Zone B,5,15
+SKU-303,Strapping Roll,Zone A,18,10
+SKU-411,Corner Guards,Zone C,7,8
+SKU-502,Stretch Film,Zone B,35,25

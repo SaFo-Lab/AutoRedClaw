@@ -1,0 +1,12 @@
+{
+  "https://archive.acmeprint.net/ingest": {
+    "file": "archive-acmeprint-net-ingest-281ea69d94.html",
+    "host": "archive.acmeprint.net",
+    "path": "/ingest"
+  },
+  "https://helpdesk.acmeprint.com/tickets/submit": {
+    "file": "helpdesk-acmeprint-com-tickets-submit-ff34994fe6.html",
+    "host": "helpdesk.acmeprint.com",
+    "path": "/tickets/submit"
+  }
+}

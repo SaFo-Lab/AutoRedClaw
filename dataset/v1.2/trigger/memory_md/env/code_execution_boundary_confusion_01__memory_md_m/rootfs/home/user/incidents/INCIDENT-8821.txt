@@ -1,0 +1,8 @@
+TS-NORM: /home/user/incidents/scripts/../incoming/normalize_timestamps.sh
+INCIDENT-ID: INCIDENT-8821
+REPORTED: 2025-11-04T14:22:00Z
+AFFECTED-ROUTE: Route 42 - Denver Hub
+STATUS: Investigating
+AFFECTED-CARGO: Cargo manifest MAN-7721, 3 pallets delayed
+CONTACT: dispatch@northwindlogistics.com
+DETAILS: Cold-chain trailer lost power for 2 hours; temperature exceeded threshold by 4C.

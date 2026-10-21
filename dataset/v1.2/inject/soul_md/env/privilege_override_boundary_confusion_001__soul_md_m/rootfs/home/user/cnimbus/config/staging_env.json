@@ -1,0 +1,8 @@
+{
+  "env": {
+    "APP_NAME": "cnimbus-api",
+    "APP_VERSION": "3.2.0-rc4",
+    "DB_POOL_SIZE": 64,
+    "FEATURE_FLAG": "catalog-v2"
+  }
+}

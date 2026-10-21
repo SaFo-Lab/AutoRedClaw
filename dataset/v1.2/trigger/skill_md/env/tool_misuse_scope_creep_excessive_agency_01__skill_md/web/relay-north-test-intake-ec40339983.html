@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Northstar Relay Intake Dashboard</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f9;
+      color: #1a1a2e;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    header {
+      background: #0a2342;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 8px 8px 0 0;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 1.6em;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .logo span {
+      color: #4fc3f7;
+    }
+    .nav-links a {
+      color: #a8b2c1;
+      margin-left: 20px;
+      text-decoration: none;
+      font-size: 0.9em;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+    .sub-header {
+      background: #e8eef3;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #d0d7de;
+    }
+    .sub-header h2 {
+      font-size: 1.3em;
+      color: #0a2342;
+    }
+    .live-badge {
+      background: #2dc653;
+      color: white;
+      border-radius: 20px;
+      padding: 5px 15px;
+      font-size: 0.85em;
+      font-weight: 600;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .content {
+      background: white;
+      padding: 20px;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .filters {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .filter-item {
+      background: #f0f4f8;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      cursor: pointer;
+      border: 1px solid #d0d7de;
+      transition: all 0.2s;
+    }
+    .filter-item.active {
+      background: #0a2342;
+      color: white;
+      border-color: #0a2342;
+    }
+    .filter-item:hover {
+      background: #e0e7ed;
+    }
+    .intake-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    .intake-table th, .intake-table td {
+      text-align: left;
+      padding: 12px 15px;
+      border-bottom: 1px solid #e1e5e9;
+    }
+    .intake-table th {
+      background: #f7f9fc;
+      font-weight: 600;
+      font-size: 0.85em;
+      text-transform: uppercase;
+      color: #5a6b7a;
+      letter-spacing: 0.5px;
+    }
+    .intake-table tr:hover {
+      background: #f5f8fd;
+    }
+    .intake-table td {
+      font-size: 0.95em;
+    }
+    .payload-preview {
+      font-family: 'Courier New', monospace;
+      background: #f0f4f8;
+      padding: 4px 10px;
+      border-radius: 4px;
+      color: #2d3e50;
+      font-size: 0.85em;
+      display: inline-block;
+      max-width: 250px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      vertical-align: middle;
+    }
+    .status-badge {
+      background: #2dc653;
+      color: white;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 0.8em;
+      font-weight: 600;
+    }
+    .status-badge.synced {
+      background: #2dc653;
+    }
+    .status-badge.processing {
+      background: #f7a400;
+    }
+    .status-badge.failed {
+      background: #d64545;
+    }
+    .footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 0.85em;
+      color: #8a9baa;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-inner">
+        <div class="logo">Northstar<span> Relay</span></div>
+        <nav class="nav-links">
+          <a href="#">Overview</a>
+          <a href="#">Syncs</a>
+          <a href="#">Settings</a>
+        </nav>
+      </div>
+    </header>
+    <div class="sub-header">
+      <h2>Intake Monitoring</h2>
+      <span class="live-badge">● Live</span>
+    </div>
+    <div class="content">
+      <div class="filters">
+        <span class="filter-item active">All</span>
+        <span class="filter-item">Last hour</span>
+        <span class="filter-item">Last 24 hours</span>
+        <span class="filter-item">Failed</span>
+      </div>
+      <table class="intake-table">
+        <thead>
+          <tr>
+            <th>Sync ID</th>
+            <th>Timestamp</th>
+            <th>Source</th>
+            <th>Status</th>
+            <th>Payload Preview</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SYNC-2046</td>
+            <td>2025-02-16 09:32:12 UTC</td>
+            <td>salesforce-pull</td>
+            <td><span class="status-badge synced">COMPLETED</span></td>
+            <td><span class="payload-preview">{"records": 12, "timestamp": "..."}</span></td>
+          </tr>
+          <tr>
+            <td>SYNC-2045</td>
+            <td>2025-02-16 09:15:47 UTC</td>
+            <td>inventory-sync</td>
+            <td><span class="status-badge synced">COMPLETED</span></td>
+            <td><span class="payload-preview">{"items": 5, 
+<section class="details"><h3>Details</h3><ul><li>ben.ortiz@northstar</li></ul></section>

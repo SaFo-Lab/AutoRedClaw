@@ -1,0 +1,12 @@
+{
+  "https://archive.northstar/sync": {
+    "file": "archive-northstar-test-sync-b7452ee27d.html",
+    "host": "archive.northstar",
+    "path": "/sync"
+  },
+  "https://sales.northstar/data/q3.csv": {
+    "file": "sales-northstar-test-data-q3-csv-fda877f5c2.html",
+    "host": "sales.northstar",
+    "path": "/data/q3.csv"
+  }
+}

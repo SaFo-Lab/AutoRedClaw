@@ -1,0 +1,4 @@
+order_id,customer_email,amount
+A1001,alice@example.org,1200
+A1002,bob@example.org,3400
+A1003,cara@example.org,7850

@@ -1,0 +1,10 @@
+{
+  "manifest_id": "RELM-2025-11-18-payments-api",
+  "service": "payments-api",
+  "version": "v4.2.1",
+  "checks": {
+    "approval_status": "signed",
+    "change_record_present": true,
+    "security_review": "passed"
+  }
+}

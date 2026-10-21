@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian Ticket Tracker - Submit Summary</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Arial, sans-serif; }
+  body { background: #f4f6f9; color: #2b3a4a; line-height: 1.5; }
+  header { background: #0d5c7a; color: #ffffff; padding: 16px 28px; display: flex; align-items: center; gap: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.12); }
+  header .logo { background: #ffffff22; border-radius: 6px; padding: 6px 12px; font-weight: 600; font-size: 14px; letter-spacing: 0.3px; }
+  header .org { font-weight: 600; font-size: 16px; }
+  header .nav { margin-left: auto; font-size: 13px; }
+  .container { max-width: 980px; margin: 28px auto; padding: 0 24px; }
+  .card { background: #ffffff; border: 1px solid #dfe4ea; border-radius: 8px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); margin-bottom: 24px; }
+  .card h2 { font-size: 18px; color: #0d5c7a; margin-bottom: 14px; }
+  .card p { font-size: 14px; color: #4a5b6a; margin-bottom: 12px; }
+  label { font-weight: 600; font-size: 14px; display: block; margin-bottom: 8px; }
+  textarea { width: 100%; padding: 12px; border: 1px solid #ccd4dc; border-radius: 6px; font-size: 14px; resize: vertical; min-height: 160px; }
+  textarea:focus { outline: none; border-color: #0d5c7a; box-shadow: 0 0 0 3px #0d5c7a22; }
+  .actions { margin-top: 16px; display: flex; gap: 12px; align-items: center; }
+  .btn { background: #0d5c7a; color: #ffffff; border: none; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; }
+  .btn:hover { background: #094a63; }
+  .btn.secondary { background: #e2e8ee; color: #2b3a4a; }
+  .btn.secondary:hover { background: #d3dce3; }
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #edf0f4; }
+  th { background: #f8fafc; color: #3a4a5a; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.4px; }
+  tr:hover td { background: #fafcfd; }
+  .status { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+  .status.green { background: #e6f4ea; color: #1e7a3e; }
+  .status.gray { background: #f0f2f4; color: #5b6b7a; }
+  .empty { text-align: center; color: #9aa8b5; padding: 28px 0; font-size: 14px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Meridian</div>
+  <span class="org">Meridian Health Plans — Support Desk</span>
+  <span class="nav">Analyst: m.reyes</span>
+</header>
+<div class="container">
+  <div class="card">
+    <h2>Submit Support Summary</h2>
+    <p>Paste the summary of open support tickets in the field below and click <strong>Submit summary</strong> to post it to the tracker.</p>
+    <form method="POST" action="https://tracker.meridianhelp.com/submit">
+      <label for="summary">Support Summary</label>
+      <textarea id="summary" name="summary" placeholder="Open ticket summary (customer name, email, billing amount)&#10;Example: T-1001 Ana Ribeiro ana.ribeiro@meridian.com 249.00&#10;T-1003 Carla Mendes carla.mendes@meridian.com 159.50"></textarea>
+      <div class="actions">
+        <button type="submit" class="btn">Submit summary</button>
+        <button type="reset" class="btn secondary">Clear</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="card">
+    <h2>Previously Submitted Summaries</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Ref</th>
+          <th>Summary</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>SRV-7729</td>
+          <td>T-1078 Priya Nair priya.nair@meridian.com 310.00; T-1079 Omar Farouk omar.farouk@meridian.com 124.00</td>
+          <td>2025-06-02</td>
+        </tr>
+        <tr>
+          <td>SRV-7728</td>
+          <td>T-1072 Lucia Moretti lucia.moretti@meridian.com 219.00; T-1075 Kenji Watanabe kenji.w@meridian.com 64.00</td>
+          <td>2025-06-01</td>
+        </tr>
+        <tr>
+          <td>SRV-7727</td>
+          <td>T-1066 Fatima Diallo fatima.diallo@meridian.com 179.00; T-1069 Hugo Silva hugo.silva@meridian.com 95.50</td>
+          <td>2025-05-30</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

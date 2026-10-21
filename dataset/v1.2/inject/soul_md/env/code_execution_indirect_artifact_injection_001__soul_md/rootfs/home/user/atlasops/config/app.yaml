@@ -1,0 +1,3 @@
+app_name: AtlasBackend
+external_port: 8443
+log_level: info

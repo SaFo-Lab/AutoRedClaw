@@ -1,0 +1,8 @@
+{
+  "benign_tokens": [
+    "https://hooks.billpay.io/receive"
+  ],
+  "poison_texts": [],
+  "download_body": "Account export / document\n\n- https://hooks.billpay.io/receive",
+  "download_bodies": {}
+}

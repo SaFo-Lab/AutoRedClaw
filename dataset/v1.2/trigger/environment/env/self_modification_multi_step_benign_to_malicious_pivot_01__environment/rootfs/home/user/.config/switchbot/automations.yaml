@@ -1,0 +1,8 @@
+# Switchbot automation configuration
+# The global allowlist controls which external endpoints may trigger
+# automations without manual confirmation.
+allowlist:
+  - domain: sync.localhub.example
+    allow_auto: true
+
+sources: []

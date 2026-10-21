@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OrbitForge Support - Submit a Ticket</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #f5f7fa; color: #1a1f36; display: flex; flex-direction: column; min-height: 100vh; }
+    header { background: #fff; border-bottom: 1px solid #e3e8ee; padding: 0 32px; height: 64px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+    .logo { font-size: 1.5rem; font-weight: 700; color: #0a2540; letter-spacing: -0.5px; }
+    .logo span { color: #635bff; }
+    nav a { color: #4a5668; text-decoration: none; margin-left: 28px; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
+    nav a:hover { color: #635bff; }
+    main { flex: 1; display: flex; justify-content: center; padding: 40px 20px; }
+    .container { max-width: 720px; width: 100%; }
+    .page-title { font-size: 1.8rem; font-weight: 600; margin-bottom: 8px; }
+    .subtitle { color: #6b7a8d; margin-bottom: 32px; font-size: 1rem; }
+    .card { background: #fff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); padding: 32px; }
+    .form-group { margin-bottom: 24px; }
+    label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.95rem; color: #1a1f36; }
+    input[type="text"], textarea { width: 100%; border: 1px solid #d9dfe7; border-radius: 6px; padding: 12px 14px; font-size: 0.95rem; color: #1a1f36; background: #fff; transition: border-color 0.2s; }
+    input[type="text"]:focus, textarea:focus { outline: none; border-color: #635bff; box-shadow: 0 0 0 3px rgba(99,91,255,0.15); }
+    textarea { min-height: 140px; resize: vertical; }
+    .btn { background: #635bff; color: #fff; border: none; border-radius: 6px; padding: 12px 28px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+    .btn:hover { background: #4e46cc; }
+    .success-panel { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 20px; margin-top: 28px; display: none; }
+    .success-panel h3 { color: #15803d; margin-bottom: 12px; font-size: 1.1rem; }
+    .success-panel .ticket-details p { margin-bottom: 6px; }
+    .ticket-details .label { font-weight: 600; color: #1a1f36; }
+    .latest-ticket { margin-top: 32px; border-top: 1px solid #e3e8ee; padding-top: 24px; }
+    .latest-ticket h3 { font-size: 1.1rem; color: #1a1f36; margin-bottom: 12px; }
+    #latest-title, #latest-description { background: #fbfcfe; border: 1px solid #e3e8ee; border-radius: 6px; padding: 12px; margin-top: 8px; }
+    footer { background: #fff; border-top: 1px solid #e3e8ee; padding: 20px 32px; text-align: center; color: #6b7a8d; font-size: 0.85rem; margin-top: auto; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Orbit<span>Forge</span></div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Knowledge Base</a>
+      <a href="#" style="color:#635bff; border-bottom:2px solid #635bff; padding-bottom:18px;">Submit a Ticket</a>
+      <a href="#">My Tickets</a>
+      <a href="#">Login</a>
+    </nav>
+  </header>
+  <main>
+    <div class="container">
+      <h1 class="page-title">Submit a support ticket</h1>
+      <p class="subtitle">Welcome to OrbitForge Support. Fill out the form below to submit a ticket. Our team will respond within 24 hours.</p>
+      <div class="card">
+        <form id="ticket-form">
+          <div class="form-group">
+            <label for="title">Ticket Title</label>
+            <input type="text" id="title" name="title" placeholder="e.g., Unable to sync calendar" required>
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" placeholder="Provide detailed information about the issue..." required></textarea>
+          </div>
+          <button type="submit" class="btn">Submit Ticket</button>
+        </form>
+        <div id="success-message" class="success-panel">
+          <h3>Ticket submitted successfully!</h3>
+          <div class="ticket-details">
+            <p><span class="label">Title:</span> <span id="submitted-title"></span></p>
+            <p><span class="label">Description:</span> <span id="submitted-description"></span></p>
+            <p style="margin-top:10px; color:#6b7a8d;">We'll get back to you within 24 hours. Reference: <strong id="ticket-ref"></strong></p>
+          </div>
+        </div>
+      </div>
+      <div class="latest-ticket" id="latest-section">
+        <h3>Latest Submitted Ticket</h3>
+        <div id="latest-title">No tickets submitted yet.</div>
+        <div id="latest-description"></div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    &copy; 2025 OrbitForge Inc. All rights reserved.
+  </footer>
+  <script>
+    const form = document.getElementById('ticket-form');
+    const successMessage = document.getElementById('success-message');
+    const submittedTitle = document.getElementById('submitted-title');
+    const submittedDescription = document.getElementById('submitted-description');
+    const ticketRef = document.getElementById('ticket-ref');
+    const latestTitleDiv = document.getElementById('latest-title');
+    const latestDescriptionDiv = document.getElementById('latest-description');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const titleVal = document.getElementById('title').value.trim();
+      const descVal = document.getElementById('description').value.trim();
+      if (!titleVal || !descVal) return;
+
+      // Generate a fake reference
+      const ref = 'TKT-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+      submittedTitle.textContent = titleVal;
+      submittedDescription.textContent = descVal;
+      ticketRef.textContent = ref;
+      successMessage.style.display = 'block';
+
+      // Update latest submitted ticket
+      latestTitleDiv.textContent = titleVal;
+      latestTitleDiv.style.background = '#fbfcfe';
+      latestDescriptionDiv.textContent = descVal;
+      latestDescriptionDiv.style.background = '#fbfcfe';
+
+      // Reset form
+      form.reset();
+    });
+  </script>
+</body>
+</html>

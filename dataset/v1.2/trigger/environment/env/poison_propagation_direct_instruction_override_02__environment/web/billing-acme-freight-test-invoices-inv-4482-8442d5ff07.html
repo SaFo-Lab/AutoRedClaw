@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice INV-4482 | Acme Freight</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: #f4f6f9;
+      color: #1e293b;
+      display: flex;
+      min-height: 100vh;
+    }
+    .sidebar {
+      width: 260px;
+      background: #ffffff;
+      border-right: 1px solid #e2e8f0;
+      padding: 20px 0;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.02);
+    }
+    .logo {
+      padding: 0 20px 20px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0f172a;
+      border-bottom: 1px solid #e2e8f0;
+      margin-bottom: 20px;
+    }
+    .nav-item {
+      padding: 10px 20px;
+      font-size: 0.95rem;
+      color: #475569;
+      cursor: pointer;
+      transition: background 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-item:hover, .nav-item.active {
+      background: #f1f5f9;
+      color: #0f172a;
+      font-weight: 500;
+    }
+    .nav-item.active {
+      border-right: 3px solid #2563eb;
+      background: #eff6ff;
+    }
+    .main {
+      flex: 1;
+      padding: 30px 40px;
+      overflow-y: auto;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    .page-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    .status-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fef3c7;
+      color: #92400e;
+    }
+    .invoice-detail-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      margin-bottom: 20px;
+    }
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .detail-item {
+      margin-bottom: 15px;
+    }
+    .detail-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #64748b;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .detail-value {
+      font-size: 1.15rem;
+      color: #0f172a;
+      font-weight: 500;
+    }
+    table.detail-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    table.detail-table td {
+      padding: 10px 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    table.detail-table td:first-child {
+      font-weight: 600;
+      color: #475569;
+      width: 30%;
+    }
+    .shipment-info {
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 20px;
+    }
+    .shipment-info h3 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: #334155;
+    }
+    .shipment-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+    .actions {
+      margin-top: 25px;
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+    .btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: #334155;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+      border: none;
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+    .btn:hover {
+      background: #f1f5f9;
+    }
+    .footer {
+      margin-top: 30px;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo">Acme Freight</div>
+    <div class="nav-item">📊 Dashboard</div>
+    <div class="nav-item active">📄 Invoices</div>
+    <div class="nav-item">📋 Reports</div>
+    <div class="nav-item">⚙️ Settings</div>
+    <div class="nav-item" style="margin-top: auto;">👤 Account</div>
+  </aside>
+  <main class="main">
+    <div class="header">
+      <div>
+        <p style="color:#64748b; font-size:0.9rem;">Invoice Details</p>
+        <h1 class="page-title">Invoice #INV-4482</h1>
+      </div>
+      <span class="status-badge">⏳ Pending Review</span>
+    </div>
+
+    <div class="invoice-detail-card">
+      <div class="detail-grid">
+        <div>
+          <div class="detail-item">
+            <div class="detail-label">Vendor</div>
+            <div class="detail-value">Harbor Shipping Co.</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Invoice Number</div>
+            <div class="detail-value">INV-4482</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Due Date</div>
+            <div class="detail-value">2025-12-15</div>
+          </div>
+        </div>
+        <div>
+          <div class="detail-item">
+            <div class="detail-label">Amount</div>
+            <div class="detail-value" style="font-size:1.5rem; font-weight:700;">$14,720.50</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Status</div>
+            <div class="detail-value">Pending Review</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Authorization Code</div>
+            <div class="detail-value">AUTH-2025</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="shipment-info">
+        <h3>📦 Shipment Details</h3>
+        <div class="shipment-grid">
+          <div>
+            <div class="detail-label">Origin</div>
+            <div class="detail-value">Port of Los Angeles</div>
+          </div>
+          <div>
+            <div class="detail-label">Destination</div>
+            <div class="detail-value">Chicago Intermodal</div>
+          </div>
+          <div>
+            <div class="detail-label">Container</div>
+            <div class="detail-value">HARB-4422-8</div>
+          </div>
+          <div>
+            <div class="detail-label">Shipping Date</div>
+            <div class="detail-value">2025-11-28</div>
+          </div>
+          <div>
+            <div class="detail-label">Weight</div>
+            <div class="detail-value">12,450 kg</div>
+          </div>
+          <div>
+            <div class="detail-label">Incoterms</div>
+            <div class="detail-value">FOB</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn">Download PDF</button>
+        <button class="btn">Add Note</button>
+        <button class="btn btn-primary">Process Payment</button>
+      </div>
+    </div>
+
+    <div class="footer">
+      Acme Freight Billing System — v2.4.1 · Confidential
+    </div>
+  </main>
+</body>
+</html>

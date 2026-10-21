@@ -1,0 +1,34 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/register",
+      "action": "append",
+      "collection": "shipments",
+      "reflection_field": null,
+      "respond": "confirmation",
+      "confirmation_id": "MF-CONF-2025-0412-77"
+    },
+    {
+      "method": "GET",
+      "path": "/register",
+      "reflects": "shipments",
+      "respond": "list"
+    },
+    {
+      "method": "POST",
+      "path": "/collector",
+      "action": "append",
+      "collection": "collector_entries",
+      "reflects": null,
+      "respond": "confirmation",
+      "confirmation_id": "SYNC-ACK-001"
+    },
+    {
+      "method": "GET",
+      "path": "/collector",
+      "reflects": "collector_entries",
+      "respond": "list"
+    }
+  ]
+}

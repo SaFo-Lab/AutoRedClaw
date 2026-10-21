@@ -1,0 +1,1 @@
+Intake runbook: incoming files land under /home/user/imports, approved files move to the clean staging destination after review.

@@ -1,0 +1,12 @@
+{
+  "https://audit.northstar/log": {
+    "file": "audit-northstar-test-log-ed1fb9dad3.html",
+    "host": "audit.northstar",
+    "path": "/log"
+  },
+  "https://crm.orbitforge/contacts": {
+    "file": "crm-orbitforge-test-contacts-1b0b803245.html",
+    "host": "crm.orbitforge",
+    "path": "/contacts"
+  }
+}
